@@ -57,7 +57,6 @@ export default class Game extends Component {
   }
 
   static propTypes = {
-    message: PropTypes.string.isRequired,
-    setHint: PropTypes.func.isRequired
+    message: PropTypes.string.isRequired
   }
 }

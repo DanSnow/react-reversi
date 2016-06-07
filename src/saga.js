@@ -45,7 +45,6 @@ export function* reset() {
   yield put(setMessage(''))
   yield put(resetBoard())
   yield put(setPlayer(BLACK))
-  yield put(setScore({ white: 2, black: 2 }))
   yield put(placeChess(3, 3, BLACK))
   yield put(placeChess(3, 4, WHITE))
   yield put(placeChess(4, 4, BLACK))
