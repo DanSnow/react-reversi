@@ -14,7 +14,8 @@ var baseConfig = {
   plugins: [
     new webpack.DefinePlugin({
       __DEV__: env !== 'production',
-      NODE_ENV: JSON.stringify(env)
+      NODE_ENV: JSON.stringify(env),
+      'process.env.NODE_ENV': JSON.stringify(env)
     })
   ],
   module: {
