@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import { bind } from 'decko'
 import { Grid, Row, Col } from 'react-flexbox-grid'
+import GithubCorner from 'react-github-corner'
 import { setHint, reset } from './actions'
 import { scoreSelector } from './selector'
 import Board from './Board'
@@ -49,6 +50,7 @@ export default class Game extends Component {
             <div> { VERSION } </div>
           </Col>
         </Row>
+        <GithubCorner href='https://github.com/DanSnow/react-reversi' />
       </Grid>
     )
   }
