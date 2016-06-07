@@ -24,7 +24,7 @@ var baseConfig = {
     loaders: [{
       test: /\.css$/,
       loader: 'style!css?modules',
-      include: /flexboxgrid/,
+      include: /flexboxgrid/
     }]
   }
 }
@@ -46,7 +46,11 @@ if (env !== 'production') {
 } else {
   baseConfig.plugins.push(
     new webpack.optimize.UglifyJsPlugin({
-      warning: false
+      compress: {
+        unused: true,
+        dead_code: true,
+        warnings: false
+      }
     })
   )
 
