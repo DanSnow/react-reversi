@@ -171,14 +171,14 @@ function judgeScore(board, row, col) {
   const flips = sum(direction.map(([rd, cd]) => checkFlipChess(board, WHITE, row, col, rd, cd)))
   let posScore = 0
   if ((row === 0 && col === 0) || (row === 7 && col === 7)) { // coner first
-    posScore = 100
+    posScore = 200
   } else if (
     ((row === 0 || row === 7) && (col === 1 || col === 6)) ||
     ((row === 1 || row === 6) && (col === 0 || col === 7))
   ) { // Don't place chess around corner
-    posScore = -80
+    posScore = -40
   } else if (row === 0 || col === 0 || row === 7 || col === 7) { // Border second
-    posScore = 50
+    posScore = 80
   } else if (row === 1 || col === 1 || row === 6 || col === 6) {
     posScore = -20
   } else if (row === 2 || col === 2 || row === 5 || col === 5) {
