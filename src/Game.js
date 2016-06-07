@@ -46,6 +46,7 @@ export default class Game extends Component {
             <div> Score: </div>
             <div>  black { score.black } </div>
             <div> white { score.white }</div>
+            <div> { VERSION } </div>
           </Col>
         </Row>
       </Grid>
