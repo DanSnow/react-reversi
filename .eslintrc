@@ -1,21 +1,22 @@
 {
-  "ecmaFeatures": {
-    "jsx": true,
-    "modules": true
+  "parser"  : "babel-eslint",
+  "extends" : [
+    "standard",
+    "standard-react"
+  ],
+  "env"     : {
+    "browser" : true
   },
-  "env": {
-    "browser": true,
-    "node": true
+  "globals" : {
+    "__DEV__"      : false,
+    "VERSION"     : false
   },
-  "parser": "babel-eslint",
   "rules": {
-    "quotes": [2, "single"],
-    "strict": [2, "never"],
-    "react/jsx-uses-react": 2,
-    "react/jsx-uses-vars": 2,
-    "react/react-in-jsx-scope": 2
-  },
-  "plugins": [
-    "react"
-  ]
+    "space-before-function-paren" : [2, "never"],
+    "generator-star-spacing": [2, "after"],
+    "yield-star-spacing": [2, "after"],
+    "react/jsx-closing-bracket-location": [2, "after-props"],
+    "react/jsx-curly-spacing": [2, "always"],
+    "quotes": [2, "single", "avoid-escape"]
+  }
 }
