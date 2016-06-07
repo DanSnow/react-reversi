@@ -6,7 +6,9 @@ import {
   RESET_BOARD,
   SET_CANDIDATE,
   SET_MESSAGE,
-  SET_HINT,
+  SET_AI,
+  ADD_SWITCH,
+  RESET_SWITCH,
   SET_PLAYER,
   SET_SCORE,
   PLACE_CHESS,
@@ -16,6 +18,8 @@ const initialBoard = times(8, () => times(8, constant(null)))
 export const initialState = {
   message: '',
   candiate: 0,
+  switchCount: 0,
+  ai: null,
   player: null,
   board: initialBoard
 };
@@ -30,6 +34,9 @@ export default handleActions({
   }),
   [RESET_BOARD]: (state) => update(state, { board: { $set: initialBoard } }),
   [SET_PLAYER]: (state, { payload }) => update(state, { player: { $set: payload } }),
+  [SET_AI]: (state, { payload }) => update(state, { ai: { $set: payload } }),
   [SET_CANDIDATE]: (state, { payload }) => update(state, { candiate: { $set: payload } }),
-  [SET_MESSAGE]: (state, { payload }) => update(state, { message: { $set: payload } })
+  [SET_MESSAGE]: (state, { payload }) => update(state, { message: { $set: payload } }),
+  [ADD_SWITCH]: (state) => update(state, { switchCount: { $set: state.switchCount + 1 } }),
+  [RESET_SWITCH]: (state) => update(state, { switchCount: { $set: 0 } })
 }, initialState)

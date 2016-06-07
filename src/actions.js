@@ -7,6 +7,9 @@ import {
   SET_CANDIDATE,
   CLEAR_CANDIDATE,
   SET_PLAYER,
+  SET_AI,
+  ADD_SWITCH,
+  RESET_SWITCH,
   RESET_BOARD,
   PLACE_CHESS,
   USER_PLACE_CHESS,
@@ -19,6 +22,9 @@ export const setCandidate = createAction(SET_CANDIDATE)
 export const resetBoard = createAction(RESET_BOARD)
 export const switchPlayer = createAction(SWITCH_PLAYER)
 export const setPlayer = createAction(SET_PLAYER)
+export const setAi = createAction(SET_AI)
+export const addSwitch = createAction(ADD_SWITCH)
+export const resetSwitch = createAction(RESET_SWITCH)
 export const placeChess = createAction(PLACE_CHESS, (row, col, chess) => ({ row, col, chess }))
 export const placeCandidate = createAction(PLACE_CANDIDATE)
 export const clearCandidate = createAction(CLEAR_CANDIDATE)

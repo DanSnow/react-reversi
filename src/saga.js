@@ -9,10 +9,13 @@ import sample from 'lodash/sample'
 import {
   resetBoard,
   placeChess,
+  addSwitch,
+  resetSwitch,
   flipAllChess,
   setScore,
   setMessage,
   setPlayer,
+  setAi,
   setCandidate,
   placeCandidate,
   clearCandidate
@@ -44,6 +47,8 @@ const direction = [
 export function* reset() {
   yield put(setMessage(''))
   yield put(resetBoard())
+  yield put(setAi(WHITE))
+  yield put(resetSwitch())
   yield put(setPlayer(BLACK))
   yield put(placeChess(3, 3, BLACK))
   yield put(placeChess(3, 4, WHITE))
@@ -82,8 +87,30 @@ function getPlayer(player) {
 }
 
 function* switchPlayer() {
-  const player = yield select((state) => state.player)
-  yield put(setPlayer(getOpposite(player)))
+  const { player, switchCount, ai } = yield select()
+  if (switchCount > 2) {
+    yield put(setMessage('Game set'))
+    return
+  }
+
+  yield put(clearCandidate())
+
+  const nextPlayer = getOpposite(player)
+  yield put(setPlayer(nextPlayer))
+
+  yield put(placeCandidate())
+  if (!(yield select((state) => state.candiate))) {
+    yield put(setMessage(`No move, turn to ${getPlayer(player)}`))
+    yield put(addSwitch())
+    yield call(switchPlayer)
+  } else {
+    yield put(setMessage(''))
+    yield put(resetSwitch())
+    if (nextPlayer === ai) {
+      yield call(aiJudgeScore)
+      yield call(switchPlayer)
+    }
+  }
 }
 
 function checkFlipChess(board, player, row, col, rd, cd) {
@@ -217,29 +244,10 @@ function* userPlaceChess({ payload: { col, row } }) {
     return
   }
 
-  yield put(clearCandidate())
-  yield put(setMessage(''))
-
   yield put(flipAllChess({ row, col, player }))
 
   yield put(placeChess(row, col, player))
   yield call(switchPlayer)
-  yield put(placeCandidate())
-  if (!(yield select((state) => state.candiate))) {
-    yield put(clearCandidate())
-    yield put(setMessage(`No move, turn to ${getPlayer(player)}`))
-  } else {
-    yield call(aiJudgeScore)
-    yield put(clearCandidate())
-  }
-
-  yield call(switchPlayer)
-  yield put(placeCandidate())
-
-  if (!(yield select((state) => state.candiate))) {
-    yield put(clearCandidate())
-    yield put(setMessage('Game set'))
-  }
 }
 
 export function* root() {
