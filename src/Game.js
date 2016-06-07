@@ -31,7 +31,7 @@ export default class Game extends Component {
             <button onClick={ this.handleReset }> Reset </button>
           </Col>
           <Col xs={ 3 }>
-            <input type='checkbox' name='hint' defaultChecked onChange={ this.handleChange } />
+            <input type='checkbox' name='hint' onChange={ this.handleChange } />
             <label for='hint'> Hint </label>
           </Col>
           <Col xs={ 5 }>
@@ -53,7 +53,7 @@ export default class Game extends Component {
   }
 
   state = {
-    hint: true
+    hint: false
   }
 
   static propTypes = {
