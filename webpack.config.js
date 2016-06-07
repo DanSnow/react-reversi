@@ -1,5 +1,5 @@
-var path = require('path');
-var webpack = require('webpack');
+var path = require('path')
+var webpack = require('webpack')
 var env = process.env.NODE_ENV
 
 var baseConfig = {
@@ -24,7 +24,7 @@ var baseConfig = {
       include: /flexboxgrid/,
     }]
   }
-};
+}
 
 if (env !== 'production') {
   baseConfig.devtool = 'eval'
