@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var pkg = require('./package.json')
 var env = process.env.NODE_ENV
 
 var baseConfig = {
@@ -15,6 +16,7 @@ var baseConfig = {
     new webpack.DefinePlugin({
       __DEV__: env !== 'production',
       NODE_ENV: JSON.stringify(env),
+      VERSION: JSON.stringify('v' + pkg.version),
       'process.env.NODE_ENV': JSON.stringify(env)
     })
   ],
