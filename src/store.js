@@ -2,13 +2,20 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware, { END } from 'redux-saga';
 import reducer, { initialState } from './reducer';
 
+const getDevtools = () => {
+  if (__DEV__) {
+    return window.devToolsExtension ? window.devToolsExtension() : (f) => f
+  }
+  return (f) => f
+}
+
 const configureStore = () => {
   const sagaMiddleware = createSagaMiddleware()
   const store = createStore(
     reducer,
     compose(
       applyMiddleware(sagaMiddleware),
-      window.devToolsExtension ? window.devToolsExtension() : f => f
+      getDevtools()
     )
   )
 
