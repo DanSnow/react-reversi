@@ -1,11 +1,9 @@
 var path = require('path');
 var webpack = require('webpack');
+var env = process.env.NODE_ENV
 
-module.exports = {
-  devtool: 'eval',
+var baseConfig = {
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
     './src/index'
   ],
   output: {
@@ -14,17 +12,46 @@ module.exports = {
     publicPath: '/dist/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.DefinePlugin({
+      __DEV__: env !== 'production',
+      NODE_ENV: JSON.stringify(env)
+    })
   ],
   module: {
     loaders: [{
-      test: /\.js$/,
-      loaders: ['react-hot', 'babel'],
-      include: path.join(__dirname, 'src')
-    }, {
       test: /\.css$/,
       loader: 'style!css?modules',
       include: /flexboxgrid/,
     }]
   }
 };
+
+if (env !== 'production') {
+  baseConfig.devtool = 'eval'
+  baseConfig.entry.push(
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server'
+  )
+  baseConfig.plugins.push(
+    new webpack.HotModuleReplacementPlugin()
+  )
+  baseConfig.module.loaders.push({
+    test: /\.js$/,
+    loaders: ['react-hot', 'babel'],
+    include: path.join(__dirname, 'src')
+  })
+} else {
+  baseConfig.plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      warning: false
+    })
+  )
+
+  baseConfig.module.loaders.push({
+    test: /\.js$/,
+    loaders: ['babel'],
+    include: path.join(__dirname, 'src')
+  })
+}
+
+module.exports = baseConfig
