@@ -40,7 +40,7 @@ export default class Game extends Component {
             <span>{ message }</span>
           </Col>
         </Row>
-        <Row bottom='xs'>
+        <Row>
           <Col md={ 7 } xs={ 12 }>
             <Board hint={ hint } />
           </Col>
