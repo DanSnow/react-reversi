@@ -11,7 +11,7 @@ const Log = compose(
   })
 )(({ log }) => (
   <Row>
-    <Col>
+    <Col style={ styles.scroll }>
       {
         log.map((content, idx) => (
           <Row key={ idx }>
@@ -22,5 +22,14 @@ const Log = compose(
     </Col>
   </Row>
 ))
+
+const styles = {
+  scroll: {
+    width: '25%',
+    height: '600px',
+    overflow: 'auto',
+    padding: '0 10px'
+  }
+}
 
 export default Log
