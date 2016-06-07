@@ -194,8 +194,8 @@ function* placeCandidateFlow() {
   yield put(setCandidate(count))
 }
 
-function judgeScore(board, row, col) {
-  const flips = sum(direction.map(([rd, cd]) => checkFlipChess(board, WHITE, row, col, rd, cd)))
+function judgeScore(board, ai, row, col) {
+  const flips = sum(direction.map(([rd, cd]) => checkFlipChess(board, ai, row, col, rd, cd)))
   let posScore = 0
   if ((row === 0 && col === 0) || (row === 7 && col === 7)) { // coner first
     posScore = 200
@@ -215,13 +215,13 @@ function judgeScore(board, row, col) {
 }
 
 function* aiJudgeScore() {
-  const { board, player } = yield select()
+  const { board, player, ai } = yield select()
   const scores = []
   const chess = getCandidate(player)
   for (let r = 0; r < 8; r += 1) {
     for (let c = 0; c < 8; c += 1) {
       if (board[r][c] === chess) {
-        let score = judgeScore(board, r, c)
+        let score = judgeScore(board, ai, r, c)
         scores.push({
           row: r,
           col: c,
