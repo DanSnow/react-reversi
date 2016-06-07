@@ -28,7 +28,7 @@ export default handleActions({
       }
     }
   }),
-  [RESET_BOARD]: (state, { payload }) => update(state, { board: { $set: initialBoard } }),
+  [RESET_BOARD]: (state) => update(state, { board: { $set: initialBoard } }),
   [SET_PLAYER]: (state, { payload }) => update(state, { player: { $set: payload } }),
   [SET_CANDIDATE]: (state, { payload }) => update(state, { candiate: { $set: payload } }),
   [SET_MESSAGE]: (state, { payload }) => update(state, { message: { $set: payload } })
