@@ -1,6 +1,6 @@
 {
   "name": "react-reversi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reversi game implement in React",
   "scripts": {
     "start": "node server.js",
@@ -51,6 +51,7 @@
     "react-addons-update": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-flexbox-grid": "^0.9.6",
+    "react-github-corner": "^0.3.0",
     "react-redux": "^4.4.5",
     "recompose": "^0.19.0",
     "redux": "^3.5.2",
