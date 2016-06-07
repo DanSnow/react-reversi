@@ -1,6 +1,6 @@
 {
   "name": "react-reversi",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Reversi game implement in React",
   "scripts": {
     "start": "node server.js",
