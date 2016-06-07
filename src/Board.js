@@ -1,12 +1,12 @@
 import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import { bind } from 'decko'
-import flatMap from 'lodash/flatMap';
+import flatMap from 'lodash/flatMap'
 import { reset, userPlaceChess } from './actions'
 import BoardBackground from './BoardBackground'
 import BoardGrid from './BoardGrid'
-import Chess from './Chess';
-import { WHITE, WHITE_CANDIDATE, BLACK_CANDIDATE } from './consts';
+import Chess from './Chess'
+import { WHITE, WHITE_CANDIDATE, BLACK_CANDIDATE } from './consts'
 
 @connect((state) => ({ board: state.board }), { reset, userPlaceChess })
 export default class Board extends Component {
@@ -27,7 +27,7 @@ export default class Board extends Component {
         <BoardBackground onClick={ this.handleClick } />
         <BoardGrid />
         {
-          flatMap(board, (r, row) => r.map((c, col) => ( c ? (
+          flatMap(board, (r, row) => r.map((c, col) => (c ? (
             <Chess
               key={ row * 8 + col }
               onClick={ this.handleClick }

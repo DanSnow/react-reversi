@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, Component } from 'react'
 
 export default class BoardRow extends Component {
   render() {

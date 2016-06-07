@@ -1,5 +1,7 @@
 import { createAction } from 'redux-actions'
 import {
+  PUSH_LOG,
+  CLEAR_LOG,
   FLIP_ALL_CHESS,
   SET_MESSAGE,
   SWITCH_PLAYER,
@@ -16,6 +18,8 @@ import {
   RESET
 } from './consts'
 
+export const pushLog = createAction(PUSH_LOG)
+export const clearLog = createAction(CLEAR_LOG)
 export const flipAllChess = createAction(FLIP_ALL_CHESS)
 export const setMessage = createAction(SET_MESSAGE)
 export const setCandidate = createAction(SET_CANDIDATE)

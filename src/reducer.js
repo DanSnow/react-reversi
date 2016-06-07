@@ -3,6 +3,8 @@ import times from 'lodash/times'
 import constant from 'lodash/constant'
 import update from 'react-addons-update'
 import {
+  PUSH_LOG,
+  CLEAR_LOG,
   RESET_BOARD,
   SET_CANDIDATE,
   SET_MESSAGE,
@@ -10,8 +12,7 @@ import {
   ADD_SWITCH,
   RESET_SWITCH,
   SET_PLAYER,
-  SET_SCORE,
-  PLACE_CHESS,
+  PLACE_CHESS
 } from './consts'
 
 const initialBoard = times(8, () => times(8, constant(null)))
@@ -21,8 +22,9 @@ export const initialState = {
   switchCount: 0,
   ai: null,
   player: null,
+  log: [],
   board: initialBoard
-};
+}
 
 export default handleActions({
   [PLACE_CHESS]: (state, { payload }) => update(state, {
@@ -38,5 +40,7 @@ export default handleActions({
   [SET_CANDIDATE]: (state, { payload }) => update(state, { candiate: { $set: payload } }),
   [SET_MESSAGE]: (state, { payload }) => update(state, { message: { $set: payload } }),
   [ADD_SWITCH]: (state) => update(state, { switchCount: { $set: state.switchCount + 1 } }),
-  [RESET_SWITCH]: (state) => update(state, { switchCount: { $set: 0 } })
+  [RESET_SWITCH]: (state) => update(state, { switchCount: { $set: 0 } }),
+  [PUSH_LOG]: (state, { payload }) => update(state, { log: { $push: [payload] } }),
+  [CLEAR_LOG]: (state) => update(state, { log: { $set: [] } })
 }, initialState)

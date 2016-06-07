@@ -1,6 +1,6 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import createSagaMiddleware, { END } from 'redux-saga';
-import reducer, { initialState } from './reducer';
+import { createStore, applyMiddleware, compose } from 'redux'
+import createSagaMiddleware, { END } from 'redux-saga'
+import reducer from './reducer'
 
 const getDevtools = () => {
   if (__DEV__) {

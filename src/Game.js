@@ -6,6 +6,7 @@ import GithubCorner from 'react-github-corner'
 import { setHint, reset } from './actions'
 import { scoreSelector } from './selector'
 import Board from './Board'
+import Log from './Log'
 
 @connect((state) => ({
   message: state.message,
@@ -23,8 +24,8 @@ export default class Game extends Component {
   }
 
   render() {
-    const { message, score } = this.props;
-    const { hint } = this.state;
+    const { message, score } = this.props
+    const { hint } = this.state
     return (
       <Grid>
         <Row start='xs'>
@@ -33,21 +34,24 @@ export default class Game extends Component {
           </Col>
           <Col xs={ 3 }>
             <input type='checkbox' name='hint' onChange={ this.handleChange } />
-            <label for='hint'> Hint </label>
+            <label htmlFor='hint'> Hint </label>
           </Col>
           <Col xs={ 5 }>
             <span>{ message }</span>
           </Col>
         </Row>
         <Row bottom='xs'>
-          <Col md={ 8 } xs={ 12 }>
+          <Col md={ 7 } xs={ 12 }>
             <Board hint={ hint } />
           </Col>
-          <Col md={ 4 } xs={ 0 }>
+          <Col md={ 1 } xs={ 0 }>
             <div> Score: </div>
-            <div>  black { score.black } </div>
+            <div> black { score.black } </div>
             <div> white { score.white }</div>
             <div> { VERSION } </div>
+          </Col>
+          <Col md={ 4 } xs={ 0 }>
+            <Log />
           </Col>
         </Row>
         <GithubCorner href='https://github.com/DanSnow/react-reversi' />
@@ -60,6 +64,8 @@ export default class Game extends Component {
   }
 
   static propTypes = {
-    message: PropTypes.string.isRequired
+    message: PropTypes.string.isRequired,
+    reset: PropTypes.func.isRequired,
+    score: PropTypes.object.isRequired
   }
 }

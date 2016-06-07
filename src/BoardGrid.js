@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import BoardRow from './BoardRow'
 import BoardColumn from './BoardColumn'
 import times from 'lodash/times'
@@ -9,7 +9,7 @@ class BoardGrid extends Component {
   }
 
   render() {
-    return  (
+    return (
       <g>
       {
         times(9, (i) => (

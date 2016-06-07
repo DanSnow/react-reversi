@@ -1,6 +1,5 @@
 import { takeEvery, delay } from 'redux-saga'
-import { put, spawn, select, call } from 'redux-saga/effects'
-import some from 'lodash/some'
+import { put, select, call } from 'redux-saga/effects'
 import sum from 'lodash/sum'
 import orderBy from 'lodash/orderBy'
 import head from 'lodash/head'
@@ -8,11 +7,12 @@ import filter from 'lodash/filter'
 import sample from 'lodash/sample'
 import {
   resetBoard,
+  pushLog,
+  clearLog,
   placeChess,
   addSwitch,
   resetSwitch,
   flipAllChess,
-  setScore,
   setMessage,
   setPlayer,
   setAi,
@@ -46,6 +46,7 @@ const direction = [
 
 export function* reset() {
   yield put(setMessage(''))
+  yield put(clearLog())
   yield put(resetBoard())
   yield put(setAi(WHITE))
   yield put(resetSwitch())
@@ -79,7 +80,7 @@ function isPlaceable(board, player, row, col) {
 }
 
 function getCandidate(player) {
-  return player === WHITE ? WHITE_CANDIDATE : BLACK_CANDIDATE;
+  return player === WHITE ? WHITE_CANDIDATE : BLACK_CANDIDATE
 }
 
 function getPlayer(player) {
@@ -154,17 +155,16 @@ function* flipChees(board, player, row, col, rd, cd) {
 function* flipAllChessFlow({ payload: { row, col, player } }) {
   const { board } = yield select()
   for (let i = 0; i < 8; i += 1) {
-    let [rd, cd] = direction[i];
+    let [rd, cd] = direction[i]
     yield call(flipChees, board, player, row, col, rd, cd)
   }
-
 }
 
 function* clearCandidateFlow() {
   const board = yield select((state) => state.board)
   for (let r = 0; r < 8; r += 1) {
     for (let c = 0; c < 8; c += 1) {
-      let chess = board[r][c];
+      let chess = board[r][c]
       if (isCandidate(chess)) {
         yield put(placeChess(r, c, null))
       }
@@ -178,10 +178,10 @@ function* placeCandidateFlow() {
   let count = 0
   for (let r = 0; r < 8; r += 1) {
     for (let c = 0; c < 8; c += 1) {
-      let ch = board[r][c];
+      let ch = board[r][c]
       if (!ch) {
         for (let i = 0; i < 8; i += 1) {
-          let [rd, cd] = direction[i];
+          let [rd, cd] = direction[i]
           if (checkFlipChess(board, player, r, c, rd, cd)) {
             yield put(placeChess(r, c, chess))
             count += 1
@@ -233,6 +233,7 @@ function* aiJudgeScore() {
   const { score } = head(orderBy(scores, 'score', 'desc'))
   const { row, col } = sample(filter(scores, ['score', score])) // A little random
   yield call(delay, 300) // A little delay
+  yield put(pushLog(`${getPlayer(player)} (${row}, ${col})`))
   yield put(flipAllChess({ row, col, player }))
   yield put(placeChess(row, col, player))
 }
@@ -244,6 +245,7 @@ function* userPlaceChess({ payload: { col, row } }) {
     return
   }
 
+  yield put(pushLog(`${getPlayer(player)} (${row}, ${col})`))
   yield put(flipAllChess({ row, col, player }))
 
   yield put(placeChess(row, col, player))

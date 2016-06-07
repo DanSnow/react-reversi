@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import Game from './Game';
-import configureStore from './store';
-import root from './saga';
+import React, { Component } from 'react'
+import { Provider } from 'react-redux'
+import Game from './Game'
+import configureStore from './store'
+import root from './saga'
 
 const store = configureStore()
 store.runSaga(root)
