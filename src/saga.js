@@ -44,11 +44,11 @@ const direction = [
   [-1, 1]
 ]
 
-export function* reset() {
+export function* reset({ payload }) {
   yield put(setMessage(''))
   yield put(clearLog())
   yield put(resetBoard())
-  yield put(setAi(WHITE))
+  yield put(setAi(payload))
   yield put(resetSwitch())
   yield put(setPlayer(BLACK))
   yield put(placeChess(3, 3, BLACK))
@@ -56,6 +56,10 @@ export function* reset() {
   yield put(placeChess(4, 4, BLACK))
   yield put(placeChess(4, 3, WHITE))
   yield put(placeCandidate())
+  if (payload === BLACK) {
+    yield call(aiJudgeScore)
+    yield call(switchPlayer)
+  }
 }
 
 function isValidPos(row, col) {
@@ -105,7 +109,9 @@ function* switchPlayer() {
     yield put(addSwitch())
     yield call(switchPlayer)
   } else {
-    yield put(setMessage(''))
+    if (switchCount === 0) {
+      yield put(setMessage(''))
+    }
     yield put(resetSwitch())
     if (nextPlayer === ai) {
       yield call(aiJudgeScore)

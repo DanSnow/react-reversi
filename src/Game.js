@@ -7,10 +7,12 @@ import { setHint, reset } from './actions'
 import { scoreSelector } from './selector'
 import Board from './Board'
 import Log from './Log'
+import { BLACK, WHITE } from './consts'
 
 @connect((state) => ({
   message: state.message,
-  score: scoreSelector(state)
+  score: scoreSelector(state),
+  ai: state.ai
 }), { setHint, reset })
 export default class Game extends Component {
   @bind
@@ -19,8 +21,23 @@ export default class Game extends Component {
   }
 
   @bind
-  handleReset() {
-    this.props.reset()
+  handleResetBlack() {
+    this.props.reset(WHITE)
+  }
+
+  @bind
+  handleResetWhite() {
+    this.props.reset(BLACK)
+  }
+
+  @bind
+  handleResetHuman() {
+    this.props.reset(null)
+  }
+
+  getPlayerType(player) {
+    const { ai } = this.props
+    return player === ai ? 'ai' : 'human'
   }
 
   render() {
@@ -29,8 +46,12 @@ export default class Game extends Component {
     return (
       <Grid>
         <Row start='xs'>
-          <Col xs={ 1 }>
-            <button onClick={ this.handleReset }> Reset </button>
+          <Col xs={ 3 }>
+            Play as <button onClick={ this.handleResetBlack }> black </button>
+            or
+            <button onClick={ this.handleResetWhite }> white </button>
+            or
+            <button onClick={ this.handleResetHuman }> Play with human </button>
           </Col>
           <Col xs={ 3 }>
             <input type='checkbox' name='hint' onChange={ this.handleChange } />
@@ -44,13 +65,13 @@ export default class Game extends Component {
           <Col md={ 7 } xs={ 12 }>
             <Board hint={ hint } />
           </Col>
-          <Col md={ 1 } xs={ 0 }>
+          <Col md={ 2 } xs={ 0 }>
             <div> Score: </div>
-            <div> black { score.black } </div>
-            <div> white { score.white }</div>
+            <div> black({ this.getPlayerType(BLACK) }): { score.black } </div>
+            <div> white({ this.getPlayerType(WHITE) }): { score.white }</div>
             <div> { VERSION } </div>
           </Col>
-          <Col md={ 4 } xs={ 0 }>
+          <Col md={ 3 } xs={ 0 }>
             <Log />
           </Col>
         </Row>
@@ -64,6 +85,7 @@ export default class Game extends Component {
   }
 
   static propTypes = {
+    ai: PropTypes.string,
     message: PropTypes.string.isRequired,
     reset: PropTypes.func.isRequired,
     score: PropTypes.object.isRequired

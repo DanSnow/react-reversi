@@ -11,7 +11,7 @@ import { WHITE, WHITE_CANDIDATE, BLACK_CANDIDATE } from './consts'
 @connect((state) => ({ board: state.board }), { reset, userPlaceChess })
 export default class Board extends Component {
   componentDidMount() {
-    this.props.reset()
+    this.props.reset(WHITE)
   }
 
   @bind
