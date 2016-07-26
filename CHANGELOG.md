@@ -1,3 +1,8 @@
+1.2.1
+=====
+- Fix typo
+- Update depency
+
 1.2.0
 =====
 - Fix bugs
