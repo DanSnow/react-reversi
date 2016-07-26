@@ -4,7 +4,8 @@
   "description": "Reversi game implement in React",
   "scripts": {
     "start": "node server.js",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "build": "NODE_ENV='production' webpack"
   },
   "repository": {
     "type": "git",
