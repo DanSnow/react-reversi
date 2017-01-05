@@ -61,6 +61,7 @@
     "recompose": "^0.21.2",
     "redux": "^3.5.2",
     "redux-actions": "^1.2.0",
+    "redux-logger": "^2.7.4",
     "redux-saga": "^0.14.1",
     "reselect": "^2.5.3"
   }

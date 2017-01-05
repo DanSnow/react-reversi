@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware, { END } from 'redux-saga'
+import createLogger from 'redux-logger'
 import reducer from './reducer'
 
 const getDevtools = () => {
@@ -11,10 +12,11 @@ const getDevtools = () => {
 
 const configureStore = () => {
   const sagaMiddleware = createSagaMiddleware()
+  const logger = createLogger()
   const store = createStore(
     reducer,
     compose(
-      applyMiddleware(sagaMiddleware),
+      applyMiddleware(sagaMiddleware, logger),
       getDevtools()
     )
   )
