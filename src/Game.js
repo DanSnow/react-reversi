@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Grid, Row, Col} from 'react-flexbox-grid'
 import GithubCorner from 'react-github-corner'
-import {setHint, reset} from './actions'
+import {setHint, reset, setRetractStep, restoreStep} from './actions'
 import {scoreSelector} from './selector'
 import Board from './Board'
 import Log from './Log'
@@ -26,13 +26,26 @@ class Game extends Component {
     this.props.reset(null)
   }
 
+  handleAllowRetract = event => {
+    const {setRetractStep, ai} = this.props
+    if (event.target.checked) {
+      if (ai) {
+        setRetractStep(3)
+      } else {
+        setRetractStep(6)
+      }
+    } else {
+      setRetractStep(0)
+    }
+  }
+
   getPlayerType (player) {
     const {ai} = this.props
     return player === ai ? 'ai' : 'human'
   }
 
   render () {
-    const {message, score} = this.props
+    const {message, score, allowRetract, restoreStep} = this.props
     const {hint} = this.state
     return (
       <Grid>
@@ -44,11 +57,24 @@ class Game extends Component {
             or
             <button onClick={this.handleResetHuman}> Play with human </button>
           </Col>
-          <Col xs={3}>
+          <Col xs={1}>
             <input type='checkbox' name='hint' onChange={this.handleChange} />
             <label htmlFor='hint'> Hint </label>
           </Col>
-          <Col xs={5}>
+          <Col xs={2}>
+            <input
+              type='checkbox'
+              name='retract'
+              onChange={this.handleAllowRetract}
+            />
+            <label htmlFor='retract'> Allow Retract </label>
+          </Col>
+          <Col xs={1}>
+            <button disabled={!allowRetract} onClick={restoreStep}>
+              Retract
+            </button>
+          </Col>
+          <Col xs={4}>
             <span>{message}</span>
           </Col>
         </Row>
@@ -78,7 +104,10 @@ class Game extends Component {
   static propTypes = {
     ai: PropTypes.string,
     message: PropTypes.string.isRequired,
+    allowRetract: PropTypes.bool.isRequired,
     reset: PropTypes.func.isRequired,
+    setRetractStep: PropTypes.func.isRequired,
+    restoreStep: PropTypes.func.isRequired,
     score: PropTypes.object.isRequired
   }
 }
@@ -87,7 +116,8 @@ export default connect(
   state => ({
     message: state.message,
     score: scoreSelector(state),
-    ai: state.ai
+    ai: state.ai,
+    allowRetract: state.allowRetractStep && state.pastStep.length
   }),
-  {setHint, reset}
+  {setHint, reset, setRetractStep, restoreStep}
 )(Game)

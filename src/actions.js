@@ -5,6 +5,9 @@ import {
   SET_MESSAGE,
   SWITCH_PLAYER,
   SET_CANDIDATE,
+  SET_RETRACT_STEP,
+  SAVE_STEP,
+  RESTORE_STEP,
   SET_PLAYER,
   SET_AI,
   ADD_SWITCH,
@@ -25,6 +28,9 @@ export const setPlayer = createAction(SET_PLAYER)
 export const setAi = createAction(SET_AI)
 export const addSwitch = createAction(ADD_SWITCH)
 export const resetSwitch = createAction(RESET_SWITCH)
+export const setRetractStep = createAction(SET_RETRACT_STEP)
+export const saveStep = createAction(SAVE_STEP)
+export const restoreStep = createAction(RESTORE_STEP)
 export const placeChess = createAction(PLACE_CHESS, (row, col, chess) => ({
   row,
   col,

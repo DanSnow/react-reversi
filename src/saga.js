@@ -8,6 +8,7 @@ import filter from 'lodash/filter'
 import sample from 'lodash/sample'
 import {
   resetBoard,
+  saveStep,
   pushLog,
   clearLog,
   placeChess,
@@ -251,6 +252,8 @@ function * userPlaceChess ({payload: {col, row}}) {
     // Not allow place on exist chess or not candiate
     return
   }
+
+  yield put(saveStep())
 
   yield put(pushLog(`${getPlayer(player)} (${row}, ${col})`))
   yield call(flipAllChess, {row, col, player})

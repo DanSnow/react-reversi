@@ -1,3 +1,4 @@
+// Actions
 export const PUSH_LOG = 'PUSH_LOG'
 export const CLEAR_LOG = 'CLEAR_LOG'
 export const FLIP_ALL_CHESS = 'FLIP_ALL_CHESS'
@@ -14,6 +15,11 @@ export const PLACE_CANDIDATE = 'PLACE_CANDIDATE'
 export const SET_CANDIDATE = 'SET_CANDIDATE'
 export const RESET = 'RESET'
 export const RESET_BOARD = 'RESET_BOARD'
+export const SAVE_STEP = 'SAVE_STEP'
+export const RESTORE_STEP = 'RESTORE_STEP'
+export const SET_RETRACT_STEP = 'SET_RETRACT_STEP'
+
+// Chess
 export const WHITE = 'W'
 export const BLACK = 'B'
 export const WHITE_CANDIDATE = 'WC'
