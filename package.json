@@ -52,7 +52,6 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "classnames": "^2.2.5",
-    "decko": "^1.2.0",
     "flexboxgrid": "^6.3.0",
     "immutability-helper": "^2.2.2",
     "lodash": "^4.14.0",
