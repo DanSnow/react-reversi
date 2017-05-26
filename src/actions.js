@@ -2,12 +2,9 @@ import {createAction} from 'redux-actions'
 import {
   PUSH_LOG,
   CLEAR_LOG,
-  FLIP_ALL_CHESS,
   SET_MESSAGE,
   SWITCH_PLAYER,
-  PLACE_CANDIDATE,
   SET_CANDIDATE,
-  CLEAR_CANDIDATE,
   SET_PLAYER,
   SET_AI,
   ADD_SWITCH,
@@ -20,7 +17,6 @@ import {
 
 export const pushLog = createAction(PUSH_LOG)
 export const clearLog = createAction(CLEAR_LOG)
-export const flipAllChess = createAction(FLIP_ALL_CHESS)
 export const setMessage = createAction(SET_MESSAGE)
 export const setCandidate = createAction(SET_CANDIDATE)
 export const resetBoard = createAction(RESET_BOARD)
@@ -34,8 +30,6 @@ export const placeChess = createAction(PLACE_CHESS, (row, col, chess) => ({
   col,
   chess
 }))
-export const placeCandidate = createAction(PLACE_CANDIDATE)
-export const clearCandidate = createAction(CLEAR_CANDIDATE)
 export const userPlaceChess = createAction(USER_PLACE_CHESS, (row, col) => ({
   row,
   col
