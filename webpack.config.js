@@ -47,6 +47,7 @@ if (env !== 'production') {
     'webpack/hot/only-dev-server'
   )
   baseConfig.plugins.push(new webpack.HotModuleReplacementPlugin())
+  baseConfig.plugins.push(new webpack.NamedModulesPlugin())
   baseConfig.module.rules.push({
     test: /\.js$/,
     use: [
