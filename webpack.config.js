@@ -1,12 +1,11 @@
-var path = require('path')
-var webpack = require('webpack')
-var pkg = require('./package.json')
-var env = process.env.NODE_ENV
+const path = require('path')
+const webpack = require('webpack')
+const BabiliWebpackPlugin = require('babili-webpack-plugin')
+const pkg = require('./package.json')
+const env = process.env.NODE_ENV
 
 var baseConfig = {
-  entry: [
-    './src/index'
-  ],
+  entry: ['./src/index'],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -21,11 +20,23 @@ var baseConfig = {
     })
   ],
   module: {
-    loaders: [{
-      test: /\.css$/,
-      loader: 'style!css?modules',
-      include: /flexboxgrid/
-    }]
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              module: true
+            }
+          }
+        ],
+        include: /flexboxgrid/
+      }
+    ]
   }
 }
 
@@ -35,28 +46,25 @@ if (env !== 'production') {
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server'
   )
-  baseConfig.plugins.push(
-    new webpack.HotModuleReplacementPlugin()
-  )
-  baseConfig.module.loaders.push({
+  baseConfig.plugins.push(new webpack.HotModuleReplacementPlugin())
+  baseConfig.module.rules.push({
     test: /\.js$/,
-    loaders: ['react-hot', 'babel'],
+    use: [
+      {
+        loader: 'react-hot-loader'
+      },
+      {
+        loader: 'babel-loader'
+      }
+    ],
     include: path.join(__dirname, 'src')
   })
 } else {
-  baseConfig.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        unused: true,
-        dead_code: true,
-        warnings: false
-      }
-    })
-  )
+  baseConfig.plugins.push(new BabiliWebpackPlugin())
 
-  baseConfig.module.loaders.push({
+  baseConfig.module.rules.push({
     test: /\.js$/,
-    loaders: ['babel'],
+    loader: 'babel-loader',
     include: path.join(__dirname, 'src')
   })
 }
