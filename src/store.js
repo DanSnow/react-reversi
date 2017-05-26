@@ -1,6 +1,6 @@
 import {createStore, applyMiddleware, compose} from 'redux'
 import createSagaMiddleware, {END} from 'redux-saga'
-import createLogger from 'redux-logger'
+import {createLogger} from 'redux-logger'
 import reducer from './reducer'
 
 const getDevtools = () => {
