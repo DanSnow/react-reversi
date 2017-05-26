@@ -8,8 +8,7 @@ import BoardGrid from './BoardGrid'
 import Chess from './Chess'
 import {WHITE, WHITE_CANDIDATE, BLACK_CANDIDATE} from './consts'
 
-@connect(state => ({board: state.board}), {reset, userPlaceChess})
-export default class Board extends Component {
+class Board extends Component {
   componentDidMount () {
     this.props.reset(WHITE)
   }
@@ -54,3 +53,8 @@ export default class Board extends Component {
     userPlaceChess: PropTypes.func.isRequired
   }
 }
+
+export default connect(state => ({board: state.board}), {
+  reset,
+  userPlaceChess
+})(Board)

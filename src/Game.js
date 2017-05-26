@@ -9,15 +9,7 @@ import Board from './Board'
 import Log from './Log'
 import {BLACK, WHITE} from './consts'
 
-@connect(
-  state => ({
-    message: state.message,
-    score: scoreSelector(state),
-    ai: state.ai
-  }),
-  {setHint, reset}
-)
-export default class Game extends Component {
+class Game extends Component {
   handleChange = event => {
     this.setState({hint: event.target.checked})
   }
@@ -90,3 +82,12 @@ export default class Game extends Component {
     score: PropTypes.object.isRequired
   }
 }
+
+export default connect(
+  state => ({
+    message: state.message,
+    score: scoreSelector(state),
+    ai: state.ai
+  }),
+  {setHint, reset}
+)(Game)
