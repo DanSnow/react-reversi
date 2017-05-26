@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Provider } from 'react-redux'
+import React, {Component} from 'react'
+import {Provider} from 'react-redux'
 import Game from './Game'
 import configureStore from './store'
 import root from './saga'
@@ -14,9 +14,9 @@ if (module.hot) {
 }
 
 export default class App extends Component {
-  render() {
+  render () {
     return (
-      <Provider store={ store }>
+      <Provider store={store}>
         <Game />
       </Provider>
     )
