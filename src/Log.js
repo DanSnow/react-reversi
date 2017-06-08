@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import {connect} from 'react-redux'
-import {Row, Col} from 'react-flexbox-grid'
 import setPropTypes from 'recompose/setPropTypes'
 import compose from 'recompose/compose'
 
@@ -11,15 +10,13 @@ const Log = compose(
     log: PropTypes.array.isRequired
   })
 )(({log}) => (
-  <Row>
-    <Col style={styles.scroll}>
-      {log.map((content, idx) => (
-        <Row key={idx}>
-          <Col> {content} </Col>
-        </Row>
-      ))}
-    </Col>
-  </Row>
+  <div style={styles.scroll}>
+    {log.map((content, idx) => (
+      <div key={idx}>
+        {content}
+      </div>
+    ))}
+  </div>
 ))
 
 const styles = {

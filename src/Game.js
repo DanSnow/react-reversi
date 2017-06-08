@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Grid, Row, Col} from 'react-flexbox-grid'
 import GithubCorner from 'react-github-corner'
 import {setHint, reset, setRetractStep, restoreStep} from './actions'
 import {scoreSelector} from './selector'
 import Board from './Board'
 import Log from './Log'
+import SettingModal from './SettingModal'
 import {BLACK, WHITE} from './consts'
 
 class Game extends Component {
@@ -26,8 +26,21 @@ class Game extends Component {
     this.props.reset(null)
   }
 
+  handleOpenSetting = () => {
+    this.setState({
+      settingOpen: true
+    })
+  }
+
+  handleCloseSetting = () => {
+    this.setState({
+      settingOpen: false
+    })
+  }
+
   handleAllowRetract = event => {
     const {setRetractStep, ai} = this.props
+    console.log(event)
     if (event.target.checked) {
       if (ai) {
         setRetractStep(3)
@@ -46,59 +59,85 @@ class Game extends Component {
 
   render () {
     const {message, score, allowRetract, restoreStep} = this.props
-    const {hint} = this.state
+    const {hint, settingOpen} = this.state
     return (
-      <Grid>
-        <Row start='xs'>
-          <Col xs={3}>
-            Play as <button onClick={this.handleResetBlack}> black </button>
-            or
-            <button onClick={this.handleResetWhite}> white </button>
-            or
-            <button onClick={this.handleResetHuman}> Play with human </button>
-          </Col>
-          <Col xs={1}>
-            <input type='checkbox' name='hint' onChange={this.handleChange} />
-            <label htmlFor='hint'> Hint </label>
-          </Col>
-          <Col xs={2}>
-            <input
-              type='checkbox'
-              name='retract'
-              onChange={this.handleAllowRetract}
-            />
-            <label htmlFor='retract'> Allow Retract </label>
-          </Col>
-          <Col xs={1}>
-            <button disabled={!allowRetract} onClick={restoreStep}>
-              Retract
-            </button>
-          </Col>
-          <Col xs={4}>
-            <span>{message}</span>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={7} xs={12}>
-            <Board hint={hint} />
-          </Col>
-          <Col md={2} xs={0}>
-            <div> Score: </div>
-            <div> black({this.getPlayerType(BLACK)}): {score.black} </div>
-            <div> white({this.getPlayerType(WHITE)}): {score.white}</div>
-            <div> {VERSION} </div>
-          </Col>
-          <Col md={3} xs={0}>
-            <Log />
-          </Col>
-        </Row>
+      <div>
+        <div className='container is-fluid'>
+          <div className='columns is-desktop'>
+            <div className='column is-4'>
+              Play as
+              {' '}
+              <button
+                className='button is-small is-dark'
+                onClick={this.handleResetBlack}
+              >
+                black
+              </button>
+              or
+              <button
+                className='button is-small is-light'
+                onClick={this.handleResetWhite}
+              >
+                white
+              </button>
+              or
+              <button
+                className='button is-small'
+                onClick={this.handleResetHuman}
+              >
+                Play with human
+              </button>
+            </div>
+            <div className='column is-2'>
+              <button
+                className='button is-small'
+                onClick={this.handleOpenSetting}
+              >
+                Setting
+              </button>
+            </div>
+            <div className='column is-1'>
+              <button
+                className='button is-small'
+                disabled={!allowRetract}
+                onClick={restoreStep}
+              >
+                Retract
+              </button>
+            </div>
+            <div className='column is-4'>
+              <span>{message}</span>
+            </div>
+          </div>
+          <div className='columns'>
+            <div className='column is-6'>
+              <Board hint={hint} />
+            </div>
+            <div className='column is-2 is-hidden-touch'>
+              <div> Score: </div>
+              <div> black({this.getPlayerType(BLACK)}): {score.black} </div>
+              <div> white({this.getPlayerType(WHITE)}): {score.white}</div>
+              <div> {VERSION} </div>
+            </div>
+            <div className='column is-4 is-hidden-touch'>
+              <Log />
+            </div>
+          </div>
+          <SettingModal
+            isOpen={settingOpen}
+            onClose={this.handleCloseSetting}
+            onHintChange={this.handleChange}
+            onRetractChange={this.handleAllowRetract}
+          />
+        </div>
         <GithubCorner href='https://github.com/DanSnow/react-reversi' />
-      </Grid>
+      </div>
     )
   }
 
   state = {
-    hint: false
+    hint: false,
+    settingOpen: false
   }
 
   static propTypes = {
