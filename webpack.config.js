@@ -20,23 +20,7 @@ var baseConfig = {
     })
   ],
   module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              module: true
-            }
-          }
-        ],
-        include: /flexboxgrid/
-      }
-    ]
+    rules: []
   }
 }
 
