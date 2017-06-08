@@ -52,6 +52,8 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "glamor": "next",
+    "glamorous": "^3.21.0",
     "invariant": "^2.2.2",
     "lodash": "^4.14.0",
     "prop-types": "^15.5.10",
@@ -60,6 +62,7 @@
     "react-github-corner": "^0.3.0",
     "react-portal": "^3.1.0",
     "react-redux": "^5.0.5",
+    "react-static-container": "^1.0.1",
     "recompose": "^0.23.5",
     "redux": "^3.5.2",
     "redux-actions": "^2.0.3",
