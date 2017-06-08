@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import flatMap from 'lodash/flatMap'
+import StaticContainer from 'react-static-container'
 import {reset, userPlaceChess} from './actions'
 import BoardBackground from './BoardBackground'
 import BoardGrid from './BoardGrid'
@@ -22,8 +23,12 @@ class Board extends Component {
     const {board, hint} = this.props
     return (
       <svg height='640px' width='640px'>
-        <BoardBackground onClick={this.handleClick} />
-        <BoardGrid />
+        <StaticContainer>
+          <g>
+            <BoardBackground onClick={this.handleClick} />
+            <BoardGrid />
+          </g>
+        </StaticContainer>
         {flatMap(board, (r, row) =>
           r.map(
             (c, col) =>
