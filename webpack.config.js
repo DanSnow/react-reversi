@@ -42,6 +42,8 @@ if (env !== 'production') {
     include: path.join(__dirname, 'src')
   })
 } else {
+  baseConfig.plugins.push(new webpack.HashedModuleIdsPlugin())
+  baseConfig.plugins.push(new webpack.optimize.ModuleConcatenationPlugin())
   baseConfig.plugins.push(new BabiliWebpackPlugin())
 
   baseConfig.module.rules.push({
