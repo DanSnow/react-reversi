@@ -1,11 +1,11 @@
-import React from 'react'
+import {Portal} from 'react-portal'
 import PropTypes from 'prop-types'
-import Portal from 'react-portal'
+import React from 'react'
 import cx from 'classnames'
 
 function SettingModal ({isOpen, onClose, onHintChange, onRetractChange}) {
   return (
-    <Portal isOpened>
+    <Portal isOpen>
       <div className={cx('modal', {'is-active': isOpen})}>
         <div className='modal-background' />
         <div className='modal-content'>

@@ -5,7 +5,7 @@ const pkg = require('./package.json')
 const env = process.env.NODE_ENV
 
 var baseConfig = {
-  entry: ['./src/index'],
+  entry: ['react-hot-loader/patch', './src/index'],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -35,9 +35,6 @@ if (env !== 'production') {
   baseConfig.module.rules.push({
     test: /\.js$/,
     use: [
-      {
-        loader: 'react-hot-loader'
-      },
       {
         loader: 'babel-loader'
       }
