@@ -1,22 +1,23 @@
-import {handleActions} from 'redux-actions'
-import times from 'lodash/times'
-import constant from 'lodash/constant'
-import Immutable from 'seamless-immutable'
 import {
-  PUSH_LOG,
+  ADD_SWITCH,
   CLEAR_LOG,
+  PLACE_CHESS,
+  PUSH_LOG,
   RESET_BOARD,
-  SAVE_STEP,
+  RESET_SWITCH,
   RESTORE_STEP,
+  SAVE_STEP,
+  SET_AI,
   SET_CANDIDATE,
   SET_MESSAGE,
-  SET_RETRACT_STEP,
-  SET_AI,
-  ADD_SWITCH,
-  RESET_SWITCH,
   SET_PLAYER,
-  PLACE_CHESS
+  SET_RETRACT_STEP
 } from './consts'
+
+import Immutable from 'seamless-immutable'
+import constant from 'lodash/constant'
+import {handleActions} from 'redux-actions'
+import times from 'lodash/times'
 
 const initialBoard = times(8, () => times(8, constant(null)))
 export const initialState = Immutable.from({

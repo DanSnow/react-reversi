@@ -1,6 +1,6 @@
-import React from 'react'
-import BoardRow from './BoardRow'
 import BoardColumn from './BoardColumn'
+import BoardRow from './BoardRow'
+import React from 'react'
 import times from 'lodash/times'
 
 function BoardGrid () {

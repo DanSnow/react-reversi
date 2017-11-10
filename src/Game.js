@@ -1,13 +1,14 @@
-import PropTypes from 'prop-types'
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import GithubCorner from 'react-github-corner'
-import {setHint, reset, setRetractStep, restoreStep} from './actions'
-import {scoreSelector} from './selector'
-import Board from './Board'
-import Log from './Log'
-import SettingModal from './SettingModal'
 import {BLACK, WHITE} from './consts'
+import React, {Component} from 'react'
+import {reset, restoreStep, setHint, setRetractStep} from './actions'
+
+import Board from './Board'
+import GithubCorner from 'react-github-corner'
+import Log from './Log'
+import PropTypes from 'prop-types'
+import SettingModal from './SettingModal'
+import {connect} from 'react-redux'
+import {scoreSelector} from './selector'
 
 class Game extends Component {
   handleChange = event => {
@@ -65,8 +66,7 @@ class Game extends Component {
         <div className='container is-fluid'>
           <div className='columns is-desktop'>
             <div className='column is-4'>
-              Play as
-              {' '}
+              Play as{' '}
               <button
                 className='button is-small is-dark'
                 onClick={this.handleResetBlack}
@@ -115,8 +115,14 @@ class Game extends Component {
             </div>
             <div className='column is-2 is-hidden-touch'>
               <div> Score: </div>
-              <div> black({this.getPlayerType(BLACK)}): {score.black} </div>
-              <div> white({this.getPlayerType(WHITE)}): {score.white}</div>
+              <div>
+                {' '}
+                black({this.getPlayerType(BLACK)}): {score.black}{' '}
+              </div>
+              <div>
+                {' '}
+                white({this.getPlayerType(WHITE)}): {score.white}
+              </div>
               <div> {VERSION} </div>
             </div>
             <div className='column is-4 is-hidden-touch'>

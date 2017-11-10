@@ -9,15 +9,16 @@
             "last 2 Firefox versions",
             "last 2 Edge versions"
           ]
-        }
+        },
+        "useBuiltIns": true
       }
     ],
     "react"
   ],
   "plugins": [
     "react-hot-loader/babel",
-    "transform-runtime",
+    ["transform-runtime", {"polyfill": false}],
     "transform-class-properties",
-    "transform-object-rest-spread"
+    ["transform-object-rest-spread", {"useBuiltIns": true}]
   ]
 }

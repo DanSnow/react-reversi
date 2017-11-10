@@ -1,13 +1,14 @@
-import PropTypes from 'prop-types'
+import {BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE} from './consts'
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import flatMap from 'lodash/flatMap'
-import StaticContainer from 'react-static-container'
 import {reset, userPlaceChess} from './actions'
+
 import BoardBackground from './BoardBackground'
 import BoardGrid from './BoardGrid'
 import Chess from './Chess'
-import {WHITE, WHITE_CANDIDATE, BLACK_CANDIDATE} from './consts'
+import PropTypes from 'prop-types'
+import StaticContainer from 'react-static-container'
+import {connect} from 'react-redux'
+import flatMap from 'lodash/flatMap'
 
 class Board extends Component {
   componentDidMount () {
@@ -32,19 +33,19 @@ class Board extends Component {
         {flatMap(board, (r, row) =>
           r.map(
             (c, col) =>
-              c
-                ? <Chess
+              c ? (
+                <Chess
                   key={row * 8 + col}
                   onClick={this.handleClick}
                   row={row}
                   col={col}
                   hint={hint}
                   color={
-                      c === WHITE || c === WHITE_CANDIDATE ? 'white' : 'black'
-                    }
+                    c === WHITE || c === WHITE_CANDIDATE ? 'white' : 'black'
+                  }
                   candiate={c === WHITE_CANDIDATE || c === BLACK_CANDIDATE}
-                  />
-                : null
+                />
+              ) : null
           )
         )}
       </svg>

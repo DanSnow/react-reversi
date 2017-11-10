@@ -1,5 +1,6 @@
-import {createSelector} from 'reselect'
 import {BLACK, WHITE} from './consts'
+
+import {createSelector} from 'reselect'
 
 const selectBoard = state => state.board
 

@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-const BabiliWebpackPlugin = require('babili-webpack-plugin')
+const MinifyWebpackPlugin = require('babel-minify-webpack-plugin')
 const pkg = require('./package.json')
 const env = process.env.NODE_ENV
 
@@ -44,7 +44,7 @@ if (env !== 'production') {
 } else {
   baseConfig.plugins.push(new webpack.HashedModuleIdsPlugin())
   baseConfig.plugins.push(new webpack.optimize.ModuleConcatenationPlugin())
-  baseConfig.plugins.push(new BabiliWebpackPlugin())
+  baseConfig.plugins.push(new MinifyWebpackPlugin())
 
   baseConfig.module.rules.push({
     test: /\.js$/,

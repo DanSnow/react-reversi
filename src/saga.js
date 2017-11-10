@@ -1,33 +1,34 @@
-import invariant from 'invariant'
-import {takeEvery, delay} from 'redux-saga'
-import {put, select, call} from 'redux-saga/effects'
-import sum from 'lodash/sum'
-import orderBy from 'lodash/orderBy'
-import head from 'lodash/head'
-import filter from 'lodash/filter'
-import sample from 'lodash/sample'
 import {
-  resetBoard,
-  saveStep,
-  pushLog,
+  BLACK,
+  BLACK_CANDIDATE,
+  RESET,
+  SWITCH_PLAYER,
+  USER_PLACE_CHESS,
+  WHITE,
+  WHITE_CANDIDATE
+} from './consts'
+import {
+  addSwitch,
   clearLog,
   placeChess,
-  addSwitch,
+  pushLog,
+  resetBoard,
   resetSwitch,
-  setMessage,
-  setPlayer,
+  saveStep,
   setAi,
-  setCandidate
+  setCandidate,
+  setMessage,
+  setPlayer
 } from './actions'
-import {
-  USER_PLACE_CHESS,
-  SWITCH_PLAYER,
-  RESET,
-  WHITE_CANDIDATE,
-  BLACK_CANDIDATE,
-  WHITE,
-  BLACK
-} from './consts'
+import {call, put, select} from 'redux-saga/effects'
+import {delay, takeEvery} from 'redux-saga'
+
+import filter from 'lodash/filter'
+import head from 'lodash/head'
+import invariant from 'invariant'
+import orderBy from 'lodash/orderBy'
+import sample from 'lodash/sample'
+import sum from 'lodash/sum'
 
 const direction = [
   [-1, 0],
@@ -40,7 +41,7 @@ const direction = [
   [-1, 1]
 ]
 
-export function * reset ({payload}) {
+export function* reset({payload}) {
   yield put(setMessage(''))
   yield put(clearLog())
   yield put(resetBoard())
@@ -58,36 +59,36 @@ export function * reset ({payload}) {
   }
 }
 
-function isValidPos (row, col) {
+function isValidPos(row, col) {
   return row < 8 && row >= 0 && col < 8 && col >= 0
 }
 
-function getOpposite (player) {
+function getOpposite(player) {
   return player === WHITE ? BLACK : WHITE
 }
 
-function isCandidate (chess) {
+function isCandidate(chess) {
   return chess === BLACK_CANDIDATE || chess === WHITE_CANDIDATE
 }
 
-function isEmpty (chess) {
+function isEmpty(chess) {
   return !chess || isCandidate(chess)
 }
 
-function isPlaceable (board, player, row, col) {
+function isPlaceable(board, player, row, col) {
   const candiate = getCandidate(player)
   return isValidPos(row, col) && board[row][col] === candiate
 }
 
-function getCandidate (player) {
+function getCandidate(player) {
   return player === WHITE ? WHITE_CANDIDATE : BLACK_CANDIDATE
 }
 
-function getPlayer (player) {
+function getPlayer(player) {
   return player === WHITE ? 'white' : 'black'
 }
 
-function * switchPlayer () {
+function* switchPlayer() {
   const {player, switchCount, ai} = yield select()
   if (switchCount > 2) {
     yield put(setMessage('Game set'))
@@ -116,7 +117,7 @@ function * switchPlayer () {
   }
 }
 
-function checkFlipChess (board, player, row, col, rd, cd) {
+function checkFlipChess(board, player, row, col, rd, cd) {
   let count = 0
   let found = false
   let r = row + rd
@@ -134,7 +135,7 @@ function checkFlipChess (board, player, row, col, rd, cd) {
   return found && count > 0 ? count : 0
 }
 
-function * flipChees (board, player, row, col, rd, cd) {
+function* flipChees(board, player, row, col, rd, cd) {
   if (!checkFlipChess(board, player, row, col, rd, cd)) {
     return false
   }
@@ -154,7 +155,7 @@ function * flipChees (board, player, row, col, rd, cd) {
   return true
 }
 
-function * flipAllChess ({row, col, player}) {
+function* flipAllChess({row, col, player}) {
   const {board} = yield select()
   for (let i = 0; i < 8; i += 1) {
     let [rd, cd] = direction[i]
@@ -162,7 +163,7 @@ function * flipAllChess ({row, col, player}) {
   }
 }
 
-function * clearCandidate () {
+function* clearCandidate() {
   const board = yield select(state => state.board)
   for (let r = 0; r < 8; r += 1) {
     for (let c = 0; c < 8; c += 1) {
@@ -174,7 +175,7 @@ function * clearCandidate () {
   }
 }
 
-function * placeCandidate () {
+function* placeCandidate() {
   const {player, board} = yield select()
   const chess = getCandidate(player)
   let count = 0
@@ -196,7 +197,7 @@ function * placeCandidate () {
   yield put(setCandidate(count))
 }
 
-function judgeScore (board, ai, row, col) {
+function judgeScore(board, ai, row, col) {
   const flips = sum(
     direction.map(([rd, cd]) => checkFlipChess(board, ai, row, col, rd, cd))
   )
@@ -221,7 +222,7 @@ function judgeScore (board, ai, row, col) {
   return flips * 2 + posScore
 }
 
-function * aiJudgeScore () {
+function* aiJudgeScore() {
   const {board, player, ai} = yield select()
   const scores = []
   const chess = getCandidate(player)
@@ -246,7 +247,7 @@ function * aiJudgeScore () {
   yield put(placeChess(row, col, player))
 }
 
-function * userPlaceChess ({payload: {col, row}}) {
+function* userPlaceChess({payload: {col, row}}) {
   const {player, board} = yield select()
   if (!isPlaceable(board, player, row, col)) {
     // Not allow place on exist chess or not candiate
@@ -262,7 +263,7 @@ function * userPlaceChess ({payload: {col, row}}) {
   yield call(switchPlayer)
 }
 
-export function * root () {
+export function* root() {
   yield [
     takeEvery(RESET, reset),
     takeEvery(USER_PLACE_CHESS, userPlaceChess),

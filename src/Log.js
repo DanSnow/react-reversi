@@ -1,9 +1,9 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
+import compose from 'recompose/compose'
 import {connect} from 'react-redux'
 import glamorous from 'glamorous'
 import setPropTypes from 'recompose/setPropTypes'
-import compose from 'recompose/compose'
 
 const LogContainer = glamorous.div({
   width: '25%',
@@ -19,11 +19,7 @@ const Log = compose(
   })
 )(({log}) => (
   <LogContainer>
-    {log.map((content, idx) => (
-      <div key={idx}>
-        {content}
-      </div>
-    ))}
+    {log.map((content, idx) => <div key={idx}>{content}</div>)}
   </LogContainer>
 ))
 

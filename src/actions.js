@@ -1,22 +1,23 @@
-import {createAction} from 'redux-actions'
 import {
-  PUSH_LOG,
-  CLEAR_LOG,
-  SET_MESSAGE,
-  SWITCH_PLAYER,
-  SET_CANDIDATE,
-  SET_RETRACT_STEP,
-  SAVE_STEP,
-  RESTORE_STEP,
-  SET_PLAYER,
-  SET_AI,
   ADD_SWITCH,
-  RESET_SWITCH,
-  RESET_BOARD,
+  CLEAR_LOG,
   PLACE_CHESS,
-  USER_PLACE_CHESS,
-  RESET
+  PUSH_LOG,
+  RESET,
+  RESET_BOARD,
+  RESET_SWITCH,
+  RESTORE_STEP,
+  SAVE_STEP,
+  SET_AI,
+  SET_CANDIDATE,
+  SET_MESSAGE,
+  SET_PLAYER,
+  SET_RETRACT_STEP,
+  SWITCH_PLAYER,
+  USER_PLACE_CHESS
 } from './consts'
+
+import {createAction} from 'redux-actions'
 
 export const pushLog = createAction(PUSH_LOG)
 export const clearLog = createAction(CLEAR_LOG)
