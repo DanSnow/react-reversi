@@ -3,7 +3,13 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import cx from 'classnames'
 
-function SettingModal ({isOpen, onClose, onHintChange, onRetractChange}) {
+function SettingModal ({
+  isOpen,
+  onClose,
+  onHintChange,
+  onRetractChange,
+  onVersionChange
+}) {
   return (
     <Portal isOpen>
       <div className={cx('modal', {'is-active': isOpen})}>
@@ -32,6 +38,22 @@ function SettingModal ({isOpen, onClose, onHintChange, onRetractChange}) {
             </div>
             <div className='field'>
               <p className='control'>
+                <label className='checkbox' htmlFor='retract'>
+                  <select
+                    name='version'
+                    className='select'
+                    onChange={onVersionChange}
+                  >
+                    <option value='v1'>V1</option>
+                    <option selected value='v2'>
+                      V2
+                    </option>
+                  </select>
+                </label>
+              </p>
+            </div>
+            <div className='field'>
+              <p className='control'>
                 <button className='button is-primary' onClick={onClose}>
                   OK
                 </button>
@@ -49,7 +71,8 @@ SettingModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   onHintChange: PropTypes.func.isRequired,
-  onRetractChange: PropTypes.func.isRequired
+  onRetractChange: PropTypes.func.isRequired,
+  onVersionChange: PropTypes.func.isRequired
 }
 
 export default SettingModal

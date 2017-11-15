@@ -1,6 +1,12 @@
 import {BLACK, WHITE} from './consts'
 import React, {Component} from 'react'
-import {reset, restoreStep, setHint, setRetractStep} from './actions'
+import {
+  reset,
+  restoreStep,
+  setHint,
+  setRetractStep,
+  setVersion
+} from './actions'
 
 import Board from './Board'
 import GithubCorner from 'react-github-corner'
@@ -41,7 +47,6 @@ class Game extends Component {
 
   handleAllowRetract = event => {
     const {setRetractStep, ai} = this.props
-    console.log(event)
     if (event.target.checked) {
       if (ai) {
         setRetractStep(3)
@@ -51,6 +56,11 @@ class Game extends Component {
     } else {
       setRetractStep(0)
     }
+  }
+
+  handleVersionChange = event => {
+    const {setVersion} = this.props
+    setVersion(event.target.value)
   }
 
   getPlayerType (player) {
@@ -134,6 +144,7 @@ class Game extends Component {
             onClose={this.handleCloseSetting}
             onHintChange={this.handleChange}
             onRetractChange={this.handleAllowRetract}
+            onVersionChange={this.handleVersionChange}
           />
         </div>
         <GithubCorner href='https://github.com/DanSnow/react-reversi' />
@@ -153,7 +164,8 @@ class Game extends Component {
     reset: PropTypes.func.isRequired,
     setRetractStep: PropTypes.func.isRequired,
     restoreStep: PropTypes.func.isRequired,
-    score: PropTypes.object.isRequired
+    score: PropTypes.object.isRequired,
+    setVersion: PropTypes.func.isRequired
   }
 }
 
@@ -164,5 +176,5 @@ export default connect(
     ai: state.ai,
     allowRetract: state.allowRetractStep && state.pastStep.length
   }),
-  {setHint, reset, setRetractStep, restoreStep}
+  {setHint, reset, setVersion, setRetractStep, restoreStep}
 )(Game)

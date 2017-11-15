@@ -1,5 +1,7 @@
 import {
   ADD_SWITCH,
+  AI,
+  AI2,
   CLEAR_LOG,
   PLACE_CHESS,
   PUSH_LOG,
@@ -11,7 +13,8 @@ import {
   SET_CANDIDATE,
   SET_MESSAGE,
   SET_PLAYER,
-  SET_RETRACT_STEP
+  SET_RETRACT_STEP,
+  SET_VERSION
 } from './consts'
 
 import Immutable from 'seamless-immutable'
@@ -24,6 +27,7 @@ export const initialState = Immutable.from({
   message: '',
   candiate: 0,
   switchCount: 0,
+  version: 'v2',
   ai: null,
   player: null,
   log: [],
@@ -70,6 +74,8 @@ export default handleActions(
     [ADD_SWITCH]: state =>
       Immutable.set(state, 'switchCount', state.switchCount + 1),
     [RESET_SWITCH]: state => Immutable.set(state, 'switchCount', 0),
+    [SET_VERSION]: (state, {payload}) =>
+      Immutable.set(state, 'version', payload),
     [PUSH_LOG]: (state, {payload}) =>
       Immutable.set(state, 'log', [...state.log, payload]),
     [CLEAR_LOG]: state => Immutable.set(state, 'log', [])

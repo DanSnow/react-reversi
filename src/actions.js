@@ -13,6 +13,7 @@ import {
   SET_MESSAGE,
   SET_PLAYER,
   SET_RETRACT_STEP,
+  SET_VERSION,
   SWITCH_PLAYER,
   USER_PLACE_CHESS
 } from './consts'
@@ -27,6 +28,7 @@ export const resetBoard = createAction(RESET_BOARD)
 export const switchPlayer = createAction(SWITCH_PLAYER)
 export const setPlayer = createAction(SET_PLAYER)
 export const setAi = createAction(SET_AI)
+export const setVersion = createAction(SET_VERSION)
 export const addSwitch = createAction(ADD_SWITCH)
 export const resetSwitch = createAction(RESET_SWITCH)
 export const setRetractStep = createAction(SET_RETRACT_STEP)
