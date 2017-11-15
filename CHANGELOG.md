@@ -1,3 +1,9 @@
+1.5.0
+=====
+
+- Improve(?) AI
+- Support select AI version
+
 1.4.0
 =====
 
