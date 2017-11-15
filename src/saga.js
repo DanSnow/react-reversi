@@ -23,18 +23,25 @@ import {
 import {call, put, select} from 'redux-saga/effects'
 import {delay, takeEvery} from 'redux-saga'
 
+import Immutable from 'seamless-immutable'
 import filter from 'lodash/filter'
 import head from 'lodash/head'
 import invariant from 'invariant'
+import max from 'lodash/max'
 import orderBy from 'lodash/orderBy'
 import sample from 'lodash/sample'
 import sum from 'lodash/sum'
 
-const direction = [
-  [-1, 0],
-  [1, 0],
-  [0, -1],
-  [0, 1],
+const UP = 0
+const DOWN = 1
+const LEFT = 2
+const RIGHT = 3
+
+const directions = [
+  [-1, 0], // Up
+  [1, 0], // Down
+  [0, -1], // Left
+  [0, 1], // Right
   [-1, -1],
   [1, 1],
   [1, -1],
@@ -80,12 +87,26 @@ function isPlaceable(board, player, row, col) {
   return isValidPos(row, col) && board[row][col] === candiate
 }
 
+function getChess(board, row, col) {
+  if (isValidPos(row, col)) {
+    return !isEmpty(board[row][col]) && board[row][col]
+  }
+  return null
+}
+
 function getCandidate(player) {
   return player === WHITE ? WHITE_CANDIDATE : BLACK_CANDIDATE
 }
 
 function getPlayer(player) {
   return player === WHITE ? 'white' : 'black'
+}
+
+function countAroundChess(board, player, row, col) {
+  return directions.reduce(
+    (s, [rd, cd]) => s + Number(!!getChess(board, row + rd, col + cd)),
+    0
+  )
 }
 
 function* switchPlayer() {
@@ -120,6 +141,9 @@ function* switchPlayer() {
 function checkFlipChess(board, player, row, col, rd, cd) {
   let count = 0
   let found = false
+  if (!isValidPos(row, col) || !isEmpty(board[row][col])) {
+    return 0
+  }
   let r = row + rd
   let c = col + cd
   while (isValidPos(r, c)) {
@@ -158,7 +182,7 @@ function* flipChees(board, player, row, col, rd, cd) {
 function* flipAllChess({row, col, player}) {
   const {board} = yield select()
   for (let i = 0; i < 8; i += 1) {
-    let [rd, cd] = direction[i]
+    let [rd, cd] = directions[i]
     yield call(flipChees, board, player, row, col, rd, cd)
   }
 }
@@ -184,7 +208,7 @@ function* placeCandidate() {
       let ch = board[r][c]
       if (!ch) {
         for (let i = 0; i < 8; i += 1) {
-          let [rd, cd] = direction[i]
+          let [rd, cd] = directions[i]
           if (checkFlipChess(board, player, r, c, rd, cd)) {
             yield put(placeChess(r, c, chess))
             count += 1
@@ -197,20 +221,21 @@ function* placeCandidate() {
   yield put(setCandidate(count))
 }
 
-function judgeScore(board, ai, row, col) {
-  const flips = sum(
-    direction.map(([rd, cd]) => checkFlipChess(board, ai, row, col, rd, cd))
+function judgeScoreV1(board, ai, row, col) {
+  const flips = directions.map(([rd, cd]) =>
+    checkFlipChess(board, ai, row, col, rd, cd)
   )
+  const atTopOrBottom = row === 0 || row === 7
+  const atLeftOrRight = col === 0 || col === 7
   let posScore = 0
   if ((row === 0 && col === 0) || (row === 7 && col === 7)) {
     // coner first
     posScore = 200
   } else if (
-    ((row === 0 || row === 7) && (col === 1 || col === 6)) ||
-    ((row === 1 || row === 6) && (col === 0 || col === 7))
+    (atTopOrBottom && (col === 1 || col === 6)) ||
+    ((row === 1 || row === 6) && atLeftOrRight)
   ) {
-    // Don't place chess around corner
-    posScore = -40
+    posScore = -80
   } else if (row === 0 || col === 0 || row === 7 || col === 7) {
     // Border second
     posScore = 80
@@ -219,17 +244,70 @@ function judgeScore(board, ai, row, col) {
   } else if (row === 2 || col === 2 || row === 5 || col === 5) {
     posScore = 20
   }
-  return flips * 2 + posScore
+  const score = sum(flips) * 2 + posScore
+  return score
+}
+
+function judgeScoreV2(board, ai, row, col) {
+  const flips = directions.map(([rd, cd]) =>
+    checkFlipChess(board, ai, row, col, rd, cd)
+  )
+  const atTopOrBottom = row === 0 || row === 7
+  const atLeftOrRight = col === 0 || col === 7
+  const around = countAroundChess(board, ai, row, col)
+  let posScore = 0
+  if ((row === 0 && col === 0) || (row === 7 && col === 7)) {
+    // coner first
+    posScore = 1000
+  } else if (
+    (atTopOrBottom && (col === 1 || col === 6)) ||
+    ((row === 1 || row === 6) && atLeftOrRight)
+  ) {
+    if (around > 0) {
+      // Don't place chess around corner
+      posScore = -300
+    } else {
+      posScore = 150
+    }
+  } else if (row === 0 || col === 0 || row === 7 || col === 7) {
+    // Border second
+    posScore = 150 + around * 100
+  } else if (row === 1 || col === 1 || row === 6 || col === 6) {
+    posScore = -200
+  } else if (row === 2 || col === 2 || row === 5 || col === 5) {
+    posScore = 50
+  }
+  const nextBoard = Immutable.setIn(board, [row, col], ai)
+  const willBeFlipeds = directions.map(([rd, cd]) =>
+    checkFlipChess(nextBoard, getOpposite(ai), row - rd, col - cd, rd, cd)
+  )
+  const willBeFliped = max(willBeFlipeds)
+  const willLost =
+    willBeFliped > 0
+      ? posScore > 0
+        ? willBeFliped * 2 + posScore * 20
+        : -posScore * 50 + willBeFliped * 5
+      : -10000
+  const score =
+    sum(flips) * 2 + (willLost ? posScore : Math.abs(posScore) * 2) - willLost
+  return score
+}
+
+const judgeScores = {
+  v1: judgeScoreV1,
+  v2: judgeScoreV2
 }
 
 function* aiJudgeScore() {
-  const {board, player, ai} = yield select()
+  const {board, player, ai, version} = yield select()
   const scores = []
+  const judge = judgeScores[version]
+  invariant(judge, 'version error')
   const chess = getCandidate(player)
   for (let r = 0; r < 8; r += 1) {
     for (let c = 0; c < 8; c += 1) {
       if (board[r][c] === chess) {
-        let score = judgeScore(board, ai, r, c)
+        let score = judge(board, ai, r, c)
         scores.push({
           row: r,
           col: c,
