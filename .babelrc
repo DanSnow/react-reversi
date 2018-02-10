@@ -1,8 +1,9 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
+        "debug": true,
         "targets": {
           "browsers": [
             "last 2 Chrome versions",
@@ -10,14 +11,33 @@
             "last 2 Edge versions"
           ]
         },
-        "exclude": ["transform-regenerator"]
+        "exclude": ["transform-regenerator"],
+        "modules": false
       }
     ],
-    "react"
+    "@babel/preset-react"
   ],
   "plugins": [
-    ["transform-runtime", {"polyfill": false}],
-    "transform-class-properties",
-    ["transform-object-rest-spread", {"useBuiltIns": true}]
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {
+          "glamorous": "glamorous/dist/glamorous.esm.tiny"
+        }
+      }
+    ],
+    [
+      "transform-imports",
+      {
+        "lodash-es": {
+          "transform": "lodash-es/${member}",
+          "preventFullImport": true
+        }
+      }
+    ],
+    ["@babel/plugin-transform-runtime", {"polyfill": false}],
+    "@babel/plugin-proposal-class-properties",
+    ["@babel/plugin-proposal-object-rest-spread", {"useBuiltIns": true}]
   ]
 }
