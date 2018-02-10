@@ -1,6 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const MinifyWebpackPlugin = require('babel-minify-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin
 const pkg = require('./package.json')
 const env = process.env.NODE_ENV
 
@@ -10,6 +12,9 @@ var baseConfig = {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: '/dist/'
+  },
+  resolve: {
+    mainFields: ['module', 'main']
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -26,10 +31,6 @@ var baseConfig = {
 
 if (env !== 'production') {
   baseConfig.devtool = 'eval'
-  baseConfig.entry.push(
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server'
-  )
   baseConfig.plugins.push(new webpack.HotModuleReplacementPlugin())
   baseConfig.plugins.push(new webpack.NamedModulesPlugin())
   baseConfig.module.rules.push({
@@ -45,6 +46,7 @@ if (env !== 'production') {
   baseConfig.plugins.push(new webpack.HashedModuleIdsPlugin())
   baseConfig.plugins.push(new webpack.optimize.ModuleConcatenationPlugin())
   baseConfig.plugins.push(new MinifyWebpackPlugin())
+  baseConfig.plugins.push(new BundleAnalyzerPlugin())
 
   baseConfig.module.rules.push({
     test: /\.js$/,
