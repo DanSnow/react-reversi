@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import glamorous from 'glamorous'
 import setPropTypes from 'recompose/setPropTypes'
 
-const LogContainer = glamorous.div({
+const LogContainer = glamorous('div')({
   width: '25%',
   height: '600px',
   overflow: 'auto',

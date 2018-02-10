@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 
 import PropTypes from 'prop-types'
 import pure from 'recompose/pure'
@@ -12,7 +12,7 @@ class Chess extends Component {
   render () {
     const {color, row, col, candiate, hint} = this.props
     return (
-      <g>
+      <Fragment>
         <rect
           onClick={this.handleClick}
           width='80'
@@ -29,7 +29,7 @@ class Chess extends Component {
           cy={row * 80 + 40}
           r={30}
         />
-      </g>
+      </Fragment>
     )
   }
 

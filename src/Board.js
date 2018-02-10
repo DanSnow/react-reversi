@@ -1,5 +1,5 @@
 import {BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE} from './consts'
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import {reset, userPlaceChess} from './actions'
 
 import BoardBackground from './BoardBackground'
@@ -8,7 +8,7 @@ import Chess from './Chess'
 import PropTypes from 'prop-types'
 import StaticContainer from 'react-static-container'
 import {connect} from 'react-redux'
-import flatMap from 'lodash/flatMap'
+import {flatMap} from 'lodash-es'
 
 class Board extends Component {
   componentDidMount () {
@@ -25,10 +25,10 @@ class Board extends Component {
     return (
       <svg height='640px' width='640px'>
         <StaticContainer>
-          <g>
+          <Fragment>
             <BoardBackground onClick={this.handleClick} />
             <BoardGrid />
-          </g>
+          </Fragment>
         </StaticContainer>
         {flatMap(board, (r, row) =>
           r.map(

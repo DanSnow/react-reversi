@@ -1,4 +1,4 @@
-import {Portal} from 'react-portal'
+import Portal from './Portal'
 import PropTypes from 'prop-types'
 import React from 'react'
 import cx from 'classnames'
@@ -11,7 +11,7 @@ function SettingModal ({
   onVersionChange
 }) {
   return (
-    <Portal isOpen>
+    <Portal>
       <div className={cx('modal', {'is-active': isOpen})}>
         <div className='modal-background' />
         <div className='modal-content'>
@@ -42,8 +42,7 @@ function SettingModal ({
                   <select
                     name='version'
                     className='select'
-                    onChange={onVersionChange}
-                  >
+                    onChange={onVersionChange}>
                     <option value='v1'>V1</option>
                     <option selected value='v2'>
                       V2

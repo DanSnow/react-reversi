@@ -1,12 +1,6 @@
 import {BLACK, WHITE} from './consts'
-import React, {Component} from 'react'
-import {
-  reset,
-  restoreStep,
-  setHint,
-  setRetractStep,
-  setVersion
-} from './actions'
+import React, {Component, Fragment} from 'react'
+import {reset, restoreStep, setRetractStep, setVersion} from './actions'
 
 import Board from './Board'
 import GithubCorner from 'react-github-corner'
@@ -72,37 +66,33 @@ class Game extends Component {
     const {message, score, allowRetract, restoreStep} = this.props
     const {hint, settingOpen} = this.state
     return (
-      <div>
+      <Fragment>
         <div className='container is-fluid'>
           <div className='columns is-desktop'>
             <div className='column is-4'>
               Play as{' '}
               <button
                 className='button is-small is-dark'
-                onClick={this.handleResetBlack}
-              >
+                onClick={this.handleResetBlack}>
                 black
               </button>
               or
               <button
                 className='button is-small is-light'
-                onClick={this.handleResetWhite}
-              >
+                onClick={this.handleResetWhite}>
                 white
               </button>
               or
               <button
                 className='button is-small'
-                onClick={this.handleResetHuman}
-              >
+                onClick={this.handleResetHuman}>
                 Play with human
               </button>
             </div>
             <div className='column is-2'>
               <button
                 className='button is-small'
-                onClick={this.handleOpenSetting}
-              >
+                onClick={this.handleOpenSetting}>
                 Setting
               </button>
             </div>
@@ -110,8 +100,7 @@ class Game extends Component {
               <button
                 className='button is-small'
                 disabled={!allowRetract}
-                onClick={restoreStep}
-              >
+                onClick={restoreStep}>
                 Retract
               </button>
             </div>
@@ -148,7 +137,7 @@ class Game extends Component {
           />
         </div>
         <GithubCorner href='https://github.com/DanSnow/react-reversi' />
-      </div>
+      </Fragment>
     )
   }
 
@@ -176,5 +165,5 @@ export default connect(
     ai: state.ai,
     allowRetract: state.allowRetractStep && state.pastStep.length
   }),
-  {setHint, reset, setVersion, setRetractStep, restoreStep}
+  {reset, setVersion, setRetractStep, restoreStep}
 )(Game)

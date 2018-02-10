@@ -1,14 +1,15 @@
+import React, {Fragment} from 'react'
+
 import BoardColumn from './BoardColumn'
 import BoardRow from './BoardRow'
-import React from 'react'
-import times from 'lodash/times'
+import {times} from 'lodash-es'
 
 function BoardGrid () {
   return (
-    <g>
+    <Fragment>
       {times(9, i => <BoardRow key={i} row={i} />)}
       {times(9, i => <BoardColumn key={i} col={i} />)}
-    </g>
+    </Fragment>
   )
 }
 

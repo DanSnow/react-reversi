@@ -1,7 +1,5 @@
 import {
   ADD_SWITCH,
-  AI,
-  AI2,
   CLEAR_LOG,
   PLACE_CHESS,
   PUSH_LOG,
@@ -16,11 +14,10 @@ import {
   SET_RETRACT_STEP,
   SET_VERSION
 } from './consts'
+import {constant, times} from 'lodash-es'
 
 import Immutable from 'seamless-immutable'
-import constant from 'lodash/constant'
 import {handleActions} from 'redux-actions'
-import times from 'lodash/times'
 
 const initialBoard = times(8, () => times(8, constant(null)))
 export const initialState = Immutable.from({
