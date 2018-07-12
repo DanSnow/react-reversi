@@ -7,6 +7,7 @@ const pkg = require('./package.json')
 const env = process.env.NODE_ENV
 
 var baseConfig = {
+  mode: env === 'production' ? 'production' : 'development',
   entry: ['react-hot-loader/patch', './src/index'],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -30,8 +31,7 @@ var baseConfig = {
 }
 
 if (env !== 'production') {
-  baseConfig.devtool = 'eval'
-  baseConfig.plugins.push(new webpack.HotModuleReplacementPlugin())
+  baseConfig.devtool = 'cheap-module-source-map'
   baseConfig.plugins.push(new webpack.NamedModulesPlugin())
   baseConfig.module.rules.push({
     test: /\.js$/,
