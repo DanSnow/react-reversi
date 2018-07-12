@@ -39,5 +39,13 @@
     ["@babel/plugin-transform-runtime", {"polyfill": false}],
     "@babel/plugin-proposal-class-properties",
     ["@babel/plugin-proposal-object-rest-spread", {"useBuiltIns": true}]
-  ]
+  ],
+  "env": {
+    "production": {
+      "plugins": [["emotion", {"hoist": true}]]
+    },
+    "development": {
+      "plugins": [["emotion", {"sourceMap": true, "autoLabel": true}]]
+    }
+  }
 }
