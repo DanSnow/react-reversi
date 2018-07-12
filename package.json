@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "emotion": "^9.2.5",
     "invariant": "^2.2.4",
     "lodash-es": "^4.17.8",
     "prop-types": "^15.6.1",
