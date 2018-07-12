@@ -3,22 +3,15 @@
   "version": "1.5.0",
   "description": "Reversi game implement in React",
   "scripts": {
-    "start": "webpack-serve",
+    "start": "webpack-serve --require @babel/register webpack.config.babel.js",
     "lint": "prettier-eslint --write 'src/**/*.js' && eslint src",
-    "build": "NODE_ENV='production' webpack"
+    "build": "NODE_ENV='production' webpack -c webpack.config.babel.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/DanSnow/react-reversi"
   },
-  "keywords": [
-    "react",
-    "reactjs",
-    "reversi",
-    "game",
-    "redux-saga",
-    "redux"
-  ],
+  "keywords": ["react", "reactjs", "reversi", "game", "redux-saga", "redux"],
   "author": "DanSnow",
   "license": "MIT",
   "bugs": {
@@ -32,12 +25,12 @@
     "@babel/plugin-transform-runtime": "^7.0.0-beta.44",
     "@babel/preset-env": "^7.0.0-beta.44",
     "@babel/preset-react": "^7.0.0-beta.44",
+    "@babel/register": "^7.0.0-beta.53",
     "@babel/runtime": "^7.0.0-beta.44",
     "babel-eslint": "^8.2.6",
     "babel-loader": "8.0.0-beta.0",
     "babel-minify-webpack-plugin": "^0.3.1",
     "babel-plugin-emotion": "^9.2.5",
-    "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-transform-imports": "^1.5.0",
     "eslint": "^5.1.0",
     "eslint-config-standard": "^11.0.0",

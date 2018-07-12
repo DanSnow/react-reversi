@@ -3,30 +3,15 @@
     [
       "@babel/preset-env",
       {
-        "debug": true,
         "targets": {
-          "browsers": [
-            "last 2 Chrome versions",
-            "last 2 Firefox versions",
-            "last 2 Edge versions"
-          ]
+          "node": "current"
         },
-        "exclude": ["transform-regenerator"],
-        "modules": false
+        "modules": "commonjs"
       }
     ],
     "@babel/preset-react"
   ],
   "plugins": [
-    [
-      "module-resolver",
-      {
-        "root": ["./src"],
-        "alias": {
-          "glamorous": "glamorous/dist/glamorous.esm.tiny"
-        }
-      }
-    ],
     [
       "transform-imports",
       {
