@@ -1,14 +1,16 @@
 {
-  "parser"  : "babel-eslint",
-  "extends" : [
-    "standard",
-    "standard-react"
-  ],
-  "env"     : {
-    "browser" : true
+  "parser": "babel-eslint",
+  "extends": ["standard", "standard-react"],
+  "env": {
+    "browser": true
   },
-  "globals" : {
-    "__DEV__"      : false,
-    "VERSION"     : false
+  "globals": {
+    "__DEV__": false,
+    "VERSION": false
+  },
+  "settings": {
+    "react": {
+      "version": "16.5"
+    }
   }
 }
