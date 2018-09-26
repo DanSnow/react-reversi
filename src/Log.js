@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import compose from 'recompose/compose'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import setPropTypes from 'recompose/setPropTypes'
 import styled from 'react-emotion'
 
@@ -13,11 +13,11 @@ const LogContainer = styled.div({
 })
 
 const Log = compose(
-  connect(state => ({log: state.log})),
+  connect(state => ({ log: state.log })),
   setPropTypes({
     log: PropTypes.array.isRequired
   })
-)(({log}) => (
+)(({ log }) => (
   <LogContainer>
     {log.map((content, idx) => <div key={idx}>{content}</div>)}
   </LogContainer>

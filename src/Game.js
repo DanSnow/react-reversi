@@ -1,18 +1,18 @@
-import {BLACK, WHITE} from './consts'
-import React, {Component, Fragment} from 'react'
-import {reset, restoreStep, setRetractStep, setVersion} from './actions'
+import { BLACK, WHITE } from './consts'
+import React, { Component, Fragment } from 'react'
+import { reset, restoreStep, setRetractStep, setVersion } from './actions'
 
 import Board from './Board'
 import GithubCorner from 'react-github-corner'
 import Log from './Log'
 import PropTypes from 'prop-types'
 import SettingModal from './SettingModal'
-import {connect} from 'react-redux'
-import {scoreSelector} from './selector'
+import { connect } from 'react-redux'
+import { scoreSelector } from './selector'
 
 class Game extends Component {
   handleChange = event => {
-    this.setState({hint: event.target.checked})
+    this.setState({ hint: event.target.checked })
   }
 
   handleResetBlack = () => {
@@ -40,7 +40,7 @@ class Game extends Component {
   }
 
   handleAllowRetract = event => {
-    const {setRetractStep, ai} = this.props
+    const { setRetractStep, ai } = this.props
     if (event.target.checked) {
       if (ai) {
         setRetractStep(3)
@@ -53,18 +53,18 @@ class Game extends Component {
   }
 
   handleVersionChange = event => {
-    const {setVersion} = this.props
+    const { setVersion } = this.props
     setVersion(event.target.value)
   }
 
   getPlayerType (player) {
-    const {ai} = this.props
+    const { ai } = this.props
     return player === ai ? 'ai' : 'human'
   }
 
   render () {
-    const {message, score, allowRetract, restoreStep} = this.props
-    const {hint, settingOpen} = this.state
+    const { message, score, allowRetract, restoreStep } = this.props
+    const { hint, settingOpen } = this.state
     return (
       <Fragment>
         <div className='container is-fluid'>
@@ -73,26 +73,30 @@ class Game extends Component {
               Play as{' '}
               <button
                 className='button is-small is-dark'
-                onClick={this.handleResetBlack}>
+                onClick={this.handleResetBlack}
+              >
                 black
               </button>
               or
               <button
                 className='button is-small is-light'
-                onClick={this.handleResetWhite}>
+                onClick={this.handleResetWhite}
+              >
                 white
               </button>
               or
               <button
                 className='button is-small'
-                onClick={this.handleResetHuman}>
+                onClick={this.handleResetHuman}
+              >
                 Play with human
               </button>
             </div>
             <div className='column is-2'>
               <button
                 className='button is-small'
-                onClick={this.handleOpenSetting}>
+                onClick={this.handleOpenSetting}
+              >
                 Setting
               </button>
             </div>
@@ -100,7 +104,8 @@ class Game extends Component {
               <button
                 className='button is-small'
                 disabled={!allowRetract}
-                onClick={restoreStep}>
+                onClick={restoreStep}
+              >
                 Retract
               </button>
             </div>
@@ -165,5 +170,5 @@ export default connect(
     ai: state.ai,
     allowRetract: state.allowRetractStep && state.pastStep.length
   }),
-  {reset, setVersion, setRetractStep, restoreStep}
+  { reset, setVersion, setRetractStep, restoreStep }
 )(Game)

@@ -1,16 +1,16 @@
-import React, {Component, Fragment} from 'react'
+import React, { Component, Fragment } from 'react'
 
 import PropTypes from 'prop-types'
 import pure from 'recompose/pure'
 
 class Chess extends Component {
   handleClick = event => {
-    const {row, col} = this.props
+    const { row, col } = this.props
     this.props.onClick(event, row, col)
   }
 
   render () {
-    const {color, row, col, candiate, hint} = this.props
+    const { color, row, col, candiate, hint } = this.props
     return (
       <Fragment>
         <rect

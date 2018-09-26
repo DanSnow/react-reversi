@@ -1,6 +1,6 @@
-import {BLACK, WHITE} from './consts'
+import { BLACK, WHITE } from './consts'
 
-import {createSelector} from 'reselect'
+import { createSelector } from 'reselect'
 
 const selectBoard = state => state.board
 
@@ -16,5 +16,5 @@ export const scoreSelector = createSelector([selectBoard], board => {
       }
     })
   })
-  return {black, white}
+  return { black, white }
 })

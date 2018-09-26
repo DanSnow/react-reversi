@@ -5,10 +5,10 @@ import {
   optimize
 } from 'webpack'
 
-import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import MinifyWebpackPlugin from 'babel-minify-webpack-plugin'
-import {join} from 'path'
-import {version} from './package.json'
+import { join } from 'path'
+import { version } from './package.json'
 
 const env = process.env.NODE_ENV
 
@@ -41,12 +41,14 @@ const babelConfig = {
         }
       }
     ],
-    ['@babel/plugin-transform-runtime', {polyfill: false}],
+    ['@babel/plugin-transform-runtime'],
     '@babel/plugin-proposal-class-properties',
-    ['@babel/plugin-proposal-object-rest-spread', {useBuiltIns: true}],
+    ['@babel/plugin-proposal-object-rest-spread', { useBuiltIns: true }],
     [
       'emotion',
-      env === 'production' ? {hoist: true} : {sourceMap: true, autoLabel: true}
+      env === 'production'
+        ? { hoist: true }
+        : { sourceMap: true, autoLabel: true }
     ]
   ]
 }

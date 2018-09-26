@@ -14,10 +14,10 @@ import {
   SET_RETRACT_STEP,
   SET_VERSION
 } from './consts'
-import {constant, times} from 'lodash-es'
+import { constant, times } from 'lodash-es'
 
 import Immutable from 'seamless-immutable'
-import {handleActions} from 'redux-actions'
+import { handleActions } from 'redux-actions'
 
 const initialBoard = times(8, () => times(8, constant(null)))
 export const initialState = Immutable.from({
@@ -35,10 +35,10 @@ export const initialState = Immutable.from({
 
 export default handleActions(
   {
-    [PLACE_CHESS]: (state, {payload: {row, col, chess}}) =>
+    [PLACE_CHESS]: (state, { payload: { row, col, chess } }) =>
       Immutable.setIn(state, ['board', row, col], chess),
     [RESET_BOARD]: state =>
-      Immutable.merge(state, {board: initialBoard, pastStep: []}),
+      Immutable.merge(state, { board: initialBoard, pastStep: [] }),
     [SAVE_STEP]: state => {
       const nextState = Immutable.set(state, 'pastStep', [
         ...state.pastStep,
@@ -60,20 +60,21 @@ export default handleActions(
         ...state.pastStep[0],
         pastStep: state.pastStep.slice(1)
       }),
-    [SET_PLAYER]: (state, {payload}) => Immutable.set(state, 'player', payload),
-    [SET_AI]: (state, {payload}) => Immutable.set(state, 'ai', payload),
-    [SET_CANDIDATE]: (state, {payload}) =>
+    [SET_PLAYER]: (state, { payload }) =>
+      Immutable.set(state, 'player', payload),
+    [SET_AI]: (state, { payload }) => Immutable.set(state, 'ai', payload),
+    [SET_CANDIDATE]: (state, { payload }) =>
       Immutable.set(state, 'candiate', payload),
-    [SET_MESSAGE]: (state, {payload}) =>
+    [SET_MESSAGE]: (state, { payload }) =>
       Immutable.set(state, 'message', payload),
-    [SET_RETRACT_STEP]: (state, {payload}) =>
+    [SET_RETRACT_STEP]: (state, { payload }) =>
       Immutable.set(state, 'allowRetractStep', payload),
     [ADD_SWITCH]: state =>
       Immutable.set(state, 'switchCount', state.switchCount + 1),
     [RESET_SWITCH]: state => Immutable.set(state, 'switchCount', 0),
-    [SET_VERSION]: (state, {payload}) =>
+    [SET_VERSION]: (state, { payload }) =>
       Immutable.set(state, 'version', payload),
-    [PUSH_LOG]: (state, {payload}) =>
+    [PUSH_LOG]: (state, { payload }) =>
       Immutable.set(state, 'log', [...state.log, payload]),
     [CLEAR_LOG]: state => Immutable.set(state, 'log', [])
   },

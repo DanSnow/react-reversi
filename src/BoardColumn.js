@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export default function BoardColumn ({col}) {
+export default function BoardColumn ({ col }) {
   return (
     <line
       stroke='black'

@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 import Game from './Game'
-import {Provider} from 'react-redux'
+import { Provider } from 'react-redux'
 import configureStore from './store'
 import root from './saga'
 

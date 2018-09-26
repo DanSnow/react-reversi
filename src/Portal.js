@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import {PureComponent} from 'react'
-import {createPortal} from 'react-dom'
+import { PureComponent } from 'react'
+import { createPortal } from 'react-dom'
 
 class Portal extends PureComponent {
   render () {

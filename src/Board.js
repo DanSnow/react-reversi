@@ -1,14 +1,14 @@
-import {BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE} from './consts'
-import React, {Component, Fragment} from 'react'
-import {reset, userPlaceChess} from './actions'
+import { BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE } from './consts'
+import React, { Component, Fragment } from 'react'
+import { reset, userPlaceChess } from './actions'
 
 import BoardBackground from './BoardBackground'
 import BoardGrid from './BoardGrid'
 import Chess from './Chess'
 import PropTypes from 'prop-types'
 import StaticContainer from 'react-static-container'
-import {connect} from 'react-redux'
-import {flatMap} from 'lodash-es'
+import { connect } from 'react-redux'
+import { flatMap } from 'lodash-es'
 
 class Board extends Component {
   componentDidMount () {
@@ -21,7 +21,7 @@ class Board extends Component {
   }
 
   render () {
-    const {board, hint} = this.props
+    const { board, hint } = this.props
     return (
       <svg height='640px' width='640px'>
         <StaticContainer>
@@ -60,7 +60,10 @@ class Board extends Component {
   }
 }
 
-export default connect(state => ({board: state.board}), {
-  reset,
-  userPlaceChess
-})(Board)
+export default connect(
+  state => ({ board: state.board }),
+  {
+    reset,
+    userPlaceChess
+  }
+)(Board)

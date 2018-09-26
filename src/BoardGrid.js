@@ -1,8 +1,8 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 
 import BoardColumn from './BoardColumn'
 import BoardRow from './BoardRow'
-import {times} from 'lodash-es'
+import { times } from 'lodash-es'
 
 function BoardGrid () {
   return (

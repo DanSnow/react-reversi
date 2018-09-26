@@ -12,7 +12,7 @@ function SettingModal ({
 }) {
   return (
     <Portal>
-      <div className={cx('modal', {'is-active': isOpen})}>
+      <div className={cx('modal', { 'is-active': isOpen })}>
         <div className='modal-background' />
         <div className='modal-content'>
           <div className='box'>
@@ -42,7 +42,8 @@ function SettingModal ({
                   <select
                     name='version'
                     className='select'
-                    onChange={onVersionChange}>
+                    onChange={onVersionChange}
+                  >
                     <option value='v1'>V1</option>
                     <option selected value='v2'>
                       V2

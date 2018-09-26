@@ -18,7 +18,7 @@ import {
   USER_PLACE_CHESS
 } from './consts'
 
-import {createAction} from 'redux-actions'
+import { createAction } from 'redux-actions'
 
 export const pushLog = createAction(PUSH_LOG)
 export const clearLog = createAction(CLEAR_LOG)

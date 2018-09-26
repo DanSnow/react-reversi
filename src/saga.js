@@ -20,9 +20,9 @@ import {
   setMessage,
   setPlayer
 } from './actions'
-import {call, put, select} from 'redux-saga/effects'
-import {delay, takeEvery} from 'redux-saga'
-import {filter, head, max, orderBy, sample, sum} from 'lodash-es'
+import { call, put, select } from 'redux-saga/effects'
+import { delay, takeEvery } from 'redux-saga'
+import { filter, head, max, orderBy, sample, sum } from 'lodash-es'
 
 import Immutable from 'seamless-immutable'
 import invariant from 'invariant'
@@ -38,7 +38,7 @@ const directions = [
   [-1, 1]
 ]
 
-export function * reset ({payload}) {
+export function * reset ({ payload }) {
   yield put(setMessage(''))
   yield put(clearLog())
   yield put(resetBoard())
@@ -100,7 +100,7 @@ function countAroundChess (board, player, row, col) {
 }
 
 function * switchPlayer () {
-  const {player, switchCount, ai} = yield select()
+  const { player, switchCount, ai } = yield select()
   if (switchCount > 2) {
     yield put(setMessage('Game set'))
     return
@@ -169,8 +169,8 @@ function * flipChees (board, player, row, col, rd, cd) {
   return true
 }
 
-function * flipAllChess ({row, col, player}) {
-  const {board} = yield select()
+function * flipAllChess ({ row, col, player }) {
+  const { board } = yield select()
   for (let i = 0; i < 8; i += 1) {
     let [rd, cd] = directions[i]
     yield call(flipChees, board, player, row, col, rd, cd)
@@ -190,7 +190,7 @@ function * clearCandidate () {
 }
 
 function * placeCandidate () {
-  const {player, board} = yield select()
+  const { player, board } = yield select()
   const chess = getCandidate(player)
   let count = 0
   for (let r = 0; r < 8; r += 1) {
@@ -289,7 +289,7 @@ const judgeScores = {
 }
 
 function * aiJudgeScore () {
-  const {board, player, ai, version} = yield select()
+  const { board, player, ai, version } = yield select()
   const scores = []
   const judge = judgeScores[version]
   invariant(judge, 'version error')
@@ -307,16 +307,16 @@ function * aiJudgeScore () {
     }
   }
   invariant(scores.length, 'Invalid State: Candidates not place')
-  const {score} = head(orderBy(scores, 'score', 'desc'))
-  const {row, col} = sample(filter(scores, ['score', score])) // A little random
+  const { score } = head(orderBy(scores, 'score', 'desc'))
+  const { row, col } = sample(filter(scores, ['score', score])) // A little random
   yield call(delay, 300) // A little delay
   yield put(pushLog(`${getPlayer(player)} (${row}, ${col})`))
-  yield call(flipAllChess, {row, col, player})
+  yield call(flipAllChess, { row, col, player })
   yield put(placeChess(row, col, player))
 }
 
-function * userPlaceChess ({payload: {col, row}}) {
-  const {player, board} = yield select()
+function * userPlaceChess ({ payload: { col, row } }) {
+  const { player, board } = yield select()
   if (!isPlaceable(board, player, row, col)) {
     // Not allow place on exist chess or not candiate
     return
@@ -325,7 +325,7 @@ function * userPlaceChess ({payload: {col, row}}) {
   yield put(saveStep())
 
   yield put(pushLog(`${getPlayer(player)} (${row}, ${col})`))
-  yield call(flipAllChess, {row, col, player})
+  yield call(flipAllChess, { row, col, player })
 
   yield put(placeChess(row, col, player))
   yield call(switchPlayer)
