@@ -42,7 +42,7 @@ const babelConfig = {
       }
     ],
     '@babel/plugin-syntax-dynamic-import',
-    '@babel/plugin-transform-runtime',
+    ['@babel/plugin-transform-runtime', { useESModules: true }],
     '@babel/plugin-proposal-class-properties',
     ['@babel/plugin-proposal-object-rest-spread', { useBuiltIns: true }],
     [
