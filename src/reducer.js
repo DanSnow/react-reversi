@@ -116,7 +116,9 @@ export default handleActions(
         draft.version = payload
       }),
     [PUSH_LOG]: (state, { payload }) =>
-      produce(state, draft => draft.log.push(payload)),
+      produce(state, draft => {
+        draft.log.push(payload)
+      }),
     [CLEAR_LOG]: state =>
       produce(state, draft => {
         draft.log = []
