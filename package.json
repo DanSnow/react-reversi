@@ -1,6 +1,6 @@
 {
   "name": "react-reversi",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "Reversi game implement in React",
   "scripts": {
     "start": "webpack-serve --require @babel/register webpack.config.babel.js",
