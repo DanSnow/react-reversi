@@ -1,3 +1,9 @@
+1.6.0
+=====
+
+- Refine UI
+- Add history
+
 1.5.0
 =====
 
