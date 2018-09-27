@@ -31,8 +31,8 @@ import { call, put, select } from 'redux-saga/effects'
 import { capitalize, filter, head, max, orderBy, sample, sum } from 'lodash-es'
 import { delay, takeEvery } from 'redux-saga'
 
-import Immutable from 'seamless-immutable'
 import invariant from 'invariant'
+import { produce } from 'immer'
 import { scoreSelector } from './selector'
 
 const directions = [
@@ -304,7 +304,9 @@ function judgeScoreV2 (board, ai, row, col) {
   } else if (row === 2 || col === 2 || row === 5 || col === 5) {
     posScore = 50
   }
-  const nextBoard = Immutable.setIn(board, [row, col], ai)
+  const nextBoard = produce(board, draft => {
+    draft[row][col] = ai
+  })
   const willBeFlipeds = directions.map(([rd, cd]) =>
     checkFlipChess(nextBoard, getOpposite(ai), row - rd, col - cd, rd, cd)
   )
