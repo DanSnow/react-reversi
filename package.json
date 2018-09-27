@@ -29,6 +29,7 @@
     "@babel/core": "^7.1.0",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
@@ -58,6 +59,8 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "emotion": "^9.2.10",
+    "i18next": "^11.9.0",
+    "immer": "^1.7.2",
     "invariant": "^2.2.4",
     "lodash-es": "^4.17.11",
     "prop-types": "^15.6.1",
@@ -65,14 +68,15 @@
     "react-dom": "^16.5.2",
     "react-emotion": "^9.2.10",
     "react-github-corner": "^2.1.0",
+    "react-i18next": "^7.13.0",
     "react-redux": "^5.0.7",
     "react-static-container": "^1.0.2",
     "recompose": "^0.30.0",
     "redux": "^4.0.0",
     "redux-actions": "^2.6.1",
     "redux-logger": "^3.0.6",
+    "redux-persist": "^5.10.0",
     "redux-saga": "^0.16.0",
-    "reselect": "^3.0.1",
-    "seamless-immutable": "^7.1.4"
+    "reselect": "^3.0.1"
   }
 }
