@@ -2,6 +2,11 @@ import React, { Component, Fragment } from 'react'
 
 import PropTypes from 'prop-types'
 import pure from 'recompose/pure'
+import styled from 'react-emotion'
+
+const Circle = styled.circle({
+  pointerEvents: 'none'
+})
 
 class Chess extends Component {
   handleClick = event => {
@@ -21,8 +26,7 @@ class Chess extends Component {
           x={col * 80}
           y={row * 80}
         />
-        <circle
-          style={styles.passClick}
+        <Circle
           fill={color}
           fillOpacity={candiate ? (hint ? '0.3' : '0') : '1'}
           cx={col * 80 + 40}
@@ -40,12 +44,6 @@ class Chess extends Component {
     col: PropTypes.number.isRequired,
     candiate: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired
-  }
-}
-
-const styles = {
-  passClick: {
-    pointerEvents: 'none'
   }
 }
 

@@ -3,6 +3,7 @@ import { BLACK, WHITE } from './consts'
 import { createSelector } from 'reselect'
 
 const selectBoard = state => state.board
+const selectPlayer = state => state.player
 
 export const scoreSelector = createSelector([selectBoard], board => {
   var black = 0
@@ -18,3 +19,8 @@ export const scoreSelector = createSelector([selectBoard], board => {
   })
   return { black, white }
 })
+
+export const startedSelector = createSelector(
+  [selectPlayer],
+  player => !!player
+)

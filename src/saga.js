@@ -1,6 +1,10 @@
 import {
   BLACK,
   BLACK_CANDIDATE,
+  ENDED,
+  IDLE,
+  PLAYING,
+  REBOOT,
   RESET,
   SWITCH_PLAYER,
   USER_PLACE_CHESS,
@@ -10,6 +14,7 @@ import {
 import {
   addSwitch,
   clearLog,
+  incrementHistory,
   placeChess,
   pushLog,
   resetBoard,
@@ -18,14 +23,17 @@ import {
   setAi,
   setCandidate,
   setMessage,
-  setPlayer
+  setOverlay,
+  setPlayer,
+  setState
 } from './actions'
 import { call, put, select } from 'redux-saga/effects'
+import { capitalize, filter, head, max, orderBy, sample, sum } from 'lodash-es'
 import { delay, takeEvery } from 'redux-saga'
-import { filter, head, max, orderBy, sample, sum } from 'lodash-es'
 
 import Immutable from 'seamless-immutable'
 import invariant from 'invariant'
+import { scoreSelector } from './selector'
 
 const directions = [
   [-1, 0], // Up
@@ -38,18 +46,26 @@ const directions = [
   [-1, 1]
 ]
 
-export function * reset ({ payload }) {
+export function * reboot () {
+  yield put(setState(IDLE))
   yield put(setMessage(''))
   yield put(clearLog())
   yield put(resetBoard())
-  yield put(setAi(payload))
+  yield put(setAi(null))
+  yield put(setPlayer(null))
   yield put(resetSwitch())
+}
+
+export function * reset ({ payload }) {
+  yield call(reboot)
+  yield put(setAi(payload))
   yield put(setPlayer(BLACK))
   yield put(placeChess(3, 3, BLACK))
   yield put(placeChess(3, 4, WHITE))
   yield put(placeChess(4, 4, BLACK))
   yield put(placeChess(4, 3, WHITE))
   yield call(placeCandidate)
+  yield put(setState(PLAYING))
   if (payload === BLACK) {
     yield call(aiJudgeScore)
     yield call(switchPlayer)
@@ -92,7 +108,7 @@ function getPlayer (player) {
   return player === WHITE ? 'white' : 'black'
 }
 
-function countAroundChess (board, player, row, col) {
+function countAroundChess (board, row, col) {
   return directions.reduce(
     (s, [rd, cd]) => s + Number(!!getChess(board, row + rd, col + cd)),
     0
@@ -101,8 +117,29 @@ function countAroundChess (board, player, row, col) {
 
 function * switchPlayer () {
   const { player, switchCount, ai } = yield select()
+  const score = yield select(scoreSelector)
   if (switchCount > 2) {
     yield put(setMessage('Game set'))
+    yield put(setState(ENDED))
+    if (score.black === score.white) {
+      yield put(setOverlay('Draw'))
+      if (ai) {
+        yield put(incrementHistory('draw'))
+      }
+      return
+    }
+    const winner = score.black > score.white ? BLACK : WHITE
+    if (ai) {
+      if (player === winner) {
+        yield put(setOverlay('You Win'))
+        yield put(incrementHistory('win'))
+      } else {
+        yield put(setOverlay('You Lose'))
+        yield put(incrementHistory('lose'))
+      }
+    } else {
+      yield put(setOverlay(`${capitalize(getPlayer(winner))} Win`))
+    }
     return
   }
 
@@ -244,7 +281,7 @@ function judgeScoreV2 (board, ai, row, col) {
   )
   const atTopOrBottom = row === 0 || row === 7
   const atLeftOrRight = col === 0 || col === 7
-  const around = countAroundChess(board, ai, row, col)
+  const around = countAroundChess(board, row, col)
   let posScore = 0
   if ((row === 0 && col === 0) || (row === 7 && col === 7)) {
     // coner first
@@ -310,7 +347,12 @@ function * aiJudgeScore () {
   const { score } = head(orderBy(scores, 'score', 'desc'))
   const { row, col } = sample(filter(scores, ['score', score])) // A little random
   yield call(delay, 300) // A little delay
-  yield put(pushLog(`${getPlayer(player)} (${row}, ${col})`))
+  yield put(
+    pushLog({
+      player,
+      pos: `(${row}, ${col})`
+    })
+  )
   yield call(flipAllChess, { row, col, player })
   yield put(placeChess(row, col, player))
 }
@@ -324,7 +366,12 @@ function * userPlaceChess ({ payload: { col, row } }) {
 
   yield put(saveStep())
 
-  yield put(pushLog(`${getPlayer(player)} (${row}, ${col})`))
+  yield put(
+    pushLog({
+      player,
+      pos: `(${row}, ${col})`
+    })
+  )
   yield call(flipAllChess, { row, col, player })
 
   yield put(placeChess(row, col, player))
@@ -333,6 +380,7 @@ function * userPlaceChess ({ payload: { col, row } }) {
 
 export function * root () {
   yield [
+    takeEvery(REBOOT, reboot),
     takeEvery(RESET, reset),
     takeEvery(USER_PLACE_CHESS, userPlaceChess),
     takeEvery(SWITCH_PLAYER, switchPlayer)

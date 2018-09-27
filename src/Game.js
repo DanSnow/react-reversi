@@ -1,26 +1,26 @@
-import { BLACK, WHITE } from './consts'
-import React, { Component, Fragment } from 'react'
-import { reset, restoreStep, setRetractStep, setVersion } from './actions'
+import { ENDED, IDLE } from './consts'
+import React, { Component } from 'react'
+import {
+  reboot,
+  reset,
+  restoreStep,
+  setRetractStep,
+  setState,
+  setVersion
+} from './actions'
 
 import Board from './Board'
+import { Confirm } from './Confirm'
 import GithubCorner from 'react-github-corner'
 import Log from './Log'
 import PropTypes from 'prop-types'
+import Score from './Score'
 import SettingModal from './SettingModal'
 import { connect } from 'react-redux'
-import { scoreSelector } from './selector'
 
 class Game extends Component {
   handleChange = event => {
     this.setState({ hint: event.target.checked })
-  }
-
-  handleResetBlack = () => {
-    this.props.reset(WHITE)
-  }
-
-  handleResetWhite = () => {
-    this.props.reset(BLACK)
   }
 
   handleResetHuman = () => {
@@ -57,82 +57,84 @@ class Game extends Component {
     setVersion(event.target.value)
   }
 
-  getPlayerType (player) {
-    const { ai } = this.props
-    return player === ai ? 'ai' : 'human'
+  resetState = () => {
+    this.props.setState(IDLE)
   }
 
   render () {
-    const { message, score, allowRetract, restoreStep } = this.props
+    const { message, reboot, allowRetract, restoreStep } = this.props
     const { hint, settingOpen } = this.state
     return (
-      <Fragment>
+      <>
         <div className='container is-fluid'>
-          <div className='columns is-desktop'>
-            <div className='column is-4'>
-              Play as{' '}
-              <button
-                className='button is-small is-dark'
-                onClick={this.handleResetBlack}
-              >
-                black
-              </button>
-              or
-              <button
-                className='button is-small is-light'
-                onClick={this.handleResetWhite}
-              >
-                white
-              </button>
-              or
-              <button
-                className='button is-small'
-                onClick={this.handleResetHuman}
-              >
-                Play with human
-              </button>
-            </div>
-            <div className='column is-2'>
-              <button
-                className='button is-small'
-                onClick={this.handleOpenSetting}
-              >
-                Setting
-              </button>
-            </div>
-            <div className='column is-1'>
-              <button
-                className='button is-small'
-                disabled={!allowRetract}
-                onClick={restoreStep}
-              >
-                Retract
-              </button>
-            </div>
-            <div className='column is-4'>
-              <span>{message}</span>
-            </div>
-          </div>
           <div className='columns'>
-            <div className='column is-6'>
-              <Board hint={hint} />
+            <div className='column is-6 is-offset-2'>
+              <nav className='navbar'>
+                <div className='navbar-brand'>
+                  <div className='navbar-item'>
+                    <p className='title is-3'>Reversi</p>
+                  </div>
+                </div>
+                <div className='navbar-item navbar-end'>
+                  <div className='field is-grouped'>
+                    <p className='control'>
+                      <button
+                        className='button is-rounded'
+                        onClick={this.handleResetHuman}
+                      >
+                        <span className='icon'>
+                          <i className='fas fa-user-friends' />
+                        </span>
+                        <span>Play with friend</span>
+                      </button>
+                      <button className='button is-rounded' onClick={reboot}>
+                        <span className='icon'>
+                          <i className='fas fa-power-off' />
+                        </span>
+                        <span>Restart</span>
+                      </button>
+                      <button
+                        className='button is-rounded'
+                        disabled={!allowRetract}
+                        onClick={restoreStep}
+                      >
+                        <span className='icon'>
+                          <i className='fas fa-undo' />
+                        </span>
+                      </button>
+                      <button
+                        className='button is-rounded'
+                        onClick={this.handleOpenSetting}
+                      >
+                        <span className='icon'>
+                          <i className='fas fa-cog' />
+                        </span>
+                      </button>
+                    </p>
+                  </div>
+                </div>
+              </nav>
+              <div className='columns'>
+                <div className='column'>
+                  <Board hint={hint} />
+                  <span className='is-pulled-right'>{message}</span>
+                </div>
+                <div className='column'>
+                  <Score />
+                </div>
+              </div>
             </div>
             <div className='column is-2 is-hidden-touch'>
-              <div> Score: </div>
-              <div>
-                {' '}
-                black({this.getPlayerType(BLACK)}): {score.black}{' '}
-              </div>
-              <div>
-                {' '}
-                white({this.getPlayerType(WHITE)}): {score.white}
-              </div>
-              <div> {VERSION} </div>
-            </div>
-            <div className='column is-4 is-hidden-touch'>
               <Log />
             </div>
           </div>
+          <Confirm
+            open={this.props.showReplay}
+            onConfirm={reboot}
+            onCancel={this.resetState}
+          >
+            Play Again?
+          </Confirm>
           <SettingModal
             isOpen={settingOpen}
             onClose={this.handleCloseSetting}
@@ -142,7 +144,7 @@ class Game extends Component {
           />
         </div>
         <GithubCorner href='https://github.com/DanSnow/react-reversi' />
-      </Fragment>
+      </>
     )
   }
 
@@ -154,11 +156,13 @@ class Game extends Component {
   static propTypes = {
     ai: PropTypes.string,
     message: PropTypes.string.isRequired,
-    allowRetract: PropTypes.bool.isRequired,
+    allowRetract: PropTypes.any.isRequired,
+    showReplay: PropTypes.any.isRequired,
     reset: PropTypes.func.isRequired,
+    reboot: PropTypes.func.isRequired,
     setRetractStep: PropTypes.func.isRequired,
+    setState: PropTypes.func.isRequired,
     restoreStep: PropTypes.func.isRequired,
-    score: PropTypes.object.isRequired,
     setVersion: PropTypes.func.isRequired
   }
 }
@@ -166,9 +170,9 @@ class Game extends Component {
 export default connect(
   state => ({
     message: state.message,
-    score: scoreSelector(state),
     ai: state.ai,
-    allowRetract: state.allowRetractStep && state.pastStep.length
+    allowRetract: state.allowRetractStep && state.pastStep.length,
+    showReplay: state.state === ENDED && !state.overlay
   }),
-  { reset, setVersion, setRetractStep, restoreStep }
+  { reset, setVersion, setRetractStep, restoreStep, reboot, setState }
 )(Game)

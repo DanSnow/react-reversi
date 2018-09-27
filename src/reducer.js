@@ -1,6 +1,7 @@
 import {
   ADD_SWITCH,
   CLEAR_LOG,
+  INCREMENT_HISTORY,
   PLACE_CHESS,
   PUSH_LOG,
   RESET_BOARD,
@@ -10,18 +11,24 @@ import {
   SET_AI,
   SET_CANDIDATE,
   SET_MESSAGE,
+  SET_OVERLAY,
   SET_PLAYER,
   SET_RETRACT_STEP,
+  SET_STATE,
   SET_VERSION
 } from './consts'
 import { constant, times } from 'lodash-es'
+import { produce, setAutoFreeze } from 'immer'
 
-import Immutable from 'seamless-immutable'
 import { handleActions } from 'redux-actions'
 
+setAutoFreeze(false)
+
 const initialBoard = times(8, () => times(8, constant(null)))
-export const initialState = Immutable.from({
+export const initialState = {
+  state: 'idle',
   message: '',
+  overlay: '',
   candiate: 0,
   switchCount: 0,
   version: 'v2',
@@ -30,53 +37,90 @@ export const initialState = Immutable.from({
   log: [],
   board: initialBoard,
   pastStep: [],
-  allowRetractStep: 0
-})
+  allowRetractStep: 0,
+  history: { win: 0, lose: 0, draw: 0 }
+}
 
 export default handleActions(
   {
     [PLACE_CHESS]: (state, { payload: { row, col, chess } }) =>
-      Immutable.setIn(state, ['board', row, col], chess),
+      produce(state, draft => {
+        draft.board[row][col] = chess
+      }),
     [RESET_BOARD]: state =>
-      Immutable.merge(state, { board: initialBoard, pastStep: [] }),
-    [SAVE_STEP]: state => {
-      const nextState = Immutable.set(state, 'pastStep', [
-        ...state.pastStep,
-        {
+      produce(state, draft => {
+        Object.assign(draft, { board: initialBoard, pastStep: [] })
+      }),
+    [SAVE_STEP]: state =>
+      produce(state, draft => {
+        draft.pastStep.push({
           board: state.board,
           player: state.player,
           candiate: state.candiate,
           log: state.log,
           message: state.message
+        })
+        if (draft.pastStep.length > draft.allowRetractStep) {
+          draft.pastStep.splice(1)
         }
-      ])
-      if (nextState.pastStep.length > state.allowRetractStep) {
-        return Immutable.set(nextState, 'pastStep', state.pastStep.slice(1))
-      }
-      return nextState
-    },
+      }),
     [RESTORE_STEP]: state =>
-      Immutable.merge(state, {
-        ...state.pastStep[0],
-        pastStep: state.pastStep.slice(1)
+      produce(state, draft => {
+        Object.assign(draft, {
+          ...state.pastStep[0],
+          pastStep: state.pastStep.slice(1)
+        })
+      }),
+    [INCREMENT_HISTORY]: (state, { payload }) =>
+      produce(state, draft => {
+        draft.history[payload] += 1
       }),
     [SET_PLAYER]: (state, { payload }) =>
-      Immutable.set(state, 'player', payload),
-    [SET_AI]: (state, { payload }) => Immutable.set(state, 'ai', payload),
+      produce(state, draft => {
+        draft.player = payload
+      }),
+    [SET_AI]: (state, { payload }) =>
+      produce(state, draft => {
+        draft.ai = payload
+      }),
     [SET_CANDIDATE]: (state, { payload }) =>
-      Immutable.set(state, 'candiate', payload),
+      produce(state, draft => {
+        draft.candiate = payload
+      }),
     [SET_MESSAGE]: (state, { payload }) =>
-      Immutable.set(state, 'message', payload),
+      produce(state, draft => {
+        draft.message = payload
+      }),
+    [SET_OVERLAY]: (state, { payload }) =>
+      produce(state, draft => {
+        draft.overlay = payload
+      }),
+    [SET_STATE]: (state, { payload }) =>
+      produce(state, draft => {
+        draft.state = payload
+      }),
     [SET_RETRACT_STEP]: (state, { payload }) =>
-      Immutable.set(state, 'allowRetractStep', payload),
+      produce(state, draft => {
+        draft.allowRetractStep = payload
+      }),
     [ADD_SWITCH]: state =>
-      Immutable.set(state, 'switchCount', state.switchCount + 1),
-    [RESET_SWITCH]: state => Immutable.set(state, 'switchCount', 0),
+      produce(state, draft => {
+        draft.switchCount += 1
+      }),
+    [RESET_SWITCH]: state =>
+      produce(state, draft => {
+        draft.switchCount = 0
+      }),
     [SET_VERSION]: (state, { payload }) =>
-      Immutable.set(state, 'version', payload),
+      produce(state, draft => {
+        draft.version = payload
+      }),
     [PUSH_LOG]: (state, { payload }) =>
-      Immutable.set(state, 'log', [...state.log, payload]),
-    [CLEAR_LOG]: state => Immutable.set(state, 'log', [])
+      produce(state, draft => draft.log.push(payload)),
+    [CLEAR_LOG]: state =>
+      produce(state, draft => {
+        draft.log = []
+      })
   },
   initialState
 )
