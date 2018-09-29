@@ -31,9 +31,9 @@ import { call, put, select } from 'redux-saga/effects'
 import { capitalize, filter, head, max, orderBy, sample, sum } from 'lodash-es'
 import { delay, takeEvery } from 'redux-saga'
 
+import { createScoreSelector } from './selector'
 import invariant from 'invariant'
 import { produce } from 'immer'
-import { scoreSelector } from './selector'
 
 const directions = [
   [-1, 0], // Up
@@ -48,6 +48,7 @@ const directions = [
 
 export function * reboot () {
   yield put(setState(IDLE))
+  yield put(setOverlay(''))
   yield put(setMessage(''))
   yield put(clearLog())
   yield put(resetBoard())
@@ -115,6 +116,8 @@ function countAroundChess (board, row, col) {
   )
 }
 
+const scoreSelector = createScoreSelector()
+
 function * switchPlayer () {
   const { player, switchCount, ai } = yield select()
   const score = yield select(scoreSelector)
@@ -130,12 +133,12 @@ function * switchPlayer () {
     }
     const winner = score.black > score.white ? BLACK : WHITE
     if (ai) {
-      if (player === winner) {
-        yield put(setOverlay('You Win'))
-        yield put(incrementHistory('win'))
-      } else {
+      if (ai === winner) {
         yield put(setOverlay('You Lose'))
         yield put(incrementHistory('lose'))
+      } else {
+        yield put(setOverlay('You Win'))
+        yield put(incrementHistory('win'))
       }
     } else {
       yield put(setOverlay(`${capitalize(getPlayer(winner))} Win`))

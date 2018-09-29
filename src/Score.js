@@ -3,7 +3,7 @@ import { BLACK, WHITE } from './consts'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { scoreSelector } from './selector'
+import { createScoreSelector } from './selector'
 
 function getPlayerType (player, ai) {
   return player === ai ? 'ai' : 'player'
@@ -38,6 +38,8 @@ Score.propTypes = {
   score: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired
 }
+
+const scoreSelector = createScoreSelector()
 
 export default connect(state => ({
   score: scoreSelector(state),
