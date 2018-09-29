@@ -1,3 +1,9 @@
+1.7.0
+=====
+
+- Fix overlay
+- Add translation
+
 1.6.2
 =====
 
