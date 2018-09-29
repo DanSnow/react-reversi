@@ -2,13 +2,15 @@ import Portal from './Portal'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { cx } from 'react-emotion'
+import { translate } from 'react-i18next'
 
 function SettingModal ({
   isOpen,
   onClose,
   onHintChange,
   onRetractChange,
-  onVersionChange
+  onVersionChange,
+  t
 }) {
   return (
     <Portal target='dialog-root'>
@@ -20,7 +22,7 @@ function SettingModal ({
               <p className='control'>
                 <label className='checkbox' htmlFor='hint'>
                   <input type='checkbox' name='hint' onChange={onHintChange} />
-                  Hint
+                  {t('Hint')}
                 </label>
               </p>
             </div>
@@ -32,14 +34,14 @@ function SettingModal ({
                     name='retract'
                     onChange={onRetractChange}
                   />
-                  Allow Retract
+                  {t('Allow Retract')}
                 </label>
               </p>
             </div>
             <div className='field'>
               <div className='control'>
                 <label className='label' htmlFor='version'>
-                  AI Version:
+                  {t('AI Version')}
                 </label>
                 <div className='select'>
                   <select
@@ -73,7 +75,8 @@ SettingModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   onHintChange: PropTypes.func.isRequired,
   onRetractChange: PropTypes.func.isRequired,
-  onVersionChange: PropTypes.func.isRequired
+  onVersionChange: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired
 }
 
-export default SettingModal
+export default translate()(SettingModal)

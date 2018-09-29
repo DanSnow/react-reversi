@@ -16,7 +16,9 @@ import Log from './Log'
 import PropTypes from 'prop-types'
 import Score from './Score'
 import SettingModal from './SettingModal'
+import compose from 'recompose/compose'
 import { connect } from 'react-redux'
+import { translate } from 'react-i18next'
 
 class Game extends Component {
   handleChange = event => {
@@ -62,7 +64,7 @@ class Game extends Component {
   }
 
   render () {
-    const { message, reboot, allowRetract, restoreStep } = this.props
+    const { message, reboot, allowRetract, restoreStep, t } = this.props
     const { hint, settingOpen } = this.state
     return (
       <>
@@ -72,7 +74,7 @@ class Game extends Component {
               <nav className='navbar'>
                 <div className='navbar-brand'>
                   <div className='navbar-item'>
-                    <p className='title is-3'>Reversi</p>
+                    <p className='title is-3'>{t('Reversi')}</p>
                   </div>
                 </div>
                 <div className='navbar-item navbar-end'>
@@ -85,13 +87,13 @@ class Game extends Component {
                         <span className='icon'>
                           <i className='fas fa-user-friends' />
                         </span>
-                        <span>Play with friend</span>
+                        <span>{t('Play with friend')}</span>
                       </button>
                       <button className='button is-rounded' onClick={reboot}>
                         <span className='icon'>
                           <i className='fas fa-power-off' />
                         </span>
-                        <span>Restart</span>
+                        <span>{t('Restart')}</span>
                       </button>
                       <button
                         className='button is-rounded'
@@ -133,7 +135,7 @@ class Game extends Component {
             onConfirm={reboot}
             onCancel={this.resetState}
           >
-            Play Again?
+            {t('Play Again?')}
           </Confirm>
           <SettingModal
             isOpen={settingOpen}
@@ -158,6 +160,7 @@ class Game extends Component {
     message: PropTypes.string.isRequired,
     allowRetract: PropTypes.any.isRequired,
     showReplay: PropTypes.any.isRequired,
+    t: PropTypes.func.isRequired,
     reset: PropTypes.func.isRequired,
     reboot: PropTypes.func.isRequired,
     setRetractStep: PropTypes.func.isRequired,
@@ -167,12 +170,15 @@ class Game extends Component {
   }
 }
 
-export default connect(
-  state => ({
-    message: state.message,
-    ai: state.ai,
-    allowRetract: state.allowRetractStep && state.pastStep.length,
-    showReplay: state.state === ENDED && !state.overlay
-  }),
-  { reset, setVersion, setRetractStep, restoreStep, reboot, setState }
+export default compose(
+  connect(
+    state => ({
+      message: state.message,
+      ai: state.ai,
+      allowRetract: state.allowRetractStep && state.pastStep.length,
+      showReplay: state.state === ENDED && !state.overlay
+    }),
+    { reset, setVersion, setRetractStep, restoreStep, reboot, setState }
+  ),
+  translate()
 )(Game)
