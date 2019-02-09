@@ -1,7 +1,7 @@
 import Portal from './Portal'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { cx } from 'react-emotion'
+import cx from 'classnames'
 
 export function Confirm ({ open, children, onConfirm, onCancel }) {
   return (

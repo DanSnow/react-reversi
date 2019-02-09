@@ -11,7 +11,7 @@ import StaticContainer from 'react-static-container'
 import { connect } from 'react-redux'
 import { flatMap } from 'lodash-es'
 import { startedSelector } from './selector'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 const Overlay = styled.text({
   fill: 'red',
@@ -32,12 +32,9 @@ class Board extends Component {
     this.props.userPlaceChess(row, col)
   }
 
-  selectColor = color => {
-    this.props.reset(color)
-  }
-
   render () {
     const { board, hint, started, overlay } = this.props
+
     return (
       <svg height='640px' width='640px'>
         <StaticContainer>
@@ -55,9 +52,7 @@ class Board extends Component {
                   row={row}
                   col={col}
                   hint={hint}
-                  color={
-                    c === WHITE || c === WHITE_CANDIDATE ? 'white' : 'black'
-                  }
+                  color={c === WHITE || c === WHITE_CANDIDATE ? 'white' : 'black'}
                   candiate={c === WHITE_CANDIDATE || c === BLACK_CANDIDATE}
                   onClick={this.handleClick}
                 />
@@ -72,10 +67,6 @@ class Board extends Component {
         )}
       </svg>
     )
-  }
-
-  state = {
-    started: false
   }
 
   static propTypes = {

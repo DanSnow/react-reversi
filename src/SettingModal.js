@@ -1,17 +1,12 @@
 import Portal from './Portal'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { cx } from 'react-emotion'
-import { translate } from 'react-i18next'
+import cx from 'classnames'
+import { useTranslation } from 'react-i18next'
 
-function SettingModal ({
-  isOpen,
-  onClose,
-  onHintChange,
-  onRetractChange,
-  onVersionChange,
-  t
-}) {
+function SettingModal ({ isOpen, onClose, onHintChange, onRetractChange, onVersionChange }) {
+  const { t } = useTranslation()
+
   return (
     <Portal target='dialog-root'>
       <div className={cx('modal', { 'is-active': isOpen })}>
@@ -29,11 +24,7 @@ function SettingModal ({
             <div className='field'>
               <p className='control'>
                 <label className='checkbox' htmlFor='retract'>
-                  <input
-                    type='checkbox'
-                    name='retract'
-                    onChange={onRetractChange}
-                  />
+                  <input type='checkbox' name='retract' onChange={onRetractChange} />
                   {t('Allow Retract')}
                 </label>
               </p>
@@ -44,11 +35,7 @@ function SettingModal ({
                   {t('AI Version')}
                 </label>
                 <div className='select'>
-                  <select
-                    name='version'
-                    defaultValue='v2'
-                    onChange={onVersionChange}
-                  >
+                  <select name='version' defaultValue='v2' onChange={onVersionChange}>
                     <option value='v1'>V1</option>
                     <option value='v2'>V2</option>
                   </select>
@@ -75,8 +62,7 @@ SettingModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   onHintChange: PropTypes.func.isRequired,
   onRetractChange: PropTypes.func.isRequired,
-  onVersionChange: PropTypes.func.isRequired,
-  t: PropTypes.func.isRequired
+  onVersionChange: PropTypes.func.isRequired
 }
 
-export default translate()(SettingModal)
+export default SettingModal

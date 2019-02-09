@@ -27,9 +27,8 @@ import {
   setPlayer,
   setState
 } from './actions'
-import { call, put, select } from 'redux-saga/effects'
+import { all, call, delay, put, select, takeEvery } from 'redux-saga/effects'
 import { capitalize, filter, head, max, orderBy, sample, sum } from 'lodash-es'
-import { delay, takeEvery } from 'redux-saga'
 
 import { createScoreSelector } from './selector'
 import invariant from 'invariant'
@@ -58,6 +57,7 @@ export function * reboot () {
 }
 
 export function * reset ({ payload }) {
+  console.log('reset')
   yield call(reboot)
   yield put(setAi(payload))
   yield put(setPlayer(BLACK))
@@ -110,10 +110,7 @@ function getPlayer (player) {
 }
 
 function countAroundChess (board, row, col) {
-  return directions.reduce(
-    (s, [rd, cd]) => s + Number(!!getChess(board, row + rd, col + cd)),
-    0
-  )
+  return directions.reduce((s, [rd, cd]) => s + Number(!!getChess(board, row + rd, col + cd)), 0)
 }
 
 const scoreSelector = createScoreSelector()
@@ -252,19 +249,14 @@ function * placeCandidate () {
 }
 
 function judgeScoreV1 (board, ai, row, col) {
-  const flips = directions.map(([rd, cd]) =>
-    checkFlipChess(board, ai, row, col, rd, cd)
-  )
+  const flips = directions.map(([rd, cd]) => checkFlipChess(board, ai, row, col, rd, cd))
   const atTopOrBottom = row === 0 || row === 7
   const atLeftOrRight = col === 0 || col === 7
   let posScore = 0
   if ((row === 0 && col === 0) || (row === 7 && col === 7)) {
     // coner first
     posScore = 200
-  } else if (
-    (atTopOrBottom && (col === 1 || col === 6)) ||
-    ((row === 1 || row === 6) && atLeftOrRight)
-  ) {
+  } else if ((atTopOrBottom && (col === 1 || col === 6)) || ((row === 1 || row === 6) && atLeftOrRight)) {
     posScore = -80
   } else if (row === 0 || col === 0 || row === 7 || col === 7) {
     // Border second
@@ -279,9 +271,7 @@ function judgeScoreV1 (board, ai, row, col) {
 }
 
 function judgeScoreV2 (board, ai, row, col) {
-  const flips = directions.map(([rd, cd]) =>
-    checkFlipChess(board, ai, row, col, rd, cd)
-  )
+  const flips = directions.map(([rd, cd]) => checkFlipChess(board, ai, row, col, rd, cd))
   const atTopOrBottom = row === 0 || row === 7
   const atLeftOrRight = col === 0 || col === 7
   const around = countAroundChess(board, row, col)
@@ -289,10 +279,7 @@ function judgeScoreV2 (board, ai, row, col) {
   if ((row === 0 && col === 0) || (row === 7 && col === 7)) {
     // coner first
     posScore = 1000
-  } else if (
-    (atTopOrBottom && (col === 1 || col === 6)) ||
-    ((row === 1 || row === 6) && atLeftOrRight)
-  ) {
+  } else if ((atTopOrBottom && (col === 1 || col === 6)) || ((row === 1 || row === 6) && atLeftOrRight)) {
     if (around > 0) {
       // Don't place chess around corner
       posScore = -300
@@ -315,13 +302,8 @@ function judgeScoreV2 (board, ai, row, col) {
   )
   const willBeFliped = max(willBeFlipeds)
   const willLost =
-    willBeFliped > 0
-      ? posScore > 0
-        ? willBeFliped * 2 + posScore * 20
-        : -posScore * 50 + willBeFliped * 5
-      : -10000
-  const score =
-    sum(flips) * 2 + (willLost ? posScore : Math.abs(posScore) * 2) - willLost
+    willBeFliped > 0 ? (posScore > 0 ? willBeFliped * 2 + posScore * 20 : -posScore * 50 + willBeFliped * 5) : -10000
+  const score = sum(flips) * 2 + (willLost ? posScore : Math.abs(posScore) * 2) - willLost
   return score
 }
 
@@ -351,7 +333,7 @@ function * aiJudgeScore () {
   invariant(scores.length, 'Invalid State: Candidates not place')
   const { score } = head(orderBy(scores, 'score', 'desc'))
   const { row, col } = sample(filter(scores, ['score', score])) // A little random
-  yield call(delay, 300) // A little delay
+  yield delay(300) // A little delay
   yield put(
     pushLog({
       player,
@@ -384,12 +366,12 @@ function * userPlaceChess ({ payload: { col, row } }) {
 }
 
 export function * root () {
-  yield [
+  yield all([
     takeEvery(REBOOT, reboot),
     takeEvery(RESET, reset),
     takeEvery(USER_PLACE_CHESS, userPlaceChess),
     takeEvery(SWITCH_PLAYER, switchPlayer)
-  ]
+  ])
 }
 
 export default root

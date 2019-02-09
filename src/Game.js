@@ -1,13 +1,6 @@
 import { ENDED, IDLE } from './consts'
-import React, { Component } from 'react'
-import {
-  reboot,
-  reset,
-  restoreStep,
-  setRetractStep,
-  setState,
-  setVersion
-} from './actions'
+import React, { useCallback, useState } from 'react'
+import { setRetractStep, setState, setVersion } from './actions'
 
 import Board from './Board'
 import { Confirm } from './Confirm'
@@ -16,158 +9,62 @@ import Log from './Log'
 import PropTypes from 'prop-types'
 import Score from './Score'
 import SettingModal from './SettingModal'
+import Toolbar from './Toolbar'
+import { bindActionCreators } from 'redux'
 import compose from 'recompose/compose'
 import { connect } from 'react-redux'
-import { translate } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 
-class Game extends Component {
-  handleChange = event => {
-    this.setState({ hint: event.target.checked })
-  }
+function Game ({ showReplay, message, reboot, setAllowRetract, resetState }) {
+  const [hint, setHint] = useState(false)
+  const [settingOpen, setSettingOpen] = useState(false)
+  const openSetting = useCallback(() => setSettingOpen(true), [])
+  const closeSetting = useCallback(() => setSettingOpen(false), [])
 
-  handleResetHuman = () => {
-    this.props.reset(null)
-  }
+  const { t } = useTranslation()
 
-  handleOpenSetting = () => {
-    this.setState({
-      settingOpen: true
-    })
-  }
-
-  handleCloseSetting = () => {
-    this.setState({
-      settingOpen: false
-    })
-  }
-
-  handleAllowRetract = event => {
-    const { setRetractStep, ai } = this.props
-    if (event.target.checked) {
-      if (ai) {
-        setRetractStep(3)
-      } else {
-        setRetractStep(6)
-      }
-    } else {
-      setRetractStep(0)
-    }
-  }
-
-  handleVersionChange = event => {
-    const { setVersion } = this.props
-    setVersion(event.target.value)
-  }
-
-  resetState = () => {
-    this.props.setState(IDLE)
-  }
-
-  render () {
-    const { message, reboot, allowRetract, restoreStep, t } = this.props
-    const { hint, settingOpen } = this.state
-    return (
-      <>
-        <div className='container is-fluid'>
-          <div className='columns'>
-            <div className='column is-6 is-offset-2'>
-              <nav className='navbar'>
-                <div className='navbar-brand'>
-                  <div className='navbar-item'>
-                    <p className='title is-3'>{t('Reversi')}</p>
-                  </div>
-                </div>
-                <div className='navbar-item navbar-end'>
-                  <div className='field is-grouped'>
-                    <p className='control'>
-                      <button
-                        className='button is-rounded'
-                        onClick={this.handleResetHuman}
-                      >
-                        <span className='icon'>
-                          <i className='fas fa-user-friends' />
-                        </span>
-                        <span>{t('Play with friend')}</span>
-                      </button>
-                      <button className='button is-rounded' onClick={reboot}>
-                        <span className='icon'>
-                          <i className='fas fa-power-off' />
-                        </span>
-                        <span>{t('Restart')}</span>
-                      </button>
-                      <button
-                        className='button is-rounded'
-                        disabled={!allowRetract}
-                        onClick={restoreStep}
-                      >
-                        <span className='icon'>
-                          <i className='fas fa-undo' />
-                        </span>
-                      </button>
-                      <button
-                        className='button is-rounded'
-                        onClick={this.handleOpenSetting}
-                      >
-                        <span className='icon'>
-                          <i className='fas fa-cog' />
-                        </span>
-                      </button>
-                    </p>
-                  </div>
-                </div>
-              </nav>
-              <div className='columns'>
-                <div className='column'>
-                  <Board hint={hint} />
-                  <span className='is-pulled-right'>{message}</span>
-                </div>
-                <div className='column'>
-                  <Score />
-                </div>
+  return (
+    <>
+      <div className='container is-fluid'>
+        <div className='columns'>
+          <div className='column is-6 is-offset-2'>
+            <Toolbar onOpenSetting={openSetting} />
+            <div className='columns'>
+              <div className='column'>
+                <Board hint={hint} />
+                <span className='is-pulled-right'>{message}</span>
+              </div>
+              <div className='column'>
+                <Score />
               </div>
             </div>
-            <div className='column is-2 is-hidden-touch'>
-              <Log />
-            </div>
           </div>
-          <Confirm
-            open={this.props.showReplay}
-            onConfirm={reboot}
-            onCancel={this.resetState}
-          >
-            {t('Play Again?')}
-          </Confirm>
-          <SettingModal
-            isOpen={settingOpen}
-            onClose={this.handleCloseSetting}
-            onHintChange={this.handleChange}
-            onRetractChange={this.handleAllowRetract}
-            onVersionChange={this.handleVersionChange}
-          />
+          <div className='column is-2 is-hidden-touch'>
+            <Log />
+          </div>
         </div>
-        <GithubCorner href='https://github.com/DanSnow/react-reversi' />
-      </>
-    )
-  }
+        <Confirm open={showReplay} onConfirm={reboot} onCancel={resetState}>
+          {t('Play Again?')}
+        </Confirm>
+        <SettingModal
+          isOpen={settingOpen}
+          onClose={closeSetting}
+          onHintChange={event => setHint(event.target.checked)}
+          onRetractChange={event => setAllowRetract(event.target.checked)}
+          onVersionChange={event => setVersion(event.target.value)}
+        />
+      </div>
+      <GithubCorner href='https://github.com/DanSnow/react-reversi' />
+    </>
+  )
+}
 
-  state = {
-    hint: false,
-    settingOpen: false
-  }
-
-  static propTypes = {
-    ai: PropTypes.string,
-    message: PropTypes.string.isRequired,
-    allowRetract: PropTypes.any.isRequired,
-    showReplay: PropTypes.any.isRequired,
-    t: PropTypes.func.isRequired,
-    reset: PropTypes.func.isRequired,
-    reboot: PropTypes.func.isRequired,
-    setRetractStep: PropTypes.func.isRequired,
-    setState: PropTypes.func.isRequired,
-    restoreStep: PropTypes.func.isRequired,
-    setVersion: PropTypes.func.isRequired
-  }
+Game.propTypes = {
+  message: PropTypes.string.isRequired,
+  showReplay: PropTypes.any.isRequired,
+  setAllowRetract: PropTypes.func.isRequired,
+  resetState: PropTypes.func.isRequired,
+  setVersion: PropTypes.func.isRequired
 }
 
 export default compose(
@@ -175,10 +72,31 @@ export default compose(
     state => ({
       message: state.message,
       ai: state.ai,
-      allowRetract: state.allowRetractStep && state.pastStep.length,
       showReplay: state.state === ENDED && !state.overlay
     }),
-    { reset, setVersion, setRetractStep, restoreStep, reboot, setState }
-  ),
-  translate()
+    dispatch =>
+      bindActionCreators(
+        {
+          setVersion,
+          setRetractStep,
+          resetState: setState.bind(null, IDLE)
+        },
+        dispatch
+      ),
+    (stateProps, { setRetractStep, ...dispatchProps }, ownProps) => {
+      return Object.assign({}, stateProps, dispatchProps, ownProps, {
+        setAllowRetract (allow) {
+          if (allow) {
+            if (stateProps.ai) {
+              setRetractStep(3)
+            } else {
+              setRetractStep(6)
+            }
+          } else {
+            setRetractStep(0)
+          }
+        }
+      })
+    }
+  )
 )(Game)

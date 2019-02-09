@@ -5,23 +5,21 @@ import { persistReducer, persistStore } from 'redux-persist'
 import { createLogger } from 'redux-logger'
 import { identity } from 'lodash-es'
 import reducer from './reducer'
+import root from './saga'
 import storage from 'redux-persist/lib/storage'
 
 const getDevtools = () => {
   if (__DEV__) {
-    return window.devToolsExtension ? window.devToolsExtension() : identity
+    return window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : identity
   }
   return identity
 }
 
-const configureStore = () => {
+export const configureStore = () => {
   const sagaMiddleware = createSagaMiddleware()
   const logger = createLogger()
   const store = createStore(
-    persistReducer(
-      { key: 'reversi', storage, whitelist: ['history'] },
-      reducer
-    ),
+    persistReducer({ key: 'reversi', storage, whitelist: ['history'] }, reducer),
     compose(
       applyMiddleware(sagaMiddleware, logger),
       getDevtools()
@@ -41,4 +39,14 @@ const configureStore = () => {
   return { store, persistor }
 }
 
-export default configureStore
+const { store, persistor } = configureStore()
+export { persistor, store }
+
+store.runSaga(root)
+
+if (module.hot) {
+  module.hot.accept('./saga', async () => {
+    store.close()
+    store.runSaga((await import('./saga')).default)
+  })
+}

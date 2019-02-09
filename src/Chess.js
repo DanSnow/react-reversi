@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 
 import PropTypes from 'prop-types'
 import pure from 'recompose/pure'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 const Circle = styled.circle({
   pointerEvents: 'none'
@@ -18,14 +18,7 @@ class Chess extends Component {
     const { color, row, col, candiate, hint } = this.props
     return (
       <Fragment>
-        <rect
-          onClick={this.handleClick}
-          width='80'
-          height='80'
-          fillOpacity='0'
-          x={col * 80}
-          y={row * 80}
-        />
+        <rect onClick={this.handleClick} width='80' height='80' fillOpacity='0' x={col * 80} y={row * 80} />
         <Circle
           fill={color}
           fillOpacity={candiate ? (hint ? '0.3' : '0') : '1'}

@@ -21,7 +21,4 @@ export const createScoreSelector = () =>
     return { black, white }
   })
 
-export const startedSelector = createSelector(
-  [selectPlayer],
-  player => !!player
-)
+export const startedSelector = createSelector([selectPlayer], player => !!player)

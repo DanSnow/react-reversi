@@ -28,10 +28,10 @@ module.exports = {
   ],
   env: {
     production: {
-      plugins: [['emotion', { hoist: true }]]
+      presets: [['@emotion/babel-preset-css-prop', { hoist: true }]]
     },
     development: {
-      plugins: [['emotion', { sourceMap: true, autoLabel: true }]]
+      presets: [['@emotion/babel-preset-css-prop', { sourceMap: true, autoLabel: true }]]
     }
   }
 }

@@ -5,13 +5,15 @@ import React from 'react'
 import compose from 'recompose/compose'
 import { connect } from 'react-redux'
 import { createScoreSelector } from './selector'
-import { translate } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 
 function getPlayerType (player, ai) {
   return player === ai ? 'ai' : 'player'
 }
 
-function Score ({ score, ai, history, t }) {
+function Score ({ score, ai, history }) {
+  const { t } = useTranslation()
+
   return (
     <div className='card'>
       <div className='card-header'>
@@ -38,8 +40,7 @@ function Score ({ score, ai, history, t }) {
 Score.propTypes = {
   ai: PropTypes.string,
   score: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-  t: PropTypes.func.isRequired
+  history: PropTypes.object.isRequired
 }
 
 const scoreSelector = createScoreSelector()
@@ -49,6 +50,5 @@ export default compose(
     score: scoreSelector(state),
     ai: state.ai,
     history: state.history
-  })),
-  translate()
+  }))
 )(Score)

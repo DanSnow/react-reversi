@@ -1,11 +1,11 @@
-import styled, { cx } from 'react-emotion'
-
 import PropTypes from 'prop-types'
 import React from 'react'
 import { WHITE } from './consts'
 import compose from 'recompose/compose'
 import { connect } from 'react-redux'
+import cx from 'classnames'
 import setPropTypes from 'recompose/setPropTypes'
+import styled from '@emotion/styled'
 
 const LogContainer = styled.div({
   height: '600px',
@@ -30,9 +30,7 @@ const Log = compose(
         {log.map(({ player, pos }, idx) => (
           <div key={idx} className='is-flex'>
             <span className='icon'>
-              <i
-                className={cx(player === WHITE ? 'far' : 'fas', 'fa-circle')}
-              />
+              <i className={cx(player === WHITE ? 'far' : 'fas', 'fa-circle')} />
             </span>
             <span>{pos}</span>
           </div>
