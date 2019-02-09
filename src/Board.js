@@ -1,5 +1,4 @@
 import { BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE } from './consts'
-import React, { Component } from 'react'
 import { reset, setOverlay, userPlaceChess } from './actions'
 
 import BoardBackground from './BoardBackground'
@@ -7,6 +6,7 @@ import BoardGrid from './BoardGrid'
 import Chess from './Chess'
 import { ColorButtons } from './ColorButtons'
 import PropTypes from 'prop-types'
+import React from 'react'
 import StaticContainer from 'react-static-container'
 import { connect } from 'react-redux'
 import { flatMap } from 'lodash-es'
@@ -20,64 +20,48 @@ const Overlay = styled.text({
   textAnchor: 'middle'
 })
 
-class Board extends Component {
-  handleClick = (_event, row, col) => {
-    if (this.props.overlay) {
-      this.props.setOverlay('')
-    }
-    if (!this.props.started) {
-      return
-    }
-    console.log('(Row, Col): (', row, ', ', col, ')')
-    this.props.userPlaceChess(row, col)
-  }
+function Board ({ reset, placeChess, board, hint, started, overlay }) {
+  return (
+    <svg height='640px' width='640px'>
+      <StaticContainer>
+        <>
+          <BoardBackground />
+          <BoardGrid />
+        </>
+      </StaticContainer>
+      {flatMap(board, (r, row) =>
+        r.map(
+          (c, col) =>
+            c ? (
+              <Chess
+                key={row * 8 + col}
+                row={row}
+                col={col}
+                hint={hint}
+                color={c === WHITE || c === WHITE_CANDIDATE ? 'white' : 'black'}
+                candidate={c === WHITE_CANDIDATE || c === BLACK_CANDIDATE}
+                onClick={placeChess}
+              />
+            ) : null
+        )
+      )}
+      {started || <ColorButtons onClick={reset} />}
+      {!!overlay && (
+        <Overlay x='50%' y='50%'>
+          {overlay}
+        </Overlay>
+      )}
+    </svg>
+  )
+}
 
-  render () {
-    const { board, hint, started, overlay } = this.props
-
-    return (
-      <svg height='640px' width='640px'>
-        <StaticContainer>
-          <>
-            <BoardBackground onClick={this.handleClick} />
-            <BoardGrid />
-          </>
-        </StaticContainer>
-        {flatMap(board, (r, row) =>
-          r.map(
-            (c, col) =>
-              c ? (
-                <Chess
-                  key={row * 8 + col}
-                  row={row}
-                  col={col}
-                  hint={hint}
-                  color={c === WHITE || c === WHITE_CANDIDATE ? 'white' : 'black'}
-                  candiate={c === WHITE_CANDIDATE || c === BLACK_CANDIDATE}
-                  onClick={this.handleClick}
-                />
-              ) : null
-          )
-        )}
-        {started || <ColorButtons onClick={this.props.reset} />}
-        {!!overlay && (
-          <Overlay x='50%' y='50%'>
-            {overlay}
-          </Overlay>
-        )}
-      </svg>
-    )
-  }
-
-  static propTypes = {
-    board: PropTypes.array.isRequired,
-    started: PropTypes.bool.isRequired,
-    overlay: PropTypes.string.isRequired,
-    hint: PropTypes.bool.isRequired,
-    reset: PropTypes.func.isRequired,
-    setOverlay: PropTypes.func.isRequired,
-    userPlaceChess: PropTypes.func.isRequired
-  }
+Board.propTypes = {
+  board: PropTypes.array.isRequired,
+  started: PropTypes.bool.isRequired,
+  overlay: PropTypes.string.isRequired,
+  hint: PropTypes.bool.isRequired,
+  reset: PropTypes.func.isRequired,
+  placeChess: PropTypes.func.isRequired
 }
 
 export default connect(
@@ -90,5 +74,22 @@ export default connect(
     reset,
     userPlaceChess,
     setOverlay
+  },
+  (state, actions, props) => {
+    return {
+      ...state,
+      ...actions,
+      ...props,
+      placeChess (row, col) {
+        if (state.overlay) {
+          actions.setOverlay('')
+        }
+        if (!state.started) {
+          return
+        }
+        console.log('(Row, Col): (', row, ', ', col, ')')
+        actions.userPlaceChess(row, col)
+      }
+    }
   }
 )(Board)

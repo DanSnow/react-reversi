@@ -1,19 +1,18 @@
 import PropTypes from 'prop-types'
-import { PureComponent } from 'react'
 import { createPortal } from 'react-dom'
+import { useRef } from 'react'
 
-class Portal extends PureComponent {
-  render () {
-    if (!this.domNode) {
-      this.domNode = document.getElementById(this.props.target)
-    }
-    return createPortal(this.props.children, this.domNode)
+function Portal ({ target, children }) {
+  const domStore = useRef(null)
+  if (!domStore.current) {
+    domStore.current = document.getElementById(target)
   }
+  return createPortal(children, domStore.current)
+}
 
-  static propTypes = {
-    target: PropTypes.string.isRequired,
-    children: PropTypes.node
-  }
+Portal.propTypes = {
+  target: PropTypes.string.isRequired,
+  children: PropTypes.node
 }
 
 export default Portal

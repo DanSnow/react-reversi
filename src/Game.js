@@ -1,6 +1,6 @@
 import { ENDED, IDLE } from './consts'
 import React, { useCallback, useState } from 'react'
-import { setRetractStep, setState, setVersion } from './actions'
+import { reboot, setRetractStep, setState, setVersion } from './actions'
 
 import Board from './Board'
 import { Confirm } from './Confirm'
@@ -15,7 +15,7 @@ import compose from 'recompose/compose'
 import { connect } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 
-function Game ({ showReplay, message, reboot, setAllowRetract, resetState }) {
+function Game ({ showReplay, message, reboot, setVersion, setAllowRetract, resetState }) {
   const [hint, setHint] = useState(false)
   const [settingOpen, setSettingOpen] = useState(false)
   const openSetting = useCallback(() => setSettingOpen(true), [])
@@ -64,7 +64,8 @@ Game.propTypes = {
   showReplay: PropTypes.any.isRequired,
   setAllowRetract: PropTypes.func.isRequired,
   resetState: PropTypes.func.isRequired,
-  setVersion: PropTypes.func.isRequired
+  setVersion: PropTypes.func.isRequired,
+  reboot: PropTypes.func.isRequired
 }
 
 export default compose(
@@ -79,6 +80,7 @@ export default compose(
         {
           setVersion,
           setRetractStep,
+          reboot,
           resetState: setState.bind(null, IDLE)
         },
         dispatch
