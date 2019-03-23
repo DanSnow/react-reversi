@@ -6,6 +6,7 @@
     "allowSyntheticDefaultImports": true,
     "noEmit": true,
     "jsx": "react",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "noUnusedLocals": true
   }
 }

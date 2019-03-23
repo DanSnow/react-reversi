@@ -1,4 +1,4 @@
-import { Store, StoreCreator, StoreEnhancer, applyMiddleware, compose, createStore } from 'redux'
+import { StoreEnhancer, applyMiddleware, compose, createStore } from 'redux'
 import createSagaMiddleware, { END } from 'redux-saga'
 import { persistReducer, persistStore } from 'redux-persist'
 
