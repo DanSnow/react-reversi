@@ -1,9 +1,16 @@
+import React, { ReactChild } from 'react'
+
 import Portal from './Portal'
-import PropTypes from 'prop-types'
-import React from 'react'
 import cx from 'classnames'
 
-export function Confirm ({ open, children, onConfirm, onCancel }) {
+interface Props {
+  open: boolean
+  children?: ReactChild
+  onConfirm: () => void
+  onCancel: () => void
+}
+
+export function Confirm ({ open, children, onConfirm, onCancel }: Props) {
   return (
     <Portal target='dialog-root'>
       <div className={cx('modal', { 'is-active': open })}>
@@ -29,11 +36,4 @@ export function Confirm ({ open, children, onConfirm, onCancel }) {
       </div>
     </Portal>
   )
-}
-
-Confirm.propTypes = {
-  open: PropTypes.any.isRequired,
-  children: PropTypes.node,
-  onConfirm: PropTypes.func,
-  onCancel: PropTypes.func
 }

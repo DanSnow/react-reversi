@@ -1,21 +1,29 @@
 import { ENDED, IDLE } from './consts'
-import React, { useCallback, useState } from 'react'
+import React, { Fragment, useCallback, useState } from 'react'
 import { reboot, setRetractStep, setState, setVersion } from './actions'
 
 import Board from './Board'
 import { Confirm } from './Confirm'
 import GithubCorner from 'react-github-corner'
 import Log from './Log'
-import PropTypes from 'prop-types'
 import Score from './Score'
 import SettingModal from './SettingModal'
+import { State } from './reducer'
 import Toolbar from './Toolbar'
 import { bindActionCreators } from 'redux'
-import compose from 'recompose/compose'
 import { connect } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 
-function Game ({ showReplay, message, reboot, setVersion, setAllowRetract, resetState }) {
+interface Props {
+  message: string
+  showReplay: boolean
+  setAllowRetract: (allow: boolean) => void
+  resetState: () => void
+  setVersion: (version: string) => void
+  reboot: () => void
+}
+
+function Game ({ showReplay, message, reboot, setVersion, setAllowRetract, resetState }: Props) {
   const [hint, setHint] = useState(false)
   const [settingOpen, setSettingOpen] = useState(false)
   const openSetting = useCallback(() => setSettingOpen(true), [])
@@ -24,7 +32,7 @@ function Game ({ showReplay, message, reboot, setVersion, setAllowRetract, reset
   const { t } = useTranslation()
 
   return (
-    <>
+    <Fragment>
       <div className='container is-fluid'>
         <div className='columns'>
           <div className='column is-6 is-offset-2'>
@@ -44,7 +52,7 @@ function Game ({ showReplay, message, reboot, setVersion, setAllowRetract, reset
           </div>
         </div>
         <Confirm open={showReplay} onConfirm={reboot} onCancel={resetState}>
-          {t('Play Again?')}
+          {t('Play Again?') as string}
         </Confirm>
         <SettingModal
           isOpen={settingOpen}
@@ -55,50 +63,39 @@ function Game ({ showReplay, message, reboot, setVersion, setAllowRetract, reset
         />
       </div>
       <GithubCorner href='https://github.com/DanSnow/react-reversi' />
-    </>
+    </Fragment>
   )
 }
 
-Game.propTypes = {
-  message: PropTypes.string.isRequired,
-  showReplay: PropTypes.any.isRequired,
-  setAllowRetract: PropTypes.func.isRequired,
-  resetState: PropTypes.func.isRequired,
-  setVersion: PropTypes.func.isRequired,
-  reboot: PropTypes.func.isRequired
-}
-
-export default compose(
-  connect(
-    state => ({
-      message: state.message,
-      ai: state.ai,
-      showReplay: state.state === ENDED && !state.overlay
-    }),
-    dispatch =>
-      bindActionCreators(
-        {
-          setVersion,
-          setRetractStep,
-          reboot,
-          resetState: setState.bind(null, IDLE)
-        },
-        dispatch
-      ),
-    (stateProps, { setRetractStep, ...dispatchProps }, ownProps) => {
-      return Object.assign({}, stateProps, dispatchProps, ownProps, {
-        setAllowRetract (allow) {
-          if (allow) {
-            if (stateProps.ai) {
-              setRetractStep(3)
-            } else {
-              setRetractStep(6)
-            }
+export default connect(
+  (state: State) => ({
+    message: state.message,
+    ai: state.ai,
+    showReplay: state.state === ENDED && !state.overlay
+  }),
+  dispatch =>
+    bindActionCreators(
+      {
+        setVersion,
+        setRetractStep,
+        reboot,
+        resetState: setState.bind(null, IDLE)
+      },
+      dispatch
+    ),
+  (stateProps, { setRetractStep, ...dispatchProps }, ownProps): Props => {
+    return Object.assign({}, stateProps, dispatchProps, ownProps, {
+      setAllowRetract (allow: boolean): void {
+        if (allow) {
+          if (stateProps.ai) {
+            setRetractStep(3)
           } else {
-            setRetractStep(0)
+            setRetractStep(6)
           }
+        } else {
+          setRetractStep(0)
         }
-      })
-    }
-  )
+      }
+    })
+  }
 )(Game)

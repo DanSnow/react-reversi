@@ -1,10 +1,9 @@
-import PropTypes from 'prop-types'
+import { Log as LogData, State } from './reducer'
+
 import React from 'react'
 import { WHITE } from './consts'
-import compose from 'recompose/compose'
 import { connect } from 'react-redux'
 import cx from 'classnames'
-import setPropTypes from 'recompose/setPropTypes'
 import styled from '@emotion/styled'
 
 const LogContainer = styled.div({
@@ -13,12 +12,11 @@ const LogContainer = styled.div({
   padding: '0 10px'
 })
 
-const Log = compose(
-  connect(state => ({ log: state.log })),
-  setPropTypes({
-    log: PropTypes.array.isRequired
-  })
-)(({ log }) => (
+interface Props {
+  log: LogData[]
+}
+
+const Log = ({ log }: Props) => (
   <div className='card'>
     <div className='card-header'>
       <div className='card-header-title'>
@@ -38,6 +36,6 @@ const Log = compose(
       </LogContainer>
     </div>
   </div>
-))
+)
 
-export default Log
+export default connect((state: State) => ({ log: state.log }))(Log)

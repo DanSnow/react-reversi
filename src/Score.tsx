@@ -1,17 +1,33 @@
 import { BLACK, WHITE } from './consts'
 
-import PropTypes from 'prop-types'
 import React from 'react'
-import compose from 'recompose/compose'
+import { State } from './reducer'
 import { connect } from 'react-redux'
 import { createScoreSelector } from './selector'
 import { useTranslation } from 'react-i18next'
 
-function getPlayerType (player, ai) {
+function getPlayerType (player: string, ai?: string): string {
   return player === ai ? 'ai' : 'player'
 }
 
-function Score ({ score, ai, history }) {
+interface ScoreData {
+  black: number
+  white: number
+}
+
+interface History {
+  win: number
+  lose: number
+  draw: number
+}
+
+interface Props {
+  history: History
+  ai?: string
+  score: ScoreData
+}
+
+function Score ({ score, ai, history }: Props) {
   const { t } = useTranslation()
 
   return (
@@ -37,18 +53,10 @@ function Score ({ score, ai, history }) {
   )
 }
 
-Score.propTypes = {
-  ai: PropTypes.string,
-  score: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired
-}
-
 const scoreSelector = createScoreSelector()
 
-export default compose(
-  connect(state => ({
-    score: scoreSelector(state),
-    ai: state.ai,
-    history: state.history
-  }))
-)(Score)
+export default connect((state: State) => ({
+  score: scoreSelector(state),
+  ai: state.ai,
+  history: state.history
+}))(Score)

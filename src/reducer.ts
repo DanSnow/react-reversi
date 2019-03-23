@@ -1,8 +1,11 @@
 import {
   ADD_SWITCH,
   CLEAR_LOG,
+  ENDED,
+  IDLE,
   INCREMENT_HISTORY,
   PLACE_CHESS,
+  PLAYING,
   PUSH_LOG,
   RESET_BOARD,
   RESET_SWITCH,
@@ -17,16 +20,47 @@ import {
   SET_STATE,
   SET_VERSION
 } from './consts'
+import { Action, handleActions } from 'redux-actions'
 import { constant, times } from 'lodash-es'
 import { produce, setAutoFreeze } from 'immer'
-
-import { handleActions } from 'redux-actions'
 
 setAutoFreeze(false)
 
 const initialBoard = times(8, () => times(8, constant(null)))
-export const initialState = {
-  state: 'idle',
+
+type GameState = typeof IDLE | typeof PLAYING | typeof ENDED
+
+export interface Log {
+  player: string
+  pos: string
+}
+
+interface PastState {
+  board: (string | null)[][]
+  player: string | null
+  log: Log[]
+  candiate: number
+  message: string
+}
+
+export interface State {
+  state: GameState
+  message: string
+  overlay: string
+  candiate: number
+  switchCount: number
+  version: 'v1' | 'v2'
+  ai: string | null
+  player: string | null
+  log: Log[]
+  board: (string | null)[][]
+  pastStep: PastState[]
+  allowRetractStep: number
+  history: { win: number; lose: number; draw: number }
+}
+
+export const initialState: State = {
+  state: IDLE,
   message: '',
   overlay: '',
   candiate: 0,
@@ -41,9 +75,18 @@ export const initialState = {
   history: { win: 0, lose: 0, draw: 0 }
 }
 
-export default handleActions(
+export interface Coords {
+  row: number
+  col: number
+}
+
+export interface ChessInfo extends Coords {
+  chess: string
+}
+
+export default handleActions<State, any>(
   {
-    [PLACE_CHESS]: (state, { payload: { row, col, chess } }) =>
+    [PLACE_CHESS]: (state, { payload: { row, col, chess } }: Action<ChessInfo>) =>
       produce(state, draft => {
         draft.board[row][col] = chess
       }),
@@ -71,11 +114,11 @@ export default handleActions(
           pastStep: state.pastStep.slice(1)
         })
       }),
-    [INCREMENT_HISTORY]: (state, { payload }) =>
+    [INCREMENT_HISTORY]: (state, { payload }: Action<'win' | 'lose' | 'draw'>) =>
       produce(state, draft => {
         draft.history[payload] += 1
       }),
-    [SET_PLAYER]: (state, { payload }) =>
+    [SET_PLAYER]: (state, { payload }: Action<string | null>) =>
       produce(state, draft => {
         draft.player = payload
       }),
@@ -83,7 +126,7 @@ export default handleActions(
       produce(state, draft => {
         draft.ai = payload
       }),
-    [SET_CANDIDATE]: (state, { payload }) =>
+    [SET_CANDIDATE]: (state, { payload }: Action<number>) =>
       produce(state, draft => {
         draft.candiate = payload
       }),
@@ -111,11 +154,11 @@ export default handleActions(
       produce(state, draft => {
         draft.switchCount = 0
       }),
-    [SET_VERSION]: (state, { payload }) =>
+    [SET_VERSION]: (state, { payload }: Action<'v1' | 'v2'>) =>
       produce(state, draft => {
         draft.version = payload
       }),
-    [PUSH_LOG]: (state, { payload }) =>
+    [PUSH_LOG]: (state, { payload }: Action<Log>) =>
       produce(state, draft => {
         draft.log.push(payload)
       }),

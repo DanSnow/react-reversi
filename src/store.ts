@@ -1,4 +1,4 @@
-import { applyMiddleware, compose, createStore } from 'redux'
+import { Store, StoreCreator, StoreEnhancer, applyMiddleware, compose, createStore } from 'redux'
 import createSagaMiddleware, { END } from 'redux-saga'
 import { persistReducer, persistStore } from 'redux-persist'
 
@@ -8,7 +8,7 @@ import reducer from './reducer'
 import root from './saga'
 import storage from 'redux-persist/lib/storage'
 
-const getDevtools = () => {
+const getDevtools = (): StoreEnhancer<{}> => {
   if (__DEV__) {
     return window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : identity
   }
@@ -27,26 +27,30 @@ export const configureStore = () => {
   )
   const persistor = persistStore(store)
 
-  store.runSaga = sagaMiddleware.run
-  store.close = () => store.dispatch(END)
-
   if (module.hot) {
     module.hot.accept('./reducer', () => {
       store.replaceReducer(require('./reducer').default)
     })
   }
 
-  return { store, persistor }
+  return {
+    store,
+    persistor,
+    runSaga: sagaMiddleware.run,
+    close () {
+      store.dispatch(END as any)
+    }
+  }
 }
 
-const { store, persistor } = configureStore()
-export { persistor, store }
+const { store, persistor, runSaga, close } = configureStore()
+export { persistor, store, runSaga }
 
-store.runSaga(root)
+runSaga(root)
 
 if (module.hot) {
   module.hot.accept('./saga', async () => {
-    store.close()
-    store.runSaga((await import('./saga')).default)
+    close()
+    runSaga((await import('./saga')).default)
   })
 }

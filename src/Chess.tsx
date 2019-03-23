@@ -1,13 +1,21 @@
-import React, { useCallback } from 'react'
+import React, { Fragment, useCallback } from 'react'
 
-import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
 const Circle = styled.circle({
   pointerEvents: 'none'
 })
 
-function Chess ({ color, row, col, candidate, hint, onClick }) {
+interface Props {
+  color: string
+  hint: boolean
+  row: number
+  col: number
+  candidate: boolean
+  onClick: (row: number, col: number) => void
+}
+
+function Chess ({ color, row, col, candidate, hint, onClick }: Props) {
   const handleClick = useCallback(
     () => {
       onClick(row, col)
@@ -16,7 +24,7 @@ function Chess ({ color, row, col, candidate, hint, onClick }) {
   )
 
   return (
-    <>
+    <Fragment>
       <rect onClick={handleClick} width='80' height='80' fillOpacity='0' x={col * 80} y={row * 80} />
       <Circle
         fill={color}
@@ -25,17 +33,8 @@ function Chess ({ color, row, col, candidate, hint, onClick }) {
         cy={row * 80 + 40}
         r={30}
       />
-    </>
+    </Fragment>
   )
-}
-
-Chess.propTypes = {
-  color: PropTypes.string.isRequired,
-  hint: PropTypes.bool.isRequired,
-  row: PropTypes.number.isRequired,
-  col: PropTypes.number.isRequired,
-  candidate: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired
 }
 
 export default Chess

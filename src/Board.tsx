@@ -1,12 +1,12 @@
 import { BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE } from './consts'
+import React, { Fragment } from 'react'
 import { reset, setOverlay, userPlaceChess } from './actions'
 
 import BoardBackground from './BoardBackground'
 import BoardGrid from './BoardGrid'
 import Chess from './Chess'
 import { ColorButtons } from './ColorButtons'
-import PropTypes from 'prop-types'
-import React from 'react'
+import { State } from './reducer'
 import StaticContainer from 'react-static-container'
 import { connect } from 'react-redux'
 import { flatMap } from 'lodash-es'
@@ -20,14 +20,23 @@ const Overlay = styled.text({
   textAnchor: 'middle'
 })
 
-function Board ({ reset, placeChess, board, hint, started, overlay }) {
+interface Props {
+  board: (null | string)[][]
+  started: boolean
+  overlay: string
+  hint: boolean
+  reset: () => void
+  placeChess: (row: number, col: number) => void
+}
+
+function Board ({ reset, placeChess, board, hint, started, overlay }: Props) {
   return (
     <svg height='640px' width='640px'>
       <StaticContainer>
-        <>
+        <Fragment>
           <BoardBackground />
           <BoardGrid />
-        </>
+        </Fragment>
       </StaticContainer>
       {flatMap(board, (r, row) =>
         r.map(
@@ -55,17 +64,8 @@ function Board ({ reset, placeChess, board, hint, started, overlay }) {
   )
 }
 
-Board.propTypes = {
-  board: PropTypes.array.isRequired,
-  started: PropTypes.bool.isRequired,
-  overlay: PropTypes.string.isRequired,
-  hint: PropTypes.bool.isRequired,
-  reset: PropTypes.func.isRequired,
-  placeChess: PropTypes.func.isRequired
-}
-
 export default connect(
-  state => ({
+  (state: State) => ({
     board: state.board,
     started: startedSelector(state),
     overlay: state.overlay

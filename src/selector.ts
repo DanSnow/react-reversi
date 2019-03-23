@@ -1,9 +1,10 @@
 import { BLACK, WHITE } from './consts'
 
+import { State } from './reducer'
 import { createSelector } from 'reselect'
 
-const selectBoard = state => state.board
-const selectPlayer = state => state.player
+const selectBoard = (state: State) => state.board
+const selectPlayer = (state: State) => state.player
 
 export const createScoreSelector = () =>
   createSelector([selectBoard], board => {

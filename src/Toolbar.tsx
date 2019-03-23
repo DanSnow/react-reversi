@@ -1,12 +1,19 @@
 import { reboot, reset, restoreStep } from './actions'
 
-import PropTypes from 'prop-types'
 import React from 'react'
-import compose from 'recompose/compose'
+import { State } from './reducer'
 import { connect } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 
-function Toolbar ({ setHuman, reboot, allowRetract, restoreStep, onOpenSetting }) {
+interface Props {
+  allowRetract: boolean
+  onOpenSetting: () => void
+  setHuman: () => void
+  reboot: () => void
+  restoreStep: () => void
+}
+
+function Toolbar ({ setHuman, reboot, allowRetract, restoreStep, onOpenSetting }: Props) {
   const { t } = useTranslation()
 
   return (
@@ -48,19 +55,9 @@ function Toolbar ({ setHuman, reboot, allowRetract, restoreStep, onOpenSetting }
   )
 }
 
-Toolbar.propTypes = {
-  allowRetract: PropTypes.any.isRequired,
-  onOpenSetting: PropTypes.func.isRequired,
-  setHuman: PropTypes.func.isRequired,
-  reboot: PropTypes.func.isRequired,
-  restoreStep: PropTypes.func.isRequired
-}
-
-export default compose(
-  connect(
-    state => ({
-      allowRetract: state.allowRetractStep && state.pastStep.length
-    }),
-    { reboot, setHuman: () => reset(null), restoreStep }
-  )
+export default connect(
+  (state: State) => ({
+    allowRetract: !!(state.allowRetractStep && state.pastStep.length)
+  }),
+  { reboot, setHuman: () => reset(null), restoreStep }
 )(Toolbar)

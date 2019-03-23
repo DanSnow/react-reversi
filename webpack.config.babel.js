@@ -1,9 +1,4 @@
-import {
-  DefinePlugin,
-  HashedModuleIdsPlugin,
-  NamedModulesPlugin,
-  optimize
-} from 'webpack'
+import { DefinePlugin, HashedModuleIdsPlugin, NamedModulesPlugin, optimize } from 'webpack'
 
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import MinifyWebpackPlugin from 'babel-minify-webpack-plugin'
@@ -18,11 +13,7 @@ const babelConfig = {
       '@babel/preset-env',
       {
         targets: {
-          browsers: [
-            'last 2 Chrome versions',
-            'last 2 Firefox versions',
-            'last 2 Edge versions'
-          ]
+          browsers: ['last 2 Chrome versions', 'last 2 Firefox versions', 'last 2 Edge versions']
         },
         exclude: ['transform-regenerator'],
         modules: false
@@ -45,12 +36,7 @@ const babelConfig = {
     ['@babel/plugin-transform-runtime', { useESModules: true }],
     '@babel/plugin-proposal-class-properties',
     ['@babel/plugin-proposal-object-rest-spread', { useBuiltIns: true }],
-    [
-      'emotion',
-      env === 'production'
-        ? { hoist: true }
-        : { sourceMap: true, autoLabel: true }
-    ]
+    ['emotion', env === 'production' ? { hoist: true } : { sourceMap: true, autoLabel: true }]
   ]
 }
 
@@ -63,7 +49,8 @@ var baseConfig = {
     publicPath: '/dist/'
   },
   resolve: {
-    mainFields: ['module', 'main']
+    mainFields: ['module', 'main'],
+    extensions: ['.ts', '.tsx', '.js', '.json']
   },
   plugins: [
     new DefinePlugin({
@@ -82,7 +69,7 @@ if (env !== 'production') {
   baseConfig.devtool = 'cheap-module-source-map'
   baseConfig.plugins.push(new NamedModulesPlugin())
   baseConfig.module.rules.push({
-    test: /\.js$/,
+    test: /\.(j|t)sx?$/,
     use: [
       {
         loader: 'babel-loader',
@@ -101,7 +88,7 @@ if (env !== 'production') {
   baseConfig.plugins.push(new BundleAnalyzerPlugin())
 
   baseConfig.module.rules.push({
-    test: /\.js$/,
+    test: /\.(j|t)sx?$/,
     loader: 'babel-loader',
     options: {
       babelrc: false,

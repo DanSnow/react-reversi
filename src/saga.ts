@@ -30,6 +30,8 @@ import {
 import { all, call, delay, put, select, takeEvery } from 'redux-saga/effects'
 import { capitalize, filter, head, max, orderBy, sample, sum } from 'lodash-es'
 
+import { Action } from 'redux-actions'
+import { Coords } from './reducer'
 import { createScoreSelector } from './selector'
 import invariant from 'invariant'
 import { produce } from 'immer'
@@ -56,7 +58,7 @@ export function * reboot () {
   yield put(resetSwitch())
 }
 
-export function * reset ({ payload }) {
+export function * reset ({ payload }: Action<string>) {
   console.log('reset')
   yield call(reboot)
   yield put(setAi(payload))
@@ -344,7 +346,7 @@ function * aiJudgeScore () {
   yield put(placeChess(row, col, player))
 }
 
-function * userPlaceChess ({ payload: { col, row } }) {
+function * userPlaceChess ({ payload: { col, row } }: Action<Coords>) {
   const { player, board } = yield select()
   if (!isPlaceable(board, player, row, col)) {
     // Not allow place on exist chess or not candiate

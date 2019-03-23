@@ -1,10 +1,18 @@
+import React, { ChangeEvent } from 'react'
+
 import Portal from './Portal'
-import PropTypes from 'prop-types'
-import React from 'react'
 import cx from 'classnames'
 import { useTranslation } from 'react-i18next'
 
-function SettingModal ({ isOpen, onClose, onHintChange, onRetractChange, onVersionChange }) {
+interface Props {
+  isOpen: boolean
+  onClose: () => void
+  onHintChange: (event: ChangeEvent<HTMLInputElement>) => void
+  onRetractChange: (event: ChangeEvent<HTMLInputElement>) => void
+  onVersionChange: (event: ChangeEvent<HTMLSelectElement>) => void
+}
+
+function SettingModal ({ isOpen, onClose, onHintChange, onRetractChange, onVersionChange }: Props) {
   const { t } = useTranslation()
 
   return (
@@ -55,14 +63,6 @@ function SettingModal ({ isOpen, onClose, onHintChange, onRetractChange, onVersi
       </div>
     </Portal>
   )
-}
-
-SettingModal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  onHintChange: PropTypes.func.isRequired,
-  onRetractChange: PropTypes.func.isRequired,
-  onVersionChange: PropTypes.func.isRequired
 }
 
 export default SettingModal
