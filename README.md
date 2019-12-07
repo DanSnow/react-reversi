@@ -17,6 +17,5 @@ This repo is build for fun.
 - redux-actions
 - redux-saga
 - reselect
-- glamorous
+- emotion
 - lo-dash
-- recompose
