@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "lib": ["dom", "esnext"],
-    "types": ["webpack-env"],
+    "types": ["webpack-env", "node"],
+    "resolveJsonModule": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "noEmit": true,

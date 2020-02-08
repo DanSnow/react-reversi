@@ -1,4 +1,4 @@
-import { DefinePlugin, HashedModuleIdsPlugin, NamedModulesPlugin, optimize } from 'webpack'
+import { Configuration, DefinePlugin, HashedModuleIdsPlugin, NamedModulesPlugin, optimize } from 'webpack'
 
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import MinifyWebpackPlugin from 'babel-minify-webpack-plugin'
@@ -40,7 +40,7 @@ const babelConfig = {
   ]
 }
 
-var baseConfig = {
+var baseConfig: Configuration = {
   mode: env === 'production' ? 'production' : 'development',
   entry: ['react-hot-loader/patch', './src/index'],
   output: {
