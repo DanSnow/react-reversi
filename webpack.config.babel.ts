@@ -1,7 +1,6 @@
-import { Configuration, DefinePlugin, HashedModuleIdsPlugin, NamedModulesPlugin, optimize } from 'webpack'
+import { Configuration, DefinePlugin } from 'webpack'
 
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
-import MinifyWebpackPlugin from 'babel-minify-webpack-plugin'
 import { join } from 'path'
 import { version } from './package.json'
 
@@ -32,7 +31,6 @@ const babelConfig = {
         }
       }
     ],
-    '@babel/plugin-syntax-dynamic-import',
     ['@babel/plugin-transform-runtime', { useESModules: true }],
     '@babel/plugin-proposal-class-properties',
     ['@babel/plugin-proposal-object-rest-spread', { useBuiltIns: true }],
@@ -61,41 +59,28 @@ var baseConfig: Configuration = {
     })
   ],
   module: {
-    rules: []
+    rules: [
+      {
+        test: /\.(j|t)sx?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              babelrc: false,
+              ...babelConfig
+            }
+          }
+        ],
+        include: join(__dirname, 'src')
+      }
+    ]
   }
 }
 
 if (env !== 'production') {
   baseConfig.devtool = 'cheap-module-source-map'
-  baseConfig.plugins.push(new NamedModulesPlugin())
-  baseConfig.module.rules.push({
-    test: /\.(j|t)sx?$/,
-    use: [
-      {
-        loader: 'babel-loader',
-        options: {
-          babelrc: false,
-          ...babelConfig
-        }
-      }
-    ],
-    include: join(__dirname, 'src')
-  })
 } else {
-  baseConfig.plugins.push(new HashedModuleIdsPlugin())
-  baseConfig.plugins.push(new optimize.ModuleConcatenationPlugin())
-  baseConfig.plugins.push(new MinifyWebpackPlugin())
   baseConfig.plugins.push(new BundleAnalyzerPlugin())
-
-  baseConfig.module.rules.push({
-    test: /\.(j|t)sx?$/,
-    loader: 'babel-loader',
-    options: {
-      babelrc: false,
-      ...babelConfig
-    },
-    include: join(__dirname, 'src')
-  })
 }
 
 export default baseConfig
