@@ -60,7 +60,7 @@
     "prettier-eslint-cli": "^5.0.0",
     "react-hot-loader": "^4.12.20",
     "typescript": "^3.8.3",
-    "webpack": "^4.42.1",
+    "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
