@@ -58,7 +58,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "html-webpack-plugin": "^4.3.0",
     "prettier-eslint-cli": "^5.0.0",
-    "react-hot-loader": "^4.12.20",
+    "react-hot-loader": "^4.12.21",
     "typescript": "^3.8.3",
     "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "^3.8.0",
