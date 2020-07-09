@@ -4044,10 +4044,10 @@ i18next-browser-languagedetector@^4.2.0:
   dependencies:
     "@babel/runtime" "^7.5.5"
 
-i18next@^19.5.3:
-  version "19.5.3"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-19.5.3.tgz#1e8416072c1e1cd0c83afab430e94957a5165a74"
-  integrity sha512-R7ie0TdTpBhybNa2eDhTkJKSCDe7pPsHx6/q0RTtHPFw1mrFp0PEtpUqOPy4KaIRwJc8n2N/phTp+HiOBP5Biw==
+i18next@^19.5.6:
+  version "19.5.6"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-19.5.6.tgz#4fa27b1bfc1486c4b10dec807e24de9c57467a84"
+  integrity sha512-5Myu9NDyBhygRUJv6o7/uIXSaHMP/hgS9QLVDICqS5V0i80dcGZEqzYER8pcPRWzuzbLBq4CSJZhFSpWbl+YUA==
   dependencies:
     "@babel/runtime" "^7.10.1"
 
