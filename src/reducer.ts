@@ -18,13 +18,10 @@ import {
   SET_PLAYER,
   SET_RETRACT_STEP,
   SET_STATE,
-  SET_VERSION
+  SET_VERSION,
 } from './consts'
-import { Action, handleActions } from 'redux-actions'
+import { createReducer, PayloadAction } from '@reduxjs/toolkit'
 import { constant, times } from 'lodash-es'
-import { produce, setAutoFreeze } from 'immer'
-
-setAutoFreeze(false)
 
 const initialBoard = times(8, () => times(8, constant(null)))
 
@@ -72,7 +69,7 @@ export const initialState: State = {
   board: initialBoard,
   pastStep: [],
   allowRetractStep: 0,
-  history: { win: 0, lose: 0, draw: 0 }
+  history: { win: 0, lose: 0, draw: 0 },
 }
 
 export interface Coords {
@@ -84,88 +81,69 @@ export interface ChessInfo extends Coords {
   chess: string
 }
 
-export default handleActions<State, any>(
-  {
-    [PLACE_CHESS]: (state, { payload: { row, col, chess } }: Action<ChessInfo>) =>
-      produce(state, draft => {
-        draft.board[row][col] = chess
-      }),
-    [RESET_BOARD]: state =>
-      produce(state, draft => {
-        Object.assign(draft, { board: initialBoard, pastStep: [] })
-      }),
-    [SAVE_STEP]: state =>
-      produce(state, draft => {
-        draft.pastStep.push({
-          board: state.board,
-          player: state.player,
-          candiate: state.candiate,
-          log: state.log,
-          message: state.message
-        })
-        if (draft.pastStep.length > draft.allowRetractStep) {
-          draft.pastStep.splice(1)
-        }
-      }),
-    [RESTORE_STEP]: state =>
-      produce(state, draft => {
-        Object.assign(draft, {
-          ...state.pastStep[0],
-          pastStep: state.pastStep.slice(1)
-        })
-      }),
-    [INCREMENT_HISTORY]: (state, { payload }: Action<'win' | 'lose' | 'draw'>) =>
-      produce(state, draft => {
-        draft.history[payload] += 1
-      }),
-    [SET_PLAYER]: (state, { payload }: Action<string | null>) =>
-      produce(state, draft => {
-        draft.player = payload
-      }),
-    [SET_AI]: (state, { payload }) =>
-      produce(state, draft => {
-        draft.ai = payload
-      }),
-    [SET_CANDIDATE]: (state, { payload }: Action<number>) =>
-      produce(state, draft => {
-        draft.candiate = payload
-      }),
-    [SET_MESSAGE]: (state, { payload }) =>
-      produce(state, draft => {
-        draft.message = payload
-      }),
-    [SET_OVERLAY]: (state, { payload }) =>
-      produce(state, draft => {
-        draft.overlay = payload
-      }),
-    [SET_STATE]: (state, { payload }) =>
-      produce(state, draft => {
-        draft.state = payload
-      }),
-    [SET_RETRACT_STEP]: (state, { payload }) =>
-      produce(state, draft => {
-        draft.allowRetractStep = payload
-      }),
-    [ADD_SWITCH]: state =>
-      produce(state, draft => {
-        draft.switchCount += 1
-      }),
-    [RESET_SWITCH]: state =>
-      produce(state, draft => {
-        draft.switchCount = 0
-      }),
-    [SET_VERSION]: (state, { payload }: Action<'v1' | 'v2'>) =>
-      produce(state, draft => {
-        draft.version = payload
-      }),
-    [PUSH_LOG]: (state, { payload }: Action<Log>) =>
-      produce(state, draft => {
-        draft.log.push(payload)
-      }),
-    [CLEAR_LOG]: state =>
-      produce(state, draft => {
-        draft.log = []
-      })
+export default createReducer(initialState, {
+  [PLACE_CHESS]: (state, { payload: { row, col, chess } }: PayloadAction<ChessInfo>) => {
+    state.board[row][col] = chess
   },
-  initialState
-)
+  [RESET_BOARD]: (state) => {
+    Object.assign(state, { board: initialBoard, pastStep: [] })
+  },
+  [SAVE_STEP]: (state) => {
+    state.pastStep.push({
+      board: state.board,
+      player: state.player,
+      candiate: state.candiate,
+      log: state.log,
+      message: state.message,
+    })
+
+    if (state.pastStep.length > state.allowRetractStep) {
+      state.pastStep.splice(1)
+    }
+  },
+  [RESTORE_STEP]: (state) => {
+    Object.assign(state, {
+      ...state.pastStep[0],
+      pastStep: state.pastStep.slice(1),
+    })
+  },
+  [INCREMENT_HISTORY]: (state, { payload }: PayloadAction<'win' | 'lose' | 'draw'>) => {
+    state.history[payload] += 1
+  },
+  [SET_PLAYER]: (state, { payload }: PayloadAction<string | null>) => {
+    state.player = payload
+  },
+  [SET_AI]: (state, { payload }) => {
+    state.ai = payload
+  },
+  [SET_CANDIDATE]: (state, { payload }: PayloadAction<number>) => {
+    state.candiate = payload
+  },
+  [SET_MESSAGE]: (state, { payload }) => {
+    state.message = payload
+  },
+  [SET_OVERLAY]: (state, { payload }) => {
+    state.overlay = payload
+  },
+  [SET_STATE]: (state, { payload }) => {
+    state.state = payload
+  },
+  [SET_RETRACT_STEP]: (state, { payload }) => {
+    state.allowRetractStep = payload
+  },
+  [ADD_SWITCH]: (state) => {
+    state.switchCount += 1
+  },
+  [RESET_SWITCH]: (state) => {
+    state.switchCount = 0
+  },
+  [SET_VERSION]: (state, { payload }: PayloadAction<'v1' | 'v2'>) => {
+    state.version = payload
+  },
+  [PUSH_LOG]: (state, { payload }: PayloadAction<Log>) => {
+    state.log.push(payload)
+  },
+  [CLEAR_LOG]: (state) => {
+    state.log = []
+  },
+})

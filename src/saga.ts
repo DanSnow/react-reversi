@@ -9,7 +9,7 @@ import {
   SWITCH_PLAYER,
   USER_PLACE_CHESS,
   WHITE,
-  WHITE_CANDIDATE
+  WHITE_CANDIDATE,
 } from './consts'
 import {
   addSwitch,
@@ -25,16 +25,16 @@ import {
   setMessage,
   setOverlay,
   setPlayer,
-  setState
+  setState,
 } from './actions'
 import { all, call, delay, put, select, takeEvery } from 'redux-saga/effects'
 import { capitalize, filter, head, max, orderBy, sample, sum } from 'lodash-es'
 
-import { Action } from 'redux-actions'
 import { Coords } from './reducer'
 import { createScoreSelector } from './selector'
-import invariant from 'invariant'
+import invariant from 'tiny-invariant'
 import { produce } from 'immer'
+import { PayloadAction } from '@reduxjs/toolkit'
 
 const directions = [
   [-1, 0], // Up
@@ -44,10 +44,10 @@ const directions = [
   [-1, -1],
   [1, 1],
   [1, -1],
-  [-1, 1]
+  [-1, 1],
 ]
 
-export function * reboot () {
+export function* reboot() {
   yield put(setState(IDLE))
   yield put(setOverlay(''))
   yield put(setMessage(''))
@@ -58,7 +58,7 @@ export function * reboot () {
   yield put(resetSwitch())
 }
 
-export function * reset ({ payload }: Action<string>) {
+export function* reset({ payload }: PayloadAction<string>) {
   console.log('reset')
   yield call(reboot)
   yield put(setAi(payload))
@@ -75,49 +75,49 @@ export function * reset ({ payload }: Action<string>) {
   }
 }
 
-function isValidPos (row, col) {
+function isValidPos(row, col) {
   return row < 8 && row >= 0 && col < 8 && col >= 0
 }
 
-function getOpposite (player) {
+function getOpposite(player) {
   return player === WHITE ? BLACK : WHITE
 }
 
-function isCandidate (chess) {
+function isCandidate(chess) {
   return chess === BLACK_CANDIDATE || chess === WHITE_CANDIDATE
 }
 
-function isEmpty (chess) {
+function isEmpty(chess) {
   return !chess || isCandidate(chess)
 }
 
-function isPlaceable (board, player, row, col) {
+function isPlaceable(board, player, row, col) {
   const candiate = getCandidate(player)
   return isValidPos(row, col) && board[row][col] === candiate
 }
 
-function getChess (board, row, col) {
+function getChess(board, row, col) {
   if (isValidPos(row, col)) {
     return !isEmpty(board[row][col]) && board[row][col]
   }
   return null
 }
 
-function getCandidate (player) {
+function getCandidate(player) {
   return player === WHITE ? WHITE_CANDIDATE : BLACK_CANDIDATE
 }
 
-function getPlayer (player) {
+function getPlayer(player) {
   return player === WHITE ? 'white' : 'black'
 }
 
-function countAroundChess (board, row, col) {
+function countAroundChess(board, row, col) {
   return directions.reduce((s, [rd, cd]) => s + Number(!!getChess(board, row + rd, col + cd)), 0)
 }
 
 const scoreSelector = createScoreSelector()
 
-function * switchPlayer () {
+function* switchPlayer() {
   const { player, switchCount, ai } = yield select()
   const score = yield select(scoreSelector)
   if (switchCount > 2) {
@@ -151,7 +151,7 @@ function * switchPlayer () {
   yield put(setPlayer(nextPlayer))
 
   yield call(placeCandidate)
-  if (!(yield select(state => state.candiate))) {
+  if (!(yield select((state) => state.candiate))) {
     yield put(setMessage(`No move, turn to ${getPlayer(player)}`))
     yield put(addSwitch())
     yield call(switchPlayer)
@@ -167,7 +167,7 @@ function * switchPlayer () {
   }
 }
 
-function checkFlipChess (board, player, row, col, rd, cd) {
+function checkFlipChess(board, player, row, col, rd, cd) {
   let count = 0
   let found = false
   if (!isValidPos(row, col) || !isEmpty(board[row][col])) {
@@ -188,7 +188,7 @@ function checkFlipChess (board, player, row, col, rd, cd) {
   return found && count > 0 ? count : 0
 }
 
-function * flipChees (board, player, row, col, rd, cd) {
+function* flipChees(board, player, row, col, rd, cd) {
   if (!checkFlipChess(board, player, row, col, rd, cd)) {
     return false
   }
@@ -208,19 +208,19 @@ function * flipChees (board, player, row, col, rd, cd) {
   return true
 }
 
-function * flipAllChess ({ row, col, player }) {
+function* flipAllChess({ row, col, player }) {
   const { board } = yield select()
   for (let i = 0; i < 8; i += 1) {
-    let [rd, cd] = directions[i]
+    const [rd, cd] = directions[i]
     yield call(flipChees, board, player, row, col, rd, cd)
   }
 }
 
-function * clearCandidate () {
-  const board = yield select(state => state.board)
+function* clearCandidate() {
+  const board = yield select((state) => state.board)
   for (let r = 0; r < 8; r += 1) {
     for (let c = 0; c < 8; c += 1) {
-      let chess = board[r][c]
+      const chess = board[r][c]
       if (isCandidate(chess)) {
         yield put(placeChess(r, c, null))
       }
@@ -228,16 +228,16 @@ function * clearCandidate () {
   }
 }
 
-function * placeCandidate () {
+function* placeCandidate() {
   const { player, board } = yield select()
   const chess = getCandidate(player)
   let count = 0
   for (let r = 0; r < 8; r += 1) {
     for (let c = 0; c < 8; c += 1) {
-      let ch = board[r][c]
+      const ch = board[r][c]
       if (!ch) {
         for (let i = 0; i < 8; i += 1) {
-          let [rd, cd] = directions[i]
+          const [rd, cd] = directions[i]
           if (checkFlipChess(board, player, r, c, rd, cd)) {
             yield put(placeChess(r, c, chess))
             count += 1
@@ -250,7 +250,7 @@ function * placeCandidate () {
   yield put(setCandidate(count))
 }
 
-function judgeScoreV1 (board, ai, row, col) {
+function judgeScoreV1(board, ai, row, col) {
   const flips = directions.map(([rd, cd]) => checkFlipChess(board, ai, row, col, rd, cd))
   const atTopOrBottom = row === 0 || row === 7
   const atLeftOrRight = col === 0 || col === 7
@@ -272,7 +272,7 @@ function judgeScoreV1 (board, ai, row, col) {
   return score
 }
 
-function judgeScoreV2 (board, ai, row, col) {
+function judgeScoreV2(board, ai, row, col) {
   const flips = directions.map(([rd, cd]) => checkFlipChess(board, ai, row, col, rd, cd))
   const atTopOrBottom = row === 0 || row === 7
   const atLeftOrRight = col === 0 || col === 7
@@ -296,7 +296,7 @@ function judgeScoreV2 (board, ai, row, col) {
   } else if (row === 2 || col === 2 || row === 5 || col === 5) {
     posScore = 50
   }
-  const nextBoard = produce(board, draft => {
+  const nextBoard = produce(board, (draft) => {
     draft[row][col] = ai
   })
   const willBeFlipeds = directions.map(([rd, cd]) =>
@@ -311,10 +311,10 @@ function judgeScoreV2 (board, ai, row, col) {
 
 const judgeScores = {
   v1: judgeScoreV1,
-  v2: judgeScoreV2
+  v2: judgeScoreV2,
 }
 
-function * aiJudgeScore () {
+function* aiJudgeScore() {
   const { board, player, ai, version } = yield select()
   const scores = []
   const judge = judgeScores[version]
@@ -323,11 +323,11 @@ function * aiJudgeScore () {
   for (let r = 0; r < 8; r += 1) {
     for (let c = 0; c < 8; c += 1) {
       if (board[r][c] === chess) {
-        let score = judge(board, ai, r, c)
+        const score = judge(board, ai, r, c)
         scores.push({
           row: r,
           col: c,
-          score: score
+          score: score,
         })
       }
     }
@@ -339,14 +339,14 @@ function * aiJudgeScore () {
   yield put(
     pushLog({
       player,
-      pos: `(${row}, ${col})`
+      pos: `(${row}, ${col})`,
     })
   )
   yield call(flipAllChess, { row, col, player })
   yield put(placeChess(row, col, player))
 }
 
-function * userPlaceChess ({ payload: { col, row } }: Action<Coords>) {
+function* userPlaceChess({ payload: { col, row } }: PayloadAction<Coords>) {
   const { player, board } = yield select()
   if (!isPlaceable(board, player, row, col)) {
     // Not allow place on exist chess or not candiate
@@ -358,7 +358,7 @@ function * userPlaceChess ({ payload: { col, row } }: Action<Coords>) {
   yield put(
     pushLog({
       player,
-      pos: `(${row}, ${col})`
+      pos: `(${row}, ${col})`,
     })
   )
   yield call(flipAllChess, { row, col, player })
@@ -367,12 +367,12 @@ function * userPlaceChess ({ payload: { col, row } }: Action<Coords>) {
   yield call(switchPlayer)
 }
 
-export function * root () {
+export function* root() {
   yield all([
     takeEvery(REBOOT, reboot),
     takeEvery(RESET, reset),
     takeEvery(USER_PLACE_CHESS, userPlaceChess),
-    takeEvery(SWITCH_PLAYER, switchPlayer)
+    takeEvery(SWITCH_PLAYER, switchPlayer),
   ])
 }
 

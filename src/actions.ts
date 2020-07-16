@@ -19,37 +19,45 @@ import {
   SET_STATE,
   SET_VERSION,
   SWITCH_PLAYER,
-  USER_PLACE_CHESS
+  USER_PLACE_CHESS,
+  PLAYING,
+  IDLE,
+  ENDED,
 } from './consts'
 
-import { createAction } from 'redux-actions'
+import { createAction } from '@reduxjs/toolkit'
+import { Log } from './reducer'
 
 export const addSwitch = createAction(ADD_SWITCH)
 export const clearLog = createAction(CLEAR_LOG)
-export const incrementHistory = createAction(INCREMENT_HISTORY)
-export const pushLog = createAction(PUSH_LOG)
+export const incrementHistory = createAction<'win' | 'lose' | 'draw'>(INCREMENT_HISTORY)
+export const pushLog = createAction<Log>(PUSH_LOG)
 export const reboot = createAction(REBOOT)
-export const reset = createAction(RESET)
+export const reset = createAction<string | null>(RESET)
 export const resetBoard = createAction(RESET_BOARD)
 export const resetSwitch = createAction(RESET_SWITCH)
 export const restoreStep = createAction(RESTORE_STEP)
 export const saveStep = createAction(SAVE_STEP)
-export const setAi = createAction(SET_AI)
-export const setCandidate = createAction(SET_CANDIDATE)
-export const setMessage = createAction(SET_MESSAGE)
-export const setOverlay = createAction(SET_OVERLAY)
+export const setAi = createAction<string | null>(SET_AI)
+export const setCandidate = createAction<number>(SET_CANDIDATE)
+export const setMessage = createAction<string>(SET_MESSAGE)
+export const setOverlay = createAction<string>(SET_OVERLAY)
 export const setPlayer = createAction<string>(SET_PLAYER)
-export const setRetractStep = createAction(SET_RETRACT_STEP)
-export const setState = createAction(SET_STATE)
+export const setRetractStep = createAction<number>(SET_RETRACT_STEP)
+export const setState = createAction<typeof IDLE | typeof PLAYING | typeof ENDED>(SET_STATE)
 export const setVersion = createAction(SET_VERSION)
 export const switchPlayer = createAction(SWITCH_PLAYER)
 
 export const placeChess = createAction(PLACE_CHESS, (row, col, chess) => ({
-  row,
-  col,
-  chess
+  payload: {
+    row,
+    col,
+    chess,
+  },
 }))
 export const userPlaceChess = createAction(USER_PLACE_CHESS, (row, col) => ({
-  row,
-  col
+  payload: {
+    row,
+    col,
+  },
 }))

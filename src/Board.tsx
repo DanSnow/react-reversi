@@ -17,7 +17,7 @@ const Overlay = styled.text({
   fill: 'red',
   fontSize: '8em',
   pointerEvents: 'none',
-  textAnchor: 'middle'
+  textAnchor: 'middle',
 })
 
 interface Props {
@@ -29,9 +29,9 @@ interface Props {
   placeChess: (row: number, col: number) => void
 }
 
-function Board ({ reset, placeChess, board, hint, started, overlay }: Props) {
+function Board({ reset, placeChess, board, hint, started, overlay }: Props) {
   return (
-    <svg height='640px' width='640px'>
+    <svg height="640px" width="640px">
       <StaticContainer>
         <Fragment>
           <BoardBackground />
@@ -39,24 +39,23 @@ function Board ({ reset, placeChess, board, hint, started, overlay }: Props) {
         </Fragment>
       </StaticContainer>
       {flatMap(board, (r, row) =>
-        r.map(
-          (c, col) =>
-            c ? (
-              <Chess
-                key={row * 8 + col}
-                row={row}
-                col={col}
-                hint={hint}
-                color={c === WHITE || c === WHITE_CANDIDATE ? 'white' : 'black'}
-                candidate={c === WHITE_CANDIDATE || c === BLACK_CANDIDATE}
-                onClick={placeChess}
-              />
-            ) : null
+        r.map((c, col) =>
+          c ? (
+            <Chess
+              key={row * 8 + col}
+              row={row}
+              col={col}
+              hint={hint}
+              color={c === WHITE || c === WHITE_CANDIDATE ? 'white' : 'black'}
+              candidate={c === WHITE_CANDIDATE || c === BLACK_CANDIDATE}
+              onClick={placeChess}
+            />
+          ) : null
         )
       )}
       {started || <ColorButtons onClick={reset} />}
       {!!overlay && (
-        <Overlay x='50%' y='50%'>
+        <Overlay x="50%" y="50%">
           {overlay}
         </Overlay>
       )}
@@ -68,19 +67,19 @@ export default connect(
   (state: State) => ({
     board: state.board,
     started: startedSelector(state),
-    overlay: state.overlay
+    overlay: state.overlay,
   }),
   {
     reset,
     userPlaceChess,
-    setOverlay
+    setOverlay,
   },
   (state, actions, props) => {
     return {
       ...state,
       ...actions,
       ...props,
-      placeChess (row, col) {
+      placeChess(row, col) {
         if (state.overlay) {
           actions.setOverlay('')
         }
@@ -89,7 +88,7 @@ export default connect(
         }
         console.log('(Row, Col): (', row, ', ', col, ')')
         actions.userPlaceChess(row, col)
-      }
+      },
     }
   }
 )(Board)

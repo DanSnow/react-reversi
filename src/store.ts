@@ -1,30 +1,25 @@
-import { StoreEnhancer, applyMiddleware, compose, createStore } from 'redux'
 import createSagaMiddleware, { END } from 'redux-saga'
 import { persistReducer, persistStore } from 'redux-persist'
 
 import { createLogger } from 'redux-logger'
-import { identity } from 'lodash-es'
 import reducer from './reducer'
 import root from './saga'
 import storage from 'redux-persist/lib/storage'
-
-const getDevtools = (): StoreEnhancer<{}> => {
-  if (__DEV__) {
-    return window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : identity
-  }
-  return identity
-}
+import { getDefaultMiddleware, configureStore as baseConfigureStore } from '@reduxjs/toolkit'
+import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
 
 export const configureStore = () => {
   const sagaMiddleware = createSagaMiddleware()
   const logger = createLogger()
-  const store = createStore(
-    persistReducer({ key: 'reversi', storage, whitelist: ['history'] }, reducer),
-    compose(
-      applyMiddleware(sagaMiddleware, logger),
-      getDevtools()
-    )
-  )
+  const store = baseConfigureStore({
+    reducer: persistReducer({ key: 'reversi', storage, whitelist: ['history'] }, reducer),
+    middleware: getDefaultMiddleware({
+      thunk: false,
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(sagaMiddleware, logger),
+  })
   const persistor = persistStore(store)
 
   if (module.hot) {
@@ -37,9 +32,9 @@ export const configureStore = () => {
     store,
     persistor,
     runSaga: sagaMiddleware.run,
-    close () {
+    close() {
       store.dispatch(END as any)
-    }
+    },
   }
 }
 

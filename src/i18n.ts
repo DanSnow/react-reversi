@@ -18,8 +18,8 @@ export const i18n = i18next
           Score: '記分板',
           Hint: '顯示提示',
           'Allow Retract': '允許悔棋',
-          'AI Version': 'AI 版本'
-        }
-      }
-    }
+          'AI Version': 'AI 版本',
+        },
+      },
+    },
   })

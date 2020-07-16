@@ -6,7 +6,7 @@ interface Props {
   target: string
   children?: ReactChild
 }
-function Portal ({ target, children }: Props) {
+function Portal({ target, children }: Props) {
   const domStore = useRef<Element>(null)
   if (!domStore.current) {
     domStore.current = document.getElementById(target)

@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { createScoreSelector } from './selector'
 import { useTranslation } from 'react-i18next'
 
-function getPlayerType (player: string, ai?: string): string {
+function getPlayerType(player: string, ai?: string): string {
   return player === ai ? 'ai' : 'player'
 }
 
@@ -27,15 +27,15 @@ interface Props {
   score: ScoreData
 }
 
-function Score ({ score, ai, history }: Props) {
+function Score({ score, ai, history }: Props) {
   const { t } = useTranslation()
 
   return (
-    <div className='card'>
-      <div className='card-header'>
-        <p className='card-header-title'>{t('Score')}</p>
+    <div className="card">
+      <div className="card-header">
+        <p className="card-header-title">{t('Score')}</p>
       </div>
-      <div className='card-content'>
+      <div className="card-content">
         <div>
           black({getPlayerType(BLACK, ai)}): {score.black}
         </div>
@@ -47,7 +47,7 @@ function Score ({ score, ai, history }: Props) {
         <div>lose: {history.lose}</div>
         <div>draw: {history.draw}</div>
         <hr />
-        <p className='is-size-6 has-text-grey'>{VERSION}</p>
+        <p className="is-size-6 has-text-grey">{VERSION}</p>
       </div>
     </div>
   )
@@ -58,5 +58,5 @@ const scoreSelector = createScoreSelector()
 export default connect((state: State) => ({
   score: scoreSelector(state),
   ai: state.ai,
-  history: state.history
+  history: state.history,
 }))(Score)

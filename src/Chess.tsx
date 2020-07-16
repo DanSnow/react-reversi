@@ -3,7 +3,7 @@ import React, { Fragment, useCallback } from 'react'
 import styled from '@emotion/styled'
 
 const Circle = styled.circle({
-  pointerEvents: 'none'
+  pointerEvents: 'none',
 })
 
 interface Props {
@@ -15,17 +15,14 @@ interface Props {
   onClick: (row: number, col: number) => void
 }
 
-function Chess ({ color, row, col, candidate, hint, onClick }: Props) {
-  const handleClick = useCallback(
-    () => {
-      onClick(row, col)
-    },
-    [row, col]
-  )
+function Chess({ color, row, col, candidate, hint, onClick }: Props) {
+  const handleClick = useCallback(() => {
+    onClick(row, col)
+  }, [row, col])
 
   return (
     <Fragment>
-      <rect onClick={handleClick} width='80' height='80' fillOpacity='0' x={col * 80} y={row * 80} />
+      <rect onClick={handleClick} width="80" height="80" fillOpacity="0" x={col * 80} y={row * 80} />
       <Circle
         fill={color}
         fillOpacity={candidate ? (hint ? '0.3' : '0') : '1'}
