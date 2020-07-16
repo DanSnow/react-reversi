@@ -3,6 +3,7 @@ import { Configuration, DefinePlugin } from 'webpack'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import { join } from 'path'
 import { version } from './package.json'
+import PnpWebpackPlugin from 'pnp-webpack-plugin'
 
 const env = process.env.NODE_ENV
 
@@ -12,13 +13,13 @@ const babelConfig = {
       '@babel/preset-env',
       {
         targets: {
-          browsers: ['last 2 Chrome versions', 'last 2 Firefox versions', 'last 2 Edge versions']
+          browsers: ['last 2 Chrome versions', 'last 2 Firefox versions', 'last 2 Edge versions'],
         },
         exclude: ['transform-regenerator'],
-        modules: false
-      }
+        modules: false,
+      },
     ],
-    '@babel/preset-react'
+    '@babel/preset-react',
   ],
   plugins: [
     [
@@ -27,15 +28,15 @@ const babelConfig = {
         'lodash-es': {
           // eslint-disable-next-line no-template-curly-in-string
           transform: 'lodash-es/${member}',
-          preventFullImport: true
-        }
-      }
+          preventFullImport: true,
+        },
+      },
     ],
     ['@babel/plugin-transform-runtime', { useESModules: true }],
     '@babel/plugin-proposal-class-properties',
     ['@babel/plugin-proposal-object-rest-spread', { useBuiltIns: true }],
-    ['emotion', env === 'production' ? { hoist: true } : { sourceMap: true, autoLabel: true }]
-  ]
+    ['emotion', env === 'production' ? { hoist: true } : { sourceMap: true, autoLabel: true }],
+  ],
 }
 
 var baseConfig: Configuration = {
@@ -44,19 +45,23 @@ var baseConfig: Configuration = {
   output: {
     path: join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/dist/'
+    publicPath: '/dist/',
   },
   resolve: {
     mainFields: ['module', 'main'],
-    extensions: ['.ts', '.tsx', '.js', '.json']
+    extensions: ['.ts', '.tsx', '.js', '.json'],
+    plugins: [PnpWebpackPlugin],
+  },
+  resolveLoader: {
+    plugins: [PnpWebpackPlugin.moduleLoader(module)],
   },
   plugins: [
     new DefinePlugin({
       __DEV__: env !== 'production',
       NODE_ENV: JSON.stringify(env),
       VERSION: JSON.stringify('v' + version),
-      'process.env.NODE_ENV': JSON.stringify(env)
-    })
+      'process.env.NODE_ENV': JSON.stringify(env),
+    }),
   ],
   module: {
     rules: [
@@ -64,17 +69,17 @@ var baseConfig: Configuration = {
         test: /\.(j|t)sx?$/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: require.resolve('babel-loader'),
             options: {
               babelrc: false,
-              ...babelConfig
-            }
-          }
+              ...babelConfig,
+            },
+          },
         ],
-        include: join(__dirname, 'src')
-      }
-    ]
-  }
+        include: join(__dirname, 'src'),
+      },
+    ],
+  },
 }
 
 if (env !== 'production') {
