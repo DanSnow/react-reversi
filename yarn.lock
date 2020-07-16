@@ -5327,7 +5327,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"immer@npm:^7.0.3, immer@npm:^7.0.5":
+"immer@npm:^7.0.3":
   version: 7.0.5
   resolution: "immer@npm:7.0.5"
   checksum: 04e23e07250069be3a1cf1f3aa43b52d99db5c264645020b44610d45db16484bf5f3097efe37628535eacfe4553d83c8a053fb802c1cc139b4ddb3b97f9f3d69
@@ -7727,7 +7727,6 @@ fsevents@~2.1.2:
     html-webpack-plugin: ^4.3.0
     i18next: ^19.6.2
     i18next-browser-languagedetector: ^5.0.0
-    immer: ^7.0.5
     lodash-es: ^4.17.15
     pnp-webpack-plugin: ^1.6.4
     prettier: ^2.0.5

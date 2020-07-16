@@ -33,8 +33,7 @@ import { capitalize, filter, head, max, orderBy, sample, sum } from 'lodash-es'
 import { Coords } from './reducer'
 import { createScoreSelector } from './selector'
 import invariant from 'tiny-invariant'
-import { produce } from 'immer'
-import { PayloadAction } from '@reduxjs/toolkit'
+import { PayloadAction, createNextState as produce } from '@reduxjs/toolkit'
 
 const directions = [
   [-1, 0], // Up
