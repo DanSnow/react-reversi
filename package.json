@@ -47,7 +47,7 @@
     "babel-loader": "8.1.0",
     "babel-plugin-emotion": "^10.0.33",
     "babel-plugin-transform-imports": "^2.0.0",
-    "eslint": "^7.4.0",
+    "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-config-standard-react": "^9.2.0",
