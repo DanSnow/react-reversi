@@ -74,7 +74,7 @@
     "@reduxjs/toolkit": "^1.4.0",
     "clsx": "^1.1.1",
     "i18next": "^19.6.2",
-    "i18next-browser-languagedetector": "^6.0.0",
+    "i18next-browser-languagedetector": "^6.0.1",
     "lodash-es": "^4.17.15",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
