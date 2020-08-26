@@ -1,10 +1,10 @@
-import { BLACK, WHITE } from './consts'
-
 import React from 'react'
-import { State } from './reducer'
-import { connect } from 'react-redux'
-import { createScoreSelector } from './selector'
 import { useTranslation } from 'react-i18next'
+import { connect } from 'react-redux'
+
+import { BLACK, WHITE } from './consts'
+import { State } from './reducer'
+import { createScoreSelector } from './selector'
 
 function getPlayerType(player: string, ai?: string): string {
   return player === ai ? 'ai' : 'player'

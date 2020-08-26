@@ -1,3 +1,6 @@
+import { createReducer, PayloadAction } from '@reduxjs/toolkit'
+import { constant, times } from 'lodash-es'
+
 import {
   ADD_SWITCH,
   CLEAR_LOG,
@@ -20,8 +23,6 @@ import {
   SET_STATE,
   SET_VERSION,
 } from './consts'
-import { createReducer, PayloadAction } from '@reduxjs/toolkit'
-import { constant, times } from 'lodash-es'
 
 const initialBoard = times(8, () => times(8, constant(null)))
 

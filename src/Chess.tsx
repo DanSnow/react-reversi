@@ -1,6 +1,5 @@
-import React, { Fragment, useCallback } from 'react'
-
 import styled from '@emotion/styled'
+import React, { Fragment, useCallback } from 'react'
 
 const Circle = styled.circle({
   pointerEvents: 'none',
@@ -21,7 +20,7 @@ function Chess({ color, row, col, candidate, hint, onClick }: Props) {
   }, [row, col])
 
   return (
-    <Fragment>
+    <>
       <rect onClick={handleClick} width="80" height="80" fillOpacity="0" x={col * 80} y={row * 80} />
       <Circle
         fill={color}
@@ -30,7 +29,7 @@ function Chess({ color, row, col, candidate, hint, onClick }: Props) {
         cy={row * 80 + 40}
         r={30}
       />
-    </Fragment>
+    </>
   )
 }
 

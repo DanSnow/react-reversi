@@ -1,8 +1,13 @@
+import { createAction } from '@reduxjs/toolkit'
+
 import {
   ADD_SWITCH,
   CLEAR_LOG,
+  ENDED,
+  IDLE,
   INCREMENT_HISTORY,
   PLACE_CHESS,
+  PLAYING,
   PUSH_LOG,
   REBOOT,
   RESET,
@@ -20,12 +25,7 @@ import {
   SET_VERSION,
   SWITCH_PLAYER,
   USER_PLACE_CHESS,
-  PLAYING,
-  IDLE,
-  ENDED,
 } from './consts'
-
-import { createAction } from '@reduxjs/toolkit'
 import { Log } from './reducer'
 
 export const addSwitch = createAction(ADD_SWITCH)

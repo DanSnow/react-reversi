@@ -1,9 +1,9 @@
-import { Configuration, DefinePlugin } from 'webpack'
-
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import { join } from 'path'
-import { version } from './package.json'
 import PnpWebpackPlugin from 'pnp-webpack-plugin'
+import { Configuration, DefinePlugin } from 'webpack'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+
+import { version } from './package.json'
 
 const env = process.env.NODE_ENV
 
@@ -39,7 +39,7 @@ const babelConfig = {
   ],
 }
 
-var baseConfig: Configuration = {
+const baseConfig: Configuration = {
   mode: env === 'production' ? 'production' : 'development',
   entry: ['react-hot-loader/patch', './src/index'],
   output: {

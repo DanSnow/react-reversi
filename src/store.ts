@@ -1,12 +1,11 @@
-import createSagaMiddleware, { END } from 'redux-saga'
-import { persistReducer, persistStore } from 'redux-persist'
-
+import { configureStore as baseConfigureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import { createLogger } from 'redux-logger'
+import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+import createSagaMiddleware, { END } from 'redux-saga'
+
 import reducer from './reducer'
 import root from './saga'
-import storage from 'redux-persist/lib/storage'
-import { getDefaultMiddleware, configureStore as baseConfigureStore } from '@reduxjs/toolkit'
-import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
 
 export const configureStore = () => {
   const sagaMiddleware = createSagaMiddleware()
@@ -23,7 +22,7 @@ export const configureStore = () => {
   const persistor = persistStore(store)
 
   if (module.hot) {
-    module.hot.accept('./reducer', () => {
+    module.hot.accept('./reducer', async () => {
       store.replaceReducer(require('./reducer').default)
     })
   }

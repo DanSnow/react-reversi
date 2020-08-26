@@ -1,9 +1,9 @@
-import { persistor, store } from './store'
+import React from 'react'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
 
 import Game from './Game'
-import { PersistGate } from 'redux-persist/integration/react'
-import { Provider } from 'react-redux'
-import React from 'react'
+import { persistor, store } from './store'
 
 export default function App() {
   return (

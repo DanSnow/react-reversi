@@ -1,17 +1,17 @@
-import { BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE } from './consts'
-import React, { Fragment } from 'react'
-import { reset, setOverlay, userPlaceChess } from './actions'
+import styled from '@emotion/styled'
+import { flatMap } from 'lodash-es'
+import React from 'react'
+import { connect } from 'react-redux'
+import StaticContainer from 'react-static-container'
 
+import { reset, setOverlay, userPlaceChess } from './actions'
 import BoardBackground from './BoardBackground'
 import BoardGrid from './BoardGrid'
 import Chess from './Chess'
 import { ColorButtons } from './ColorButtons'
+import { BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE } from './consts'
 import { State } from './reducer'
-import StaticContainer from 'react-static-container'
-import { connect } from 'react-redux'
-import { flatMap } from 'lodash-es'
 import { startedSelector } from './selector'
-import styled from '@emotion/styled'
 
 const Overlay = styled.text({
   fill: 'red',
@@ -33,10 +33,10 @@ function Board({ reset, placeChess, board, hint, started, overlay }: Props) {
   return (
     <svg height="640px" width="640px">
       <StaticContainer>
-        <Fragment>
+        <>
           <BoardBackground />
           <BoardGrid />
-        </Fragment>
+        </>
       </StaticContainer>
       {flatMap(board, (r, row) =>
         r.map((c, col) =>

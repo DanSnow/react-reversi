@@ -1,9 +1,10 @@
 import './i18n'
 
-import App from './App'
-import { AppContainer } from 'react-hot-loader'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
+
+import App from './App'
 
 ReactDOM.render(
   <AppContainer>

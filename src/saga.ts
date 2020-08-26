@@ -1,16 +1,8 @@
-import {
-  BLACK,
-  BLACK_CANDIDATE,
-  ENDED,
-  IDLE,
-  PLAYING,
-  REBOOT,
-  RESET,
-  SWITCH_PLAYER,
-  USER_PLACE_CHESS,
-  WHITE,
-  WHITE_CANDIDATE,
-} from './consts'
+import { createNextState as produce,PayloadAction } from '@reduxjs/toolkit'
+import { capitalize, filter, head, max, orderBy, sample, sum } from 'lodash-es'
+import { all, call, delay, put, select, takeEvery } from 'redux-saga/effects'
+import invariant from 'tiny-invariant'
+
 import {
   addSwitch,
   clearLog,
@@ -27,13 +19,21 @@ import {
   setPlayer,
   setState,
 } from './actions'
-import { all, call, delay, put, select, takeEvery } from 'redux-saga/effects'
-import { capitalize, filter, head, max, orderBy, sample, sum } from 'lodash-es'
-
+import {
+  BLACK,
+  BLACK_CANDIDATE,
+  ENDED,
+  IDLE,
+  PLAYING,
+  REBOOT,
+  RESET,
+  SWITCH_PLAYER,
+  USER_PLACE_CHESS,
+  WHITE,
+  WHITE_CANDIDATE,
+} from './consts'
 import { Coords } from './reducer'
 import { createScoreSelector } from './selector'
-import invariant from 'tiny-invariant'
-import { PayloadAction, createNextState as produce } from '@reduxjs/toolkit'
 
 const directions = [
   [-1, 0], // Up
@@ -58,7 +58,6 @@ export function* reboot() {
 }
 
 export function* reset({ payload }: PayloadAction<string>) {
-  console.log('reset')
   yield call(reboot)
   yield put(setAi(payload))
   yield put(setPlayer(BLACK))
@@ -187,7 +186,7 @@ function checkFlipChess(board, player, row, col, rd, cd) {
   return found && count > 0 ? count : 0
 }
 
-function* flipChees(board, player, row, col, rd, cd) {
+function* flipChess(board, player, row, col, rd, cd) {
   if (!checkFlipChess(board, player, row, col, rd, cd)) {
     return false
   }
@@ -211,7 +210,7 @@ function* flipAllChess({ row, col, player }) {
   const { board } = yield select()
   for (let i = 0; i < 8; i += 1) {
     const [rd, cd] = directions[i]
-    yield call(flipChees, board, player, row, col, rd, cd)
+    yield call(flipChess, board, player, row, col, rd, cd)
   }
 }
 

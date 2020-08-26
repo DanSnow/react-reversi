@@ -1,10 +1,10 @@
-import { Log as LogData, State } from './reducer'
-
-import React from 'react'
-import { WHITE } from './consts'
-import { connect } from 'react-redux'
-import cx from 'clsx'
 import styled from '@emotion/styled'
+import cx from 'clsx'
+import React from 'react'
+import { connect } from 'react-redux'
+
+import { WHITE } from './consts'
+import { Log as LogData, State } from './reducer'
 
 const LogContainer = styled.div({
   height: '600px',

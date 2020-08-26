@@ -1,15 +1,15 @@
-import { BLACK, WHITE } from './consts'
-
-import { State } from './reducer'
 import { createSelector } from '@reduxjs/toolkit'
+
+import { BLACK, WHITE } from './consts'
+import { State } from './reducer'
 
 const selectBoard = (state: State) => state.board
 const selectPlayer = (state: State) => state.player
 
 export const createScoreSelector = () =>
   createSelector([selectBoard], (board) => {
-    var black = 0
-    var white = 0
+    let black = 0
+    let white = 0
     board.forEach((row) => {
       row.forEach((col) => {
         if (col === BLACK) {

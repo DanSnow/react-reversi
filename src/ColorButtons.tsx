@@ -1,7 +1,7 @@
-import { BLACK, WHITE } from './consts'
 import React from 'react'
 
 import { ColorButton } from './ColorButton'
+import { BLACK, WHITE } from './consts'
 
 interface Props {
   onClick: (x: string) => void

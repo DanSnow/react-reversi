@@ -1,18 +1,18 @@
-import { ENDED, IDLE } from './consts'
-import React, { Fragment, useCallback, useState } from 'react'
-import { reboot, setRetractStep, setState, setVersion } from './actions'
+import React, { useCallback, useState } from 'react'
+import GithubCorner from 'react-github-corner'
+import { useTranslation } from 'react-i18next'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
+import { reboot, setRetractStep, setState, setVersion } from './actions'
 import Board from './Board'
 import { Confirm } from './Confirm'
-import GithubCorner from 'react-github-corner'
+import { ENDED, IDLE } from './consts'
 import Log from './Log'
+import { State } from './reducer'
 import Score from './Score'
 import SettingModal from './SettingModal'
-import { State } from './reducer'
 import Toolbar from './Toolbar'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import { useTranslation } from 'react-i18next'
 
 interface Props {
   message: string
@@ -32,7 +32,7 @@ function Game({ showReplay, message, reboot, setVersion, setAllowRetract, resetS
   const { t } = useTranslation()
 
   return (
-    <Fragment>
+    <>
       <div className="container is-fluid">
         <div className="columns">
           <div className="column is-6 is-offset-2">
@@ -63,7 +63,7 @@ function Game({ showReplay, message, reboot, setVersion, setAllowRetract, resetS
         />
       </div>
       <GithubCorner href="https://github.com/DanSnow/react-reversi" />
-    </Fragment>
+    </>
   )
 }
 

@@ -1,7 +1,7 @@
+import cx from 'clsx'
 import React, { ReactChild } from 'react'
 
 import Portal from './Portal'
-import cx from 'clsx'
 
 interface Props {
   open: boolean

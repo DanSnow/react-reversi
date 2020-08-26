@@ -1,8 +1,8 @@
+import cx from 'clsx'
 import React, { ChangeEvent } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import Portal from './Portal'
-import cx from 'clsx'
-import { useTranslation } from 'react-i18next'
 
 interface Props {
   isOpen: boolean
