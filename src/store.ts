@@ -32,7 +32,7 @@ export const configureStore = () => {
     persistor,
     runSaga: sagaMiddleware.run,
     close() {
-      store.dispatch(END as any)
+      store.dispatch(END)
     },
   }
 }
