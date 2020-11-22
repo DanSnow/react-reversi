@@ -1,9 +1,10 @@
 import { times } from 'lodash-es'
+import { ReactElement } from 'react'
 
 import BoardColumn from './BoardColumn'
 import BoardRow from './BoardRow'
 
-function BoardGrid() {
+function BoardGrid(): ReactElement {
   return (
     <>
       {times(9, (i) => (

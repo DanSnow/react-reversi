@@ -9,20 +9,20 @@ interface Props {
 
 export function PersistGate(props: Props): ReactElement {
   const [bootstrapped, setBootstrapped] = useState(false)
+  const { persistor } = props
 
   useEffect(() => {
     const handlePersistor = () => {
-      const { persistor } = props
       const { bootstrapped } = persistor.getState()
       if (bootstrapped) {
         setBootstrapped(true)
       }
       unsubscribe()
     }
-    const unsubscribe = props.persistor.subscribe(handlePersistor)
+    const unsubscribe = persistor.subscribe(handlePersistor)
     handlePersistor()
     return unsubscribe
-  }, [props.persistor])
+  }, [persistor])
 
   if (process.env.NODE_ENV !== 'production') {
     if (typeof props.children === 'function' && props.loading)

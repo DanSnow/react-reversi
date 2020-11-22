@@ -1,5 +1,5 @@
 import cx from 'clsx'
-import { ReactChild } from 'react'
+import { ReactChild, ReactElement } from 'react'
 
 import Portal from './Portal'
 
@@ -10,7 +10,7 @@ interface Props {
   onCancel: () => void
 }
 
-export function Confirm({ open, children, onConfirm, onCancel }: Props) {
+export function Confirm({ open, children, onConfirm, onCancel }: Props): ReactElement {
   return (
     <Portal target="dialog-root">
       <div className={cx('modal', { 'is-active': open })}>

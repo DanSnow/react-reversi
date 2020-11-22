@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { ReactChild } from 'react'
+import { ReactChild, ReactElement } from 'react'
 
 const SvgText = styled.text({
   fontSize: '2.5em',
@@ -16,7 +16,7 @@ interface Props<T> {
   onClick: (val: T) => void
 }
 
-export function ColorButton<T>({ x, y, color, children, background, onClick, value }: Props<T>) {
+export function ColorButton<T>({ x, y, color, children, background, onClick, value }: Props<T>): ReactElement {
   return (
     <>
       <circle fill={background} cx={x} cy={y} r={80} onClick={() => onClick(value)} />

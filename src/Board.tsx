@@ -78,7 +78,7 @@ export default connect(
       ...state,
       ...actions,
       ...props,
-      placeChess(row, col) {
+      placeChess(row: number, col: number) {
         if (state.overlay) {
           actions.setOverlay('')
         }

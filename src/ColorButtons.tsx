@@ -1,3 +1,5 @@
+import { ReactElement } from 'react'
+
 import { ColorButton } from './ColorButton'
 import { BLACK, WHITE } from './consts'
 
@@ -5,7 +7,7 @@ interface Props {
   onClick: (x: string) => void
 }
 
-export function ColorButtons({ onClick }: Props) {
+export function ColorButtons({ onClick }: Props): ReactElement {
   return (
     <>
       <ColorButton color="white" background="black" x={160} y={300} value={WHITE} onClick={onClick}>

@@ -1,5 +1,5 @@
 import cx from 'clsx'
-import { ChangeEvent } from 'react'
+import { ChangeEvent, ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import Portal from './Portal'
@@ -12,7 +12,7 @@ interface Props {
   onVersionChange: (event: ChangeEvent<HTMLSelectElement>) => void
 }
 
-function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, onVersionChange }: Props) {
+function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, onVersionChange }: Props): ReactElement {
   const { t } = useTranslation()
 
   return (

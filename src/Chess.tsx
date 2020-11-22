@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { useCallback } from 'react'
+import { ReactElement, useCallback } from 'react'
 
 const Circle = styled.circle({
   pointerEvents: 'none',
@@ -14,10 +14,10 @@ interface Props {
   onClick: (row: number, col: number) => void
 }
 
-function Chess({ color, row, col, candidate, hint, onClick }: Props) {
+function Chess({ color, row, col, candidate, hint, onClick }: Props): ReactElement {
   const handleClick = useCallback(() => {
     onClick(row, col)
-  }, [row, col])
+  }, [row, col, onClick])
 
   return (
     <>
