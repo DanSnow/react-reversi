@@ -1,9 +1,12 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   extends: ['plugin:@typescript-eslint/recommended', 'standard', 'standard-react', 'prettier'],
-  plugins: ['@typescript-eslint', 'simple-import-sort'],
+  plugins: ['@typescript-eslint', 'simple-import-sort', 'unused-imports'],
   rules: {
-    'simple-import-sort/sort': 'error',
+    'react/react-in-jsx-scope': 'off',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
+    'unused-imports/no-unused-imports-ts': 'error',
   },
   env: {
     browser: true,
@@ -14,7 +17,7 @@ module.exports = {
   },
   settings: {
     react: {
-      version: '16.8',
+      version: 'detect',
     },
   },
 }
