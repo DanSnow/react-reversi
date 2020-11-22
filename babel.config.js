@@ -5,34 +5,27 @@ module.exports = {
       '@babel/preset-env',
       {
         targets: {
-          node: 'current'
+          node: 'current',
         },
-        modules: 'commonjs'
-      }
+        modules: 'commonjs',
+      },
     ],
-    '@babel/preset-react'
+    ['@babel/preset-react', { runtime: 'automatic' }],
   ],
   plugins: [
+    '@emotion',
     [
       'transform-imports',
       {
         'lodash-es': {
           // eslint-disable-next-line no-template-curly-in-string
           transform: 'lodash-es/${member}',
-          preventFullImport: true
-        }
-      }
+          preventFullImport: true,
+        },
+      },
     ],
     ['@babel/plugin-transform-runtime'],
     '@babel/plugin-proposal-class-properties',
-    ['@babel/plugin-proposal-object-rest-spread', { useBuiltIns: true }]
+    ['@babel/plugin-proposal-object-rest-spread', { useBuiltIns: true }],
   ],
-  env: {
-    production: {
-      presets: [['@emotion/babel-preset-css-prop', { hoist: true }]]
-    },
-    development: {
-      presets: [['@emotion/babel-preset-css-prop', { sourceMap: true, autoLabel: true }]]
-    }
-  }
 }

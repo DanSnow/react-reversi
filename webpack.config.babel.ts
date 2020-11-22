@@ -1,11 +1,13 @@
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { join } from 'path'
-import PnpWebpackPlugin from 'pnp-webpack-plugin'
-import { Configuration, DefinePlugin } from 'webpack'
+import { Configuration, DefinePlugin, HotModuleReplacementPlugin } from 'webpack'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 import { version } from './package.json'
 
 const env = process.env.NODE_ENV
+const isDev = env !== 'production'
 
 const babelConfig = {
   presets: [
@@ -19,9 +21,10 @@ const babelConfig = {
         modules: false,
       },
     ],
-    '@babel/preset-react',
+    ['@babel/preset-react', { runtime: 'automatic' }],
   ],
   plugins: [
+    isDev && require.resolve('react-refresh/babel'),
     [
       'transform-imports',
       {
@@ -35,34 +38,36 @@ const babelConfig = {
     ['@babel/plugin-transform-runtime', { useESModules: true }],
     '@babel/plugin-proposal-class-properties',
     ['@babel/plugin-proposal-object-rest-spread', { useBuiltIns: true }],
-    ['emotion', env === 'production' ? { hoist: true } : { sourceMap: true, autoLabel: true }],
-  ],
+    '@emotion',
+  ].filter(Boolean),
 }
 
 const baseConfig: Configuration = {
   mode: env === 'production' ? 'production' : 'development',
-  entry: ['react-hot-loader/patch', './src/index'],
+  entry: ['./src/index'],
   output: {
     path: join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/dist/',
+    publicPath: '/',
   },
   resolve: {
     mainFields: ['module', 'main'],
     extensions: ['.ts', '.tsx', '.js', '.json'],
-    plugins: [PnpWebpackPlugin],
-  },
-  resolveLoader: {
-    plugins: [PnpWebpackPlugin.moduleLoader(module)],
+    fallback: { querystring: require.resolve('querystring-es3') },
   },
   plugins: [
+    isDev && new HotModuleReplacementPlugin(),
+    isDev && new ReactRefreshWebpackPlugin(),
     new DefinePlugin({
       __DEV__: env !== 'production',
       NODE_ENV: JSON.stringify(env),
       VERSION: JSON.stringify('v' + version),
       'process.env.NODE_ENV': JSON.stringify(env),
     }),
-  ],
+    new HtmlWebpackPlugin({
+      template: './index.html',
+    }),
+  ].filter(Boolean),
   module: {
     rules: [
       {
