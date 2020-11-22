@@ -6,7 +6,7 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "skipLibCheck": true,
     "noUnusedLocals": true
   }
