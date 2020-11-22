@@ -1,5 +1,5 @@
 import cx from 'clsx'
-import React, { ReactChild } from 'react'
+import { ReactChild } from 'react'
 
 import Portal from './Portal'
 

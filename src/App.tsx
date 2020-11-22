@@ -1,8 +1,7 @@
-import React from 'react'
 import { Provider } from 'react-redux'
-import { PersistGate } from 'redux-persist/integration/react'
 
 import Game from './Game'
+import { PersistGate } from './PersistGate'
 import { persistor, store } from './store'
 
 export default function App() {

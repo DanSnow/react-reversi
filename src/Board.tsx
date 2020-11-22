@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import { flatMap } from 'lodash-es'
-import React from 'react'
 import { connect } from 'react-redux'
 import StaticContainer from 'react-static-container'
 

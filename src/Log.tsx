@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import cx from 'clsx'
-import React from 'react'
 import { connect } from 'react-redux'
 
 import { WHITE } from './consts'

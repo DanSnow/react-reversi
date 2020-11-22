@@ -1,6 +1,6 @@
-import { createNextState as produce,PayloadAction } from '@reduxjs/toolkit'
+import { createNextState as produce, PayloadAction } from '@reduxjs/toolkit'
 import { capitalize, filter, head, max, orderBy, sample, sum } from 'lodash-es'
-import { all, call, delay, put, select, takeEvery } from 'redux-saga/effects'
+import { all, call, delay, Effect, put, select, takeEvery } from 'redux-saga/effects'
 import invariant from 'tiny-invariant'
 
 import {
@@ -46,7 +46,7 @@ const directions = [
   [-1, 1],
 ]
 
-export function* reboot() {
+export function* reboot(): Generator<Effect, void, void> {
   yield put(setState(IDLE))
   yield put(setOverlay(''))
   yield put(setMessage(''))
@@ -57,7 +57,7 @@ export function* reboot() {
   yield put(resetSwitch())
 }
 
-export function* reset({ payload }: PayloadAction<string>) {
+export function* reset({ payload }: PayloadAction<string>): Generator<Effect, void, void> {
   yield call(reboot)
   yield put(setAi(payload))
   yield put(setPlayer(BLACK))
@@ -365,7 +365,7 @@ function* userPlaceChess({ payload: { col, row } }: PayloadAction<Coords>) {
   yield call(switchPlayer)
 }
 
-export function* root() {
+export function* root(): Generator<Effect, void, void> {
   yield all([
     takeEvery(REBOOT, reboot),
     takeEvery(RESET, reset),

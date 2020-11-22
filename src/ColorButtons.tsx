@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { ColorButton } from './ColorButton'
 import { BLACK, WHITE } from './consts'
 

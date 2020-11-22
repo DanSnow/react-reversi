@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import React, { ReactChild } from 'react'
+import { ReactChild } from 'react'
 
 const SvgText = styled.text({
   fontSize: '2.5em',

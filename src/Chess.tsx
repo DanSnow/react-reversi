@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import React, { Fragment, useCallback } from 'react'
+import { useCallback } from 'react'
 
 const Circle = styled.circle({
   pointerEvents: 'none',

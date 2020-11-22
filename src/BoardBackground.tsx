@@ -1,5 +1,3 @@
-import React from 'react'
-
 function BoardBackground() {
   return <rect fill="green" width="640" height="640" />
 }

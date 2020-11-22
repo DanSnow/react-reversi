@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 import GithubCorner from 'react-github-corner'
 import { useTranslation } from 'react-i18next'
 import { connect } from 'react-redux'
