@@ -7032,16 +7032,16 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:11.8.9":
-  version: 11.8.9
-  resolution: "react-i18next@npm:11.8.9"
+"react-i18next@npm:11.8.10":
+  version: 11.8.10
+  resolution: "react-i18next@npm:11.8.10"
   dependencies:
     "@babel/runtime": ^7.13.6
     html-parse-stringify2: ^2.0.1
   peerDependencies:
     i18next: ">= 19.0.0"
     react: ">= 16.8.0"
-  checksum: ee02351c7edbbf601305b8bccbfd14ebe87012a559069483cf7a08b0890e0d57cc475bd93dd556cfed17bc90683f2b2f937a70228b90a40ca2560f30eb90fdc6
+  checksum: d87fd2429bfe7ce222b6637da0fe8e85e54d9778eae25f0397149e77ef87d1250348df01210266b6ee05b1d6d79dc100548b25c357ba043b5c626bdff2ce2889
   languageName: node
   linkType: hard
 
@@ -7133,7 +7133,7 @@ fsevents@^1.2.7:
     react: 17.0.1
     react-dom: 17.0.1
     react-github-corner: 2.5.0
-    react-i18next: 11.8.9
+    react-i18next: 11.8.10
     react-redux: 7.2.2
     react-refresh: 0.9.0
     react-static-container: 1.0.2
