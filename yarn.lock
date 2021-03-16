@@ -4998,12 +4998,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"i18next@npm:19.9.1":
-  version: 19.9.1
-  resolution: "i18next@npm:19.9.1"
+"i18next@npm:19.9.2":
+  version: 19.9.2
+  resolution: "i18next@npm:19.9.2"
   dependencies:
     "@babel/runtime": ^7.12.0
-  checksum: 52d03d1031ac6f4da6b722d80a279371d8303188270b05231454c9ffc8c0d9571950aee0831b4433a6f212593feb748837917f5a0f55e9396ddefc4b1243c0ac
+  checksum: 2570489cf92fdbc6c9c6e937deb23725afa1e2af3376f3c1d4880c4cacfc7b79e6136c62527dbc23052a206781f056a5800cda1f7379199a721623cd45e8dd6d
   languageName: node
   linkType: hard
 
@@ -7141,7 +7141,7 @@ fsevents@^1.2.7:
     eslint-plugin-standard: 5.0.0
     eslint-plugin-unused-imports: 1.1.0
     html-webpack-plugin: 5.3.1
-    i18next: 19.9.1
+    i18next: 19.9.2
     i18next-browser-languagedetector: 6.0.1
     lodash-es: 4.17.21
     prettier: 2.2.1
