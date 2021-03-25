@@ -4989,12 +4989,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"i18next-browser-languagedetector@npm:6.0.1":
-  version: 6.0.1
-  resolution: "i18next-browser-languagedetector@npm:6.0.1"
+"i18next-browser-languagedetector@npm:6.1.0":
+  version: 6.1.0
+  resolution: "i18next-browser-languagedetector@npm:6.1.0"
   dependencies:
     "@babel/runtime": ^7.5.5
-  checksum: 760bc83f3bfdf18622a55d732c295130fb9d496e5a1ce389820dd253a3b53f4179826da9cb1b915167ff33c25fc33b5bd93bae8157135c026cd91d0e3a1df4fc
+  checksum: e45df3bfb92ebb2df0feb6cb31f70e79fa3f04a92d860832e5f1fdb996be3e345a42827400b7a85c03e53057c9bb930c152b68d361574e1e37df50fc27d3f730
   languageName: node
   linkType: hard
 
@@ -7142,7 +7142,7 @@ fsevents@^1.2.7:
     eslint-plugin-unused-imports: 1.1.0
     html-webpack-plugin: 5.3.1
     i18next: 20.1.0
-    i18next-browser-languagedetector: 6.0.1
+    i18next-browser-languagedetector: 6.1.0
     lodash-es: 4.17.21
     prettier: 2.2.1
     querystring-es3: 0.2.1
