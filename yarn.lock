@@ -1736,10 +1736,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:14.14.33":
-  version: 14.14.33
-  resolution: "@types/node@npm:14.14.33"
-  checksum: f269fc728f6547345e000a0d86e1be802b475bb6759493208d7bc1cf8d49e838d3952ae54b8c7cd2ce168f9ef50c30e0d7084064a5f98db87efc833a38d955af
+"@types/node@npm:14.14.36":
+  version: 14.14.36
+  resolution: "@types/node@npm:14.14.36"
+  checksum: 9eff5863af3ddf3dfd0964ce7da85e663df2c05d091412b8c97d069e61b00760fa4ce788442733bdf07ad69ce408088c0bef2fa81b5cfdca54d31117618385f3
   languageName: node
   linkType: hard
 
@@ -7231,7 +7231,7 @@ fsevents@^1.2.7:
     "@pmmmwh/react-refresh-webpack-plugin": 0.4.3
     "@reduxjs/toolkit": 1.5.0
     "@types/lodash-es": 4.17.4
-    "@types/node": 14.14.33
+    "@types/node": 14.14.36
     "@types/prettier": 2.2.3
     "@types/react": 17.0.3
     "@types/react-dom": 17.0.3
