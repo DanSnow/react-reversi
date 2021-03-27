@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { connect } from 'react-redux'
 
-import { reboot, reset, restoreStep } from './actions'
-import { State } from './reducer'
+import { reboot, reset, restoreStep, State } from '../store'
 
 interface Props {
   allowRetract: boolean

@@ -373,5 +373,3 @@ export function* root(): Generator<Effect, void, void> {
     takeEvery(SWITCH_PLAYER, switchPlayer),
   ])
 }
-
-export default root

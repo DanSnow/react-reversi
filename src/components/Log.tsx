@@ -2,8 +2,7 @@ import styled from '@emotion/styled'
 import cx from 'clsx'
 import { connect } from 'react-redux'
 
-import { WHITE } from './consts'
-import { Log as LogData, State } from './reducer'
+import { Log as LogData, State, WHITE } from '../store'
 
 const LogContainer = styled.div({
   height: '600px',

@@ -7,14 +7,14 @@ const Circle = styled.circle({
 
 interface Props {
   color: string
-  hint: boolean
+  showHint: boolean
   row: number
   col: number
-  candidate: boolean
+  isCandidate: boolean
   onClick: (row: number, col: number) => void
 }
 
-function Chess({ color, row, col, candidate, hint, onClick }: Props): ReactElement {
+function Chess({ color, row, col, isCandidate, showHint, onClick }: Props): ReactElement {
   const handleClick = useCallback(() => {
     onClick(row, col)
   }, [row, col, onClick])
@@ -24,7 +24,7 @@ function Chess({ color, row, col, candidate, hint, onClick }: Props): ReactEleme
       <rect onClick={handleClick} width="80" height="80" fillOpacity="0" x={col * 80} y={row * 80} />
       <Circle
         fill={color}
-        fillOpacity={candidate ? (hint ? '0.3' : '0') : '1'}
+        fillOpacity={isCandidate ? (showHint ? '0.3' : '0') : '1'}
         cx={col * 80 + 40}
         cy={row * 80 + 40}
         r={30}

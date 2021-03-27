@@ -12,7 +12,7 @@ interface Props {
   onVersionChange: (event: ChangeEvent<HTMLSelectElement>) => void
 }
 
-function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, onVersionChange }: Props): ReactElement {
+export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, onVersionChange }: Props): ReactElement {
   const { t } = useTranslation()
 
   return (
@@ -64,5 +64,3 @@ function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, onVersio
     </Portal>
   )
 }
-
-export default SettingModal

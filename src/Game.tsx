@@ -4,15 +4,13 @@ import { useTranslation } from 'react-i18next'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { reboot, setRetractStep, setState, setVersion } from './actions'
-import Board from './Board'
-import { Confirm } from './Confirm'
-import { ENDED, IDLE } from './consts'
-import Log from './Log'
-import { State } from './reducer'
-import Score from './Score'
-import SettingModal from './SettingModal'
-import Toolbar from './Toolbar'
+import { Board } from './components/Board'
+import { Confirm } from './components/Confirm'
+import Log from './components/Log'
+import { Score } from './components/Score'
+import { SettingModal } from './components/SettingModal'
+import Toolbar from './components/Toolbar'
+import { ENDED, IDLE, reboot, setRetractStep, setState, setVersion, State } from './store'
 
 interface Props {
   message: string

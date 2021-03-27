@@ -1,9 +1,7 @@
+import { ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
-import { connect } from 'react-redux'
 
-import { BLACK, WHITE } from './consts'
-import { State } from './reducer'
-import { createScoreSelector } from './selector'
+import { BLACK, WHITE } from '../../store'
 
 function getPlayerType(player: string, ai?: string): string {
   return player === ai ? 'ai' : 'player'
@@ -26,7 +24,7 @@ interface Props {
   score: ScoreData
 }
 
-function Score({ score, ai, history }: Props) {
+export function Score({ score, ai, history }: Props): ReactElement {
   const { t } = useTranslation()
 
   return (
@@ -51,11 +49,3 @@ function Score({ score, ai, history }: Props) {
     </div>
   )
 }
-
-const scoreSelector = createScoreSelector()
-
-export default connect((state: State) => ({
-  score: scoreSelector(state),
-  ai: state.ai,
-  history: state.history,
-}))(Score)

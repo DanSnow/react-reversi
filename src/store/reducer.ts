@@ -82,7 +82,7 @@ export interface ChessInfo extends Coords {
   chess: string
 }
 
-export default createReducer(initialState, {
+export const reducer = createReducer(initialState, {
   [PLACE_CHESS]: (state, { payload: { row, col, chess } }: PayloadAction<ChessInfo>) => {
     state.board[row][col] = chess
   },
