@@ -1,9 +1,7 @@
+import { ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
-import { connect } from 'react-redux'
 
-import { reboot, reset, restoreStep, State } from '../store'
-
-interface Props {
+export interface Props {
   allowRetract: boolean
   onOpenSetting: () => void
   setHuman: () => void
@@ -11,7 +9,7 @@ interface Props {
   restoreStep: () => void
 }
 
-function Toolbar({ setHuman, reboot, allowRetract, restoreStep, onOpenSetting }: Props) {
+export function Toolbar({ setHuman, reboot, allowRetract, restoreStep, onOpenSetting }: Props): ReactElement {
   const { t } = useTranslation()
 
   return (
@@ -52,10 +50,3 @@ function Toolbar({ setHuman, reboot, allowRetract, restoreStep, onOpenSetting }:
     </nav>
   )
 }
-
-export default connect(
-  (state: State) => ({
-    allowRetract: !!(state.allowRetractStep && state.pastStep.length),
-  }),
-  { reboot, setHuman: () => reset(null), restoreStep }
-)(Toolbar)

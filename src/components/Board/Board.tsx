@@ -1,4 +1,5 @@
 import { ReactElement } from 'react'
+import { ReadonlyDeep } from 'type-fest'
 
 import { BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE } from '../../store'
 import { Background } from './Background'
@@ -7,7 +8,7 @@ import { ChooseColor } from './ChooseColor'
 import { Overlay } from './Overlay'
 
 interface Props {
-  board: (null | string)[][]
+  board: ReadonlyDeep<(null | string)[][]>
   showChooseColor: boolean
   overlay: string
   hint: boolean

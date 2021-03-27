@@ -1,24 +1,8 @@
 import { createNextState as produce, PayloadAction } from '@reduxjs/toolkit'
-import { capitalize, filter, head, max, orderBy, sample, sum } from 'lodash-es'
+import { filter, head, map, max, prop, propEq, reduce, sum, tail } from 'rambda'
 import { all, call, delay, Effect, put, select, takeEvery } from 'redux-saga/effects'
 import invariant from 'tiny-invariant'
 
-import {
-  addSwitch,
-  clearLog,
-  incrementHistory,
-  placeChess,
-  pushLog,
-  resetBoard,
-  resetSwitch,
-  saveStep,
-  setAi,
-  setCandidate,
-  setMessage,
-  setOverlay,
-  setPlayer,
-  setState,
-} from './actions'
 import {
   BLACK,
   BLACK_CANDIDATE,
@@ -32,8 +16,18 @@ import {
   WHITE,
   WHITE_CANDIDATE,
 } from './consts'
-import { Coords } from './reducer'
 import { createScoreSelector } from './selector'
+import { gameActions } from './slices/game'
+import { uiActions } from './slices/ui'
+import { RootState } from './store'
+import { Coords } from './types'
+
+const capitalize = (s: string) => `${head(s).toUpperCase()}${tail(s)}`
+
+function sample<T>(list: readonly T[]): T {
+  const n = Math.trunc(Math.random() * list.length)
+  return list[n]
+}
 
 const directions = [
   [-1, 0], // Up
@@ -47,37 +41,37 @@ const directions = [
 ]
 
 export function* reboot(): Generator<Effect, void, void> {
-  yield put(setState(IDLE))
-  yield put(setOverlay(''))
-  yield put(setMessage(''))
-  yield put(clearLog())
-  yield put(resetBoard())
-  yield put(setAi(null))
-  yield put(setPlayer(null))
-  yield put(resetSwitch())
+  yield put(gameActions.setState(IDLE))
+  yield put(uiActions.setOverlay(''))
+  yield put(gameActions.setMessage(''))
+  yield put(gameActions.clearLog())
+  yield put(gameActions.resetBoard())
+  yield put(gameActions.setAi(null))
+  yield put(gameActions.setPlayer(null))
+  yield put(gameActions.resetSwitch())
 }
 
 export function* reset({ payload }: PayloadAction<string>): Generator<Effect, void, void> {
   yield call(reboot)
-  yield put(setAi(payload))
-  yield put(setPlayer(BLACK))
-  yield put(placeChess(3, 3, BLACK))
-  yield put(placeChess(3, 4, WHITE))
-  yield put(placeChess(4, 4, BLACK))
-  yield put(placeChess(4, 3, WHITE))
+  yield put(gameActions.setAi(payload))
+  yield put(gameActions.setPlayer(BLACK))
+  yield put(gameActions.placeChess(3, 3, BLACK))
+  yield put(gameActions.placeChess(3, 4, WHITE))
+  yield put(gameActions.placeChess(4, 4, BLACK))
+  yield put(gameActions.placeChess(4, 3, WHITE))
   yield call(placeCandidate)
-  yield put(setState(PLAYING))
+  yield put(gameActions.setState(PLAYING))
   if (payload === BLACK) {
     yield call(aiJudgeScore)
     yield call(switchPlayer)
   }
 }
 
-function isValidPos(row, col) {
+function isValidPos(row: number, col: number) {
   return row < 8 && row >= 0 && col < 8 && col >= 0
 }
 
-function getOpposite(player) {
+function getOpposite(player: string) {
   return player === WHITE ? BLACK : WHITE
 }
 
@@ -89,9 +83,9 @@ function isEmpty(chess) {
   return !chess || isCandidate(chess)
 }
 
-function isPlaceable(board, player, row, col) {
-  const candiate = getCandidate(player)
-  return isValidPos(row, col) && board[row][col] === candiate
+function isPlaceable(board: (string | null)[][], player: string, row: number, col: number) {
+  const candidate = getCandidate(player)
+  return isValidPos(row, col) && board[row][col] === candidate
 }
 
 function getChess(board, row, col) {
@@ -116,29 +110,31 @@ function countAroundChess(board, row, col) {
 const scoreSelector = createScoreSelector()
 
 function* switchPlayer() {
-  const { player, switchCount, ai } = yield select()
+  const {
+    game: { ai, switchCount, player },
+  }: RootState = yield select()
   const score = yield select(scoreSelector)
   if (switchCount > 2) {
-    yield put(setMessage('Game set'))
-    yield put(setState(ENDED))
+    yield put(gameActions.setMessage('Game set'))
+    yield put(gameActions.setState(ENDED))
     if (score.black === score.white) {
-      yield put(setOverlay('Draw'))
+      yield put(uiActions.setOverlay('Draw'))
       if (ai) {
-        yield put(incrementHistory('draw'))
+        yield put(uiActions.incrementHistory('draw'))
       }
       return
     }
     const winner = score.black > score.white ? BLACK : WHITE
     if (ai) {
       if (ai === winner) {
-        yield put(setOverlay('You Lose'))
-        yield put(incrementHistory('lose'))
+        yield put(uiActions.setOverlay('You Lose'))
+        yield put(uiActions.incrementHistory('lose'))
       } else {
-        yield put(setOverlay('You Win'))
-        yield put(incrementHistory('win'))
+        yield put(uiActions.setOverlay('You Win'))
+        yield put(uiActions.incrementHistory('win'))
       }
     } else {
-      yield put(setOverlay(`${capitalize(getPlayer(winner))} Win`))
+      yield put(uiActions.setOverlay(`${capitalize(getPlayer(winner))} Win`))
     }
     return
   }
@@ -146,18 +142,18 @@ function* switchPlayer() {
   yield call(clearCandidate)
 
   const nextPlayer = getOpposite(player)
-  yield put(setPlayer(nextPlayer))
+  yield put(gameActions.setPlayer(nextPlayer))
 
   yield call(placeCandidate)
-  if (!(yield select((state) => state.candiate))) {
-    yield put(setMessage(`No move, turn to ${getPlayer(player)}`))
-    yield put(addSwitch())
+  if (!(yield select((state: RootState) => state.game.candidate))) {
+    yield put(gameActions.setMessage(`No move, turn to ${getPlayer(player)}`))
+    yield put(gameActions.addSwitch())
     yield call(switchPlayer)
   } else {
     if (switchCount === 0) {
-      yield put(setMessage(''))
+      yield put(gameActions.setMessage(''))
     }
-    yield put(resetSwitch())
+    yield put(gameActions.resetSwitch())
     if (nextPlayer === ai) {
       yield call(aiJudgeScore)
       yield call(switchPlayer)
@@ -199,7 +195,7 @@ function* flipChess(board, player, row, col, rd, cd) {
       break
     }
 
-    yield put(placeChess(r, c, player))
+    yield put(gameActions.placeChess(r, c, player))
     r += rd
     c += cd
   }
@@ -207,7 +203,9 @@ function* flipChess(board, player, row, col, rd, cd) {
 }
 
 function* flipAllChess({ row, col, player }) {
-  const { board } = yield select()
+  const {
+    game: { board },
+  }: RootState = yield select()
   for (let i = 0; i < 8; i += 1) {
     const [rd, cd] = directions[i]
     yield call(flipChess, board, player, row, col, rd, cd)
@@ -215,19 +213,21 @@ function* flipAllChess({ row, col, player }) {
 }
 
 function* clearCandidate() {
-  const board = yield select((state) => state.board)
+  const board = yield select((state: RootState) => state.game.board)
   for (let r = 0; r < 8; r += 1) {
     for (let c = 0; c < 8; c += 1) {
       const chess = board[r][c]
       if (isCandidate(chess)) {
-        yield put(placeChess(r, c, null))
+        yield put(gameActions.placeChess(r, c, null))
       }
     }
   }
 }
 
 function* placeCandidate() {
-  const { player, board } = yield select()
+  const {
+    game: { player, board },
+  }: RootState = yield select()
   const chess = getCandidate(player)
   let count = 0
   for (let r = 0; r < 8; r += 1) {
@@ -237,7 +237,7 @@ function* placeCandidate() {
         for (let i = 0; i < 8; i += 1) {
           const [rd, cd] = directions[i]
           if (checkFlipChess(board, player, r, c, rd, cd)) {
-            yield put(placeChess(r, c, chess))
+            yield put(gameActions.placeChess(r, c, chess))
             count += 1
             break
           }
@@ -245,7 +245,7 @@ function* placeCandidate() {
       }
     }
   }
-  yield put(setCandidate(count))
+  yield put(gameActions.setCandidate(count))
 }
 
 function judgeScoreV1(board, ai, row, col) {
@@ -254,7 +254,7 @@ function judgeScoreV1(board, ai, row, col) {
   const atLeftOrRight = col === 0 || col === 7
   let posScore = 0
   if ((row === 0 && col === 0) || (row === 7 && col === 7)) {
-    // coner first
+    // corner first
     posScore = 200
   } else if ((atTopOrBottom && (col === 1 || col === 6)) || ((row === 1 || row === 6) && atLeftOrRight)) {
     posScore = -80
@@ -277,7 +277,7 @@ function judgeScoreV2(board, ai, row, col) {
   const around = countAroundChess(board, row, col)
   let posScore = 0
   if ((row === 0 && col === 0) || (row === 7 && col === 7)) {
-    // coner first
+    // corner first
     posScore = 1000
   } else if ((atTopOrBottom && (col === 1 || col === 6)) || ((row === 1 || row === 6) && atLeftOrRight)) {
     if (around > 0) {
@@ -297,12 +297,12 @@ function judgeScoreV2(board, ai, row, col) {
   const nextBoard = produce(board, (draft) => {
     draft[row][col] = ai
   })
-  const willBeFlipeds = directions.map(([rd, cd]) =>
+  const willBeFlippedList = directions.map(([rd, cd]) =>
     checkFlipChess(nextBoard, getOpposite(ai), row - rd, col - cd, rd, cd)
   )
-  const willBeFliped = max(willBeFlipeds)
+  const willBeFlipped = reduce<number, number>(max, 0, willBeFlippedList)
   const willLost =
-    willBeFliped > 0 ? (posScore > 0 ? willBeFliped * 2 + posScore * 20 : -posScore * 50 + willBeFliped * 5) : -10000
+    willBeFlipped > 0 ? (posScore > 0 ? willBeFlipped * 2 + posScore * 20 : -posScore * 50 + willBeFlipped * 5) : -10000
   const score = sum(flips) * 2 + (willLost ? posScore : Math.abs(posScore) * 2) - willLost
   return score
 }
@@ -313,8 +313,10 @@ const judgeScores = {
 }
 
 function* aiJudgeScore() {
-  const { board, player, ai, version } = yield select()
-  const scores = []
+  const {
+    game: { board, player, ai, version },
+  }: RootState = yield select()
+  const scores: { row: number; col: number; score: number }[] = []
   const judge = judgeScores[version]
   invariant(judge, 'version error')
   const chess = getCandidate(player)
@@ -331,37 +333,39 @@ function* aiJudgeScore() {
     }
   }
   invariant(scores.length, 'Invalid State: Candidates not place')
-  const { score } = head(orderBy(scores, 'score', 'desc'))
-  const { row, col } = sample(filter(scores, ['score', score])) // A little random
+  const score = reduce(max, Number.MIN_SAFE_INTEGER, map(prop('score'), scores))
+  const { row, col } = sample(filter<{ row: number; col: number; score: number }>(propEq('score', score), scores)) // A little random
   yield delay(300) // A little delay
   yield put(
-    pushLog({
+    gameActions.pushLog({
       player,
       pos: `(${row}, ${col})`,
     })
   )
   yield call(flipAllChess, { row, col, player })
-  yield put(placeChess(row, col, player))
+  yield put(gameActions.placeChess(row, col, player))
 }
 
 function* userPlaceChess({ payload: { col, row } }: PayloadAction<Coords>) {
-  const { player, board } = yield select()
+  const {
+    game: { player, board },
+  } = yield select()
   if (!isPlaceable(board, player, row, col)) {
-    // Not allow place on exist chess or not candiate
+    // Not allow place on exist chess or not candidate
     return
   }
 
-  yield put(saveStep())
+  yield put(gameActions.saveStep())
 
   yield put(
-    pushLog({
+    gameActions.pushLog({
       player,
       pos: `(${row}, ${col})`,
     })
   )
   yield call(flipAllChess, { row, col, player })
 
-  yield put(placeChess(row, col, player))
+  yield put(gameActions.placeChess(row, col, player))
   yield call(switchPlayer)
 }
 

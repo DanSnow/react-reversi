@@ -1,12 +1,12 @@
 import { createSelector, Selector } from '@reduxjs/toolkit'
 
 import { BLACK, WHITE } from './consts'
-import { State } from './reducer'
+import { RootState } from './store'
 
-const selectBoard = (state: State) => state.board
-const selectPlayer = (state: State) => state.player
+const selectBoard = (state: RootState) => state.game.board
+const selectPlayer = (state: RootState) => state.game.player
 
-export const createScoreSelector = (): Selector<State, { black: number; white: number }> =>
+export const createScoreSelector = (): Selector<RootState, { black: number; white: number }> =>
   createSelector([selectBoard], (board) => {
     let black = 0
     let white = 0

@@ -14,6 +14,7 @@ function isBabelLoader(caller) {
 module.exports = function (api) {
   const isLoader = api.caller(isBabelLoader)
   const isProd = api.env('production')
+  const isTest = api.env('test')
 
   const targets = isLoader
     ? { browsers: ['last 2 Chrome versions', 'last 2 Firefox versions', 'last 2 Edge versions'] }
@@ -31,7 +32,7 @@ module.exports = function (api) {
       ['@babel/preset-react', { runtime: 'automatic' }],
     ],
     plugins: [
-      !isProd && require.resolve('react-refresh/babel'),
+      !isProd && !isTest && require.resolve('react-refresh/babel'),
       '@emotion',
       [
         'transform-imports',
@@ -44,6 +45,6 @@ module.exports = function (api) {
         },
       ],
       ['@babel/plugin-transform-runtime', { useESModules: isLoader }],
-    ],
+    ].filter(Boolean),
   }
 }

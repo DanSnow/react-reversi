@@ -6,5 +6,6 @@
   "search.exclude": {
     "**/.yarn": true,
     "**/.pnp.*": true
-  }
+  },
+  "jest.pathToJest": "yarn jest"
 }

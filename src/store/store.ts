@@ -6,6 +6,8 @@ import createSagaMiddleware, { END } from 'redux-saga'
 import { reducer } from './reducer'
 import { root } from './saga'
 
+export type RootState = ReturnType<typeof reducer>
+
 export const configureStore = () => {
   const sagaMiddleware = createSagaMiddleware()
   const store = baseConfigureStore({

@@ -1,16 +1,13 @@
-import { useCallback, useState } from 'react'
+import { ReactElement, useCallback, useState } from 'react'
 import GithubCorner from 'react-github-corner'
 import { useTranslation } from 'react-i18next'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
-import { Board } from './components/Board'
-import { Confirm } from './components/Confirm'
-import Log from './components/Log'
-import { Score } from './components/Score'
-import { SettingModal } from './components/SettingModal'
-import Toolbar from './components/Toolbar'
-import { ENDED, IDLE, reboot, setRetractStep, setState, setVersion, State } from './store'
+import { Board } from '../Board'
+import { Confirm } from '../Confirm'
+import { Log } from '../Log'
+import { Score } from '../Score'
+import { SettingModal } from '../SettingModal'
+import { Toolbar } from '../Toolbar'
 
 interface Props {
   message: string
@@ -21,7 +18,7 @@ interface Props {
   reboot: () => void
 }
 
-function Game({ showReplay, message, reboot, setVersion, setAllowRetract, resetState }: Props) {
+export function Game({ showReplay, message, reboot, setVersion, setAllowRetract, resetState }: Props): ReactElement {
   const [hint, setHint] = useState(false)
   const [settingOpen, setSettingOpen] = useState(false)
   const openSetting = useCallback(() => setSettingOpen(true), [])
@@ -64,36 +61,3 @@ function Game({ showReplay, message, reboot, setVersion, setAllowRetract, resetS
     </>
   )
 }
-
-export default connect(
-  (state: State) => ({
-    message: state.message,
-    ai: state.ai,
-    showReplay: state.state === ENDED && !state.overlay,
-  }),
-  (dispatch) =>
-    bindActionCreators(
-      {
-        setVersion,
-        setRetractStep,
-        reboot,
-        resetState: setState.bind(null, IDLE),
-      },
-      dispatch
-    ),
-  (stateProps, { setRetractStep, ...dispatchProps }, ownProps): Props => {
-    return Object.assign({}, stateProps, dispatchProps, ownProps, {
-      setAllowRetract(allow: boolean): void {
-        if (allow) {
-          if (stateProps.ai) {
-            setRetractStep(3)
-          } else {
-            setRetractStep(6)
-          }
-        } else {
-          setRetractStep(0)
-        }
-      },
-    })
-  }
-)(Game)

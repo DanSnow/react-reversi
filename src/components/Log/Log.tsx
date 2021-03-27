@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
 import cx from 'clsx'
-import { connect } from 'react-redux'
+import { ReactElement } from 'react'
 
-import { Log as LogData, State, WHITE } from '../store'
+import { Log as LogData, WHITE } from '../../store'
 
 const LogContainer = styled.div({
   height: '600px',
@@ -14,7 +14,7 @@ interface Props {
   log: LogData[]
 }
 
-const Log = ({ log }: Props) => (
+export const Log = ({ log }: Props): ReactElement => (
   <div className="card">
     <div className="card-header">
       <div className="card-header-title">
@@ -35,5 +35,3 @@ const Log = ({ log }: Props) => (
     </div>
   </div>
 )
-
-export default connect((state: State) => ({ log: state.log }))(Log)
