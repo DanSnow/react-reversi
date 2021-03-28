@@ -1399,13 +1399,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/core@npm:11.0.0":
-  version: 11.0.0
-  resolution: "@emotion/core@npm:11.0.0"
-  checksum: 814026f08ca46fc19f1343c40f733bdfc4ffcfb7dd95f75b89353c987950db90ce181550e3d404784da764af523f3807c2e892c8859c24229789a91225906d34
-  languageName: node
-  linkType: hard
-
 "@emotion/hash@npm:^0.8.0":
   version: 0.8.0
   resolution: "@emotion/hash@npm:0.8.0"
@@ -8854,7 +8847,6 @@ fsevents@^2.1.2:
     "@babel/register": 7.13.8
     "@babel/runtime": 7.13.10
     "@emotion/babel-plugin": 11.2.0
-    "@emotion/core": 11.0.0
     "@emotion/react": 11.1.5
     "@emotion/styled": 11.1.5
     "@pmmmwh/react-refresh-webpack-plugin": 0.4.3

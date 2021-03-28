@@ -14,7 +14,6 @@ const baseConfig: Configuration = {
   entry: {
     main: { import: './src/index', dependOn: 'vendor' },
     vendor: [
-      '@emotion/core',
       '@emotion/react',
       '@emotion/styled',
       '@reduxjs/toolkit',
