@@ -1,25 +1,25 @@
 import { createSelector, Selector } from '@reduxjs/toolkit'
+import { assoc, curry, flatten, groupBy, identity, keys, length, map, pick, pipe, reduce } from 'rambda'
 
 import { BLACK, WHITE } from './consts'
 import { RootState } from './store'
+import { Board, Score } from './types'
+
+const renameKeys = curry((keysMap, obj) =>
+  reduce((acc, key) => assoc(keysMap[key] || key, obj[key], acc), {}, keys(obj))
+)
 
 const selectBoard = (state: RootState) => state.game.board
 const selectPlayer = (state: RootState) => state.game.player
 
-export const createScoreSelector = (): Selector<RootState, { black: number; white: number }> =>
-  createSelector([selectBoard], (board) => {
-    let black = 0
-    let white = 0
-    board.forEach((row) => {
-      row.forEach((col) => {
-        if (col === BLACK) {
-          black += 1
-        } else if (col === WHITE) {
-          white += 1
-        }
-      })
-    })
-    return { black, white }
-  })
+export const computeScore: (board: Board) => Score = pipe(
+  flatten,
+  groupBy<string>(identity),
+  pick([WHITE, BLACK]),
+  map(length),
+  renameKeys({ [WHITE]: 'white', [BLACK]: 'black' })
+)
+
+export const createScoreSelector = (): Selector<RootState, Score> => createSelector([selectBoard], computeScore)
 
 export const startedSelector = createSelector([selectPlayer], (player) => !!player)
