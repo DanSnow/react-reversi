@@ -43,9 +43,10 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
                   {t('AI Version')}
                 </label>
                 <div className="select">
-                  <select name="version" defaultValue="v2" onChange={onVersionChange}>
+                  <select name="version" defaultValue="v3" onChange={onVersionChange}>
                     <option value="v1">V1</option>
                     <option value="v2">V2</option>
+                    <option value="v3">V3</option>
                   </select>
                 </div>
               </div>
