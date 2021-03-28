@@ -47,6 +47,9 @@ const baseConfig: Configuration = {
       },
     ],
   },
+  cache: {
+    type: 'filesystem',
+  },
 }
 
 if (env !== 'production') {
