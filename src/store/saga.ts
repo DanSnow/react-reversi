@@ -1,5 +1,5 @@
-import { PayloadAction } from '@reduxjs/toolkit'
-import { filter, map, max, prop, propEq, reduce } from 'rambda'
+import { freeze, PayloadAction } from '@reduxjs/toolkit'
+import { always, filter, map, max, prop, propEq, reduce, times } from 'rambda'
 import { all, call, delay, Effect, put, select, takeEvery } from 'redux-saga/effects'
 import invariant from 'tiny-invariant'
 
@@ -13,6 +13,17 @@ import { gameActions } from './slices/game'
 import { uiActions } from './slices/ui'
 import { RootState } from './store'
 import { Board, Coords } from './types'
+
+const DEFAULT_BOARD = freeze([
+  times(always(null), 8),
+  times(always(null), 8),
+  times(always(null), 8),
+  [null, null, null, BLACK, WHITE, null, null, null],
+  [null, null, null, WHITE, BLACK, null, null, null],
+  times(always(null), 8),
+  times(always(null), 8),
+  times(always(null), 8),
+])
 
 export function* reboot(): Generator<Effect, void, void> {
   yield put(gameActions.setState(IDLE))
@@ -29,10 +40,7 @@ export function* reset({ payload }: PayloadAction<string>): Generator<Effect, vo
   yield call(reboot)
   yield put(gameActions.setAi(payload))
   yield put(gameActions.setPlayer(BLACK))
-  yield put(gameActions.placeChess(3, 3, BLACK))
-  yield put(gameActions.placeChess(3, 4, WHITE))
-  yield put(gameActions.placeChess(4, 4, BLACK))
-  yield put(gameActions.placeChess(4, 3, WHITE))
+  yield put(gameActions.setBoard(DEFAULT_BOARD as Board))
   yield call(placeCandidate)
   yield put(gameActions.setState(PLAYING))
   if (payload === BLACK) {

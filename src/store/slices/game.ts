@@ -2,7 +2,7 @@ import { createSlice, freeze, PayloadAction } from '@reduxjs/toolkit'
 import { always, times } from 'rambda'
 
 import { ENDED, IDLE, PLAYING } from '../consts'
-import { Board, ChessInfo, GameState, Log } from '../types'
+import { Board, GameState, Log } from '../types'
 
 const initialBoard = freeze(times(() => times(always(null), 8), 8))
 
@@ -20,7 +20,7 @@ export const gameSlice = createSlice({
     state: IDLE as GameState,
     candidate: 0,
     switchCount: 0,
-    version: 'v2' as 'v1' | 'v2',
+    version: 'v3' as 'v1' | 'v2' | 'v3',
     ai: null as string | null,
     player: null as string | null,
     board: initialBoard,
@@ -31,14 +31,6 @@ export const gameSlice = createSlice({
     message: '',
   },
   reducers: {
-    placeChess: {
-      reducer(state, { payload: { row, col, chess } }: PayloadAction<ChessInfo>) {
-        state.board[row][col] = chess
-      },
-      prepare(row: number, col: number, chess: string) {
-        return { payload: { row, col, chess } }
-      },
-    },
     setBoard(state, { payload }: PayloadAction<Board>) {
       state.board = payload
     },
