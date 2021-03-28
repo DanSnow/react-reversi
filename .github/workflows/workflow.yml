@@ -1,21 +1,24 @@
-name: Test
+name: CI
 on:
   - push
-steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-node@v2
-    with:
-      node-version: '14'
-  - run: yarn config set enableGlobalCache false
-  - name: Get yarn cache directory path
-    id: yarn-cache-dir-path
-    run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-  - name: Cache
-    uses: actions/cache@v2
-    id: yarn-cache
-    key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }
-    with:
-      path: |
-        ${{ steps.yarn-cache-dir-path.outputs.dir }}
-  - run: yarn install
-  - run: yarn test
+jobs:
+  test:
+    run-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: yarn config set enableGlobalCache false
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      - name: Cache
+        uses: actions/cache@v2
+        id: yarn-cache
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }
+        with:
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+      - run: yarn install
+      - run: yarn test
