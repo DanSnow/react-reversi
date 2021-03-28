@@ -11,10 +11,31 @@ const isDev = env !== 'production'
 
 const baseConfig: Configuration = {
   mode: env === 'production' ? 'production' : 'development',
-  entry: ['./src/index'],
+  entry: {
+    main: { import: './src/index', dependOn: 'vendor' },
+    vendor: [
+      '@emotion/core',
+      '@emotion/react',
+      '@emotion/styled',
+      '@reduxjs/toolkit',
+      'clsx',
+      'i18next',
+      'i18next-browser-languagedetector',
+      'rambda',
+      'react',
+      'react-dom',
+      'react-github-corner',
+      'react-i18next',
+      'react-redux',
+      'redux',
+      'redux-persist',
+      'redux-saga',
+      'tiny-invariant',
+    ],
+  },
   output: {
     path: join(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: '/',
   },
   resolve: {
