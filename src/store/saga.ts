@@ -2,6 +2,7 @@ import { createNextState as produce, PayloadAction } from '@reduxjs/toolkit'
 import { filter, head, map, max, prop, propEq, reduce, sum, tail } from 'rambda'
 import { all, call, delay, Effect, put, select, takeEvery } from 'redux-saga/effects'
 import invariant from 'tiny-invariant'
+import { ReadonlyDeep } from 'type-fest'
 
 import {
   BLACK,
@@ -20,7 +21,7 @@ import { createScoreSelector } from './selector'
 import { gameActions } from './slices/game'
 import { uiActions } from './slices/ui'
 import { RootState } from './store'
-import { Coords } from './types'
+import { Board, Coords } from './types'
 
 const capitalize = (s: string) => `${head(s).toUpperCase()}${tail(s)}`
 
@@ -161,7 +162,16 @@ function* switchPlayer() {
   }
 }
 
-function checkFlipChess(board, player, row, col, rd, cd) {
+interface FlipChess {
+  board: ReadonlyDeep<Board>
+  player: string
+  row: number
+  col: number
+  rd: number
+  cd: number
+}
+
+function checkFlipChess({ board, player, row, col, rd, cd }: FlipChess) {
   let count = 0
   let found = false
   if (!isValidPos(row, col) || !isEmpty(board[row][col])) {
@@ -182,8 +192,8 @@ function checkFlipChess(board, player, row, col, rd, cd) {
   return found && count > 0 ? count : 0
 }
 
-function* flipChess(board, player, row, col, rd, cd) {
-  if (!checkFlipChess(board, player, row, col, rd, cd)) {
+function* flipChess({ board, player, row, col, rd, cd }: FlipChess) {
+  if (!checkFlipChess({ board, player, row, col, rd, cd })) {
     return false
   }
 
@@ -202,13 +212,13 @@ function* flipChess(board, player, row, col, rd, cd) {
   return true
 }
 
-function* flipAllChess({ row, col, player }) {
+function* flipAllChess({ row, col, player }: { row: number; col: number; player: string }) {
   const {
     game: { board },
   }: RootState = yield select()
   for (let i = 0; i < 8; i += 1) {
     const [rd, cd] = directions[i]
-    yield call(flipChess, board, player, row, col, rd, cd)
+    yield* flipChess({ board, player, row, col, rd, cd })
   }
 }
 
@@ -236,7 +246,7 @@ function* placeCandidate() {
       if (!ch) {
         for (let i = 0; i < 8; i += 1) {
           const [rd, cd] = directions[i]
-          if (checkFlipChess(board, player, r, c, rd, cd)) {
+          if (checkFlipChess({ board, player, row: r, col: c, rd, cd })) {
             yield put(gameActions.placeChess(r, c, chess))
             count += 1
             break
@@ -248,8 +258,8 @@ function* placeCandidate() {
   yield put(gameActions.setCandidate(count))
 }
 
-function judgeScoreV1(board, ai, row, col) {
-  const flips = directions.map(([rd, cd]) => checkFlipChess(board, ai, row, col, rd, cd))
+function judgeScoreV1(board: ReadonlyDeep<Board>, ai: string, row: number, col: number) {
+  const flips = directions.map(([rd, cd]) => checkFlipChess({ board, player: ai, row, col, rd, cd }))
   const atTopOrBottom = row === 0 || row === 7
   const atLeftOrRight = col === 0 || col === 7
   let posScore = 0
@@ -270,8 +280,8 @@ function judgeScoreV1(board, ai, row, col) {
   return score
 }
 
-function judgeScoreV2(board, ai, row, col) {
-  const flips = directions.map(([rd, cd]) => checkFlipChess(board, ai, row, col, rd, cd))
+function judgeScoreV2(board: ReadonlyDeep<Board>, ai: string, row: number, col: number) {
+  const flips = directions.map(([rd, cd]) => checkFlipChess({ board, player: ai, row, col, rd, cd }))
   const atTopOrBottom = row === 0 || row === 7
   const atLeftOrRight = col === 0 || col === 7
   const around = countAroundChess(board, row, col)
@@ -294,11 +304,11 @@ function judgeScoreV2(board, ai, row, col) {
   } else if (row === 2 || col === 2 || row === 5 || col === 5) {
     posScore = 50
   }
-  const nextBoard = produce(board, (draft) => {
+  const nextBoard = produce(board, (draft: Board) => {
     draft[row][col] = ai
   })
   const willBeFlippedList = directions.map(([rd, cd]) =>
-    checkFlipChess(nextBoard, getOpposite(ai), row - rd, col - cd, rd, cd)
+    checkFlipChess({ board: nextBoard, player: getOpposite(ai), row: row - rd, col: col - cd, rd, cd })
   )
   const willBeFlipped = reduce<number, number>(max, 0, willBeFlippedList)
   const willLost =
@@ -318,7 +328,7 @@ function* aiJudgeScore() {
   }: RootState = yield select()
   const scores: { row: number; col: number; score: number }[] = []
   const judge = judgeScores[version]
-  invariant(judge, 'version error')
+  invariant(judge, 'version invalid')
   const chess = getCandidate(player)
   for (let r = 0; r < 8; r += 1) {
     for (let c = 0; c < 8; c += 1) {
@@ -332,7 +342,7 @@ function* aiJudgeScore() {
       }
     }
   }
-  invariant(scores.length, 'Invalid State: Candidates not place')
+  invariant(scores.length, 'Invalid State: no candidates point')
   const score = reduce(max, Number.MIN_SAFE_INTEGER, map(prop('score'), scores))
   const { row, col } = sample(filter<{ row: number; col: number; score: number }>(propEq('score', score), scores)) // A little random
   yield delay(300) // A little delay
