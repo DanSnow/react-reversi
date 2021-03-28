@@ -1,7 +1,7 @@
 import { ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { BLACK, WHITE } from '../../store'
+import { BLACK, History, WHITE } from '../../store'
 
 function getPlayerType(player: string, ai?: string): string {
   return player === ai ? 'ai' : 'player'
@@ -10,12 +10,6 @@ function getPlayerType(player: string, ai?: string): string {
 interface ScoreData {
   black: number
   white: number
-}
-
-interface History {
-  win: number
-  lose: number
-  draw: number
 }
 
 interface Props {

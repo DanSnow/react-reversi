@@ -29,3 +29,10 @@ export interface History {
   lose: number
   draw: number
 }
+
+export interface Score {
+  black: number
+  white: number
+}
+
+export type Board = (string | null)[][]
