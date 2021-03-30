@@ -39,7 +39,7 @@
     "@emotion/babel-plugin": "11.2.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "@testing-library/jest-dom": "5.11.10",
-    "@testing-library/react": "11.2.5",
+    "@testing-library/react": "11.2.6",
     "@types/babel__core": "7.1.14",
     "@types/eslint-plugin-prettier": "3.1.0",
     "@types/jest": "26.0.22",
