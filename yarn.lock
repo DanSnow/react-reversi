@@ -8826,10 +8826,10 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"react-refresh@npm:0.9.0":
-  version: 0.9.0
-  resolution: "react-refresh@npm:0.9.0"
-  checksum: 300dc431389f4c532bdfec08d5bc59b591c8c440486a7d5770c8954adf3afe62501b659c5acbdb7831751e8be506eb90a6f72491fab40352f3b3fba16897acf6
+"react-refresh@npm:0.10.0":
+  version: 0.10.0
+  resolution: "react-refresh@npm:0.10.0"
+  checksum: 09a59d2732d8f2e9df3f59670146a507ea027f6b35a18b5a2116919f18ef056cfcc0455bed2f6b916ac154e4af78e3c57748cfbf9383930729624f7b8c672b91
   languageName: node
   linkType: hard
 
@@ -8896,7 +8896,7 @@ fsevents@^2.1.2:
     react-github-corner: 2.5.0
     react-i18next: 11.8.12
     react-redux: 7.2.3
-    react-refresh: 0.9.0
+    react-refresh: 0.10.0
     redux: 4.0.5
     redux-persist: 6.0.0
     redux-saga: 1.1.3
