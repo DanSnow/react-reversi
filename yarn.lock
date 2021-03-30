@@ -4749,12 +4749,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unused-imports@npm:1.1.0":
-  version: 1.1.0
-  resolution: "eslint-plugin-unused-imports@npm:1.1.0"
+"eslint-plugin-unused-imports@npm:1.1.1":
+  version: 1.1.1
+  resolution: "eslint-plugin-unused-imports@npm:1.1.1"
   dependencies:
     eslint-rule-composer: ^0.3.0
-  checksum: d84f0ad02ceec4731453ec449d9446e3e3d7f642664eb618fc64912a74a22b24e2e35ac5b6d91b6efb53d6e351c0e6a956c1d610fbbf6a9a0f7bbb593d69eeb4
+  checksum: 780f9b8b6fe2ee09a46bf56813dc2c2e7369436412d6e67192de054c4f934886b9b5a7fd9e32131f93f70c7bfb7d6130f42ed18f98ee1b5e0832adf461082db5
   languageName: node
   linkType: hard
 
@@ -8883,7 +8883,7 @@ fsevents@^2.1.2:
     eslint-plugin-react-hooks: 4.2.0
     eslint-plugin-simple-import-sort: 7.0.0
     eslint-plugin-standard: 5.0.0
-    eslint-plugin-unused-imports: 1.1.0
+    eslint-plugin-unused-imports: 1.1.1
     html-webpack-plugin: 5.3.1
     i18next: 20.1.0
     i18next-browser-languagedetector: 6.1.0
