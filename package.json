@@ -36,7 +36,7 @@
     "@babel/preset-typescript": "7.13.0",
     "@babel/register": "7.13.14",
     "@babel/runtime": "7.13.10",
-    "@emotion/babel-plugin": "11.2.0",
+    "@emotion/babel-plugin": "11.3.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "@testing-library/jest-dom": "5.11.10",
     "@testing-library/react": "11.2.6",
@@ -84,7 +84,7 @@
   },
   "dependencies": {
     "@emotion/react": "11.1.5",
-    "@emotion/styled": "11.1.5",
+    "@emotion/styled": "11.3.0",
     "@reduxjs/toolkit": "1.5.1",
     "clsx": "1.1.1",
     "i18next": "20.2.1",
