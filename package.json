@@ -57,7 +57,7 @@
     "babel-loader": "8.2.2",
     "babel-plugin-transform-imports": "2.0.0",
     "eslint": "7.23.0",
-    "eslint-config-prettier": "8.1.0",
+    "eslint-config-prettier": "8.2.0",
     "eslint-config-standard": "16.0.2",
     "eslint-config-standard-react": "11.0.1",
     "eslint-import-resolver-node": "0.3.4",
