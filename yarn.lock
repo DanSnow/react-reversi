@@ -6040,12 +6040,12 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"html-parse-stringify@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "html-parse-stringify@npm:3.0.0"
+"html-parse-stringify@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "html-parse-stringify@npm:3.0.1"
   dependencies:
     void-elements: 3.1.0
-  checksum: bf35f8560cd90b872b8c68484824d3de4e2e838eb8f4e532f7393d5a8f8a64ddf9093111b77178d7097db31485c3b73f05a01fdbc94f64a746b175f002bbbf17
+  checksum: 26de837d271ef79e8c54fc50c17ab1f870b539202d2a593905d3933484bd5b9c30afe57d23a7e0468ef370573e6c0e83b8d8e81bd803858a27ff5acbaa1d9032
   languageName: node
   linkType: hard
 
@@ -8990,16 +8990,16 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:11.8.13":
-  version: 11.8.13
-  resolution: "react-i18next@npm:11.8.13"
+"react-i18next@npm:11.8.15":
+  version: 11.8.15
+  resolution: "react-i18next@npm:11.8.15"
   dependencies:
     "@babel/runtime": ^7.13.6
-    html-parse-stringify: ^3.0.0
+    html-parse-stringify: ^3.0.1
   peerDependencies:
     i18next: ">= 19.0.0"
     react: ">= 16.8.0"
-  checksum: 6ff531811ae872a52f97dc852aef5fd69a8cce1f63a6a9163f2b84b1f7395b15ab9cf62829450689e69e6edad4c672ed2f18f68d444d0ec752010f79cb265f37
+  checksum: 1b4014a52e62ca56a84789fbc8d890a8534fbaeba5f996403deb9e675cdf51209ccddbc2ef352cdeec6ef463a39aee3c6b673252e2f1648ff0548d0fe8f91fb9
   languageName: node
   linkType: hard
 
@@ -9107,7 +9107,7 @@ fsevents@^2.1.2:
     react: 17.0.2
     react-dom: 17.0.2
     react-github-corner: 2.5.0
-    react-i18next: 11.8.13
+    react-i18next: 11.8.15
     react-redux: 7.2.3
     react-refresh: 0.10.0
     redux: 4.0.5
