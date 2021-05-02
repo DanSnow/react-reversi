@@ -9120,7 +9120,7 @@ fsevents@^2.1.2:
     react-i18next: 11.8.15
     react-redux: 7.2.3
     react-refresh: 0.10.0
-    redux: 4.0.5
+    redux: 4.1.0
     redux-persist: 6.0.0
     redux-saga: 1.1.3
     tiny-invariant: 1.1.0
@@ -9269,7 +9269,16 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"redux@npm:4.0.5, redux@npm:^4.0.0, redux@npm:^4.0.4":
+"redux@npm:4.1.0":
+  version: 4.1.0
+  resolution: "redux@npm:4.1.0"
+  dependencies:
+    "@babel/runtime": ^7.9.2
+  checksum: d939d0df1e12982c66c0ea767c8ec98276ee981ce0381222239b7f823c6ad02ea3e3c622859bcb4934446b3f86d735db35d7bd8b1697d359070e5fbef1f4ad49
+  languageName: node
+  linkType: hard
+
+"redux@npm:^4.0.0, redux@npm:^4.0.4":
   version: 4.0.5
   resolution: "redux@npm:4.0.5"
   dependencies:
