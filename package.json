@@ -43,7 +43,7 @@
     "@types/babel__core": "7.1.14",
     "@types/eslint-plugin-prettier": "3.1.0",
     "@types/jest": "26.0.23",
-    "@types/node": "14.14.44",
+    "@types/node": "14.17.1",
     "@types/prettier": "2.2.3",
     "@types/react": "17.0.5",
     "@types/react-dom": "17.0.3",

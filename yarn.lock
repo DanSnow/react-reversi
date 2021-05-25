@@ -2372,10 +2372,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:14.14.44":
-  version: 14.14.44
-  resolution: "@types/node@npm:14.14.44"
-  checksum: 5c4db716325fc8a25b5b76b800acf0ff00c8fa1e7cfcb764fc79d79594939488cb9d2a756e188eb8e8a36da51e8e2be1ffe859be901b338779cb0aa12ad73b3a
+"@types/node@npm:14.17.1":
+  version: 14.17.1
+  resolution: "@types/node@npm:14.17.1"
+  checksum: 3ab1180ff2579f4039aa2416087df03e4e8b5f930b64e024ad2b2ae73e546f6054c3bae0324180d425944c7c408c02fdf6ca71f5a265ed05f28aeaae0a2c3599
   languageName: node
   linkType: hard
 
@@ -9099,7 +9099,7 @@ fsevents@^2.1.2:
     "@types/babel__core": 7.1.14
     "@types/eslint-plugin-prettier": 3.1.0
     "@types/jest": 26.0.23
-    "@types/node": 14.14.44
+    "@types/node": 14.17.1
     "@types/prettier": 2.2.3
     "@types/react": 17.0.5
     "@types/react-dom": 17.0.3
