@@ -2515,14 +2515,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:17.0.5":
-  version: 17.0.5
-  resolution: "@types/react@npm:17.0.5"
+"@types/react@npm:17.0.8":
+  version: 17.0.8
+  resolution: "@types/react@npm:17.0.8"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: f9793e8113f14122d6ed20643b4fe27d30e10d7c80571a1d238c13f8171864f2a7b337194bf41310724498586ed4560fffd081a2d21e488afbb1aca33534189b
+  checksum: b59a3abafd240b2880f9e6a11b2b7f75165888260c56e95a77ed10a7dd55570b307fb2356eda7fde2a8e1255d2def11797e4ae9800ae114a1f578546acabda67
   languageName: node
   linkType: hard
 
@@ -9212,7 +9212,7 @@ fsevents@^2.1.2:
     "@types/jest": 26.0.23
     "@types/node": 14.17.1
     "@types/prettier": 2.2.3
-    "@types/react": 17.0.5
+    "@types/react": 17.0.8
     "@types/react-dom": 17.0.5
     "@types/react-redux": 7.1.16
     "@types/testing-library__jest-dom": 5.9.5
