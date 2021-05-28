@@ -9258,7 +9258,7 @@ fsevents@^2.1.2:
     ts-jest: 26.5.5
     type-fest: 1.1.3
     typescript: 4.2.4
-    webpack: 5.38.0
+    webpack: 5.38.1
     webpack-bundle-analyzer: 4.4.1
     webpack-cli: 4.7.0
     webpack-dev-server: 3.11.2
@@ -11484,9 +11484,9 @@ typescript@4.2.4:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.38.0":
-  version: 5.38.0
-  resolution: "webpack@npm:5.38.0"
+"webpack@npm:5.38.1":
+  version: 5.38.1
+  resolution: "webpack@npm:5.38.1"
   dependencies:
     "@types/eslint-scope": ^3.7.0
     "@types/estree": ^0.0.47
@@ -11516,7 +11516,7 @@ typescript@4.2.4:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 13964239401b3a39ac7e7c3c4b29f21fd75bcce7c2631a90646fb16b278b78b48f285675ca56962547b55d0e8d44f04d3988c0c8d5197f93512a6a2fb67ba10f
+  checksum: c6bc39fc5880782d9eb9f2a1621fb03f8ce5071a6078e216118702446061440d42bbf845fe1ad7318ca91b117f8dd1bd53a3beafa3c9942002af99d7e5398ad2
   languageName: node
   linkType: hard
 
