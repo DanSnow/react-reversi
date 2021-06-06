@@ -1,3 +1,9 @@
+1.8.0
+=====
+
+- add a minimax based AI
+- refactor internal code & add tests
+
 1.7.0
 =====
 
