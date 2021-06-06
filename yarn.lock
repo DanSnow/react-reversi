@@ -9255,7 +9255,7 @@ fsevents@^2.1.2:
     type-fest: 1.2.0
     typescript: 4.2.4
     webpack: 5.38.1
-    webpack-bundle-analyzer: 4.4.1
+    webpack-bundle-analyzer: 4.4.2
     webpack-cli: 4.7.0
     webpack-dev-server: 3.11.2
   languageName: unknown
@@ -11324,9 +11324,9 @@ typescript@4.2.4:
   languageName: node
   linkType: hard
 
-"webpack-bundle-analyzer@npm:4.4.1":
-  version: 4.4.1
-  resolution: "webpack-bundle-analyzer@npm:4.4.1"
+"webpack-bundle-analyzer@npm:4.4.2":
+  version: 4.4.2
+  resolution: "webpack-bundle-analyzer@npm:4.4.2"
   dependencies:
     acorn: ^8.0.4
     acorn-walk: ^8.0.0
@@ -11339,7 +11339,7 @@ typescript@4.2.4:
     ws: ^7.3.1
   bin:
     webpack-bundle-analyzer: lib/bin/analyzer.js
-  checksum: ef2e17442abbcf8eb4178f1d81b39582cfc42d6c5935878fb10dbb230a49f631d5f367d70f2baba95699e8dca2e23df65e354fdf16e10cdb3a529bd1d47014bf
+  checksum: 3715568f56db36c0c8f8bf420197c3291bb3c9a9de1c0f3b1d91cd81036b5e09a6695023c76b4c918b75ac9f32be54358f6107cadd3666e758f3c4d6ccda34cd
   languageName: node
   linkType: hard
 
