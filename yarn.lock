@@ -1652,7 +1652,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.0, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.0, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.13.10
   resolution: "@babel/runtime@npm:7.13.10"
   dependencies:
@@ -1667,6 +1667,15 @@ __metadata:
   dependencies:
     regenerator-runtime: ^0.13.4
   checksum: ab6653f2f8ecdaebf36674894cef458a9d4f881dc007fdcd50a8261f5c6d9731e03fda2c17e32ecf0e6c779d69eb6cf49d68a48c780aaf07d5b572e8b7ef0508
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.14.6":
+  version: 7.14.6
+  resolution: "@babel/runtime@npm:7.14.6"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: dd931f6ef1c8dab295c4a00c592db6352bf12a5c443f8222304d5c1d3e88d795fa949afcb6f053eec2e69e9827a17ff274524c1cd43813f56b61e3a540274d2f
   languageName: node
   linkType: hard
 
@@ -6487,12 +6496,12 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"i18next-browser-languagedetector@npm:6.1.1":
-  version: 6.1.1
-  resolution: "i18next-browser-languagedetector@npm:6.1.1"
+"i18next-browser-languagedetector@npm:6.1.2":
+  version: 6.1.2
+  resolution: "i18next-browser-languagedetector@npm:6.1.2"
   dependencies:
-    "@babel/runtime": ^7.5.5
-  checksum: d5c14844d4fed773002ea9ddd07f9d1f5f8cfe31fa3c1ba46764efc9f7dd0be22417b2657f1bae6157d7601bda9ee4f52a194cbabf508f61830afe4b6fedf74a
+    "@babel/runtime": ^7.14.6
+  checksum: b5e8b79040e92cf767aa98375b45e9534feb32f7794ef3c572659abafde571f51c77115a1db7fa9a0707601d393a52bffd686e0b0df1c84332f90525ee7a30d6
   languageName: node
   linkType: hard
 
@@ -9506,7 +9515,7 @@ fsevents@^2.1.2:
     eslint-plugin-unused-imports: 1.1.1
     html-webpack-plugin: 5.3.2
     i18next: 20.3.1
-    i18next-browser-languagedetector: 6.1.1
+    i18next-browser-languagedetector: 6.1.2
     jest: 26.6.3
     prettier: 2.3.2
     querystring-es3: 0.2.1
