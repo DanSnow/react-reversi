@@ -2711,10 +2711,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/webpack-env@npm:1.16.0":
-  version: 1.16.0
-  resolution: "@types/webpack-env@npm:1.16.0"
-  checksum: eaf62fb65ba18737174a520a444bb7407e5a6f32581690c5a7a687e6f86e9d4ce336fd9e79989aafa19e5f390046ad54b9100cd3d70a43dcf0ab0161d30cd5bd
+"@types/webpack-env@npm:1.16.2":
+  version: 1.16.2
+  resolution: "@types/webpack-env@npm:1.16.2"
+  checksum: ae77ca15de6d2c578a4870f2274d1ec93d900a20347ae821f9d0f6a391af7e8ac69a6e99100edd4f2f665d0cf474eea0967ac29bf0bcedf4cf3738f439f46918
   languageName: node
   linkType: hard
 
@@ -9510,7 +9510,7 @@ fsevents@^2.1.2:
     "@types/react-redux": 7.1.16
     "@types/testing-library__jest-dom": 5.14.0
     "@types/webpack-bundle-analyzer": 4.4.0
-    "@types/webpack-env": 1.16.0
+    "@types/webpack-env": 1.16.2
     "@typescript-eslint/eslint-plugin": 4.28.1
     "@typescript-eslint/parser": 4.28.1
     babel-jest: 26.6.3
