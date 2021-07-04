@@ -9,16 +9,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - run: yarn config set enableGlobalCache false
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - name: Cache
-        uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          cache: 'yarn'
       - run: yarn install
       - run: yarn test
