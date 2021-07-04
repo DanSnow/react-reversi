@@ -1343,7 +1343,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:7.14.6, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.0, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.14.0, @babel/runtime@npm:^7.14.6, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:7.14.6, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.0, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.14.6, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.14.6
   resolution: "@babel/runtime@npm:7.14.6"
   dependencies:
@@ -8885,16 +8885,16 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:11.10.0":
-  version: 11.10.0
-  resolution: "react-i18next@npm:11.10.0"
+"react-i18next@npm:11.11.0":
+  version: 11.11.0
+  resolution: "react-i18next@npm:11.11.0"
   dependencies:
-    "@babel/runtime": ^7.14.0
+    "@babel/runtime": ^7.14.5
     html-parse-stringify: ^3.0.1
   peerDependencies:
     i18next: ">= 19.0.0"
     react: ">= 16.8.0"
-  checksum: a72692ac3df3276481a94e7830f2b760cfab287c0e3984b7331c848f3161620571074934210954f5f59e0c98153a634d2bfcd82522489a3ea43c4f917a68dc05
+  checksum: d8f2b24531100248f0fe640fe8f39477f589343ced7ebd6f8fb0d2572c15989e61072c01bb0413b96d90196cfeeb30b1f3b5c0de22f2fedb7d3feecdc5af5490
   languageName: node
   linkType: hard
 
@@ -9001,7 +9001,7 @@ fsevents@^2.3.2:
     react: 17.0.2
     react-dom: 17.0.2
     react-github-corner: 2.5.0
-    react-i18next: 11.10.0
+    react-i18next: 11.11.0
     react-redux: 7.2.4
     react-refresh: 0.10.0
     redux: 4.1.0
