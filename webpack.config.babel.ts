@@ -74,7 +74,7 @@ const baseConfig: Configuration = {
 
 if (env !== 'production') {
   baseConfig.devtool = 'cheap-module-source-map'
-} else {
+} else if (!process.env.DEPLOY) {
   baseConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
