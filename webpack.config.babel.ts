@@ -35,7 +35,7 @@ const baseConfig: Configuration = {
   output: {
     path: join(__dirname, 'dist'),
     filename: '[name].js',
-    publicPath: '/',
+    publicPath: 'auto',
   },
   resolve: {
     mainFields: ['module', 'main'],
