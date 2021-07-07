@@ -1,3 +1,9 @@
+1.9.0
+=====
+
+- let AI have basic overview of board status
+- more AI version
+
 1.8.0
 =====
 
