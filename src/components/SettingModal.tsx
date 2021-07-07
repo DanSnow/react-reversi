@@ -12,6 +12,16 @@ interface Props {
   onVersionChange: (event: ChangeEvent<HTMLSelectElement>) => void
 }
 
+const AI: [key: string, display: string][] = [
+  ['v1', 'V1'],
+  ['v2', 'V2'],
+  ['v3', 'V3 (V2 + min-max)'],
+  ['v3Overview', 'V4 (V2 + min-max + overview)'],
+  ['v2Overview', 'V2 + overview'],
+  ['v1MinMax', 'V1 + min-max'],
+  ['v1Overview', 'V1 + min-max + overview'],
+]
+
 export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, onVersionChange }: Props): ReactElement {
   const { t } = useTranslation()
 
@@ -43,10 +53,10 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
                   {t('AI Version')}
                 </label>
                 <div className="select">
-                  <select name="version" defaultValue="v3" onChange={onVersionChange}>
-                    <option value="v1">V1</option>
-                    <option value="v2">V2</option>
-                    <option value="v3">V3</option>
+                  <select name="version" defaultValue="v3Overview" onChange={onVersionChange}>
+                    {AI.map(([value, display]) => (
+                      <option value={value}>{display}</option>
+                    ))}
                   </select>
                 </div>
               </div>

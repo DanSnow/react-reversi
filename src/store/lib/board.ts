@@ -93,13 +93,10 @@ export function clearBoardCandidate(board: ReadonlyDeep<Board>): ReadonlyDeep<Bo
   })
 }
 
-export function placeBoardCandidate({
-  board,
-  player,
-}: {
+export function placeBoardCandidate({ board, player }: { board: ReadonlyDeep<Board>; player: string }): {
+  count: number
   board: ReadonlyDeep<Board>
-  player: string
-}): { count: number; board: ReadonlyDeep<Board> } {
+} {
   const chess = getCandidate(player)
   let count = 0
   const nextBoard = produce(board, (draft) => {
@@ -120,4 +117,17 @@ export function placeBoardCandidate({
     }
   })
   return { count, board: nextBoard }
+}
+
+export function countPlayerChess(board: ReadonlyDeep<Board>, player: string): number {
+  let count = 0
+  for (let row = 0; row < board.length; row++) {
+    const rowArray = board[row]
+    for (let col = 0; col < rowArray.length; col++) {
+      if (rowArray[col] === player) {
+        count += 1
+      }
+    }
+  }
+  return count
 }

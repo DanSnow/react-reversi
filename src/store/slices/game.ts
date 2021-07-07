@@ -2,6 +2,7 @@ import { createSlice, freeze, PayloadAction } from '@reduxjs/toolkit'
 import { always, times } from 'rambda'
 
 import { ENDED, IDLE, PLAYING } from '../consts'
+import { judgeScores } from '../lib/ai'
 import { Board, GameState, Log } from '../types'
 
 const initialBoard = freeze(times(() => times(always(null), 8), 8))
@@ -20,7 +21,7 @@ export const gameSlice = createSlice({
     state: IDLE as GameState,
     candidate: 0,
     switchCount: 0,
-    version: 'v3' as 'v1' | 'v2' | 'v3',
+    version: 'v3Overview' as keyof typeof judgeScores,
     ai: null as string | null,
     player: null as string | null,
     board: initialBoard,
