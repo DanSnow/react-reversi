@@ -8897,10 +8897,10 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"rambda@npm:6.7.0":
-  version: 6.7.0
-  resolution: "rambda@npm:6.7.0"
-  checksum: 5863f916f7f949f9c660c92778803fda57e530cbdb1e586f35bd2f0ca596c55d8e8899e097be613bb9db8294e14d69d26f2d30d0383bea46b5e7989ec4a10d38
+"rambda@npm:6.8.2":
+  version: 6.8.2
+  resolution: "rambda@npm:6.8.2"
+  checksum: e1b1b41b6840d72259b5383dbf1c0ee3b8825fae08641ccecfb89323f7322e8f8195a0b3734809cc75826f1f380777f5faef3b823b0a2b76ccb3cd4594eb4ecd
   languageName: node
   linkType: hard
 
@@ -9068,7 +9068,7 @@ fsevents@^2.3.2:
     jest: 27.0.6
     prettier: 2.3.2
     querystring-es3: 0.2.1
-    rambda: 6.7.0
+    rambda: 6.8.2
     react: 17.0.2
     react-dom: 17.0.2
     react-github-corner: 2.5.0
