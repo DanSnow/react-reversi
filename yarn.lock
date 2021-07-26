@@ -2125,10 +2125,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gh-pages@npm:^3":
-  version: 3.0.0
-  resolution: "@types/gh-pages@npm:3.0.0"
-  checksum: 1343b3c68734424861a840fa04d57d0762f01d0dd25668a591a48fd101946f766d908e6354ca5de738b64c1fbcc88f59a3d630dde0eac067461779194c697d2e
+"@types/gh-pages@npm:3.2.0":
+  version: 3.2.0
+  resolution: "@types/gh-pages@npm:3.2.0"
+  checksum: 8c0b6590e75228b96233e540374ed601791f641400feb7ab40aa27e1d9029f325348b5dd06bf60ea9f8c36d7933f28b40e540aa2be1b5740fa6e35a942a52541
   languageName: node
   linkType: hard
 
@@ -9045,7 +9045,7 @@ fsevents@^2.3.2:
     "@testing-library/react": 12.0.0
     "@types/babel__core": 7.1.15
     "@types/eslint-plugin-prettier": 3.1.0
-    "@types/gh-pages": ^3
+    "@types/gh-pages": 3.2.0
     "@types/jest": 26.0.24
     "@types/node": 16.0.0
     "@types/prettier": 2.3.2
