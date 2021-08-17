@@ -4809,12 +4809,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unused-imports@npm:1.1.3":
-  version: 1.1.3
-  resolution: "eslint-plugin-unused-imports@npm:1.1.3"
+"eslint-plugin-unused-imports@npm:1.1.4":
+  version: 1.1.4
+  resolution: "eslint-plugin-unused-imports@npm:1.1.4"
   dependencies:
     eslint-rule-composer: ^0.3.0
-  checksum: 47e72ac018c80685750c5fc2daf11bb57e93408869c31f3504c617c6aaa67c47efc44c0ebd7a38a082940d10cdeb3e64bb0916cc63d589a311c6c7e4ed03156f
+  peerDependencies:
+    "@typescript-eslint/eslint-plugin": ^4.14.2
+    eslint: ^7.19.0
+  peerDependenciesMeta:
+    "@typescript-eslint/eslint-plugin":
+      optional: true
+  checksum: 62c2dac60efee7e0efe0b9b5e1b7c708251ba6208ecdbe7e04015e8c415ba4e1a84e7bd5716cd9e51895449b57077510e3e98b2bfc3d1f288ca6f3dd46883ca6
   languageName: node
   linkType: hard
 
@@ -9072,7 +9078,7 @@ fsevents@^2.3.2:
     eslint-plugin-react-hooks: 4.2.0
     eslint-plugin-simple-import-sort: 7.0.0
     eslint-plugin-standard: 5.0.0
-    eslint-plugin-unused-imports: 1.1.3
+    eslint-plugin-unused-imports: 1.1.4
     gh-pages: 3.2.3
     html-webpack-plugin: 5.3.2
     i18next: 20.4.0
