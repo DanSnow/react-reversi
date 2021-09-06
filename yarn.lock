@@ -2322,7 +2322,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:7.1.15, @types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.14":
+"@types/babel__core@npm:7.1.16":
+  version: 7.1.16
+  resolution: "@types/babel__core@npm:7.1.16"
+  dependencies:
+    "@babel/parser": ^7.1.0
+    "@babel/types": ^7.0.0
+    "@types/babel__generator": "*"
+    "@types/babel__template": "*"
+    "@types/babel__traverse": "*"
+  checksum: d5aa154ce8c63e5fd47f5b9286a2689eea1e6dd3e1005b0c608bfe72363a44cb32be1e104f81d4b976e8a9f1f802d03184e64a055984fd43a359c5518a0f94cf
+  languageName: node
+  linkType: hard
+
+"@types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.14":
   version: 7.1.15
   resolution: "@types/babel__core@npm:7.1.15"
   dependencies:
@@ -8558,7 +8571,7 @@ __metadata:
     "@reduxjs/toolkit": 1.6.1
     "@testing-library/jest-dom": 5.14.1
     "@testing-library/react": 12.0.0
-    "@types/babel__core": 7.1.15
+    "@types/babel__core": 7.1.16
     "@types/eslint-plugin-prettier": 3.1.0
     "@types/gh-pages": 3.2.0
     "@types/jest": 27.0.1
