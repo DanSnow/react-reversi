@@ -2137,9 +2137,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pmmmwh/react-refresh-webpack-plugin@npm:0.5.0":
-  version: 0.5.0
-  resolution: "@pmmmwh/react-refresh-webpack-plugin@npm:0.5.0"
+"@pmmmwh/react-refresh-webpack-plugin@npm:0.5.1":
+  version: 0.5.1
+  resolution: "@pmmmwh/react-refresh-webpack-plugin@npm:0.5.1"
   dependencies:
     ansi-html-community: ^0.0.8
     common-path-prefix: ^3.0.0
@@ -2154,7 +2154,7 @@ __metadata:
     "@types/webpack": 4.x || 5.x
     react-refresh: ^0.10.0
     sockjs-client: ^1.4.0
-    type-fest: ">=0.17.0 <2.0.0"
+    type-fest: ">=0.17.0 <3.0.0"
     webpack: ">=4.43.0 <6.0.0"
     webpack-dev-server: 3.x || 4.x
     webpack-hot-middleware: 2.x
@@ -2172,7 +2172,7 @@ __metadata:
       optional: true
     webpack-plugin-serve:
       optional: true
-  checksum: 0398727c1c31716fbc1b9f72e735a842c1d1801d19079d10a4fda5792fbbb32c4a9df3759c24347136aa0030e154331d93a5b682e346623f39b0c1d440c9c502
+  checksum: e6d6d3501346494fc1a328d12c722f45220a5ea5364f9c60ef867278f073dd0d491bd7ea6fdaeb56d86d7ea109529f931ed2fc72603cd51218b334918fd3f8c1
   languageName: node
   linkType: hard
 
@@ -8635,7 +8635,7 @@ __metadata:
     "@emotion/babel-plugin": 11.3.0
     "@emotion/react": 11.4.1
     "@emotion/styled": 11.3.0
-    "@pmmmwh/react-refresh-webpack-plugin": 0.5.0
+    "@pmmmwh/react-refresh-webpack-plugin": 0.5.1
     "@reduxjs/toolkit": 1.6.1
     "@testing-library/jest-dom": 5.14.1
     "@testing-library/react": 12.1.0
