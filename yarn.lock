@@ -8190,7 +8190,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^18.0.0-alpha-3ee7a004e-20210920":
+"react-dom@npm:18.0.0-alpha-fd5e01c2e-20210913":
   version: 18.0.0-alpha-fd5e01c2e-20210913
   resolution: "react-dom@npm:18.0.0-alpha-fd5e01c2e-20210913"
   dependencies:
@@ -8327,8 +8327,8 @@ __metadata:
     prettier: 2.4.1
     querystring-es3: 0.2.1
     rambda: 6.9.0
-    react: ^18.0.0-alpha-3ee7a004e-20210920
-    react-dom: ^18.0.0-alpha-3ee7a004e-20210920
+    react: 18.0.0-alpha-fd5e01c2e-20210913
+    react-dom: 18.0.0-alpha-fd5e01c2e-20210913
     react-github-corner: 2.5.0
     react-i18next: 11.12.0
     react-redux: 7.2.5
@@ -8347,7 +8347,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"react@npm:^18.0.0-alpha-3ee7a004e-20210920":
+"react@npm:18.0.0-alpha-fd5e01c2e-20210913":
   version: 18.0.0-alpha-fd5e01c2e-20210913
   resolution: "react@npm:18.0.0-alpha-fd5e01c2e-20210913"
   dependencies:
