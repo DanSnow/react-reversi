@@ -1,7 +1,7 @@
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { join } from 'path'
-import { Configuration, DefinePlugin, HotModuleReplacementPlugin } from 'webpack'
+import { Configuration, DefinePlugin } from 'webpack'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 import { version } from './package.json'
@@ -43,7 +43,6 @@ const baseConfig: Configuration = {
     fallback: { querystring: require.resolve('querystring-es3') },
   },
   plugins: [
-    isDev && new HotModuleReplacementPlugin(),
     isDev && new ReactRefreshWebpackPlugin(),
     new DefinePlugin({
       __DEV__: env !== 'production',
