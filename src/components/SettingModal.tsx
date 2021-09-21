@@ -55,7 +55,9 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
                 <div className="select">
                   <select name="version" defaultValue="v3Overview" onChange={onVersionChange}>
                     {AI.map(([value, display]) => (
-                      <option value={value}>{display}</option>
+                      <option key={value} value={value}>
+                        {display}
+                      </option>
                     ))}
                   </select>
                 </div>
