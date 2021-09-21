@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["dom", "esnext"],
-    "types": ["webpack-env", "node", "jest"],
+    "types": ["webpack-env", "node", "jest", "react/next", "react-dom/next"],
     "resolveJsonModule": true,
     "allowJs": true,
     "esModuleInterop": true,
