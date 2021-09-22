@@ -1,9 +1,9 @@
 import { createSlice, freeze, PayloadAction } from '@reduxjs/toolkit'
 import { always, times } from 'rambda'
 
-import { ENDED, IDLE, PLAYING } from '../consts'
+import { BLACK, ENDED, IDLE, PLAYING, WHITE } from '../consts'
 import { judgeScores } from '../lib/ai'
-import { Board, GameState, Log } from '../types'
+import { AIVersions, Board, GameState, Log, Users, UserType } from '../types'
 
 const initialBoard = freeze(times(() => times(always(null), 8), 8))
 
@@ -22,7 +22,14 @@ export const gameSlice = createSlice({
     candidate: 0,
     switchCount: 0,
     version: 'v3Overview' as keyof typeof judgeScores,
-    ai: null as string | null,
+    users: {
+      [BLACK]: UserType.Human,
+      [WHITE]: UserType.Human,
+    },
+    aiVersions: {
+      [BLACK]: null,
+      [WHITE]: null,
+    },
     player: null as string | null,
     board: initialBoard,
     pastStep: [] as PastState[],
@@ -41,8 +48,11 @@ export const gameSlice = createSlice({
     setPlayer(state, { payload }: PayloadAction<string | null>) {
       state.player = payload
     },
-    setAi(state, { payload }: PayloadAction<string | null>) {
-      state.ai = payload
+    setUsers(state, { payload }: PayloadAction<Users>) {
+      state.users = payload
+    },
+    setAIVersions(state, { payload }: PayloadAction<AIVersions>) {
+      state.aiVersions = payload
     },
     setCandidate(state, { payload }: PayloadAction<number>) {
       state.candidate = payload

@@ -12,7 +12,7 @@ import { createScoreSelector } from './selector'
 import { gameActions } from './slices/game'
 import { uiActions } from './slices/ui'
 import { RootState } from './store'
-import { Board, Coords } from './types'
+import { Board, Coords, Score, UserType } from './types'
 
 const DEFAULT_BOARD = freeze([
   times(always(null), 8),
@@ -25,20 +25,24 @@ const DEFAULT_BOARD = freeze([
   times(always(null), 8),
 ])
 
+const DEFAULT_USER = { [BLACK]: UserType.Human, [WHITE]: UserType.Human }
+
 export function* reboot(): Generator<Effect, void, void> {
   yield put(gameActions.setState(IDLE))
   yield put(uiActions.setOverlay(''))
   yield put(gameActions.setMessage(''))
   yield put(gameActions.clearLog())
   yield put(gameActions.resetBoard())
-  yield put(gameActions.setAi(null))
+  yield put(gameActions.setUsers(DEFAULT_USER))
   yield put(gameActions.setPlayer(null))
   yield put(gameActions.resetSwitch())
 }
 
 export function* reset({ payload }: PayloadAction<string>): Generator<Effect, void, void> {
   yield call(reboot)
-  yield put(gameActions.setAi(payload))
+  if (payload != null) {
+    yield put(gameActions.setUsers({ ...DEFAULT_USER, [payload]: UserType.AI }))
+  }
   yield put(gameActions.setPlayer(BLACK))
   yield put(gameActions.setBoard(DEFAULT_BOARD as Board))
   yield call(placeCandidate)
@@ -53,31 +57,10 @@ const scoreSelector = createScoreSelector()
 
 function* switchPlayer() {
   const {
-    game: { ai, switchCount, player },
+    game: { users, switchCount, player },
   }: RootState = yield select()
-  const score = yield select(scoreSelector)
   if (switchCount > 2) {
-    yield put(gameActions.setMessage('Game set'))
-    yield put(gameActions.setState(ENDED))
-    if (score.black === score.white) {
-      yield put(uiActions.setOverlay('Draw'))
-      if (ai) {
-        yield put(uiActions.incrementHistory('draw'))
-      }
-      return
-    }
-    const winner = score.black > score.white ? BLACK : WHITE
-    if (ai) {
-      if (ai === winner) {
-        yield put(uiActions.setOverlay('You Lose'))
-        yield put(uiActions.incrementHistory('lose'))
-      } else {
-        yield put(uiActions.setOverlay('You Win'))
-        yield put(uiActions.incrementHistory('win'))
-      }
-    } else {
-      yield put(uiActions.setOverlay(`${capitalize(getPlayer(winner))} Win`))
-    }
+    yield call(gameSet)
     return
   }
 
@@ -87,7 +70,8 @@ function* switchPlayer() {
   yield put(gameActions.setPlayer(nextPlayer))
 
   yield call(placeCandidate)
-  if (!(yield select((state: RootState) => state.game.candidate))) {
+  const candidate: number = yield select((state: RootState) => state.game.candidate)
+  if (candidate === 0) {
     yield put(gameActions.setMessage(`No move, turn to ${getPlayer(player)}`))
     yield put(gameActions.addSwitch())
     yield call(switchPlayer)
@@ -96,10 +80,40 @@ function* switchPlayer() {
       yield put(gameActions.setMessage(''))
     }
     yield put(gameActions.resetSwitch())
-    if (nextPlayer === ai) {
+    if (users[nextPlayer] === UserType.AI) {
       yield call(aiJudgeScore)
       yield call(switchPlayer)
     }
+  }
+}
+
+function* gameSet() {
+  const {
+    game: { users },
+  }: RootState = yield select()
+  const score: Score = yield select(scoreSelector)
+  const bothAI = users[BLACK] === UserType.AI && users[WHITE] === UserType.AI
+  const hasAI = users[BLACK] === UserType.AI || users[WHITE] === UserType.AI
+  yield put(gameActions.setMessage('Game set'))
+  yield put(gameActions.setState(ENDED))
+  if (score.black === score.white) {
+    yield put(uiActions.setOverlay('Draw'))
+    if (hasAI) {
+      yield put(uiActions.incrementHistory('draw'))
+    }
+    return
+  }
+  const winner = score.black > score.white ? BLACK : WHITE
+  if (hasAI && !bothAI) {
+    if (users[winner] === UserType.AI) {
+      yield put(uiActions.setOverlay('You Lose'))
+      yield put(uiActions.incrementHistory('lose'))
+    } else {
+      yield put(uiActions.setOverlay('You Win'))
+      yield put(uiActions.incrementHistory('win'))
+    }
+  } else {
+    yield put(uiActions.setOverlay(`${capitalize(getPlayer(winner))} Win`))
   }
 }
 
@@ -120,8 +134,10 @@ function* placeCandidate() {
 
 function* aiJudgeScore() {
   const {
-    game: { board, player, ai, version },
+    game: { board, player, version },
   }: RootState = yield select()
+  // this function will call before switch user
+  const ai = getOpposite(player)
   const scores: { row: number; col: number; score: number }[] = []
   const judge = judgeScores[version]
   invariant(judge, 'version invalid')

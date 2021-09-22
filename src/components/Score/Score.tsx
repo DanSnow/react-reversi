@@ -1,10 +1,10 @@
 import { ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { BLACK, History, WHITE } from '../../store'
+import { BLACK, History, Users, UserType, WHITE } from '../../store'
 
-function getPlayerType(player: string, ai?: string): string {
-  return player === ai ? 'ai' : 'player'
+function getPlayerType(player: string, users: Users): string {
+  return users[player] === UserType.AI ? 'ai' : 'player'
 }
 
 interface ScoreData {
@@ -14,11 +14,11 @@ interface ScoreData {
 
 interface Props {
   history: History
-  ai?: string
+  users: Users
   score: ScoreData
 }
 
-export function Score({ score, ai, history }: Props): ReactElement {
+export function Score({ score, users, history }: Props): ReactElement {
   const { t } = useTranslation()
 
   return (
@@ -28,10 +28,10 @@ export function Score({ score, ai, history }: Props): ReactElement {
       </div>
       <div className="card-content">
         <div>
-          black({getPlayerType(BLACK, ai)}): {score.black}
+          black({getPlayerType(BLACK, users)}): {score.black}
         </div>
         <div>
-          white({getPlayerType(WHITE, ai)}): {score.white}
+          white({getPlayerType(WHITE, users)}): {score.white}
         </div>
         <hr />
         <div>win: {history.win}</div>

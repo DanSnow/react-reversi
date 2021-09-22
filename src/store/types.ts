@@ -1,4 +1,5 @@
-import { ENDED, IDLE, PLAYING } from './consts'
+import { BLACK, ENDED, IDLE, PLAYING, WHITE } from './consts'
+import { judgeScores } from './lib/ai'
 
 export type GameState = typeof IDLE | typeof PLAYING | typeof ENDED
 
@@ -33,6 +34,23 @@ export interface History {
 export interface Score {
   black: number
   white: number
+}
+
+export enum UserType {
+  Human,
+  AI,
+}
+
+export interface Users {
+  [BLACK]: UserType
+  [WHITE]: UserType
+}
+
+export type AIVersion = keyof typeof judgeScores
+
+export interface AIVersions {
+  [BLACK]: AIVersion | null
+  [WHITE]: AIVersion | null
 }
 
 export type Board = (string | null)[][]

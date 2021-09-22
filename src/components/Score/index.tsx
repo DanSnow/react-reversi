@@ -8,8 +8,8 @@ const scoreSelector = createScoreSelector()
 
 export function Score(): ReactElement {
   const score = useSelector(scoreSelector)
-  const ai = useSelector((state) => state.game.ai)
+  const users = useSelector((state) => state.game.users)
   const history = useSelector((state) => state.ui.history)
 
-  return <DumbScore score={score} ai={ai} history={history} />
+  return <DumbScore score={score} users={users} history={history} />
 }
