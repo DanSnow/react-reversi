@@ -2267,7 +2267,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:17.0.24":
+"@types/react@npm:*":
   version: 17.0.24
   resolution: "@types/react@npm:17.0.24"
   dependencies:
@@ -2275,6 +2275,17 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: 99383e2cbaa85831984cc17ec4a5fe7fd091aa21ef023855570440d8d0b5038efb8159701e8e2a0f6ddff3efae655922ded690190e7d172653608cbde016cb66
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:17.0.25":
+  version: 17.0.25
+  resolution: "@types/react@npm:17.0.25"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: a5838a943e73c7ab2c188a6e16918d3120ca04e52f03d98d68dd1fe019503c301b1b3fbac0b6330be2b7d4ffba6e227fe43a0a2e716fe9f79000d5e43308039a
   languageName: node
   linkType: hard
 
@@ -8386,7 +8397,7 @@ __metadata:
     "@types/jest": 27.0.2
     "@types/node": 16.9.6
     "@types/prettier": 2.4.1
-    "@types/react": 17.0.24
+    "@types/react": 17.0.25
     "@types/react-dom": 17.0.9
     "@types/react-redux": 7.1.18
     "@types/testing-library__jest-dom": 5.14.1
