@@ -2330,7 +2330,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-redux@npm:7.1.18, @types/react-redux@npm:^7.1.16":
+"@types/react-redux@npm:7.1.19":
+  version: 7.1.19
+  resolution: "@types/react-redux@npm:7.1.19"
+  dependencies:
+    "@types/hoist-non-react-statics": ^3.3.0
+    "@types/react": "*"
+    hoist-non-react-statics: ^3.3.0
+    redux: ^4.0.0
+  checksum: 32a1b21f6a5e45cd6e78fdb4b86974ea444a35539c3c1270d66132527b2c45051f9642a3e2296616c72407dc019d0629c0183bcca64fbf3ba19443484cb70df7
+  languageName: node
+  linkType: hard
+
+"@types/react-redux@npm:^7.1.16":
   version: 7.1.18
   resolution: "@types/react-redux@npm:7.1.18"
   dependencies:
@@ -8534,7 +8546,7 @@ __metadata:
     "@types/prettier": 2.4.1
     "@types/react": 17.0.27
     "@types/react-dom": 17.0.9
-    "@types/react-redux": 7.1.18
+    "@types/react-redux": 7.1.19
     "@types/testing-library__jest-dom": 5.14.1
     "@types/webpack-bundle-analyzer": 4.4.1
     "@types/webpack-env": 1.16.2
