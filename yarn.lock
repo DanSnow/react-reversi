@@ -8794,10 +8794,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-refresh@npm:0.10.0":
-  version: 0.10.0
-  resolution: "react-refresh@npm:0.10.0"
-  checksum: 089b8ea9ad8038046c0467a2476595eedab9e30620f50daa50e844c81d626de43a44a6a628256ae58e68885d5fe1d7e05074ddfd99ece3808b013d043f0c6030
+"react-refresh@npm:0.11.0":
+  version: 0.11.0
+  resolution: "react-refresh@npm:0.11.0"
+  checksum: 112178a05b1e0ffeaf5d9fb4e56b4410a34a73adeb04dbf13abdc50d9ac9df2ada83e81485156cca0b3fa296aa3612751b3d6cd13be4464642a43679b819cbc7
   languageName: node
   linkType: hard
 
@@ -8866,7 +8866,7 @@ __metadata:
     react-github-corner: 2.5.0
     react-i18next: 11.13.0
     react-redux: 7.2.6
-    react-refresh: 0.10.0
+    react-refresh: 0.11.0
     redux: 4.1.2
     redux-persist: 6.0.0
     redux-saga: 1.1.3
