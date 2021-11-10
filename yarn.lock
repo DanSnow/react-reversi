@@ -8746,16 +8746,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:11.13.0":
-  version: 11.13.0
-  resolution: "react-i18next@npm:11.13.0"
+"react-i18next@npm:11.14.0":
+  version: 11.14.0
+  resolution: "react-i18next@npm:11.14.0"
   dependencies:
     "@babel/runtime": ^7.14.5
     html-parse-stringify: ^3.0.1
   peerDependencies:
     i18next: ">= 19.0.0"
     react: ">= 16.8.0"
-  checksum: 93cd93730869e869a1bade404d96905e1f68e86a9eaf46cbfae040e3019956ce3de0c22e9726dc1268883d139899b849296cd54723d47436211828d4f03bbea1
+  checksum: 213bbfd59f8789667877fa84fc800ea629bfc26d5c508b9cb20fcdc1c1cc55892b3625f1d948845ce52de160746ab2f27dcf64720f4702b2426de68f9231ab66
   languageName: node
   linkType: hard
 
@@ -8864,7 +8864,7 @@ __metadata:
     react: 18.0.0-alpha-fd5e01c2e-20210913
     react-dom: 18.0.0-alpha-fd5e01c2e-20210913
     react-github-corner: 2.5.0
-    react-i18next: 11.13.0
+    react-i18next: 11.14.0
     react-redux: 7.2.6
     react-refresh: 0.11.0
     redux: 4.1.2
