@@ -86,7 +86,7 @@
     "webpack-dev-server": "4.6.0"
   },
   "dependencies": {
-    "@emotion/react": "11.6.0",
+    "@emotion/react": "11.7.0",
     "@emotion/styled": "11.6.0",
     "@reduxjs/toolkit": "1.6.2",
     "clsx": "1.1.1",
