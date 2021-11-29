@@ -1,4 +1,5 @@
 import './i18n'
+import './machines/game'
 
 import ReactDOM from 'react-dom'
 

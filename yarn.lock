@@ -2640,6 +2640,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xstate/immer@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@xstate/immer@npm:0.3.0"
+  peerDependencies:
+    immer: ^9.0.6
+    xstate: ^4.9.1
+  checksum: 57c8f7fed9c3fe4c8ecb111cb4e15adb3e7c47e45eb4449aa3e1312ac488fec567125cba3a92e10956933a0ee9d39c8e4aa235fdb05014fcc5e611e867a8b46a
+  languageName: node
+  linkType: hard
+
+"@xstate/inspect@npm:^0.5.2":
+  version: 0.5.2
+  resolution: "@xstate/inspect@npm:0.5.2"
+  dependencies:
+    fast-safe-stringify: ^2.0.7
+  peerDependencies:
+    ws: ^7.3.1
+  checksum: ad1471272c100ebb1a1dc548709e41cfb1e52766147036754071b7b85a13943a365bc9beca8f87707d0caf0608fe6f706ce535dead5a149902afc0505fa13c2a
+  languageName: node
+  linkType: hard
+
 "@xtuc/ieee754@npm:^1.2.0":
   version: 1.2.0
   resolution: "@xtuc/ieee754@npm:1.2.0"
@@ -4903,6 +4924,13 @@ __metadata:
   version: 2.0.6
   resolution: "fast-levenshtein@npm:2.0.6"
   checksum: 92cfec0a8dfafd9c7a15fba8f2cc29cd0b62b85f056d99ce448bbcd9f708e18ab2764bda4dd5158364f4145a7c72788538994f0d1787b956ef0d1062b0f7c24c
+  languageName: node
+  linkType: hard
+
+"fast-safe-stringify@npm:^2.0.7":
+  version: 2.1.1
+  resolution: "fast-safe-stringify@npm:2.1.1"
+  checksum: a851cbddc451745662f8f00ddb622d6766f9bd97642dabfd9a405fb0d646d69fc0b9a1243cbf67f5f18a39f40f6fa821737651ff1bceeba06c9992ca2dc5bd3d
   languageName: node
   linkType: hard
 
@@ -8215,6 +8243,8 @@ __metadata:
     "@types/webpack-env": 1.16.3
     "@typescript-eslint/eslint-plugin": 5.7.0
     "@typescript-eslint/parser": 5.7.0
+    "@xstate/immer": ^0.3.0
+    "@xstate/inspect": ^0.5.2
     babel-jest: 27.4.5
     babel-loader: 8.2.3
     babel-plugin-transform-imports: 2.0.0
@@ -8258,6 +8288,7 @@ __metadata:
     webpack-bundle-analyzer: 4.5.0
     webpack-cli: 4.9.1
     webpack-dev-server: 4.6.0
+    xstate: ^4.26.1
   languageName: unknown
   linkType: soft
 
@@ -10108,6 +10139,13 @@ __metadata:
   version: 2.2.0
   resolution: "xmlchars@npm:2.2.0"
   checksum: 8c70ac94070ccca03f47a81fcce3b271bd1f37a591bf5424e787ae313fcb9c212f5f6786e1fa82076a2c632c0141552babcd85698c437506dfa6ae2d58723062
+  languageName: node
+  linkType: hard
+
+"xstate@npm:^4.26.1":
+  version: 4.26.1
+  resolution: "xstate@npm:4.26.1"
+  checksum: b31a0f2033ec5c9d50f5e15682b3a0b8977f972a02ab33c22f29e3b3d931d07eda75e5c823377bd6a32b46d4467ec8eee4e711d2d2948330ae73bbd828e12920
   languageName: node
   linkType: hard
 
