@@ -38,7 +38,7 @@
     "@babel/register": "7.16.5",
     "@babel/runtime": "7.16.5",
     "@emotion/babel-plugin": "11.7.2",
-    "@pmmmwh/react-refresh-webpack-plugin": "0.5.3",
+    "@pmmmwh/react-refresh-webpack-plugin": "0.5.4",
     "@testing-library/jest-dom": "5.16.1",
     "@testing-library/react": "12.1.2",
     "@types/babel__core": "7.1.17",
