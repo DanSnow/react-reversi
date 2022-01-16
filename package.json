@@ -93,7 +93,7 @@
     "i18next": "21.6.6",
     "i18next-browser-languagedetector": "6.1.2",
     "querystring-es3": "0.2.1",
-    "rambda": "6.9.0",
+    "rambda": "7.0.1",
     "react": "18.0.0-rc.0-next-fe905f152-20220107",
     "react-dom": "18.0.0-rc.0-next-fe905f152-20220107",
     "react-github-corner": "2.5.0",
