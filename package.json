@@ -88,7 +88,7 @@
   "dependencies": {
     "@emotion/react": "11.7.1",
     "@emotion/styled": "11.6.0",
-    "@reduxjs/toolkit": "1.7.1",
+    "@reduxjs/toolkit": "1.7.2",
     "clsx": "1.1.1",
     "i18next": "21.6.10",
     "i18next-browser-languagedetector": "6.1.3",
