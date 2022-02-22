@@ -8878,10 +8878,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rambda@npm:7.0.2":
-  version: 7.0.2
-  resolution: "rambda@npm:7.0.2"
-  checksum: bb5d4fe3df9cc71bb0fc0f5e568274f51ecec9ee3c1330ad6fc16d30e02ab83e651ab3c6ddf3078a75cce3d86ccf25c1e6aa81cc23af108b8f26521bc5767d01
+"rambda@npm:7.0.3":
+  version: 7.0.3
+  resolution: "rambda@npm:7.0.3"
+  checksum: 281fa79b52a3d73b7cdaed540ddb896adc8166eb8bbfd8cadd0de92c470c7987556a315009c79578c7cb377554e52fdd2e7417ccecc64e0b7460387f4378c663
   languageName: node
   linkType: hard
 
@@ -9055,7 +9055,7 @@ __metadata:
     jest: 27.5.1
     prettier: 2.5.1
     querystring-es3: 0.2.1
-    rambda: 7.0.2
+    rambda: 7.0.3
     react: 18.0.0-rc.0-next-fe905f152-20220107
     react-dom: 18.0.0-rc.0-next-fe905f152-20220107
     react-github-corner: 2.5.0
