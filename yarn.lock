@@ -8979,15 +8979,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.0.0-rc.3-next-de516ca5a-20220321":
-  version: 18.0.0-rc.3-next-de516ca5a-20220321
-  resolution: "react-dom@npm:18.0.0-rc.3-next-de516ca5a-20220321"
+"react-dom@npm:18.0.0-rc.3-next-e7d0053e6-20220325":
+  version: 18.0.0-rc.3-next-e7d0053e6-20220325
+  resolution: "react-dom@npm:18.0.0-rc.3-next-e7d0053e6-20220325"
   dependencies:
     loose-envify: ^1.1.0
-    scheduler: 0.21.0-rc.3-next-de516ca5a-20220321
+    scheduler: 0.21.0-rc.3-next-e7d0053e6-20220325
   peerDependencies:
-    react: 18.0.0-rc.3-next-de516ca5a-20220321
-  checksum: 87fa6d1a3643131b19a048b62e6654f4d5b34af166fc910642cb8a14a0e9d5c82a47cf66ad655618f86533cbdb303815eb835277448f98532a334653c190c699
+    react: 18.0.0-rc.3-next-e7d0053e6-20220325
+  checksum: 43b96d7a58ccb03b7b86162c0bb7563a2a8d8801e625cc4774bca1d8418d6cc88cdeea36def24cee66e6f4384394faf47f53211f244fd8470f26ce6ce5c23609
   languageName: node
   linkType: hard
 
@@ -9121,8 +9121,8 @@ __metadata:
     prettier: 2.6.1
     querystring-es3: 0.2.1
     rambda: 7.0.3
-    react: 18.0.0-rc.3-next-de516ca5a-20220321
-    react-dom: 18.0.0-rc.3-next-de516ca5a-20220321
+    react: 18.0.0-rc.3-next-e7d0053e6-20220325
+    react-dom: 18.0.0-rc.3-next-e7d0053e6-20220325
     react-github-corner: 2.5.0
     react-i18next: 11.16.2
     react-redux: 7.2.6
@@ -9141,12 +9141,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"react@npm:18.0.0-rc.3-next-de516ca5a-20220321":
-  version: 18.0.0-rc.3-next-de516ca5a-20220321
-  resolution: "react@npm:18.0.0-rc.3-next-de516ca5a-20220321"
+"react@npm:18.0.0-rc.3-next-e7d0053e6-20220325":
+  version: 18.0.0-rc.3-next-e7d0053e6-20220325
+  resolution: "react@npm:18.0.0-rc.3-next-e7d0053e6-20220325"
   dependencies:
     loose-envify: ^1.1.0
-  checksum: 56d6e43983b5b38ae32e9e535ec70c60d71b6af0096230312002f243db411973414bc84a1ceaa9bbc61b9d2db7182f298bef8f2d1d6eec4fdb23ece6ad9b97eb
+  checksum: 487a6171328100f0b700fe74499f5a689bcdb2c122acbef582cc2bb78817b64346c10480b43c9ae9ac175410401e82a3b044de6b4a1ba3f399fb0615fa5036f9
   languageName: node
   linkType: hard
 
@@ -9510,12 +9510,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scheduler@npm:0.21.0-rc.3-next-de516ca5a-20220321":
-  version: 0.21.0-rc.3-next-de516ca5a-20220321
-  resolution: "scheduler@npm:0.21.0-rc.3-next-de516ca5a-20220321"
+"scheduler@npm:0.21.0-rc.3-next-e7d0053e6-20220325":
+  version: 0.21.0-rc.3-next-e7d0053e6-20220325
+  resolution: "scheduler@npm:0.21.0-rc.3-next-e7d0053e6-20220325"
   dependencies:
     loose-envify: ^1.1.0
-  checksum: 8a97fb043fc309c0b5f1b7eded272e4a220eb1c57cbb87af18469afae8f1682faf38aa325eab8bf32ab5203aa02e117ce319b78237f18d2cd89e976b7ba1519e
+  checksum: de8ac6ef95b71a39a2a0523d7358aea114b875526812ae9707bfe67588ffe05d2cf8c32e106994ee354c21761f2b85b6651edfa5f1b6cfd18009241e5f661fa7
   languageName: node
   linkType: hard
 
