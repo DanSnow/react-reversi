@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest'
+
 import { BLACK, BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE } from '../consts'
 import { computeScore } from '../selector'
 

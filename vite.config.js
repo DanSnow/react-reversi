@@ -10,4 +10,7 @@ export default defineConfig({
     VERSION: JSON.stringify(`${pkg.version}`),
   },
   plugins: [react()],
+  test: {
+    environment: 'happy-dom',
+  },
 })
