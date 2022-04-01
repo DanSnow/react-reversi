@@ -6,7 +6,7 @@ export const i18n = i18next
   .use(LngDetector)
   .use(initReactI18next)
   .init({
-    debug: __DEV__,
+    debug: import.meta.env.DEV,
     fallbackLng: false,
     resources: {
       'zh-TW': {

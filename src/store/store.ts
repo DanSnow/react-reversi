@@ -21,8 +21,8 @@ export const configureStore = () => {
   })
   const persistor = persistStore(store)
 
-  if (module.hot) {
-    module.hot.accept('./reducer', async () => {
+  if (import.meta.hot) {
+    import.meta.hot.accept('./reducer', async () => {
       store.replaceReducer((await import('./reducer')).reducer as any)
     })
   }
@@ -43,8 +43,8 @@ export { persistor, runSaga, store }
 
 runSaga(root)
 
-if (module.hot) {
-  module.hot.accept('./saga', async () => {
+if (import.meta.hot) {
+  import.meta.hot.accept('./saga', async () => {
     close()
     runSaga((await import('./saga')).root)
   })

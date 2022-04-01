@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "lib": ["dom", "esnext"],
-    "types": ["webpack-env", "node", "jest", "react/next", "react-dom/next"],
+    "module": "es2022",
+    "types": ["vite/client", "node", "jest", "react", "react-dom"],
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowJs": true,
     "esModuleInterop": true,
