@@ -2,7 +2,7 @@
   "compilerOptions": {
     "lib": ["dom", "esnext"],
     "module": "es2022",
-    "types": ["vite/client", "node", "jest", "react", "react-dom"],
+    "types": ["vite/client", "node", "react", "react-dom"],
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowJs": true,
