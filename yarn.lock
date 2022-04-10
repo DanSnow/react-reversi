@@ -1497,7 +1497,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/babel-plugin@npm:11.7.2, @emotion/babel-plugin@npm:^11.7.1":
+"@emotion/babel-plugin@npm:11.9.2":
+  version: 11.9.2
+  resolution: "@emotion/babel-plugin@npm:11.9.2"
+  dependencies:
+    "@babel/helper-module-imports": ^7.12.13
+    "@babel/plugin-syntax-jsx": ^7.12.13
+    "@babel/runtime": ^7.13.10
+    "@emotion/hash": ^0.8.0
+    "@emotion/memoize": ^0.7.5
+    "@emotion/serialize": ^1.0.2
+    babel-plugin-macros: ^2.6.1
+    convert-source-map: ^1.5.0
+    escape-string-regexp: ^4.0.0
+    find-root: ^1.1.0
+    source-map: ^0.5.7
+    stylis: 4.0.13
+  peerDependencies:
+    "@babel/core": ^7.0.0
+  checksum: 2d2c4fadd389862896bcbc5f42c9b9c1a199810173fcf14e5520506c7179c2ddb991b8832fd273f42104cf0dae98886ad8e767b5e38ad235b652d903c3b8a328
+  languageName: node
+  linkType: hard
+
+"@emotion/babel-plugin@npm:^11.7.1":
   version: 11.7.2
   resolution: "@emotion/babel-plugin@npm:11.7.2"
   dependencies:
@@ -5601,7 +5623,7 @@ __metadata:
     "@babel/preset-typescript": 7.16.7
     "@babel/register": 7.17.7
     "@babel/runtime": 7.17.9
-    "@emotion/babel-plugin": 11.7.2
+    "@emotion/babel-plugin": 11.9.2
     "@emotion/react": 11.9.0
     "@emotion/styled": 11.8.1
     "@reduxjs/toolkit": 1.8.1
