@@ -2400,10 +2400,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/webpack-env@npm:1.16.4":
-  version: 1.16.4
-  resolution: "@types/webpack-env@npm:1.16.4"
-  checksum: 97554238364dae6b7369f9e6d409c7eab4b0235f99b16c69e7458afbb9c29cde128b3fd3a79a14b9bbb8b09d9f0ba377b51cc040f0a2bd2c8eddaf22657136be
+"@types/webpack-env@npm:1.17.0":
+  version: 1.17.0
+  resolution: "@types/webpack-env@npm:1.17.0"
+  checksum: 9ad4d208c4429c9427191d1f4c92e4c43e530384c17a6bc298acb89003fc47fcde1d8372e50acefa3061e9100e57fd9d616e96def875afd06c0c2afe508f298e
   languageName: node
   linkType: hard
 
@@ -6042,7 +6042,7 @@ __metadata:
     "@types/react": 18.0.9
     "@types/react-dom": 18.0.4
     "@types/react-redux": 7.1.24
-    "@types/webpack-env": 1.16.4
+    "@types/webpack-env": 1.17.0
     "@typescript-eslint/eslint-plugin": 5.25.0
     "@typescript-eslint/parser": 5.25.0
     "@vitejs/plugin-react": 1.3.2
