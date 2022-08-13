@@ -1700,35 +1700,35 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redux-saga/core@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "@redux-saga/core@npm:1.1.3"
+"@redux-saga/core@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@redux-saga/core@npm:1.2.0"
   dependencies:
     "@babel/runtime": ^7.6.3
-    "@redux-saga/deferred": ^1.1.2
-    "@redux-saga/delay-p": ^1.1.2
+    "@redux-saga/deferred": ^1.2.0
+    "@redux-saga/delay-p": ^1.2.0
     "@redux-saga/is": ^1.1.2
     "@redux-saga/symbols": ^1.1.2
-    "@redux-saga/types": ^1.1.0
+    "@redux-saga/types": ^1.2.0
     redux: ^4.0.4
     typescript-tuple: ^2.2.1
-  checksum: b90c90fcba498442631fe5913be665b6cf4efa58d9e37223fa1d4837b7bd85e1be64e156489f5824b28d91e3fa946192020216d762a5c16e4f75d802517c3cb6
+  checksum: a67da5ed49408277aa45438af7722f5e27a6ff258b2fc5e5deb4b4a8819bab2a7c117b5afbfb7e37efd4079dd7b58064e90c7e41cc95fa74c39c560946ce1692
   languageName: node
   linkType: hard
 
-"@redux-saga/deferred@npm:^1.1.2":
-  version: 1.1.2
-  resolution: "@redux-saga/deferred@npm:1.1.2"
-  checksum: 98bc41ca1cbc716b8b4d5ad3ffb2f04c7fc7298e75736cb197f1d18a084bca8a6e86c0fa547341db200695a45b15110e01d418a9ef32dc5f5ed6274b0e4f234a
+"@redux-saga/deferred@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@redux-saga/deferred@npm:1.2.0"
+  checksum: ed01938d8862bc5ab42f0fd9647d8ff5f328ad05b17d3a83aa591f14a6cc3208f04c6333e98e124b638470e59641bcef7465f7a8a6a2b1f5d29d789a5d9709b2
   languageName: node
   linkType: hard
 
-"@redux-saga/delay-p@npm:^1.1.2":
-  version: 1.1.2
-  resolution: "@redux-saga/delay-p@npm:1.1.2"
+"@redux-saga/delay-p@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@redux-saga/delay-p@npm:1.2.0"
   dependencies:
     "@redux-saga/symbols": ^1.1.2
-  checksum: 0fda0b8ce947069deb9e35824dedb2393e956174e909e2c17942c6fa519d26f79847fd295832245e80a44c9c352a7154c45ff3389ed998a6ddaee945be68580f
+  checksum: 84f933f145f9d053620fb15e0e65a3d759cf7a95ce9b3b27293dcf42ac6a9d0442178969c9cd64562ec968600b9a6e21c6b67fee0e993b8f260d45c71f581f1c
   languageName: node
   linkType: hard
 
@@ -1749,10 +1749,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redux-saga/types@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@redux-saga/types@npm:1.1.0"
-  checksum: e75a6ddc896007e76bd505dee1b3f8401464036ce9db2f4c4ac469215437d61013c17a54b9c342574bac27f2cb6ae628fe24419d17d9f85cb922181d81ec2321
+"@redux-saga/types@npm:^1.1.0, @redux-saga/types@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@redux-saga/types@npm:1.2.0"
+  checksum: 8ed087b47a00a5c45dc4dc60029661054fc571467956d5fb77b22349d78a1ee5feb5a9c1c42db985f06d34c98601eab4d169ea443cc5cbf6520e10e28d75b375
   languageName: node
   linkType: hard
 
@@ -5670,7 +5670,7 @@ __metadata:
     react-refresh: 0.14.0
     redux: 4.2.0
     redux-persist: 6.0.0
-    redux-saga: 1.1.3
+    redux-saga: 1.2.0
     tiny-invariant: 1.2.0
     type-fest: 2.18.0
     typescript: 4.7.4
@@ -5723,12 +5723,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redux-saga@npm:1.1.3":
-  version: 1.1.3
-  resolution: "redux-saga@npm:1.1.3"
+"redux-saga@npm:1.2.0":
+  version: 1.2.0
+  resolution: "redux-saga@npm:1.2.0"
   dependencies:
-    "@redux-saga/core": ^1.1.3
-  checksum: 4ea0bf0d4fac4a9101f2fd0798f7c93ed6646781e40dc9082ff1d4d3a9ae24ef2cadf1e3f62d27e5dcf100e2c8febf833bafd1d7033167afcb198013d0136b4a
+    "@redux-saga/core": ^1.2.0
+  checksum: f20f4a054047cef9a7e113b1354d51a11c98bd4bb48608b7f5a1599412bee9080f4f356d2ecf092d7f2aea24ae440960e733e77a15e567c765a3dcbef9c3c603
   languageName: node
   linkType: hard
 
