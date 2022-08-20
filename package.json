@@ -90,7 +90,7 @@
     "react-redux": "8.0.2",
     "redux": "4.2.0",
     "redux-persist": "6.0.0",
-    "redux-saga": "1.2.0",
+    "redux-saga": "1.2.1",
     "tiny-invariant": "1.2.0"
   },
   "packageManager": "yarn@3.2.2"
