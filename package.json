@@ -76,8 +76,8 @@
     "vitest": "0.22.1"
   },
   "dependencies": {
-    "@emotion/react": "11.10.0",
-    "@emotion/styled": "11.10.0",
+    "@emotion/react": "11.10.4",
+    "@emotion/styled": "11.10.4",
     "@reduxjs/toolkit": "1.8.5",
     "clsx": "1.2.1",
     "i18next": "21.9.1",
