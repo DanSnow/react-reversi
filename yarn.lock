@@ -5684,7 +5684,7 @@ __metadata:
     redux: 4.2.0
     redux-persist: 6.0.0
     redux-saga: 1.2.1
-    tiny-invariant: 1.2.0
+    tiny-invariant: 1.3.0
     type-fest: 2.19.0
     typescript: 4.8.4
     vite: 3.1.3
@@ -6344,10 +6344,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tiny-invariant@npm:1.2.0":
-  version: 1.2.0
-  resolution: "tiny-invariant@npm:1.2.0"
-  checksum: e09a718a7c4a499ba592cdac61f015d87427a0867ca07f50c11fd9b623f90cdba18937b515d4a5e4f43dac92370498d7bdaee0d0e7a377a61095e02c4a92eade
+"tiny-invariant@npm:1.3.0":
+  version: 1.3.0
+  resolution: "tiny-invariant@npm:1.3.0"
+  checksum: 5acee70a3150ad63502a215e4de83b456c30b80c54999604b75e73c25124d4fda4d11b2bf7a28219ce16ed5745b8eb29a1b6977f96ed6fd53a8e6c4d0315f25e
   languageName: node
   linkType: hard
 
