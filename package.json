@@ -82,7 +82,7 @@
     "clsx": "1.2.1",
     "i18next": "21.9.2",
     "i18next-browser-languagedetector": "6.1.5",
-    "rambda": "7.2.1",
+    "rambda": "7.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-github-corner": "2.5.0",
