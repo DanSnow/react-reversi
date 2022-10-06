@@ -80,7 +80,7 @@
     "@emotion/styled": "11.10.4",
     "@reduxjs/toolkit": "1.8.5",
     "clsx": "1.2.1",
-    "i18next": "21.9.2",
+    "i18next": "21.10.0",
     "i18next-browser-languagedetector": "6.1.6",
     "rambda": "7.3.0",
     "react": "18.2.0",
