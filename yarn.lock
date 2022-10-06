@@ -1370,7 +1370,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:7.19.0, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:7.19.0, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.19.0, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.19.0
   resolution: "@babel/runtime@npm:7.19.0"
   dependencies:
@@ -4222,12 +4222,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next-browser-languagedetector@npm:6.1.5":
-  version: 6.1.5
-  resolution: "i18next-browser-languagedetector@npm:6.1.5"
+"i18next-browser-languagedetector@npm:6.1.6":
+  version: 6.1.6
+  resolution: "i18next-browser-languagedetector@npm:6.1.6"
   dependencies:
-    "@babel/runtime": ^7.18.9
-  checksum: af3a785454dfb7e3595215c3738062b82173601a788b0a7c6fe78b6c50f0f46cd89508300f694c324d4a07b19743d2410be50aa6e6494967a75aedb17ad5033f
+    "@babel/runtime": ^7.19.0
+  checksum: 9ae55358d27a469fc826bf3246f5f17dfbdb1dcd0641f21258131d6366bd46673981d9fe5583b37fe1dfa5a73ff7694939c42ccbed4488c6a06dcaf8307f5bf9
   languageName: node
   linkType: hard
 
@@ -5672,7 +5672,7 @@ __metadata:
     gh-pages: 4.0.0
     happy-dom: 6.0.4
     i18next: 21.9.2
-    i18next-browser-languagedetector: 6.1.5
+    i18next-browser-languagedetector: 6.1.6
     prettier: 2.7.1
     rambda: 7.3.0
     react: 18.2.0
