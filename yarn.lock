@@ -4232,12 +4232,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next-browser-languagedetector@npm:6.1.6":
-  version: 6.1.6
-  resolution: "i18next-browser-languagedetector@npm:6.1.6"
+"i18next-browser-languagedetector@npm:6.1.8":
+  version: 6.1.8
+  resolution: "i18next-browser-languagedetector@npm:6.1.8"
   dependencies:
     "@babel/runtime": ^7.19.0
-  checksum: 9ae55358d27a469fc826bf3246f5f17dfbdb1dcd0641f21258131d6366bd46673981d9fe5583b37fe1dfa5a73ff7694939c42ccbed4488c6a06dcaf8307f5bf9
+  checksum: dd84d3c9cb693a70662436b06f5554898815df33b7641249a64876c74c38960f11ef17b4d7f49ee2da7262abe0f3ae73abe7f3a3b435a344d0d07e4ca7cb24c6
   languageName: node
   linkType: hard
 
@@ -5682,7 +5682,7 @@ __metadata:
     gh-pages: 4.0.0
     happy-dom: 7.3.0
     i18next: 21.10.0
-    i18next-browser-languagedetector: 6.1.6
+    i18next-browser-languagedetector: 6.1.8
     prettier: 2.7.1
     rambda: 7.3.0
     react: 18.2.0
