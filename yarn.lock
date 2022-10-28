@@ -4243,12 +4243,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:22.0.3":
-  version: 22.0.3
-  resolution: "i18next@npm:22.0.3"
+"i18next@npm:22.0.4":
+  version: 22.0.4
+  resolution: "i18next@npm:22.0.4"
   dependencies:
     "@babel/runtime": ^7.17.2
-  checksum: 0ae40923e81f366c6e30126fad070b9188ee567374eb8046dc43ca9dd8bf3c4a3751c2e4c3f60f8d5cfcdb1925b884580cbb6cabfffba684f37c22a019d7f2b2
+  checksum: aa49e6e48583833ee673c0dd9568081a5e15fde9549aa3e47a99ad91d3fdb7469f8a315864fc45ec466b1e60caa00d5fc8371e47840068048b4ab79a69dc2b19
   languageName: node
   linkType: hard
 
@@ -5690,7 +5690,7 @@ __metadata:
     eslint-plugin-unused-imports: 2.0.0
     gh-pages: 4.0.0
     happy-dom: 7.6.6
-    i18next: 22.0.3
+    i18next: 22.0.4
     i18next-browser-languagedetector: 6.1.8
     prettier: 2.7.1
     rambda: 7.3.0
