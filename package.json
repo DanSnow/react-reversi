@@ -67,7 +67,7 @@
     "eslint-plugin-standard": "5.0.0",
     "eslint-plugin-unused-imports": "2.0.0",
     "gh-pages": "4.0.0",
-    "happy-dom": "8.1.0",
+    "happy-dom": "8.1.1",
     "prettier": "2.8.1",
     "react-refresh": "0.14.0",
     "type-fest": "3.4.0",
