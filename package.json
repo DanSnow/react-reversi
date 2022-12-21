@@ -72,7 +72,7 @@
     "react-refresh": "0.14.0",
     "type-fest": "3.4.0",
     "typescript": "4.9.4",
-    "vite": "4.0.2",
+    "vite": "4.0.3",
     "vitest": "0.26.2"
   },
   "dependencies": {
