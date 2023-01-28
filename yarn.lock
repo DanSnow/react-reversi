@@ -4052,9 +4052,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"happy-dom@npm:8.1.5":
-  version: 8.1.5
-  resolution: "happy-dom@npm:8.1.5"
+"happy-dom@npm:8.2.0":
+  version: 8.2.0
+  resolution: "happy-dom@npm:8.2.0"
   dependencies:
     css.escape: ^1.5.1
     he: ^1.2.0
@@ -4062,7 +4062,7 @@ __metadata:
     webidl-conversions: ^7.0.0
     whatwg-encoding: ^2.0.0
     whatwg-mimetype: ^3.0.0
-  checksum: 10158948a598c3306086e14ec38cb98110ed31ad3c066a533540e89fc80d01cdf377f570081296a12d5cd60dbd0eff23107f2b6a91806113359d70cd6150fdf8
+  checksum: 0800a77febf9f2d2fa1478febf891371b51ff07be2787ee664bc52c9f9521f79a5bae9f137e2b74754fa7e415c6884f1dab8b0463f84c56aff8815a5b6a61041
   languageName: node
   linkType: hard
 
@@ -5612,7 +5612,7 @@ __metadata:
     eslint-plugin-standard: 5.0.0
     eslint-plugin-unused-imports: 2.0.0
     gh-pages: 5.0.0
-    happy-dom: 8.1.5
+    happy-dom: 8.2.0
     i18next: 22.4.9
     i18next-browser-languagedetector: 7.0.1
     prettier: 2.8.3
