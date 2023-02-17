@@ -37,7 +37,7 @@
     "@babel/preset-typescript": "7.18.6",
     "@babel/register": "7.18.9",
     "@babel/runtime": "7.20.13",
-    "@emotion/babel-plugin": "11.10.5",
+    "@emotion/babel-plugin": "11.10.6",
     "@testing-library/react": "13.4.0",
     "@types/babel__core": "7.20.0",
     "@types/eslint-plugin-prettier": "3.1.0",
@@ -76,8 +76,8 @@
     "vitest": "0.28.5"
   },
   "dependencies": {
-    "@emotion/react": "11.10.5",
-    "@emotion/styled": "11.10.5",
+    "@emotion/react": "11.10.6",
+    "@emotion/styled": "11.10.6",
     "@reduxjs/toolkit": "1.9.2",
     "clsx": "1.2.1",
     "i18next": "22.4.9",
