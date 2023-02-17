@@ -1,5 +1,5 @@
 import { createSelector, Selector } from '@reduxjs/toolkit'
-import { assoc, curry, flatten, groupBy, identity, keys, length, map, pick, pipe, reduce } from 'rambda'
+import { assoc, curry, flatten, groupBy, identity, keys, length, map, mergeRight, pick, pipe, reduce } from 'rambda'
 
 import { BLACK, WHITE } from './consts'
 import { RootState } from './store'
@@ -17,7 +17,8 @@ export const computeScore: (board: Board) => Score = pipe(
   groupBy<string>(identity),
   pick([WHITE, BLACK]),
   map(length),
-  renameKeys({ [WHITE]: 'white', [BLACK]: 'black' })
+  renameKeys({ [WHITE]: 'white', [BLACK]: 'black' }),
+  mergeRight({ white: 0, black: 0 })
 )
 
 export const createScoreSelector = (): Selector<RootState, Score> => createSelector([selectBoard], computeScore)

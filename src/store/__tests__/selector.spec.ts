@@ -22,5 +22,14 @@ describe('selector.ts', () => {
         ])
       ).toEqual({ white: 2, black: 2 })
     })
+
+    it('will count correctly if one color has no chess', () => {
+      expect(
+        computeScore([
+          [BLACK, WHITE_CANDIDATE, BLACK_CANDIDATE],
+          [BLACK, null, null],
+        ])
+      ).toEqual({ white: 0, black: 2 })
+    })
   })
 })
