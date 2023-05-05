@@ -70,7 +70,7 @@
     "happy-dom": "9.10.9",
     "prettier": "2.8.8",
     "react-refresh": "0.14.0",
-    "type-fest": "3.9.0",
+    "type-fest": "3.10.0",
     "typescript": "5.0.4",
     "vite": "4.3.4",
     "vitest": "0.31.0"
