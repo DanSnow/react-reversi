@@ -3170,6 +3170,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"entities@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "entities@npm:4.5.0"
+  checksum: 853f8ebd5b425d350bffa97dd6958143179a5938352ccae092c62d1267c4e392a039be1bae7d51b6e4ffad25f51f9617531fedf5237f15df302ccfb452cbf2d7
+  languageName: node
+  linkType: hard
+
 "env-paths@npm:^2.2.0":
   version: 2.2.1
   resolution: "env-paths@npm:2.2.1"
@@ -4085,17 +4092,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"happy-dom@npm:9.10.9":
-  version: 9.10.9
-  resolution: "happy-dom@npm:9.10.9"
+"happy-dom@npm:9.16.0":
+  version: 9.16.0
+  resolution: "happy-dom@npm:9.16.0"
   dependencies:
     css.escape: ^1.5.1
-    he: ^1.2.0
+    entities: ^4.5.0
     iconv-lite: ^0.6.3
     webidl-conversions: ^7.0.0
     whatwg-encoding: ^2.0.0
     whatwg-mimetype: ^3.0.0
-  checksum: 03c8a8bc0351711f54956403d282e2cca693b7141dcc4dc1d4da0819fe024703f556b9fc8fc61ac454ffc62d30c68ed3144846d04ed0a884df87e929a9f104c9
+  checksum: 2a35f7dda443bd5854de0cce1f9237e7ac15955d9b4e058bca6c5fa7b3b0faef20f95830ddc93b765df541874ad31fe4e90f0c5b51f560e99b47a86dca2ff921
   languageName: node
   linkType: hard
 
@@ -4158,15 +4165,6 @@ __metadata:
   dependencies:
     function-bind: ^1.1.1
   checksum: b9ad53d53be4af90ce5d1c38331e712522417d017d5ef1ebd0507e07c2fbad8686fffb8e12ddecd4c39ca9b9b47431afbb975b8abf7f3c3b82c98e9aad052792
-  languageName: node
-  linkType: hard
-
-"he@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "he@npm:1.2.0"
-  bin:
-    he: bin/he
-  checksum: 3d4d6babccccd79c5c5a3f929a68af33360d6445587d628087f39a965079d84f18ce9c3d3f917ee1e3978916fc833bb8b29377c3b403f919426f91bc6965e7a7
   languageName: node
   linkType: hard
 
@@ -5647,7 +5645,7 @@ __metadata:
     eslint-plugin-standard: 5.0.0
     eslint-plugin-unused-imports: 2.0.0
     gh-pages: 5.0.0
-    happy-dom: 9.10.9
+    happy-dom: 9.16.0
     i18next: 22.4.15
     i18next-browser-languagedetector: 7.0.1
     prettier: 2.8.8
