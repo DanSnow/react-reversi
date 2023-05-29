@@ -81,7 +81,7 @@
     "@reduxjs/toolkit": "1.9.5",
     "clsx": "1.2.1",
     "i18next": "22.5.0",
-    "i18next-browser-languagedetector": "7.0.1",
+    "i18next-browser-languagedetector": "7.0.2",
     "rambda": "7.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
