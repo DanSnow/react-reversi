@@ -1479,7 +1479,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:7.22.6, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.19.4, @babel/runtime@npm:^7.20.6, @babel/runtime@npm:^7.22.5, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:7.22.6, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.19.4, @babel/runtime@npm:^7.22.5, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.22.6
   resolution: "@babel/runtime@npm:7.22.6"
   dependencies:
@@ -4539,12 +4539,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:23.4.0":
-  version: 23.4.0
-  resolution: "i18next@npm:23.4.0"
+"i18next@npm:23.4.1":
+  version: 23.4.1
+  resolution: "i18next@npm:23.4.1"
   dependencies:
     "@babel/runtime": ^7.22.5
-  checksum: 8639960c5287ffbb034ffddce335560383fc0571f554b8ca0e39837132e5436e91816070f2dcb5f075d7c41e85829c2495dc7a4ed9d13383c460ebb10b50d098
+  checksum: d9283d3de5e4ea2e55f61bd8ada98b5aef1b7db35a69c8ccf193367c5cbee6f795a67c5cd8a7af511e56c12b021b91d97253863b6c2336726925d20518fb02cc
   languageName: node
   linkType: hard
 
@@ -6101,7 +6101,7 @@ __metadata:
     eslint-plugin-unused-imports: 3.0.0
     gh-pages: 5.0.0
     happy-dom: 10.5.2
-    i18next: 23.4.0
+    i18next: 23.4.1
     i18next-browser-languagedetector: 7.1.0
     prettier: 3.0.0
     rambda: 7.5.0
