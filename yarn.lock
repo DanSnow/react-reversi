@@ -2197,12 +2197,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint-plugin-prettier@npm:3.1.0":
-  version: 3.1.0
-  resolution: "@types/eslint-plugin-prettier@npm:3.1.0"
+"@types/eslint-plugin-prettier@npm:3.1.1":
+  version: 3.1.1
+  resolution: "@types/eslint-plugin-prettier@npm:3.1.1"
   dependencies:
     "@types/eslint": "*"
-  checksum: e8fc9991cc181967a961c344ab894b57122e54b5f36950373f42638bb05847caef89a0e12decbb5b4a42e4eefaeefe63053ee2cbf6e1dfce43d77a445bbae728
+  checksum: a98c2ecef4f834f8a5622dcdc5e094d9e79901ed4f06378258104727a6f6b43a90551ee27f48de621a059127ed8bf9cd1609ccb00dc13224e7e7b40082f26dd5
   languageName: node
   linkType: hard
 
@@ -6136,7 +6136,7 @@ __metadata:
     "@reduxjs/toolkit": 1.9.5
     "@testing-library/react": 14.0.0
     "@types/babel__core": 7.20.2
-    "@types/eslint-plugin-prettier": 3.1.0
+    "@types/eslint-plugin-prettier": 3.1.1
     "@types/gh-pages": 3.2.2
     "@types/node": 18.17.18
     "@types/prettier": 2.7.3
