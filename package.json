@@ -44,7 +44,7 @@
     "@types/gh-pages": "3.2.2",
     "@types/node": "18.18.1",
     "@types/prettier": "2.7.3",
-    "@types/react": "18.2.23",
+    "@types/react": "18.2.24",
     "@types/react-dom": "18.2.8",
     "@types/react-redux": "7.1.27",
     "@types/webpack-env": "1.18.2",
