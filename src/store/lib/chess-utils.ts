@@ -1,7 +1,7 @@
-import { ReadonlyDeep } from 'type-fest'
+import type { ReadonlyDeep } from 'type-fest'
 
 import { BLACK, BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE } from '../consts'
-import { Board } from '../types'
+import type { Board } from '../types'
 
 export const directions = [
   [-1, 0], // Up

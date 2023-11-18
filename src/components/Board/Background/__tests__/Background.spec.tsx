@@ -3,12 +3,12 @@ import { describe, expect, it } from 'vitest'
 
 import { Background } from '../Background'
 
-describe('Background.tsx', (): void => {
+describe('background.tsx', (): void => {
   it('render a board', (): void => {
     render(
       <svg>
         <Background />
-      </svg>
+      </svg>,
     )
 
     // 9 column

@@ -1,4 +1,5 @@
-import { ReactElement, useCallback } from 'react'
+import type { ReactElement } from 'react'
+import { useCallback } from 'react'
 
 import { useDispatch, useSelector } from '../../hooks'
 import { reset, startedSelector, uiActions, userPlaceChess } from '../../store'
@@ -23,7 +24,7 @@ export function Board({ hint }: Props): ReactElement {
       }
       dispatch(userPlaceChess(row, col))
     },
-    [dispatch, overlay, started]
+    [dispatch, overlay, started],
   )
 
   return (

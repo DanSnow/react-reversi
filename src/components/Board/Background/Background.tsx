@@ -1,4 +1,5 @@
-import { memo, ReactElement } from 'react'
+import type { ReactElement } from 'react'
+import { memo } from 'react'
 
 import { Base } from './Base'
 import { Grid } from './Grid'

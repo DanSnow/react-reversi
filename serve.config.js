@@ -1,5 +1,5 @@
 module.exports = {
   devMiddleware: {
-    publicPath: '/dist/'
-  }
+    publicPath: '/dist/',
+  },
 }

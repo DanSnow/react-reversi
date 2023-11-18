@@ -1,5 +1,6 @@
-import { ReactElement, useEffect, useState } from 'react'
-import { Persistor } from 'redux-persist'
+import type { ReactElement } from 'react'
+import { useEffect, useState } from 'react'
+import type { Persistor } from 'redux-persist'
 
 interface Props {
   children: ReactElement | ((bootstrapped: boolean) => ReactElement)
@@ -27,7 +28,7 @@ export function PersistGate(props: Props): ReactElement {
   if (process.env.NODE_ENV !== 'production') {
     if (typeof props.children === 'function' && props.loading)
       console.error(
-        'redux-persist: PersistGate expects either a function child or loading prop, but not both. The loading prop will be ignored.'
+        'redux-persist: PersistGate expects either a function child or loading prop, but not both. The loading prop will be ignored.',
       )
   }
 

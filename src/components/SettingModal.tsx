@@ -1,5 +1,5 @@
 import cx from 'clsx'
-import { ChangeEvent, ReactElement } from 'react'
+import type { ChangeEvent, ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import Portal from './Portal'

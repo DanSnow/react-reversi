@@ -3,12 +3,14 @@ import { FlatCompat } from '@eslint/eslintrc'
 
 const compat = new FlatCompat()
 
+const ignores = ['dist/', '**/dist/**/', '**/.yarn/**', 'node_modules/**']
 export default antfu(
   {
-    ignores: ['dist/', '**/dist/**/'],
+    ignores,
     stylistic: false,
   },
   ...compat.config({
+    ignorePatterns: ignores,
     extends: ['prettier', 'prettier/prettier'],
     plugins: ['prettier'],
     rules: {

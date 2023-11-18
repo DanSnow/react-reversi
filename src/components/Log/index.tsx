@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import type { ReactElement } from 'react'
 
 import { useSelector } from '../../hooks'
 import { Log as DumbLog } from './Log'

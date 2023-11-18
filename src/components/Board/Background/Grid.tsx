@@ -1,5 +1,5 @@
 import { times } from 'rambda'
-import { ReactElement } from 'react'
+import type { ReactElement } from 'react'
 
 import { Column } from './Column'
 import { Row } from './Row'
@@ -11,13 +11,13 @@ export function Grid(): ReactElement {
         (i) => (
           <Row key={i} row={i} />
         ),
-        9
+        9,
       )}
       {times(
         (i) => (
           <Column key={i} col={i} />
         ),
-        9
+        9,
       )}
     </>
   )

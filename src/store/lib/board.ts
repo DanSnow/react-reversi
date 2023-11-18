@@ -1,7 +1,7 @@
 import { createNextState as produce } from '@reduxjs/toolkit'
-import { ReadonlyDeep } from 'type-fest'
+import type { ReadonlyDeep } from 'type-fest'
 
-import { Board } from '../types'
+import type { Board } from '../types'
 import { directions, getCandidate, isCandidate, isEmpty, isValidPos } from './chess-utils'
 
 interface CheckFlipChess {

@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
-import { ReactElement, useCallback } from 'react'
+import type { ReactElement } from 'react'
+import { useCallback } from 'react'
 
 const Circle = styled.circle({
   pointerEvents: 'none',

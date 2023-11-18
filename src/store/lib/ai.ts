@@ -1,8 +1,8 @@
 import { createNextState as produce } from '@reduxjs/toolkit'
 import { max, reduce, sum } from 'rambda'
-import { ReadonlyDeep } from 'type-fest'
+import type { ReadonlyDeep } from 'type-fest'
 
-import { Board } from '../types'
+import type { Board } from '../types'
 import { checkFlipChess, clearBoardCandidate, countPlayerChess, placeAndFlip, placeBoardCandidate } from './board'
 import { countAroundChess, directions, getCandidate, getOpposite } from './chess-utils'
 
@@ -76,7 +76,7 @@ function computePosScoreV2(board: readonly (readonly string[])[], row: number, c
 
 function computeWillLost(nextBoard: ReadonlyDeep<Board>, ai: string, row: number, col: number, posScore: number) {
   const willBeFlippedList = directions.map(([rd, cd]) =>
-    checkFlipChess({ board: nextBoard, player: getOpposite(ai), row: row - rd, col: col - cd, rd, cd })
+    checkFlipChess({ board: nextBoard, player: getOpposite(ai), row: row - rd, col: col - cd, rd, cd }),
   )
   const willBeFlipped = reduce<number, number>(max, 0, willBeFlippedList)
   const willLost =

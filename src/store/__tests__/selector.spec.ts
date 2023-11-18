@@ -10,7 +10,7 @@ describe('selector.ts', () => {
         computeScore([
           [BLACK, WHITE],
           [WHITE, BLACK],
-        ])
+        ]),
       ).toEqual({ white: 2, black: 2 })
     })
 
@@ -19,7 +19,7 @@ describe('selector.ts', () => {
         computeScore([
           [BLACK, WHITE, WHITE_CANDIDATE, BLACK_CANDIDATE],
           [WHITE, BLACK, null, null],
-        ])
+        ]),
       ).toEqual({ white: 2, black: 2 })
     })
 
@@ -28,7 +28,7 @@ describe('selector.ts', () => {
         computeScore([
           [BLACK, WHITE_CANDIDATE, BLACK_CANDIDATE],
           [BLACK, null, null],
-        ])
+        ]),
       ).toEqual({ white: 0, black: 2 })
     })
   })

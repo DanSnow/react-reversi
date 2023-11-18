@@ -1,4 +1,5 @@
-import { ReactChild, ReactElement, useRef } from 'react'
+import type { ReactChild, ReactElement } from 'react'
+import { useRef } from 'react'
 import { createPortal } from 'react-dom'
 
 interface Props {

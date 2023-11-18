@@ -1,8 +1,9 @@
 import styled from '@emotion/styled'
 import cx from 'clsx'
-import { ReactElement } from 'react'
+import type { ReactElement } from 'react'
 
-import { Log as LogData, WHITE } from '../../store'
+import type { Log as LogData } from '../../store'
+import { WHITE } from '../../store'
 
 const LogContainer = styled.div({
   height: '600px',

@@ -1,5 +1,5 @@
-import { BLACK, ENDED, IDLE, PLAYING, WHITE } from './consts'
-import { judgeScores } from './lib/ai'
+import type { BLACK, ENDED, IDLE, PLAYING, WHITE } from './consts'
+import type { judgeScores } from './lib/ai'
 
 export type GameState = typeof IDLE | typeof PLAYING | typeof ENDED
 

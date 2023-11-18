@@ -1,18 +1,18 @@
 {
   "name": "react-reversi",
-  "version": "1.9.0",
-  "description": "Reversi game implement in React",
-  "scripts": {
-    "serve": "vite dev",
-    "lint": "eslint .",
-    "build": "vite build",
-    "deploy": "DEPLOY=true yarn build && gh-pages -d dist",
-    "test": "vitest"
-  },
   "type": "module",
+  "version": "1.9.0",
+  "packageManager": "yarn@4.0.2",
+  "description": "Reversi game implement in React",
+  "author": "DanSnow",
+  "license": "MIT",
+  "homepage": "https://github.com/DanSnow/react-reversi",
   "repository": {
     "type": "git",
     "url": "https://github.com/DanSnow/react-reversi"
+  },
+  "bugs": {
+    "url": "https://github.com/DanSnow/react-reversi/issues"
   },
   "keywords": [
     "react",
@@ -22,12 +22,31 @@
     "redux-saga",
     "redux"
   ],
-  "author": "DanSnow",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/DanSnow/react-reversi/issues"
+  "scripts": {
+    "serve": "vite dev",
+    "lint": "eslint .",
+    "build": "vite build",
+    "deploy": "DEPLOY=true yarn build && gh-pages -d dist",
+    "test": "vitest"
   },
-  "homepage": "https://github.com/DanSnow/react-reversi",
+  "dependencies": {
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
+    "@reduxjs/toolkit": "1.9.7",
+    "clsx": "2.0.0",
+    "i18next": "23.7.6",
+    "i18next-browser-languagedetector": "7.2.0",
+    "rambda": "8.5.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-github-corner": "2.5.0",
+    "react-i18next": "13.5.0",
+    "react-redux": "8.1.3",
+    "redux": "4.2.1",
+    "redux-persist": "6.0.0",
+    "redux-saga": "1.2.3",
+    "tiny-invariant": "1.3.1"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^1.2.1",
     "@babel/core": "7.23.3",
@@ -75,24 +94,5 @@
     "typescript": "5.2.2",
     "vite": "5.0.0",
     "vitest": "0.34.6"
-  },
-  "dependencies": {
-    "@emotion/react": "11.11.1",
-    "@emotion/styled": "11.11.0",
-    "@reduxjs/toolkit": "1.9.7",
-    "clsx": "2.0.0",
-    "i18next": "23.7.6",
-    "i18next-browser-languagedetector": "7.2.0",
-    "rambda": "8.5.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-github-corner": "2.5.0",
-    "react-i18next": "13.5.0",
-    "react-redux": "8.1.3",
-    "redux": "4.2.1",
-    "redux-persist": "6.0.0",
-    "redux-saga": "1.2.3",
-    "tiny-invariant": "1.3.1"
-  },
-  "packageManager": "yarn@4.0.2"
+  }
 }

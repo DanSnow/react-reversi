@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import type { ReactElement } from 'react'
 import { Provider } from 'react-redux'
 
 import { Game } from './components/Game'

@@ -1,7 +1,8 @@
-import { ReactElement, useCallback } from 'react'
+import type { ReactElement } from 'react'
+import { useCallback } from 'react'
 
 import { useDispatch, useSelector } from '../../hooks'
-import { ENDED, gameActions, IDLE, reboot } from '../../store'
+import { ENDED, IDLE, gameActions, reboot } from '../../store'
 import { Game as DumbGame } from './Game'
 
 export function Game(): ReactElement {
@@ -21,7 +22,7 @@ export function Game(): ReactElement {
         dispatch(gameActions.setRetractStep(3))
       }
     },
-    [dispatch, ai]
+    [dispatch, ai],
   )
 
   return (

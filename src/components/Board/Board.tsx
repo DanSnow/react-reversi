@@ -1,5 +1,5 @@
-import { ReactElement } from 'react'
-import { ReadonlyDeep } from 'type-fest'
+import type { ReactElement } from 'react'
+import type { ReadonlyDeep } from 'type-fest'
 
 import { BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE } from '../../store'
 import { Background } from './Background'
@@ -32,8 +32,8 @@ export function Board({ reset, placeChess, board, hint, showChooseColor, overlay
               isCandidate={c === WHITE_CANDIDATE || c === BLACK_CANDIDATE}
               onClick={placeChess}
             />
-          ) : null
-        )
+          ) : null,
+        ),
       )}
       {showChooseColor || <ChooseColor onClick={reset} />}
       {!!overlay && (

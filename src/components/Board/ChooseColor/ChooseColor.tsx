@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import type { ReactElement } from 'react'
 
 import { BLACK, WHITE } from '../../../store'
 import { ColorButton } from './ColorButton'

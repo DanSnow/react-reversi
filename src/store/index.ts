@@ -1,4 +1,4 @@
-import { store } from './store'
+import type { store } from './store'
 
 export * from './actions'
 export * from './consts'

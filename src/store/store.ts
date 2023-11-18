@@ -1,5 +1,5 @@
 import { configureStore as baseConfigureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
-import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist'
+import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistReducer, persistStore } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import createSagaMiddleware, { END } from 'redux-saga'
 

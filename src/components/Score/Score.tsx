@@ -1,7 +1,8 @@
-import { ReactElement } from 'react'
+import type { ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { BLACK, History, Users, UserType, WHITE } from '../../store'
+import type { History, Users } from '../../store'
+import { BLACK, UserType, WHITE } from '../../store'
 
 function getPlayerType(player: string, users: Users): string {
   return users[player] === UserType.AI ? 'ai' : 'player'

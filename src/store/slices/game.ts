@@ -1,9 +1,12 @@
-import { createSlice, freeze, PayloadAction } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, freeze } from '@reduxjs/toolkit'
 import { always, times } from 'rambda'
 
-import { BLACK, ENDED, IDLE, PLAYING, WHITE } from '../consts'
-import { judgeScores } from '../lib/ai'
-import { AIVersions, Board, GameState, Log, Users, UserType } from '../types'
+import type { ENDED, PLAYING } from '../consts'
+import { BLACK, IDLE, WHITE } from '../consts'
+import type { judgeScores } from '../lib/ai'
+import type { AIVersions, Board, GameState, Log, Users } from '../types'
+import { UserType } from '../types'
 
 const initialBoard = freeze(times(() => times(always(null), 8), 8))
 

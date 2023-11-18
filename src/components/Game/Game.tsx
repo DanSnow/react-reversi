@@ -1,4 +1,5 @@
-import { ReactElement, useCallback, useState } from 'react'
+import type { ReactElement } from 'react'
+import { useCallback, useState } from 'react'
 import GithubCorner from 'react-github-corner'
 import { useTranslation } from 'react-i18next'
 

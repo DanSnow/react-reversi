@@ -1,6 +1,8 @@
-import { freeze, PayloadAction } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
+import { freeze } from '@reduxjs/toolkit'
 import { always, filter, map, max, prop, propEq, reduce, times } from 'rambda'
-import { all, call, delay, Effect, put, select, takeEvery } from 'redux-saga/effects'
+import type { Effect } from 'redux-saga/effects'
+import { all, call, delay, put, select, takeEvery } from 'redux-saga/effects'
 import invariant from 'tiny-invariant'
 
 import { BLACK, ENDED, IDLE, PLAYING, REBOOT, RESET, SWITCH_PLAYER, USER_PLACE_CHESS, WHITE } from './consts'
@@ -11,8 +13,9 @@ import { capitalize, sample } from './lib/utils'
 import { createScoreSelector } from './selector'
 import { gameActions } from './slices/game'
 import { uiActions } from './slices/ui'
-import { RootState } from './store'
-import { Board, Coords, Score, UserType } from './types'
+import type { RootState } from './store'
+import type { Board, Coords, Score } from './types'
+import { UserType } from './types'
 
 const DEFAULT_BOARD = freeze([
   times(always(null), 8),
@@ -149,7 +152,7 @@ function* aiJudgeScore() {
         scores.push({
           row: r,
           col: c,
-          score: score,
+          score,
         })
       }
     }
@@ -162,7 +165,7 @@ function* aiJudgeScore() {
     gameActions.pushLog({
       player,
       pos: `(${row}, ${col})`,
-    })
+    }),
   )
   const nextBoard = placeAndFlip({ board, row, col, player })
   yield put(gameActions.setBoard(nextBoard as Board))
@@ -183,7 +186,7 @@ function* userPlaceChess({ payload: { col, row } }: PayloadAction<Coords>) {
     gameActions.pushLog({
       player,
       pos: `(${row}, ${col})`,
-    })
+    }),
   )
 
   const nextBoard = placeAndFlip({ board, row, col, player })

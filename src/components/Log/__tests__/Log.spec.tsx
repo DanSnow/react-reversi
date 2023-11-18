@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest'
 import { WHITE } from '../../../store'
 import { Log } from '../Log'
 
-describe('Log.tsx', (): void => {
+describe('log.tsx', (): void => {
   it('render Log', () => {
     render(<Log log={[]} />)
 
