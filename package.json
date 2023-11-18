@@ -9,6 +9,7 @@
     "deploy": "DEPLOY=true yarn build && gh-pages -d dist",
     "test": "vitest"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/DanSnow/react-reversi"
@@ -28,6 +29,7 @@
   },
   "homepage": "https://github.com/DanSnow/react-reversi",
   "devDependencies": {
+    "@antfu/eslint-config": "^1.2.1",
     "@babel/core": "7.23.3",
     "@babel/plugin-proposal-class-properties": "7.18.6",
     "@babel/plugin-proposal-object-rest-spread": "7.20.7",
@@ -50,7 +52,6 @@
     "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.11.0",
     "@vitejs/plugin-react": "4.2.0",
-    "babel-plugin-transform-imports": "2.0.0",
     "eslint": "8.54.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-config-standard": "17.1.0",
@@ -69,6 +70,7 @@
     "happy-dom": "12.10.3",
     "prettier": "3.1.0",
     "react-refresh": "0.14.0",
+    "remeda": "^1.29.0",
     "type-fest": "4.8.1",
     "typescript": "5.2.2",
     "vite": "5.0.0",

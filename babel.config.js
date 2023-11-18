@@ -34,16 +34,6 @@ module.exports = function (api) {
     plugins: [
       !isProd && !isTest && require.resolve('react-refresh/babel'),
       '@emotion',
-      [
-        'transform-imports',
-        {
-          'lodash-es': {
-            // eslint-disable-next-line no-template-curly-in-string
-            transform: 'lodash-es/${member}',
-            preventFullImport: true,
-          },
-        },
-      ],
       ['@babel/plugin-transform-runtime', { useESModules: isLoader }],
     ].filter(Boolean),
   }
