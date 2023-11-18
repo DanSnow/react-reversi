@@ -1,6 +1,7 @@
 import type { Selector } from '@reduxjs/toolkit'
 import { createSelector } from '@reduxjs/toolkit'
 import { flatten, groupBy, identity, length, mapKeys, mapValues, pick, pipe } from 'remeda'
+import { defu } from 'defu'
 
 import { BLACK, WHITE } from './consts'
 import type { RootState } from './store'
@@ -23,7 +24,8 @@ export const computeScore: (board: Board) => Score = (board: Board): Score =>
     pick([WHITE, BLACK]),
     mapValues(length()),
     renameKeys({ [WHITE]: 'white', [BLACK]: 'black' }),
-  ) as unknown as Score
+    (x) => defu(x, { white: 0, black: 0 }),
+  )
 
 export const createScoreSelector = (): Selector<RootState, Score> => createSelector([selectBoard], computeScore)
 
