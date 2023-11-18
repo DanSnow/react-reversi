@@ -1,3 +1,4 @@
+import process from 'node:process'
 import type { ReactElement } from 'react'
 import { useEffect, useState } from 'react'
 import type { Persistor } from 'redux-persist'
@@ -18,9 +19,11 @@ export function PersistGate(props: Props): ReactElement {
       if (bootstrapped) {
         setBootstrapped(true)
       }
-      unsubscribe()
     }
-    const unsubscribe = persistor.subscribe(handlePersistor)
+    const unsubscribe = persistor.subscribe(() => {
+      handlePersistor()
+      unsubscribe()
+    })
     handlePersistor()
     return unsubscribe
   }, [persistor])
