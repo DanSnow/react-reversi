@@ -6065,10 +6065,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rambda@npm:7.5.0":
-  version: 7.5.0
-  resolution: "rambda@npm:7.5.0"
-  checksum: a87ee033803bf841ac35a12a04583cc36e2d8957e3bee97e45fc8944e64915f4534685724efe663a3088a8d719489f76febf444544b300642e7398c2e5412217
+"rambda@npm:8.5.0":
+  version: 8.5.0
+  resolution: "rambda@npm:8.5.0"
+  checksum: 1c6de23dc65aa4da06e4230e5b6d46de4a97796526491d5d624ed15ba360cb4d7d97c3b4e18ee6c3231a2ff885d60cebddf8ee0178cbd4f90db0461ae94b2a3d
   languageName: node
   linkType: hard
 
@@ -6222,7 +6222,7 @@ __metadata:
     i18next: "npm:23.7.6"
     i18next-browser-languagedetector: "npm:7.2.0"
     prettier: "npm:3.1.0"
-    rambda: "npm:7.5.0"
+    rambda: "npm:8.5.0"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-github-corner: "npm:2.5.0"
