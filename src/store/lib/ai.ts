@@ -1,5 +1,5 @@
 import { createNextState as produce } from '@reduxjs/toolkit'
-import { max, reduce, sum } from 'rambda'
+import { identity, maxBy, sumBy } from 'remeda'
 import type { ReadonlyDeep } from 'type-fest'
 
 import type { Board } from '../types'
@@ -24,7 +24,7 @@ function judgeScoreV1(board: ReadonlyDeep<Board>, ai: string, row: number, col: 
   } else if (row === 2 || col === 2 || row === 5 || col === 5) {
     posScore = 20
   }
-  const score = sum(flips) * 2 + posScore
+  const score = sumBy(flips, identity) * 2 + posScore
   return score
 }
 
@@ -40,7 +40,7 @@ function judgeScoreV2(board: ReadonlyDeep<Board>, ai: string, row: number, col: 
     draft[row][col] = ai
   })
   const willLost = computeWillLost(nextBoard, ai, row, col, posScore)
-  const score = sum(flips) * 2 + (willLost ? posScore : Math.abs(posScore) * 2) - willLost
+  const score = sumBy(flips, identity) * 2 + (willLost ? posScore : Math.abs(posScore) * 2) - willLost
   return score
 }
 
@@ -78,7 +78,7 @@ function computeWillLost(nextBoard: ReadonlyDeep<Board>, ai: string, row: number
   const willBeFlippedList = directions.map(([rd, cd]) =>
     checkFlipChess({ board: nextBoard, player: getOpposite(ai), row: row - rd, col: col - cd, rd, cd }),
   )
-  const willBeFlipped = reduce<number, number>(max, 0, willBeFlippedList)
+  const willBeFlipped = maxBy(willBeFlippedList, identity) ?? 0
   const willLost =
     willBeFlipped > 0 ? (posScore > 0 ? willBeFlipped * 2 + posScore * 20 : -posScore * 50 + willBeFlipped * 5) : -10000
   return willLost
@@ -147,7 +147,7 @@ function createMinMax(judge: (board: ReadonlyDeep<Board>, player: string, row: n
         }
       }
     }
-    return oppositeScores.length === 0 ? Number.MIN_SAFE_INTEGER : -reduce(max, Number.MIN_SAFE_INTEGER, oppositeScores)
+    return oppositeScores.length === 0 ? Number.MIN_SAFE_INTEGER : -maxBy(oppositeScores, identity)
   }
 
   return minMax

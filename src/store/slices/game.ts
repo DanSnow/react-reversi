@@ -1,6 +1,6 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice, freeze } from '@reduxjs/toolkit'
-import { always, times } from 'rambda'
+import { times } from 'remeda'
 
 import type { ENDED, PLAYING } from '../consts'
 import { BLACK, IDLE, WHITE } from '../consts'
@@ -8,7 +8,8 @@ import type { judgeScores } from '../lib/ai'
 import type { AIVersions, Board, GameState, Log, Users } from '../types'
 import { UserType } from '../types'
 
-const initialBoard = freeze(times(() => times(always(null), 8), 8))
+const createNull = () => null
+const initialBoard = freeze(times(8, () => times(8, createNull)))
 
 interface PastState {
   board: (string | null)[][]

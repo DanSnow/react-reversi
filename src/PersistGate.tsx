@@ -1,4 +1,3 @@
-import process from 'node:process'
 import type { ReactElement } from 'react'
 import { useEffect, useState } from 'react'
 import type { Persistor } from 'redux-persist'
@@ -28,7 +27,7 @@ export function PersistGate(props: Props): ReactElement {
     return unsubscribe
   }, [persistor])
 
-  if (process.env.NODE_ENV !== 'production') {
+  if (import.meta.env.DEV) {
     if (typeof props.children === 'function' && props.loading)
       console.error(
         'redux-persist: PersistGate expects either a function child or loading prop, but not both. The loading prop will be ignored.',

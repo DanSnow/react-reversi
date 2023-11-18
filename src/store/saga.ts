@@ -1,15 +1,15 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { freeze } from '@reduxjs/toolkit'
-import { always, filter, map, max, prop, propEq, reduce, times } from 'rambda'
+import { filter, first, identity, map, maxBy, pipe, prop, sample, times } from 'remeda'
 import type { Effect } from 'redux-saga/effects'
 import { all, call, delay, put, select, takeEvery } from 'redux-saga/effects'
 import invariant from 'tiny-invariant'
 
+import { upperFirst } from 'scule'
 import { BLACK, ENDED, IDLE, PLAYING, REBOOT, RESET, SWITCH_PLAYER, USER_PLACE_CHESS, WHITE } from './consts'
 import { judgeScores } from './lib/ai'
 import { clearBoardCandidate, placeAndFlip, placeBoardCandidate } from './lib/board'
 import { getCandidate, getOpposite, getPlayer, isPlaceable } from './lib/chess-utils'
-import { capitalize, sample } from './lib/utils'
 import { createScoreSelector } from './selector'
 import { gameActions } from './slices/game'
 import { uiActions } from './slices/ui'
@@ -17,15 +17,16 @@ import type { RootState } from './store'
 import type { Board, Coords, Score } from './types'
 import { UserType } from './types'
 
+const createNull = () => null
 const DEFAULT_BOARD = freeze([
-  times(always(null), 8),
-  times(always(null), 8),
-  times(always(null), 8),
+  times(8, createNull),
+  times(8, createNull),
+  times(8, createNull),
   [null, null, null, BLACK, WHITE, null, null, null],
   [null, null, null, WHITE, BLACK, null, null, null],
-  times(always(null), 8),
-  times(always(null), 8),
-  times(always(null), 8),
+  times(8, createNull),
+  times(8, createNull),
+  times(8, createNull),
 ])
 
 const DEFAULT_USER = { [BLACK]: UserType.Human, [WHITE]: UserType.Human }
@@ -116,7 +117,7 @@ function* gameSet() {
       yield put(uiActions.incrementHistory('win'))
     }
   } else {
-    yield put(uiActions.setOverlay(`${capitalize(getPlayer(winner))} Win`))
+    yield put(uiActions.setOverlay(`${upperFirst(getPlayer(winner))} Win`))
   }
 }
 
@@ -158,8 +159,16 @@ function* aiJudgeScore() {
     }
   }
   invariant(scores.length, 'Invalid State: no candidates point')
-  const score = reduce(max, Number.MIN_SAFE_INTEGER, map(prop('score'), scores))
-  const { row, col } = sample(filter<{ row: number; col: number; score: number }>(propEq('score', score), scores)) // A little random
+  const score = pipe(scores, map(prop('score')), maxBy(identity))
+
+  const { row, col } = pipe(
+    scores,
+    filter((x) => x.score === score),
+    // A little random
+    sample(1),
+    first(),
+  )
+
   yield delay(300) // A little delay
   yield put(
     gameActions.pushLog({
