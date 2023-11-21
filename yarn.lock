@@ -2523,15 +2523,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-redux@npm:7.1.30":
-  version: 7.1.30
-  resolution: "@types/react-redux@npm:7.1.30"
+"@types/react-redux@npm:7.1.31":
+  version: 7.1.31
+  resolution: "@types/react-redux@npm:7.1.31"
   dependencies:
     "@types/hoist-non-react-statics": "npm:^3.3.0"
     "@types/react": "npm:*"
     hoist-non-react-statics: "npm:^3.3.0"
     redux: "npm:^4.0.0"
-  checksum: 43683f20ade7ed972a2f9dc28c33d9a82d771af3cc256190ca1b1d62d4ea0e24fad3078c53f1e5c097fa3f56ec7ab30c75562eab6faeb5e8d93ecc365e8e505b
+  checksum: 063083c513949395049db803badd0742435fc3e66f8f77b8be5a7ffbbeafcd58a934389a9c111a22bb0eea5f5ed3e7e26f474e8ecaa4d29d36439f5038a55f37
   languageName: node
   linkType: hard
 
@@ -6158,7 +6158,7 @@ __metadata:
     "@types/node": "npm:20.9.3"
     "@types/react": "npm:18.2.37"
     "@types/react-dom": "npm:18.2.15"
-    "@types/react-redux": "npm:7.1.30"
+    "@types/react-redux": "npm:7.1.31"
     "@types/webpack-env": "npm:1.18.4"
     "@typescript-eslint/eslint-plugin": "npm:6.12.0"
     "@typescript-eslint/parser": "npm:6.12.0"
