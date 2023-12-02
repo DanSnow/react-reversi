@@ -2,7 +2,7 @@ import { createNextState as produce } from '@reduxjs/toolkit'
 import { identity, maxBy, sumBy } from 'remeda'
 import type { ReadonlyDeep } from 'type-fest'
 
-import type { Board } from '../types'
+import type { AIJudgeScore, Board } from '../types'
 import { checkFlipChess, clearBoardCandidate, countPlayerChess, placeAndFlip, placeBoardCandidate } from './board'
 import { countAroundChess, directions, getCandidate, getOpposite } from './chess-utils'
 
@@ -161,7 +161,7 @@ export const judgeScores = {
   v2Overview: judgeScoreV2PlusOverview,
   v1MinMax: createMinMax(judgeScoreV1),
   v1Overview: createMinMax(judgeScoreV1PlusOverview),
-}
+} as const satisfies Record<string, AIJudgeScore>
 
 function isCorner(row: number, col: number) {
   return (row === 0 || row === 7) && (col === 0 || col === 7)

@@ -1,4 +1,4 @@
-import { configureStore as baseConfigureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
+import { configureStore as baseConfigureStore } from '@reduxjs/toolkit'
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistReducer, persistStore } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import createSagaMiddleware, { END } from 'redux-saga'
@@ -12,12 +12,13 @@ export const configureStore = () => {
   const sagaMiddleware = createSagaMiddleware()
   const store = baseConfigureStore({
     reducer: persistReducer({ key: 'reversi', storage, whitelist: ['history'] }, reducer),
-    middleware: getDefaultMiddleware({
-      thunk: false,
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }).concat(sagaMiddleware),
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: false,
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      }).concat(sagaMiddleware),
   })
   const persistor = persistStore(store)
 

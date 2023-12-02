@@ -1,12 +1,21 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { freeze } from '@reduxjs/toolkit'
-import { filter, first, identity, map, maxBy, pipe, prop, sample, times } from 'remeda'
+import { filter, first, identity, map, maxBy, pipe, prop, sample } from 'remeda'
 import type { Effect } from 'redux-saga/effects'
 import { all, call, delay, put, select, takeEvery } from 'redux-saga/effects'
 import invariant from 'tiny-invariant'
-
 import { upperFirst } from 'scule'
-import { BLACK, ENDED, IDLE, PLAYING, REBOOT, RESET, SWITCH_PLAYER, USER_PLACE_CHESS, WHITE } from './consts'
+import {
+  BLACK,
+  DEFAULT_BOARD,
+  ENDED,
+  IDLE,
+  PLAYING,
+  REBOOT,
+  RESET,
+  SWITCH_PLAYER,
+  USER_PLACE_CHESS,
+  WHITE,
+} from './consts'
 import { judgeScores } from './lib/ai'
 import { clearBoardCandidate, placeAndFlip, placeBoardCandidate } from './lib/board'
 import { getCandidate, getOpposite, getPlayer, isPlaceable } from './lib/chess-utils'
@@ -14,20 +23,8 @@ import { createScoreSelector } from './selector'
 import { gameActions } from './slices/game'
 import { uiActions } from './slices/ui'
 import type { RootState } from './store'
-import type { Board, Coords, Score } from './types'
+import type { AIJudgeScore, Board, Coords, PointScore, Score } from './types'
 import { UserType } from './types'
-
-const createNull = () => null
-const DEFAULT_BOARD = freeze([
-  times(8, createNull),
-  times(8, createNull),
-  times(8, createNull),
-  [null, null, null, BLACK, WHITE, null, null, null],
-  [null, null, null, WHITE, BLACK, null, null, null],
-  times(8, createNull),
-  times(8, createNull),
-  times(8, createNull),
-])
 
 const DEFAULT_USER = { [BLACK]: UserType.Human, [WHITE]: UserType.Human }
 
@@ -142,8 +139,23 @@ function* aiJudgeScore() {
   }: RootState = yield select()
   // this function will call before switch user
   const ai = getOpposite(player)
-  const scores: { row: number; col: number; score: number }[] = []
-  const judge = judgeScores[version]
+  const scores: PointScore[] = computeScores(board, version, player, ai)
+  const { row, col } = getBestPoint(scores)
+
+  yield delay(300) // A little delay, to make computer looks like thinking
+  yield put(
+    gameActions.pushLog({
+      player,
+      pos: `(${row}, ${col})`,
+    }),
+  )
+  const nextBoard = placeAndFlip({ board, row, col, player })
+  yield put(gameActions.setBoard(nextBoard as Board))
+}
+
+function computeScores(board: Board, version: string, player: string, ai: string) {
+  const scores: PointScore[] = []
+  const judge: AIJudgeScore = judgeScores[version]
   invariant(judge, 'version invalid')
   const chess = getCandidate(player)
   for (let r = 0; r < 8; r += 1) {
@@ -159,25 +171,19 @@ function* aiJudgeScore() {
     }
   }
   invariant(scores.length, 'Invalid State: no candidates point')
+  return scores
+}
+
+function getBestPoint(scores: PointScore[]): PointScore {
   const score = pipe(scores, map(prop('score')), maxBy(identity))
 
-  const { row, col } = pipe(
+  return pipe(
     scores,
     filter((x) => x.score === score),
     // A little random
     sample(1),
     first(),
   )
-
-  yield delay(300) // A little delay
-  yield put(
-    gameActions.pushLog({
-      player,
-      pos: `(${row}, ${col})`,
-    }),
-  )
-  const nextBoard = placeAndFlip({ board, row, col, player })
-  yield put(gameActions.setBoard(nextBoard as Board))
 }
 
 function* userPlaceChess({ payload: { col, row } }: PayloadAction<Coords>) {

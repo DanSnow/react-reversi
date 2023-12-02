@@ -1,3 +1,4 @@
+import type { ReadonlyDeep } from 'type-fest'
 import type { BLACK, ENDED, IDLE, PLAYING, WHITE } from './consts'
 import type { judgeScores } from './lib/ai'
 
@@ -12,7 +13,7 @@ export interface PastState {
   board: (string | null)[][]
   player: string | null
   log: Log[]
-  candiate: number
+  candidate: number
   message: string
 }
 
@@ -54,3 +55,11 @@ export interface AIVersions {
 }
 
 export type Board = (string | null)[][]
+
+export type AIJudgeScore = (board: ReadonlyDeep<Board>, ai: string, row: number, col: number) => number
+
+export interface PointScore {
+  row: number
+  col: number
+  score: number
+}

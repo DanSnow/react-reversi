@@ -2,22 +2,13 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice, freeze } from '@reduxjs/toolkit'
 import { times } from 'remeda'
 
-import type { ENDED, PLAYING } from '../consts'
 import { BLACK, IDLE, WHITE } from '../consts'
 import type { judgeScores } from '../lib/ai'
-import type { AIVersions, Board, GameState, Log, Users } from '../types'
+import type { AIVersions, Board, GameState, Log, PastState, Users } from '../types'
 import { UserType } from '../types'
 
 const createNull = () => null
 const initialBoard = freeze(times(8, () => times(8, createNull)))
-
-interface PastState {
-  board: (string | null)[][]
-  player: string | null
-  log: Log[]
-  candidate: number
-  message: string
-}
 
 export const gameSlice = createSlice({
   name: 'game',
@@ -47,7 +38,8 @@ export const gameSlice = createSlice({
       state.board = payload
     },
     resetBoard(state) {
-      Object.assign(state, { board: initialBoard, pastStep: [] })
+      state.board = initialBoard
+      state.pastStep = []
     },
     setPlayer(state, { payload }: PayloadAction<string | null>) {
       state.player = payload
@@ -64,7 +56,7 @@ export const gameSlice = createSlice({
     setMessage(state, { payload }: PayloadAction<string>) {
       state.message = payload
     },
-    setState(state, { payload }: PayloadAction<typeof IDLE | typeof ENDED | typeof PLAYING>) {
+    setState(state, { payload }: PayloadAction<GameState>) {
       state.state = payload
     },
     setRetractStep(state, { payload }: PayloadAction<number>) {
