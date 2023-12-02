@@ -2,9 +2,9 @@ import { createNextState as produce } from '@reduxjs/toolkit'
 import { identity, maxBy, sumBy } from 'remeda'
 import type { ReadonlyDeep } from 'type-fest'
 
-import type { AIJudgeScore, Board } from '../types'
+import type { AIJudgeScore, Board, PointScore } from '../types'
 import { checkFlipChess, clearBoardCandidate, countPlayerChess, placeAndFlip, placeBoardCandidate } from './board'
-import { countAroundChess, directions, getCandidate, getOpposite } from './chess-utils'
+import { countAroundChess, directions, getBestPoint, getCandidate, getOpposite } from './chess-utils'
 
 function judgeScoreV1(board: ReadonlyDeep<Board>, ai: string, row: number, col: number): number {
   const flips = directions.map(([rd, cd]) => checkFlipChess({ board, player: ai, row, col, rd, cd }))
@@ -30,7 +30,7 @@ function judgeScoreV1(board: ReadonlyDeep<Board>, ai: string, row: number, col: 
 
 function judgeScoreV1PlusOverview(board: ReadonlyDeep<Board>, ai: string, row: number, col: number): number {
   const score = judgeScoreV1(board, ai, row, col)
-  return score + boardStatusScore(placeAndFlip({ board, row, col, player: ai }), ai)
+  return score + computeOverview(board, row, col, ai)
 }
 
 function judgeScoreV2(board: ReadonlyDeep<Board>, ai: string, row: number, col: number): number {
@@ -46,7 +46,11 @@ function judgeScoreV2(board: ReadonlyDeep<Board>, ai: string, row: number, col: 
 
 function judgeScoreV2PlusOverview(board: ReadonlyDeep<Board>, ai: string, row: number, col: number): number {
   const score = judgeScoreV2(board, ai, row, col)
-  return score + boardStatusScore(placeAndFlip({ board, row, col, player: ai }), ai)
+  return score + computeOverview(board, row, col, ai)
+}
+
+function computeOverview(board: ReadonlyDeep<Board>, row: number, col: number, ai: string): number {
+  return boardStatusScore(placeAndFlip({ board, row, col, player: ai }), ai)
 }
 
 function computePosScoreV2(board: readonly (readonly string[])[], row: number, col: number) {
@@ -105,7 +109,7 @@ function boardStatusScore(board: ReadonlyDeep<Board>, player: string) {
           score += 1000
           selfCount += 1
         } else if (rowArray[col] === opposite) {
-          score += -2000
+          score += -6000
           oppositeCount += 1
         }
       } else if (rowArray[col] === player) {
@@ -126,37 +130,96 @@ function boardStatusScore(board: ReadonlyDeep<Board>, player: string) {
   return score
 }
 
-function createMinMax(judge: (board: ReadonlyDeep<Board>, player: string, row: number, col: number) => number) {
-  function minMax(board: ReadonlyDeep<Board>, ai: string, row: number, col: number): number {
-    const opposite = getOpposite(ai)
-    const oppositeCandidate = getCandidate(opposite)
-    const { board: nextBoard } = placeBoardCandidate({
-      board: clearBoardCandidate(placeAndFlip({ board, row, col, player: ai })),
-      player: opposite,
-    })
-    // first case is win, second is opposite can't move
-    if (countPlayerChess(nextBoard, opposite) === 0 || countPlayerChess(nextBoard, oppositeCandidate) === 0) {
-      return Number.MAX_SAFE_INTEGER
+function createMinMax(judge: AIJudgeScore): AIJudgeScore {
+  return (board: ReadonlyDeep<Board>, ai: string, row: number, col: number) => {
+    const { score } = computeMinMax(judge, board, ai, row, col)
+    return score
+  }
+}
+
+function computeMinMax(
+  judge: AIJudgeScore,
+  board: ReadonlyDeep<Board>,
+  ai: string,
+  row: number,
+  col: number,
+  withOverviewBoost = false,
+): { score: number; nextBoard: ReadonlyDeep<Board> } {
+  const opposite = getOpposite(ai)
+  const oppositeCandidate = getCandidate(opposite)
+  const { board: nextBoard } = placeBoardCandidate({
+    board: clearBoardCandidate(placeAndFlip({ board, row, col, player: ai })),
+    player: opposite,
+  })
+  // first case is win, second is opposite can't move
+  if (countPlayerChess(nextBoard, opposite) === 0 || countPlayerChess(nextBoard, oppositeCandidate) === 0) {
+    return {
+      score: Number.MAX_SAFE_INTEGER,
+      nextBoard,
     }
-    const oppositeScores = []
-    for (let row = 0; row < nextBoard.length; row++) {
-      const rowArray = nextBoard[row]
-      for (let col = 0; col < rowArray.length; col++) {
-        if (rowArray[col] === oppositeCandidate) {
-          oppositeScores.push(judge(nextBoard, opposite, row, col))
-        }
+  }
+  const oppositeScores: PointScore[] = []
+  for (let row = 0; row < nextBoard.length; row++) {
+    const rowArray = nextBoard[row]
+    for (let col = 0; col < rowArray.length; col++) {
+      if (rowArray[col] === oppositeCandidate) {
+        oppositeScores.push({
+          score: judge(nextBoard, ai, row, col) + (withOverviewBoost ? computeOverview(board, row, col, ai) : 0),
+          row,
+          col,
+        })
       }
     }
-    return oppositeScores.length === 0 ? Number.MIN_SAFE_INTEGER : -maxBy(oppositeScores, identity)
   }
 
-  return minMax
+  if (oppositeScores.length === 0) {
+    return {
+      score: Number.MIN_SAFE_INTEGER,
+      nextBoard,
+    }
+  }
+
+  const oppositeBest = getBestPoint(oppositeScores, false)
+
+  return {
+    score: -oppositeBest.score,
+    nextBoard: clearBoardCandidate(
+      placeAndFlip({
+        board: nextBoard as Board,
+        row: oppositeBest.row,
+        col: oppositeBest.col,
+        player: getOpposite(ai),
+      }),
+    ),
+  }
+}
+
+function createIterateMinMax(judge: AIJudgeScore, time: number) {
+  return (board: ReadonlyDeep<Board>, ai: string, row: number, col: number) => {
+    let score: number
+
+    for (let i = 0; i < time; i++) {
+      const { score: s, nextBoard } = computeMinMax(judge, board, ai, row, col)
+      board = nextBoard
+      score = s
+    }
+    return score
+  }
+}
+
+function withOverviewScore(judge: AIJudgeScore): AIJudgeScore {
+  return (board, ai, row, col) => judge(board, ai, row, col) + computeOverview(board, row, col, ai)
 }
 
 export const judgeScores = {
   v1: judgeScoreV1,
   v2: judgeScoreV2,
   v3: createMinMax(judgeScoreV2),
+  v3OverviewBoost: withOverviewScore(createIterateMinMax(withOverviewScore(judgeScoreV2), 1)),
+  v3IteratedOverview: withOverviewScore(createIterateMinMax(withOverviewScore(judgeScoreV2), 3)),
+  v3OverviewIterated: withOverviewScore(createIterateMinMax(withOverviewScore(judgeScoreV2), 3)),
+  v3OverviewLatestIterated: withOverviewScore(createIterateMinMax(judgeScoreV2, 3)),
+  v3OverviewLatest: withOverviewScore(createMinMax(judgeScoreV2)),
   v3Overview: createMinMax(judgeScoreV2PlusOverview),
   v2Overview: judgeScoreV2PlusOverview,
   v1MinMax: createMinMax(judgeScoreV1),

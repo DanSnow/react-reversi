@@ -1,5 +1,4 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { filter, first, identity, map, maxBy, pipe, prop, sample } from 'remeda'
 import type { Effect } from 'redux-saga/effects'
 import { all, call, delay, put, select, takeEvery } from 'redux-saga/effects'
 import invariant from 'tiny-invariant'
@@ -18,7 +17,7 @@ import {
 } from './consts'
 import { judgeScores } from './lib/ai'
 import { clearBoardCandidate, placeAndFlip, placeBoardCandidate } from './lib/board'
-import { getCandidate, getOpposite, getPlayer, isPlaceable } from './lib/chess-utils'
+import { getBestPoint, getCandidate, getOpposite, getPlayer, isPlaceable } from './lib/chess-utils'
 import { createScoreSelector } from './selector'
 import { gameActions } from './slices/game'
 import { uiActions } from './slices/ui'
@@ -172,18 +171,6 @@ function computeScores(board: Board, version: string, player: string, ai: string
   }
   invariant(scores.length, 'Invalid State: no candidates point')
   return scores
-}
-
-function getBestPoint(scores: PointScore[]): PointScore {
-  const score = pipe(scores, map(prop('score')), maxBy(identity))
-
-  return pipe(
-    scores,
-    filter((x) => x.score === score),
-    // A little random
-    sample(1),
-    first(),
-  )
 }
 
 function* userPlaceChess({ payload: { col, row } }: PayloadAction<Coords>) {

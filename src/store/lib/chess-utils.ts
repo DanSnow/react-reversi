@@ -1,7 +1,8 @@
 import type { ReadonlyDeep } from 'type-fest'
 
+import { filter, first, identity, map, maxBy, pipe, prop, sample } from 'remeda'
 import { BLACK, BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE } from '../consts'
-import type { Board } from '../types'
+import type { Board, PointScore } from '../types'
 
 export const directions = [
   [-1, 0], // Up
@@ -52,4 +53,16 @@ export function getPlayer(player: string): string {
 
 export function countAroundChess(board: ReadonlyDeep<Board>, row: number, col: number): number {
   return directions.reduce((s, [rd, cd]) => s + Number(!!getChess(board, row + rd, col + cd)), 0)
+}
+
+export function getBestPoint(scores: PointScore[], shouldRandom: boolean = true): PointScore {
+  const score = pipe(scores, map(prop('score')), maxBy(identity))
+
+  return pipe(
+    scores,
+    filter((x) => x.score === score),
+    // A little random
+    shouldRandom ? sample(1) : (x) => [x[0]],
+    first(),
+  )
 }
