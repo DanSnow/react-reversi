@@ -22,9 +22,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@antfu/eslint-config@npm:2.2.0":
-  version: 2.2.0
-  resolution: "@antfu/eslint-config@npm:2.2.0"
+"@antfu/eslint-config@npm:2.2.1":
+  version: 2.2.1
+  resolution: "@antfu/eslint-config@npm:2.2.1"
   dependencies:
     "@antfu/eslint-define-config": "npm:^1.23.0-2"
     "@antfu/install-pkg": "npm:^0.3.0"
@@ -79,7 +79,7 @@ __metadata:
       optional: true
   bin:
     eslint-config: bin/index.js
-  checksum: 2e65fa80015f77642b527c5e69f74bfc5a1759fa57bfd37abf361df3d8f4f42aea4bfba97278ebf9096f60796cc33954e49908a1a3cf449eeee1b1e81b23cae0
+  checksum: c88174519a6a361fc1c2b7ea540c5cf391d129db89a41b85e5166107cb0156742b02b2a3388bcc517cfc5534766354e62ea014a1a9ab9fe7c66a571f3888e381
   languageName: node
   linkType: hard
 
@@ -6174,7 +6174,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-reversi@workspace:."
   dependencies:
-    "@antfu/eslint-config": "npm:2.2.0"
+    "@antfu/eslint-config": "npm:2.2.1"
     "@babel/core": "npm:7.23.5"
     "@babel/plugin-proposal-class-properties": "npm:7.18.6"
     "@babel/plugin-proposal-object-rest-spread": "npm:7.20.7"
