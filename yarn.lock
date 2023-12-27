@@ -22,21 +22,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@antfu/eslint-config@npm:2.6.0":
-  version: 2.6.0
-  resolution: "@antfu/eslint-config@npm:2.6.0"
+"@antfu/eslint-config@npm:2.6.1":
+  version: 2.6.1
+  resolution: "@antfu/eslint-config@npm:2.6.1"
   dependencies:
     "@antfu/eslint-define-config": "npm:^1.23.0-2"
     "@antfu/install-pkg": "npm:^0.3.1"
     "@eslint-types/jsdoc": "npm:46.8.2-1"
-    "@eslint-types/typescript-eslint": "npm:^6.12.0"
-    "@eslint-types/unicorn": "npm:^49.0.0"
+    "@eslint-types/typescript-eslint": "npm:^6.16.0"
+    "@eslint-types/unicorn": "npm:^50.0.1"
     "@stylistic/eslint-plugin": "npm:^1.5.1"
-    "@typescript-eslint/eslint-plugin": "npm:^6.15.0"
-    "@typescript-eslint/parser": "npm:^6.15.0"
+    "@typescript-eslint/eslint-plugin": "npm:^6.16.0"
+    "@typescript-eslint/parser": "npm:^6.16.0"
     eslint-config-flat-gitignore: "npm:^0.1.2"
     eslint-merge-processors: "npm:^0.1.0"
-    eslint-plugin-antfu: "npm:^2.1.0"
+    eslint-plugin-antfu: "npm:^2.1.1"
     eslint-plugin-eslint-comments: "npm:^3.2.0"
     eslint-plugin-i: "npm:^2.29.1"
     eslint-plugin-jsdoc: "npm:^46.9.1"
@@ -88,7 +88,7 @@ __metadata:
       optional: true
   bin:
     eslint-config: bin/index.js
-  checksum: e55faa08376eaf74e3c96ee6dcf0bec696cee18cc46852cf1df306db694071a342a849afd236b65abd22fe12ce8f7454870c74479e2f4a7fb611cb556eadc57b
+  checksum: 71fbd89a750231a431e3817bc04848806ab11320ecd1c053dcf88fe24ed989f8e8655aa80ab5dffb62c6b3484876f9e70fc022e4ee945387717cdb6502039a12
   languageName: node
   linkType: hard
 
@@ -1945,17 +1945,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint-types/typescript-eslint@npm:^6.12.0":
-  version: 6.12.0
-  resolution: "@eslint-types/typescript-eslint@npm:6.12.0"
-  checksum: 47e75666eb463f06da486478a3b447849f8fb9f4c42abe25d8d025875d522f1e0f6970c1cd02f192b3c881361039602d3cb57c62dbf7d1e17fc5ff740b911d22
+"@eslint-types/typescript-eslint@npm:^6.16.0":
+  version: 6.16.0
+  resolution: "@eslint-types/typescript-eslint@npm:6.16.0"
+  checksum: ce28d464028d781f09f3647e7566a1a400ffefb316f5289bb644f26651e94e1c152b2d58d8b29989ae8cf2e82244276c0879e604f559bd0924bd89297409d47a
   languageName: node
   linkType: hard
 
-"@eslint-types/unicorn@npm:^49.0.0":
-  version: 49.0.0
-  resolution: "@eslint-types/unicorn@npm:49.0.0"
-  checksum: 431a7d00af4f839fc8d53677e410f3a7a539d75ac759966ed08ccb1e541723165d6a62c5a29770bc92669e6bfa1f83cc5a12b04bd6747b805c5e58c093f1a15c
+"@eslint-types/unicorn@npm:^50.0.1":
+  version: 50.0.1
+  resolution: "@eslint-types/unicorn@npm:50.0.1"
+  checksum: 7aac3e611423db39c3ba08c347de4acb566e25aba236f16b540d3e2706b2a3934c8d21abeefd8d634d4abb4c15b8b0d033226059f2940a297c5f79a1f20344e7
   languageName: node
   linkType: hard
 
@@ -2631,7 +2631,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:6.16.0, @typescript-eslint/eslint-plugin@npm:^6.15.0":
+"@typescript-eslint/eslint-plugin@npm:6.16.0, @typescript-eslint/eslint-plugin@npm:^6.16.0":
   version: 6.16.0
   resolution: "@typescript-eslint/eslint-plugin@npm:6.16.0"
   dependencies:
@@ -2656,7 +2656,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:6.16.0, @typescript-eslint/parser@npm:^6.15.0":
+"@typescript-eslint/parser@npm:6.16.0, @typescript-eslint/parser@npm:^6.16.0":
   version: 6.16.0
   resolution: "@typescript-eslint/parser@npm:6.16.0"
   dependencies:
@@ -3819,12 +3819,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-antfu@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "eslint-plugin-antfu@npm:2.1.0"
+"eslint-plugin-antfu@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "eslint-plugin-antfu@npm:2.1.1"
   peerDependencies:
     eslint: "*"
-  checksum: 30b0d2f700ba7e0d1b48464b83d4873383e794f8dc86c70d090d6c86d8140f52b7ff1453e59bf6df539227ae5a716786f655808745bd3d7120a1013b7b3b6f28
+  checksum: 643d19da6ad8af3f59c51426684e674114f54462fedb698d438ed2060f5c89007f1d9276d10f80958241b04cce984b88ea30016e18d9210349c59e73577f8703
   languageName: node
   linkType: hard
 
@@ -6217,7 +6217,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-reversi@workspace:."
   dependencies:
-    "@antfu/eslint-config": "npm:2.6.0"
+    "@antfu/eslint-config": "npm:2.6.1"
     "@babel/core": "npm:7.23.6"
     "@babel/plugin-proposal-class-properties": "npm:7.18.6"
     "@babel/plugin-proposal-object-rest-spread": "npm:7.20.7"
