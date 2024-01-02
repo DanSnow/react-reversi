@@ -2144,9 +2144,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redux-saga/core@npm:^1.2.3":
-  version: 1.2.3
-  resolution: "@redux-saga/core@npm:1.2.3"
+"@redux-saga/core@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "@redux-saga/core@npm:1.3.0"
   dependencies:
     "@babel/runtime": "npm:^7.6.3"
     "@redux-saga/deferred": "npm:^1.2.1"
@@ -2154,9 +2154,8 @@ __metadata:
     "@redux-saga/is": "npm:^1.1.3"
     "@redux-saga/symbols": "npm:^1.1.3"
     "@redux-saga/types": "npm:^1.2.1"
-    redux: "npm:^4.0.4"
     typescript-tuple: "npm:^2.2.1"
-  checksum: 9398033da1da4fcf8f6d3b0b0bd9901bd1530cca437023a8e9aba0b7616e246c801ab2a836dd8b2181ff38d2857896a962a35304d9902e77e1dec5079b9d9851
+  checksum: a310a31dda8a9dc6ff9e35e14d4a6439af9dcce48470e66feab31141b6f3647b6325d8d6533893f14bb5b9c950104ef5ad17e87328f48239cccb8103ef5cac1b
   languageName: node
   linkType: hard
 
@@ -6261,7 +6260,7 @@ __metadata:
     react-refresh: "npm:0.14.0"
     redux: "npm:4.2.1"
     redux-persist: "npm:6.0.0"
-    redux-saga: "npm:1.2.3"
+    redux-saga: "npm:1.3.0"
     remeda: "npm:1.33.0"
     scule: "npm:1.1.1"
     tiny-invariant: "npm:1.3.1"
@@ -6324,12 +6323,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redux-saga@npm:1.2.3":
-  version: 1.2.3
-  resolution: "redux-saga@npm:1.2.3"
+"redux-saga@npm:1.3.0":
+  version: 1.3.0
+  resolution: "redux-saga@npm:1.3.0"
   dependencies:
-    "@redux-saga/core": "npm:^1.2.3"
-  checksum: 251be3926d2bb079b06044fa87803702ec55068e311e6fe8dad2aa4a8afc557d51a5dbe5548d2a05c687a824346531af6bfc333630af45efb14d7d1478e61515
+    "@redux-saga/core": "npm:^1.3.0"
+  checksum: caa8bbc46f23ac6e4c87ddd55f0f496bfd6b2b6dfbc8c5639372c304ae83a9fa593529d83eefcbd79e15c518d9ad59e6d1b4e7e742fc1a5e5a2e92d39e960291
   languageName: node
   linkType: hard
 
@@ -6342,7 +6341,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redux@npm:4.2.1, redux@npm:^4.0.0, redux@npm:^4.0.4, redux@npm:^4.2.1":
+"redux@npm:4.2.1, redux@npm:^4.0.0, redux@npm:^4.2.1":
   version: 4.2.1
   resolution: "redux@npm:4.2.1"
   dependencies:
