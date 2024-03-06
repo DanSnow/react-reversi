@@ -6465,7 +6465,7 @@ __metadata:
     redux: "npm:4.2.1"
     redux-persist: "npm:6.0.0"
     redux-saga: "npm:1.3.0"
-    remeda: "npm:1.46.2"
+    remeda: "npm:1.47.0"
     scule: "npm:1.3.0"
     tiny-invariant: "npm:1.3.3"
     type-fest: "npm:4.11.1"
@@ -6631,10 +6631,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remeda@npm:1.46.2":
-  version: 1.46.2
-  resolution: "remeda@npm:1.46.2"
-  checksum: 10/602362c7e8c5172b08704af124c21965b95a38a321e134fd340fc3845d7d95d618dddc865870274f186b90af79b7f6f22fba7b2efac9fcb22383033699c0a4e2
+"remeda@npm:1.47.0":
+  version: 1.47.0
+  resolution: "remeda@npm:1.47.0"
+  checksum: 10/b62cc95a47373b4cf36f3834aff38b6cf1087d2371f5bb7297367fc2d69466b65b59c1a8403aeb484ddd06070c74c76f868d761a38ce1f1bc3f46530d84a8c6c
   languageName: node
   linkType: hard
 
