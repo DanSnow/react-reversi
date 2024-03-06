@@ -82,7 +82,7 @@
     "prettier": "3.2.5",
     "react-refresh": "0.14.0",
     "type-fest": "4.11.1",
-    "typescript": "5.3.3",
+    "typescript": "5.4.2",
     "vite": "5.1.5",
     "vitest": "0.34.6"
   }
