@@ -22,12 +22,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@antfu/eslint-config@npm:2.8.2":
-  version: 2.8.2
-  resolution: "@antfu/eslint-config@npm:2.8.2"
+"@antfu/eslint-config@npm:2.8.3":
+  version: 2.8.3
+  resolution: "@antfu/eslint-config@npm:2.8.3"
   dependencies:
     "@antfu/eslint-define-config": "npm:^1.23.0-2"
     "@antfu/install-pkg": "npm:^0.3.1"
+    "@clack/prompts": "npm:^0.7.0"
     "@eslint-types/jsdoc": "npm:46.8.2-1"
     "@eslint-types/typescript-eslint": "npm:^7.0.2"
     "@eslint-types/unicorn": "npm:^51.0.1"
@@ -57,7 +58,6 @@ __metadata:
     local-pkg: "npm:^0.5.0"
     parse-gitignore: "npm:^2.0.0"
     picocolors: "npm:^1.0.0"
-    prompts: "npm:^2.4.2"
     toml-eslint-parser: "npm:^0.9.3"
     vue-eslint-parser: "npm:^9.4.2"
     yaml-eslint-parser: "npm:^1.2.2"
@@ -100,7 +100,7 @@ __metadata:
       optional: true
   bin:
     eslint-config: bin/index.js
-  checksum: 10/745111c896378cda8f0b15c8e4e10d3ad210e8350beae2d42839ca28fe771b8e9482203e56c857e5a0b7dfa3b14c8f19bc7113f5d6b411c18863de7ff50175d4
+  checksum: 10/d450ef375f1a620bb7f54845738800d1aa5b70ea0c194c5a6f92f2fdbca68958c61774339ae3bbe7c199c3e7a7a6c7074f4369d219183509d4b7f55f66de9262
   languageName: node
   linkType: hard
 
@@ -1617,6 +1617,28 @@ __metadata:
     "@babel/helper-validator-identifier": "npm:^7.22.20"
     to-fast-properties: "npm:^2.0.0"
   checksum: 10/a0b4875ce2e132f9daff0d5b27c7f4c4fcc97f2b084bdc5834e92c9d32592778489029e65d99d00c406da612d87b72d7a236c0afccaa1435c028d0c94c9b6da4
+  languageName: node
+  linkType: hard
+
+"@clack/core@npm:^0.3.3":
+  version: 0.3.4
+  resolution: "@clack/core@npm:0.3.4"
+  dependencies:
+    picocolors: "npm:^1.0.0"
+    sisteransi: "npm:^1.0.5"
+  checksum: 10/36e5bef782f082dbddcd1f3502df3d366abbab2c5b608cfa986b2eb2c69f7122cf67dcffafe65488aba3560c51485feeed7f17f968f5fc99dd5be27b3d53bfa0
+  languageName: node
+  linkType: hard
+
+"@clack/prompts@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "@clack/prompts@npm:0.7.0"
+  dependencies:
+    "@clack/core": "npm:^0.3.3"
+    is-unicode-supported: "npm:*"
+    picocolors: "npm:^1.0.0"
+    sisteransi: "npm:^1.0.5"
+  checksum: 10/2ca1f84b1d36c5d08794994f6f96b86287e0b96f8b6a7483eceb98bbd34a7f9f0012775df8bf29a6d86737b48f52ac18809bdcf14c0453d1a43c7cf4da671a26
   languageName: node
   linkType: hard
 
@@ -5197,6 +5219,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-unicode-supported@npm:*":
+  version: 2.0.0
+  resolution: "is-unicode-supported@npm:2.0.0"
+  checksum: 10/000b80639dedaf59a385f1c0a57f97a4d1435e0723716f24cc19ad94253a7a0a9f838bdc9ac49b10a29ac93b01f52ae9b2ed358a8876caf1eb74d73b4ede92b2
+  languageName: node
+  linkType: hard
+
 "is-wsl@npm:^2.2.0":
   version: 2.2.0
   resolution: "is-wsl@npm:2.2.0"
@@ -5338,13 +5367,6 @@ __metadata:
   version: 6.0.3
   resolution: "kind-of@npm:6.0.3"
   checksum: 10/5873d303fb36aad875b7538798867da2ae5c9e328d67194b0162a3659a627d22f742fc9c4ae95cd1704132a24b00cae5041fc00c0f6ef937dc17080dc4dbb962
-  languageName: node
-  linkType: hard
-
-"kleur@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "kleur@npm:3.0.3"
-  checksum: 10/0c0ecaf00a5c6173d25059c7db2113850b5457016dfa1d0e3ef26da4704fbb186b4938d7611246d86f0ddf1bccf26828daa5877b1f232a65e7373d0122a83e7f
   languageName: node
   linkType: hard
 
@@ -6293,16 +6315,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prompts@npm:^2.4.2":
-  version: 2.4.2
-  resolution: "prompts@npm:2.4.2"
-  dependencies:
-    kleur: "npm:^3.0.3"
-    sisteransi: "npm:^1.0.5"
-  checksum: 10/c52536521a4d21eff4f2f2aa4572446cad227464066365a7167e52ccf8d9839c099f9afec1aba0eed3d5a2514b3e79e0b3e7a1dc326b9acde6b75d27ed74b1a9
-  languageName: node
-  linkType: hard
-
 "punycode@npm:^2.1.0":
   version: 2.1.1
   resolution: "punycode@npm:2.1.1"
@@ -6420,7 +6432,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-reversi@workspace:."
   dependencies:
-    "@antfu/eslint-config": "npm:2.8.2"
+    "@antfu/eslint-config": "npm:2.8.3"
     "@babel/core": "npm:7.24.0"
     "@babel/plugin-proposal-class-properties": "npm:7.18.6"
     "@babel/plugin-proposal-object-rest-spread": "npm:7.20.7"
