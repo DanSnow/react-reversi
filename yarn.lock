@@ -1571,7 +1571,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:7.24.1, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.22.5, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:7.24.1, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.23.9, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.24.1
   resolution: "@babel/runtime@npm:7.24.1"
   dependencies:
@@ -6343,11 +6343,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:13.5.0":
-  version: 13.5.0
-  resolution: "react-i18next@npm:13.5.0"
+"react-i18next@npm:14.1.0":
+  version: 14.1.0
+  resolution: "react-i18next@npm:14.1.0"
   dependencies:
-    "@babel/runtime": "npm:^7.22.5"
+    "@babel/runtime": "npm:^7.23.9"
     html-parse-stringify: "npm:^3.0.1"
   peerDependencies:
     i18next: ">= 23.2.3"
@@ -6357,7 +6357,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: 10/903b486d112cd0aa40bdc3afaefd0c32b91c0a1e3e3561367c8d91ddc0fbad9945f1d630c3ddcd4764795fc00e0887252e2d337256a825caf3a86de038f6b2db
+  checksum: 10/47b050ff3d8e43e8b56ca6b57f67c3feaecdb629b47eeb3923b4f43312b89af3e9373e93ada72420ad3199fc340605929512134eefcb55844f0eaa6bc0785613
   languageName: node
   linkType: hard
 
@@ -6464,7 +6464,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-github-corner: "npm:2.5.0"
-    react-i18next: "npm:13.5.0"
+    react-i18next: "npm:14.1.0"
     react-redux: "npm:8.1.3"
     react-refresh: "npm:0.14.0"
     redux: "npm:4.2.1"
