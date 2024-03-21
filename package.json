@@ -33,7 +33,7 @@
   "dependencies": {
     "@emotion/react": "11.11.4",
     "@emotion/styled": "11.11.0",
-    "@reduxjs/toolkit": "1.9.7",
+    "@reduxjs/toolkit": "2.2.2",
     "clsx": "2.1.0",
     "defu": "6.1.4",
     "i18next": "23.10.1",
