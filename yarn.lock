@@ -2530,10 +2530,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gh-pages@npm:5.0.1":
-  version: 5.0.1
-  resolution: "@types/gh-pages@npm:5.0.1"
-  checksum: 10/0e552b7a99af1f0f92ed9fbdeb81218f78f595313a6506c3ff996f7ec060acb9d2a104d7c75738dd5cce79f08d1d09988d90628f28b3a158c9be15bd1d2091b7
+"@types/gh-pages@npm:6.1.0":
+  version: 6.1.0
+  resolution: "@types/gh-pages@npm:6.1.0"
+  checksum: 10/7ba55235f05e79b52b408953ca820aa49b22f0a0f75e51ee51d38bbb173b8c13d786a35274c8baa90cc3486d353d7a9880bf399ac2dee480af7588d031bcbf2e
   languageName: node
   linkType: hard
 
@@ -4795,9 +4795,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gh-pages@npm:6.1.0":
-  version: 6.1.0
-  resolution: "gh-pages@npm:6.1.0"
+"gh-pages@npm:6.1.1":
+  version: 6.1.1
+  resolution: "gh-pages@npm:6.1.1"
   dependencies:
     async: "npm:^3.2.4"
     commander: "npm:^11.0.0"
@@ -4809,7 +4809,7 @@ __metadata:
   bin:
     gh-pages: bin/gh-pages.js
     gh-pages-clean: bin/gh-pages-clean.js
-  checksum: 10/feed88a4ff759955420bdee2648baf37bd24e7b7d0819aa599fc6ebe4e94dab344daf8cce7fdad5508f03230b4948bf2ed5bb191a8aae5b728b6e390895db3e7
+  checksum: 10/b821a1f24bfa7070e3a8fbc8e4956a137511bb17d8c3e3eaad27eefabb8ccdf61f41d891cac11c0f476f3c5b3078fdcbd3e61e8d960a7e9e6af16c02cd62f971
   languageName: node
   linkType: hard
 
@@ -6520,7 +6520,7 @@ __metadata:
     "@testing-library/react": "npm:14.2.2"
     "@types/babel__core": "npm:7.20.5"
     "@types/eslint-plugin-prettier": "npm:3.1.3"
-    "@types/gh-pages": "npm:5.0.1"
+    "@types/gh-pages": "npm:6.1.0"
     "@types/node": "npm:20.11.30"
     "@types/react": "npm:18.2.69"
     "@types/react-dom": "npm:18.2.22"
@@ -6534,7 +6534,7 @@ __metadata:
     eslint: "npm:8.57.0"
     eslint-config-prettier: "npm:9.1.0"
     eslint-plugin-prettier: "npm:5.1.3"
-    gh-pages: "npm:6.1.0"
+    gh-pages: "npm:6.1.1"
     happy-dom: "npm:14.3.3"
     i18next: "npm:23.10.1"
     i18next-browser-languagedetector: "npm:7.2.0"
