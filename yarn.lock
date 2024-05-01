@@ -6466,7 +6466,7 @@ __metadata:
     remeda: "npm:1.61.0"
     scule: "npm:1.3.0"
     tiny-invariant: "npm:1.3.3"
-    type-fest: "npm:4.18.0"
+    type-fest: "npm:4.18.1"
     typescript: "npm:5.4.5"
     vite: "npm:5.2.10"
     vitest: "npm:1.5.3"
@@ -7310,10 +7310,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:4.18.0":
-  version: 4.18.0
-  resolution: "type-fest@npm:4.18.0"
-  checksum: 10/038fab7f07e4b2646d0c6a52be278bcf8171e733b6af29b605416e138914eb9d29d6ad6e3fb786ebe56eada3f127f690d3cf8fd0fb59e7c2efda9b31cde23082
+"type-fest@npm:4.18.1":
+  version: 4.18.1
+  resolution: "type-fest@npm:4.18.1"
+  checksum: 10/ff76e19cb969854161fea2de854073f346e159f5efff05906ece93cbde8a7161b9374121aca53782b44f754152cbacc70264c90ca1acc81ca917723acce5054f
   languageName: node
   linkType: hard
 
