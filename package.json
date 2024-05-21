@@ -36,7 +36,7 @@
     "@reduxjs/toolkit": "2.2.5",
     "clsx": "2.1.1",
     "defu": "6.1.4",
-    "i18next": "23.11.4",
+    "i18next": "23.11.5",
     "i18next-browser-languagedetector": "7.2.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
