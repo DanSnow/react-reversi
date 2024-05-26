@@ -1,8 +1,7 @@
+import path from 'node:path'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import pkg from './package.json'
-
-// const pkg = require('./package.json')
 
 export default defineConfig({
   base: './',
@@ -10,6 +9,11 @@ export default defineConfig({
     VERSION: JSON.stringify(`${pkg.version}`),
   },
   plugins: [react()],
+  resolve: {
+    alias: {
+      '~': path.resolve(__dirname, './src'),
+    },
+  },
   test: {
     environment: 'happy-dom',
   },

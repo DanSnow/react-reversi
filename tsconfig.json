@@ -2,8 +2,12 @@
   "compilerOptions": {
     "jsx": "preserve",
     "lib": ["dom", "esnext"],
+    "baseUrl": ".",
     "module": "es2022",
     "moduleResolution": "node",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
     "resolveJsonModule": true,
     "types": ["vite/client", "node", "react", "react-dom"],
     "allowJs": true,
