@@ -1,39 +1,39 @@
-import cx from 'clsx'
-import type { ReactChild, ReactElement } from 'react'
+import { type ReactElement, useCallback } from 'react'
 
-import Portal from './Portal'
+import { Dialog, DialogContent } from './ui/dialog'
+import { Button } from './ui/button'
 
 interface Props {
   open: boolean
-  children?: ReactChild
+  children?: string | ReactElement
   onConfirm: () => void
   onCancel: () => void
 }
 
 export function Confirm({ open, children, onConfirm, onCancel }: Props): ReactElement {
+  const onOpenChange = useCallback(
+    (val: boolean) => {
+      if (!val) onCancel()
+    },
+    [onCancel],
+  )
   return (
-    <Portal target="dialog-root">
-      <div className={cx('modal', { 'is-active': open })}>
-        <div className="modal-background" />
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent>
         <div className="modal-content">
           <div className="box">
-            <p className="title is-2">{children}</p>
-            <div className="field is-grouped">
-              <p className="control">
-                <button className="button is-primary" onClick={onConfirm}>
-                  Yes
-                </button>
-              </p>
-              <p className="control">
-                <button className="button" onClick={onCancel}>
-                  No
-                </button>
-              </p>
+            <p className="font-medium text-4xl leading-tight pb-8">{children}</p>
+            <div className="flex gap-4">
+              <Button className="button bg-teal-400" onClick={onConfirm}>
+                Yes
+              </Button>
+              <Button className="button" onClick={onCancel}>
+                No
+              </Button>
             </div>
           </div>
         </div>
-        <button className="modal-close" onClick={onCancel} />
-      </div>
-    </Portal>
+      </DialogContent>
+    </Dialog>
   )
 }

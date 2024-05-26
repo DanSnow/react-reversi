@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Button } from '~/components/ui/button'
 
 export interface Props {
   allowRetract: boolean
@@ -13,38 +14,36 @@ export function Toolbar({ setHuman, reboot, allowRetract, restoreStep, onOpenSet
   const { t } = useTranslation()
 
   return (
-    <nav className="navbar">
-      <div className="navbar-brand">
-        <div className="navbar-item">
-          <p className="title is-3">{t('Reversi')}</p>
+    <nav className="flex justify-between">
+      <div>
+        <div className="p-2">
+          <p className="text-4xl font-bold tracking-tight lg:text-5xl">{t('Reversi')}</p>
         </div>
       </div>
-      <div className="navbar-item navbar-end">
-        <div className="field is-grouped">
-          <p className="control">
-            <button className="button is-rounded" onClick={setHuman}>
-              <span className="icon">
-                <i className="fas fa-user-friends" />
-              </span>
-              <span>{t('Play with friend')}</span>
-            </button>
-            <button className="button is-rounded" onClick={reboot}>
-              <span className="icon">
-                <i className="fas fa-power-off" />
-              </span>
-              <span>{t('Restart')}</span>
-            </button>
-            <button className="button is-rounded" disabled={!allowRetract} onClick={restoreStep}>
-              <span className="icon">
-                <i className="fas fa-undo" />
-              </span>
-            </button>
-            <button className="button is-rounded" onClick={onOpenSetting}>
-              <span className="icon">
-                <i className="fas fa-cog" />
-              </span>
-            </button>
-          </p>
+      <div>
+        <div className="flex gap-2 p-2">
+          <Button onClick={setHuman}>
+            <span className="mr-1">
+              <i className="fas fa-user-friends" />
+            </span>
+            <span>{t('Play with friend')}</span>
+          </Button>
+          <Button onClick={reboot}>
+            <span className="mr-1">
+              <i className="fas fa-power-off" />
+            </span>
+            <span>{t('Restart')}</span>
+          </Button>
+          <Button disabled={!allowRetract} onClick={restoreStep}>
+            <span>
+              <i className="fas fa-undo" />
+            </span>
+          </Button>
+          <Button onClick={onOpenSetting}>
+            <span>
+              <i className="fas fa-cog" />
+            </span>
+          </Button>
         </div>
       </div>
     </nav>

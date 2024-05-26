@@ -1,29 +1,21 @@
-import styled from '@emotion/styled'
 import cx from 'clsx'
 import type { ReactElement } from 'react'
 
 import type { Log as LogData } from '../../store'
 import { WHITE } from '../../store'
-
-const LogContainer = styled.div({
-  height: '600px',
-  overflow: 'auto',
-  padding: '0 10px',
-})
+import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card'
 
 interface Props {
   log: LogData[]
 }
 
 export const Log = ({ log }: Props): ReactElement => (
-  <div className="card">
-    <div className="card-header">
-      <div className="card-header-title">
-        <p className="title is-6">Log</p>
-      </div>
-    </div>
-    <div className="card-content">
-      <LogContainer>
+  <Card>
+    <CardHeader>
+      <CardTitle>Log</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <div className="h-[600px] overflow-auto px-4">
         {log.map(({ player, pos }, idx) => (
           <div key={idx} className="is-flex">
             <span className="icon">
@@ -32,7 +24,7 @@ export const Log = ({ log }: Props): ReactElement => (
             <span>{pos}</span>
           </div>
         ))}
-      </LogContainer>
-    </div>
-  </div>
+      </div>
+    </CardContent>
+  </Card>
 )

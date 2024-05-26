@@ -1,15 +1,21 @@
-import cx from 'clsx'
-import type { ChangeEvent, ReactElement } from 'react'
+import { type ReactElement, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+import { useForm } from 'react-hook-form'
 
-import Portal from './Portal'
+import { Checkbox } from './ui/checkbox'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
+import { Form, FormControl, FormField, FormItem, FormLabel } from './ui/form'
+import { Dialog, DialogContent } from '~/components/ui/dialog'
+import { Button } from '~/components/ui/button'
 
 interface Props {
   isOpen: boolean
   onClose: () => void
-  onHintChange: (event: ChangeEvent<HTMLInputElement>) => void
-  onRetractChange: (event: ChangeEvent<HTMLInputElement>) => void
-  onVersionChange: (event: ChangeEvent<HTMLSelectElement>) => void
+  onHintChange: (value: boolean) => void
+  onRetractChange: (value: boolean) => void
+  onVersionChange: (value: string) => void
 }
 
 const AI: [key: string, display: string][] = [
@@ -27,58 +33,95 @@ const AI: [key: string, display: string][] = [
   ['v1Overview', 'V1 + min-max + overview'],
 ]
 
+const schema = z.object({
+  hint: z.boolean(),
+  retract: z.boolean(),
+  version: z.string(),
+})
+
 export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, onVersionChange }: Props): ReactElement {
   const { t } = useTranslation()
 
+  const onOpenChange = useCallback(
+    (val: boolean) => {
+      if (!val) onClose()
+    },
+    [onClose],
+  )
+
+  const form = useForm<z.infer<typeof schema>>({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      version: 'v3Overview',
+    },
+  })
+
   return (
-    <Portal target="dialog-root">
-      <div className={cx('modal', { 'is-active': isOpen })}>
-        <div className="modal-background" />
-        <div className="modal-content">
-          <div className="box">
-            <div className="field">
-              <p className="control">
-                <label className="checkbox" htmlFor="hint">
-                  <input type="checkbox" name="hint" onChange={onHintChange} />
-                  {t('Hint')}
-                </label>
-              </p>
-            </div>
-            <div className="field">
-              <p className="control">
-                <label className="checkbox" htmlFor="retract">
-                  <input type="checkbox" name="retract" onChange={onRetractChange} />
-                  {t('Allow Retract')}
-                </label>
-              </p>
-            </div>
-            <div className="field">
-              <div className="control">
-                <label className="label" htmlFor="version">
-                  {t('AI Version')}
-                </label>
-                <div className="select">
-                  <select name="version" defaultValue="v3Overview" onChange={onVersionChange}>
-                    {AI.map(([value, display]) => (
-                      <option key={value} value={value}>
-                        {display}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+    <Dialog open={isOpen} onOpenChange={onOpenChange}>
+      <DialogContent>
+        <div className="box">
+          <Form {...form}>
+            <div className="flex flex-col gap-2">
+              <FormField
+                control={form.control}
+                name="hint"
+                render={() => (
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                    <FormControl>
+                      <Checkbox onCheckedChange={onHintChange} />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                      <FormLabel>{t('Hint')}</FormLabel>
+                    </div>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="retract"
+                render={() => (
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                    <FormControl>
+                      <Checkbox onCheckedChange={onRetractChange} />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                      <FormLabel>{t('Allow Retract')}</FormLabel>
+                    </div>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="version"
+                render={() => (
+                  <FormItem>
+                    <FormLabel>{t('AI Version')}</FormLabel>
+                    <FormControl>
+                      <Select name="version" defaultValue="v3Overview" onValueChange={onVersionChange}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {AI.map(([value, display]) => (
+                            <SelectItem key={value} value={value}>
+                              {display}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <div className="field">
+                <Button className="button is-primary" onClick={onClose}>
+                  OK
+                </Button>
               </div>
             </div>
-            <div className="field">
-              <p className="control">
-                <button className="button is-primary" onClick={onClose}>
-                  OK
-                </button>
-              </p>
-            </div>
-          </div>
+          </Form>
         </div>
-        <button className="modal-close" onClick={onClose} />
-      </div>
-    </Portal>
+      </DialogContent>
+    </Dialog>
   )
 }

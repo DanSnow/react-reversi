@@ -29,22 +29,20 @@ export function Game({ showReplay, message, reboot, setVersion, setAllowRetract,
 
   return (
     <>
-      <div className="container is-fluid">
-        <div className="columns">
-          <div className="column is-6 is-offset-2">
+      <div className="container">
+        <div>
+          <div>
             <Toolbar onOpenSetting={openSetting} />
-            <div className="columns">
-              <div className="column">
+            <div className="flex flex-col md:flex-row gap-4 items-start">
+              <div className="flex flex-col">
                 <Board hint={hint} />
-                <span className="is-pulled-right">{message}</span>
+                <span className="self-end text-red-600">{message}</span>
               </div>
-              <div className="column">
-                <Score />
+              <Score />
+              <div className="hidden grow lg:block">
+                <Log />
               </div>
             </div>
-          </div>
-          <div className="column is-2 is-hidden-touch">
-            <Log />
           </div>
         </div>
         <Confirm open={showReplay} onConfirm={reboot} onCancel={resetState}>
@@ -53,9 +51,9 @@ export function Game({ showReplay, message, reboot, setVersion, setAllowRetract,
         <SettingModal
           isOpen={settingOpen}
           onClose={closeSetting}
-          onHintChange={(event) => setHint(event.target.checked)}
-          onRetractChange={(event) => setAllowRetract(event.target.checked)}
-          onVersionChange={(event) => setVersion(event.target.value)}
+          onHintChange={(checked) => setHint(checked)}
+          onRetractChange={(checked) => setAllowRetract(checked)}
+          onVersionChange={(version) => setVersion(version)}
         />
       </div>
       <GithubCorner href="https://github.com/DanSnow/react-reversi" />
