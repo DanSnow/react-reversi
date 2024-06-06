@@ -6626,12 +6626,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-react@npm:0.383.0":
-  version: 0.383.0
-  resolution: "lucide-react@npm:0.383.0"
+"lucide-react@npm:0.387.0":
+  version: 0.387.0
+  resolution: "lucide-react@npm:0.387.0"
   peerDependencies:
     react: ^16.5.1 || ^17.0.0 || ^18.0.0
-  checksum: 10/134c625e6aaba401b4787727a2e560f38d889af6e222b27c57628f4b403749425e86f4ffa9bd2cab6e4ba5f88c4981d1f81244463deb9b44d8050197b68413ff
+  checksum: 10/d71d89af8b03676850e6b4c50b5c65a03543aa96f9a5bd638ee656806f613c92d580436571d95d945bc82c1c432310769e0430fccd6fac47ecdff0104cfcb1f6
   languageName: node
   linkType: hard
 
@@ -7828,7 +7828,7 @@ __metadata:
     happy-dom: "npm:14.12.0"
     i18next: "npm:23.11.5"
     i18next-browser-languagedetector: "npm:8.0.0"
-    lucide-react: "npm:0.383.0"
+    lucide-react: "npm:0.387.0"
     postcss: "npm:8.4.38"
     prettier: "npm:3.3.1"
     react: "npm:18.3.1"
