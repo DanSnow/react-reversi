@@ -2115,12 +2115,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hookform/resolvers@npm:3.5.0":
-  version: 3.5.0
-  resolution: "@hookform/resolvers@npm:3.5.0"
+"@hookform/resolvers@npm:3.6.0":
+  version: 3.6.0
+  resolution: "@hookform/resolvers@npm:3.6.0"
   peerDependencies:
     react-hook-form: ^7.0.0
-  checksum: 10/7a9a6534f345d51582489067cd6e4d94578da501190c37fa299104b5d4bb4351e88f30cdea82d51de45da1bfcdc8f5272bbfb61ff30942d0d70747373cbe8e29
+  checksum: 10/6dd1b7ad21ed2b171470740884e0b83982c79a0d4ceddabe60b616e53eeed2b5569cdba5e91ad844e379aeda5ffa835b0c2d2525d702fcd8b263c2194895f9b7
   languageName: node
   linkType: hard
 
@@ -7799,7 +7799,7 @@ __metadata:
     "@emotion/babel-plugin": "npm:11.11.0"
     "@emotion/react": "npm:11.11.4"
     "@emotion/styled": "npm:11.11.5"
-    "@hookform/resolvers": "npm:3.5.0"
+    "@hookform/resolvers": "npm:3.6.0"
     "@radix-ui/react-checkbox": "npm:1.0.4"
     "@radix-ui/react-dialog": "npm:1.0.5"
     "@radix-ui/react-label": "npm:2.0.2"
