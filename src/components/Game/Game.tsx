@@ -39,7 +39,7 @@ export function Game({ showReplay, message, reboot, setVersion, setAllowRetract,
                 <span className="self-end text-red-600">{message}</span>
               </div>
               <Score />
-              <div className="hidden grow lg:block">
+              <div className="hidden grow max-w-64 lg:block">
                 <Log />
               </div>
             </div>

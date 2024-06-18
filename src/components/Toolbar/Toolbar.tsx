@@ -14,7 +14,7 @@ export function Toolbar({ setHuman, reboot, allowRetract, restoreStep, onOpenSet
   const { t } = useTranslation()
 
   return (
-    <nav className="flex justify-between">
+    <nav className="flex justify-between pr-16">
       <div>
         <div className="p-2">
           <p className="text-4xl font-bold tracking-tight lg:text-5xl">{t('Reversi')}</p>
