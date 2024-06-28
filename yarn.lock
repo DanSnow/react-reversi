@@ -2333,9 +2333,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-checkbox@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@radix-ui/react-checkbox@npm:1.1.0"
+"@radix-ui/react-checkbox@npm:1.1.1":
+  version: 1.1.1
+  resolution: "@radix-ui/react-checkbox@npm:1.1.1"
   dependencies:
     "@radix-ui/primitive": "npm:1.1.0"
     "@radix-ui/react-compose-refs": "npm:1.1.0"
@@ -2355,7 +2355,7 @@ __metadata:
       optional: true
     "@types/react-dom":
       optional: true
-  checksum: 10/0a69db75d3e606658c4a439f2454dcce3ac405f147c44784688bda116ccd730718409253a060ff35972f0a22297ff2ad0d2ca7da3867cca5017a2a487e25c4d5
+  checksum: 10/47e598e438dfe5523445c785ab63e8f33dc902c60f13b1a9d8d6dabf83d78d63bf174cbf3cf1c2e16c06d0608a4c009b776d2cf46c24b8f29054756283f9ed99
   languageName: node
   linkType: hard
 
@@ -7787,7 +7787,7 @@ __metadata:
     "@emotion/react": "npm:11.11.4"
     "@emotion/styled": "npm:11.11.5"
     "@hookform/resolvers": "npm:3.6.0"
-    "@radix-ui/react-checkbox": "npm:1.1.0"
+    "@radix-ui/react-checkbox": "npm:1.1.1"
     "@radix-ui/react-dialog": "npm:1.1.1"
     "@radix-ui/react-label": "npm:2.1.0"
     "@radix-ui/react-select": "npm:2.1.1"
