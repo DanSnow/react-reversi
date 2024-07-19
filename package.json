@@ -31,8 +31,8 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@emotion/react": "11.11.4",
-    "@emotion/styled": "11.11.5",
+    "@emotion/react": "11.12.0",
+    "@emotion/styled": "11.12.0",
     "@hookform/resolvers": "3.9.0",
     "@radix-ui/react-checkbox": "1.1.1",
     "@radix-ui/react-dialog": "1.1.1",
@@ -74,7 +74,7 @@
     "@babel/preset-typescript": "7.24.7",
     "@babel/register": "7.24.6",
     "@babel/runtime": "7.24.8",
-    "@emotion/babel-plugin": "11.11.0",
+    "@emotion/babel-plugin": "11.12.0",
     "@testing-library/react": "15.0.7",
     "@types/babel__core": "7.20.5",
     "@types/eslint-plugin-prettier": "3.1.3",
