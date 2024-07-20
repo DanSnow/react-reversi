@@ -31,8 +31,8 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@emotion/react": "11.12.0",
-    "@emotion/styled": "11.12.0",
+    "@emotion/react": "11.13.0",
+    "@emotion/styled": "11.13.0",
     "@hookform/resolvers": "3.9.0",
     "@radix-ui/react-checkbox": "1.1.1",
     "@radix-ui/react-dialog": "1.1.1",
