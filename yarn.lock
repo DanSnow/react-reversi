@@ -29,11 +29,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@antfu/eslint-config@npm:2.23.1":
-  version: 2.23.1
-  resolution: "@antfu/eslint-config@npm:2.23.1"
+"@antfu/eslint-config@npm:2.23.2":
+  version: 2.23.2
+  resolution: "@antfu/eslint-config@npm:2.23.2"
   dependencies:
-    "@antfu/eslint-plugin-unused-imports": "npm:^4.0.0"
     "@antfu/install-pkg": "npm:^0.3.3"
     "@clack/prompts": "npm:^0.7.0"
     "@stylistic/eslint-plugin": "npm:^2.6.0-beta.0"
@@ -55,6 +54,7 @@ __metadata:
     eslint-plugin-regexp: "npm:^2.6.0"
     eslint-plugin-toml: "npm:^0.11.1"
     eslint-plugin-unicorn: "npm:^54.0.0"
+    eslint-plugin-unused-imports: "npm:^4.0.1"
     eslint-plugin-vitest: "npm:^0.5.4"
     eslint-plugin-vue: "npm:^9.27.0"
     eslint-plugin-yml: "npm:^1.14.0"
@@ -112,22 +112,7 @@ __metadata:
       optional: true
   bin:
     eslint-config: bin/index.js
-  checksum: 10/ccac368a08f335a074f8a74368529883d2e47048bfdf952861a1420fe19ad65c7b2aa375d634e9c32da3cdbdbc99b2d23edc9b037dc5d4d2d9cce8b9b906bd13
-  languageName: node
-  linkType: hard
-
-"@antfu/eslint-plugin-unused-imports@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "@antfu/eslint-plugin-unused-imports@npm:4.0.0"
-  dependencies:
-    eslint-rule-composer: "npm:^0.3.0"
-  peerDependencies:
-    "@typescript-eslint/eslint-plugin": ^8.0.0-0
-    eslint: ^9.0.0
-  peerDependenciesMeta:
-    "@typescript-eslint/eslint-plugin":
-      optional: true
-  checksum: 10/e8e9a689d896fef437935450fc6b1a014a699a1d3e8d70dedfc11357473d6c49519bb21ad8706ac73ba5b27cb3b02dc46daf541b5c95bb70b29c4d9fe7012dde
+  checksum: 10/888911c61a8154ff7d96bfeb9a885fbd6591fd0504ea4e60afcf0859016f4c7a8948b2eff8db98d3c95a503fd9ac8cb6685842b1e8d37232642b3041da7730a5
   languageName: node
   linkType: hard
 
@@ -5101,6 +5086,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-unused-imports@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "eslint-plugin-unused-imports@npm:4.0.1"
+  dependencies:
+    eslint-rule-composer: "npm:^0.3.0"
+  peerDependencies:
+    "@typescript-eslint/eslint-plugin": ^8.0.0-0
+    eslint: ^9.0.0
+  peerDependenciesMeta:
+    "@typescript-eslint/eslint-plugin":
+      optional: true
+  checksum: 10/ca6265c899c4ea36ac37d694f4356e57e2f6f93f835e2a1aecf405813a196db71b8e67e75a2b3433525e1b80d89714f1e27e6d67daa0d9b630dc602aa247f466
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-vitest@npm:^0.5.4":
   version: 0.5.4
   resolution: "eslint-plugin-vitest@npm:0.5.4"
@@ -7644,7 +7644,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-reversi@workspace:."
   dependencies:
-    "@antfu/eslint-config": "npm:2.23.1"
+    "@antfu/eslint-config": "npm:2.23.2"
     "@babel/core": "npm:7.24.9"
     "@babel/plugin-proposal-class-properties": "npm:7.18.6"
     "@babel/plugin-proposal-object-rest-spread": "npm:7.20.7"
