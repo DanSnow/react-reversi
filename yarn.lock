@@ -5803,12 +5803,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:23.14.0":
-  version: 23.14.0
-  resolution: "i18next@npm:23.14.0"
+"i18next@npm:23.15.0":
+  version: 23.15.0
+  resolution: "i18next@npm:23.15.0"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
-  checksum: 10/661c1b22ae20bf75a616b3a804b96fd55bd04ed880853a05ef93912ed37f65b9546d8f8bbe55dfe2967a5b0f2ce110a7e9f4b7a6a3d90eb097d06c858d2b3e3f
+  checksum: 10/4f67ab98c2178ac004d7598742df9be22343c26801b2dbb19789f6d713333006f5f53c9603eafbe8be82b73ed62f369df2e6138981023422f910502fdbb7c14e
   languageName: node
   linkType: hard
 
@@ -7561,7 +7561,7 @@ __metadata:
     eslint-plugin-prettier: "npm:5.2.1"
     gh-pages: "npm:6.1.1"
     happy-dom: "npm:14.12.3"
-    i18next: "npm:23.14.0"
+    i18next: "npm:23.15.0"
     i18next-browser-languagedetector: "npm:8.0.0"
     lucide-react: "npm:0.439.0"
     postcss: "npm:8.4.45"
