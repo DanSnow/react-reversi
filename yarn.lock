@@ -7566,7 +7566,7 @@ __metadata:
     redux-saga: "npm:1.3.0"
     remeda: "npm:1.61.0"
     scule: "npm:1.3.0"
-    shadcn-ui: "npm:0.9.0"
+    shadcn-ui: "npm:0.9.1"
     tailwind-merge: "npm:2.5.2"
     tailwindcss: "npm:3.4.11"
     tailwindcss-animate: "npm:1.0.7"
@@ -8059,9 +8059,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shadcn-ui@npm:0.9.0":
-  version: 0.9.0
-  resolution: "shadcn-ui@npm:0.9.0"
+"shadcn-ui@npm:0.9.1":
+  version: 0.9.1
+  resolution: "shadcn-ui@npm:0.9.1"
   dependencies:
     "@antfu/ni": "npm:^0.21.4"
     "@babel/core": "npm:^7.22.1"
@@ -8085,7 +8085,7 @@ __metadata:
     zod: "npm:^3.20.2"
   bin:
     shadcn-ui: dist/index.js
-  checksum: 10/5b01c482af82b1e5bec9bc18593fe956380a2280c436291c3652da786e7a0ed8d311ae9411092b91fb530b4aa889e0bafaa4a0ba1c61e19b4c378187a0ba5f69
+  checksum: 10/d2fbe9925aac89f9473d7024524e55d6927404851b16aea211b5dde15149f44b7f41027be86a4ee24a9efd3943dda87e583754bae10cb25437bacb980493da9a
   languageName: node
   linkType: hard
 
