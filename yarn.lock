@@ -6299,7 +6299,7 @@ __metadata:
     redux: "npm:5.0.1"
     redux-persist: "npm:6.0.0"
     redux-saga: "npm:1.3.0"
-    remeda: "npm:1.61.0"
+    remeda: "npm:2.12.1"
     scule: "npm:1.3.0"
     shadcn-ui: "npm:0.9.1"
     tailwind-merge: "npm:2.5.2"
@@ -6504,10 +6504,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remeda@npm:1.61.0":
-  version: 1.61.0
-  resolution: "remeda@npm:1.61.0"
-  checksum: 10/0b0ec8688e340c7525a8788e99701b174ddca2eaf230d47f9e087d9aaccd54c7181a1f58bf4f95cb9c12bc1d26f03b17e3d3d9046a59225074a7ac3fa1356da3
+"remeda@npm:2.12.1":
+  version: 2.12.1
+  resolution: "remeda@npm:2.12.1"
+  dependencies:
+    type-fest: "npm:^4.26.1"
+  checksum: 10/31b717b40d5fef0851a0a695265a40c8e1beac65830544b7e15c4cf124f0b4ff4489ff752f423df927bc0283ba59cf1c90eccdce7bd256b3d043907d62200afa
   languageName: node
   linkType: hard
 
@@ -7327,7 +7329,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:4.26.1":
+"type-fest@npm:4.26.1, type-fest@npm:^4.26.1":
   version: 4.26.1
   resolution: "type-fest@npm:4.26.1"
   checksum: 10/b82676194f80af228cb852e320d2ea8381c89d667d2e4d9f2bdfc8f254bccc039c7741a90c53617a4de0c9fdca8265ed18eb0888cd628f391c5c381c33a9f94b
