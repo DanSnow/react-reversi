@@ -1,16 +1,13 @@
-import styled from '@emotion/styled'
-import type { ReactChild, ReactElement } from 'react'
+import { twc } from 'react-twc'
+import type { ReactElement, ReactNode } from 'react'
 
-const SvgText = styled.text({
-  fontSize: '2.5em',
-  pointerEvents: 'none',
-})
+const SvgText = twc.text`pointer-events-none text-4xl`
 
 interface Props<T> {
   x: number
   y: number
   color: string
-  children: ReactChild
+  children: ReactNode
   background: string
   value: T
   onClick: (val: T) => void

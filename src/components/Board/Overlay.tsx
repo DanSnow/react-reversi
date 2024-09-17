@@ -1,8 +1,3 @@
-import styled from '@emotion/styled'
+import { twc } from 'react-twc'
 
-export const Overlay = styled.text({
-  fill: 'red',
-  fontSize: '8em',
-  pointerEvents: 'none',
-  textAnchor: 'middle',
-})
+export const Overlay = twc.text.attrs({ style: { textAnchor: 'middle' } })`text-9xl pointer-events-none fill-red-600`

@@ -1,10 +1,8 @@
-import styled from '@emotion/styled'
 import type { ReactElement } from 'react'
 import { useCallback } from 'react'
+import { twc } from 'react-twc'
 
-const Circle = styled.circle({
-  pointerEvents: 'none',
-})
+const Circle = twc.circle`pointer-events-none`
 
 interface Props {
   color: string
