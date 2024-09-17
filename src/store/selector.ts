@@ -1,9 +1,9 @@
 import type { Selector } from '@reduxjs/toolkit'
-import { createSelector } from '@reduxjs/toolkit'
-
-import { Array, Record, Struct, identity, pipe } from 'effect'
-import type { Board, Score } from './types'
 import type { RootState } from './store'
+
+import type { Board, Score } from './types'
+import { createSelector } from '@reduxjs/toolkit'
+import { Array, identity, pipe, Record, Struct } from 'effect'
 import { BLACK, WHITE } from './consts'
 
 const selectBoard = (state: RootState) => state.game.board
