@@ -1,5 +1,5 @@
-import { times } from 'remeda'
 import { freeze } from '@reduxjs/toolkit'
+import { times } from 'remeda'
 import { createNull } from './utils'
 
 // Sagas

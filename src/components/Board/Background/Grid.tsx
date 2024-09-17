@@ -1,5 +1,5 @@
-import { times } from 'remeda'
 import type { ReactElement } from 'react'
+import { times } from 'remeda'
 
 import { Column } from './Column'
 import { Row } from './Row'

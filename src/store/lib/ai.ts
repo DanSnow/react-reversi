@@ -1,8 +1,8 @@
-import { createNextState as produce } from '@reduxjs/toolkit'
-import { identity, maxBy, sumBy } from 'remeda'
 import type { ReadonlyDeep } from 'type-fest'
-
 import type { AIJudgeScore, Board, PointScore } from '../types'
+import { createNextState as produce } from '@reduxjs/toolkit'
+
+import { identity, maxBy, sumBy } from 'remeda'
 import { checkFlipChess, clearBoardCandidate, countPlayerChess, placeAndFlip, placeBoardCandidate } from './board'
 import { countAroundChess, directions, getBestPoint, getCandidate, getOpposite } from './chess-utils'
 

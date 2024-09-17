@@ -3,7 +3,7 @@ import { FlatCompat } from '@eslint/eslintrc'
 
 const compat = new FlatCompat()
 
-const ignores = ['dist/', '**/dist/**/', '**/.yarn/**', 'node_modules/**']
+const ignores = ['dist/', '**/dist/**/', '**/.yarn/**', 'node_modules/**', '*.md']
 export default antfu(
   {
     ignores,

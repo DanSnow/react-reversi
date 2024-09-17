@@ -14,6 +14,6 @@ describe('log.tsx', (): void => {
   it('render chess placement log', () => {
     render(<Log log={[{ player: WHITE, pos: '(3, 5)' }]} />)
 
-    expect(screen.getByText(/\(3, 5\)/i)).toBeDefined()
+    expect(screen.getByText(/\(3, 5\)/)).toBeDefined()
   })
 })

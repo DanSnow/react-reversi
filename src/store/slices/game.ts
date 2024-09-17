@@ -1,10 +1,10 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { createSlice, freeze } from '@reduxjs/toolkit'
-import { times } from 'remeda'
-
-import { BLACK, IDLE, WHITE } from '../consts'
 import type { judgeScores } from '../lib/ai'
 import type { AIVersions, Board, GameState, Log, PastState, Users } from '../types'
+
+import { createSlice, freeze } from '@reduxjs/toolkit'
+import { times } from 'remeda'
+import { BLACK, IDLE, WHITE } from '../consts'
 import { UserType } from '../types'
 
 const createNull = () => null

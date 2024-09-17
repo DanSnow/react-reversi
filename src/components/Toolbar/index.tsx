@@ -1,8 +1,8 @@
 import type { ReactElement } from 'react'
 
+import type { Props as DumbProps } from './Toolbar'
 import { useDispatch, useSelector } from '../../hooks'
 import { gameActions, reboot, reset } from '../../store'
-import type { Props as DumbProps } from './Toolbar'
 import { Toolbar as DumbToolbar } from './Toolbar'
 
 type Props = Pick<DumbProps, 'onOpenSetting'>

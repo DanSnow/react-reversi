@@ -1,8 +1,10 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { Effect } from 'redux-saga/effects'
+import type { RootState } from './store'
+import type { AIJudgeScore, Board, Coords, PointScore, Score } from './types'
 import { all, call, delay, put, select, takeEvery } from 'redux-saga/effects'
-import invariant from 'tiny-invariant'
 import { upperFirst } from 'scule'
+import invariant from 'tiny-invariant'
 import {
   BLACK,
   DEFAULT_BOARD,
@@ -21,8 +23,6 @@ import { getBestPoint, getCandidate, getOpposite, getPlayer, isPlaceable } from 
 import { createScoreSelector } from './selector'
 import { gameActions } from './slices/game'
 import { uiActions } from './slices/ui'
-import type { RootState } from './store'
-import type { AIJudgeScore, Board, Coords, PointScore, Score } from './types'
 import { UserType } from './types'
 
 const DEFAULT_USER = { [BLACK]: UserType.Human, [WHITE]: UserType.Human }

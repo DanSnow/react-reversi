@@ -1,11 +1,11 @@
 import type { Selector } from '@reduxjs/toolkit'
-import { createSelector } from '@reduxjs/toolkit'
-import { flatten, groupBy, identity, length, mapKeys, mapValues, pick, pipe } from 'remeda'
-import { defu } from 'defu'
-
-import { BLACK, WHITE } from './consts'
 import type { RootState } from './store'
 import type { Board, Score } from './types'
+import { createSelector } from '@reduxjs/toolkit'
+
+import { defu } from 'defu'
+import { flatten, groupBy, identity, length, mapKeys, mapValues, pick, pipe } from 'remeda'
+import { BLACK, WHITE } from './consts'
 
 const renameKeys =
   (keysMap: Record<string, string>) =>

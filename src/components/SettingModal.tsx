@@ -1,14 +1,14 @@
-import { type ReactElement, useCallback } from 'react'
-import { useTranslation } from 'react-i18next'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { z } from 'zod'
+import { type ReactElement, useCallback } from 'react'
 import { useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import { z } from 'zod'
 
-import { Checkbox } from './ui/checkbox'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
-import { Form, FormControl, FormField, FormItem, FormLabel } from './ui/form'
-import { Dialog, DialogContent } from '~/components/ui/dialog'
 import { Button } from '~/components/ui/button'
+import { Dialog, DialogContent } from '~/components/ui/dialog'
+import { Checkbox } from './ui/checkbox'
+import { Form, FormControl, FormField, FormItem, FormLabel } from './ui/form'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
 
 interface Props {
   isOpen: boolean

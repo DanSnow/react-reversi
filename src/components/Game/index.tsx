@@ -2,7 +2,7 @@ import type { ReactElement } from 'react'
 import { useCallback } from 'react'
 
 import { useDispatch, useSelector } from '../../hooks'
-import { ENDED, IDLE, gameActions, reboot } from '../../store'
+import { ENDED, gameActions, IDLE, reboot } from '../../store'
 import { Game as DumbGame } from './Game'
 
 export function Game(): ReactElement {

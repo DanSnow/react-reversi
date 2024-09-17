@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react'
-import { useEffect, useState } from 'react'
 import type { Persistor } from 'redux-persist'
+import { useEffect, useState } from 'react'
 
 interface Props {
   children: ReactElement | ((bootstrapped: boolean) => ReactElement)
@@ -38,5 +38,5 @@ export function PersistGate(props: Props): ReactElement {
     return props.children(bootstrapped)
   }
 
-  return bootstrapped ? props.children : props.loading ?? null
+  return bootstrapped ? props.children : (props.loading ?? null)
 }

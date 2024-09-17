@@ -1,7 +1,7 @@
 import { type ReactElement, useCallback } from 'react'
 
-import { Dialog, DialogContent } from './ui/dialog'
 import { Button } from './ui/button'
+import { Dialog, DialogContent } from './ui/dialog'
 
 interface Props {
   open: boolean

@@ -1,9 +1,9 @@
-import cx from 'clsx'
 import type { ReactElement } from 'react'
-
 import type { Log as LogData } from '../../store'
-import { WHITE } from '../../store'
+
+import cx from 'clsx'
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card'
+import { WHITE } from '../../store'
 
 interface Props {
   log: LogData[]

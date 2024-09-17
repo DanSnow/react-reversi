@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { createSlice } from '@reduxjs/toolkit'
-
 import type { History } from '../types'
+
+import { createSlice } from '@reduxjs/toolkit'
 
 export const uiSlice = createSlice({
   name: 'ui',

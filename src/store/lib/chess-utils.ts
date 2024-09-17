@@ -1,8 +1,8 @@
 import type { ReadonlyDeep } from 'type-fest'
 
+import type { Board, PointScore } from '../types'
 import { filter, first, identity, map, maxBy, pipe, prop, sample } from 'remeda'
 import { BLACK, BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE } from '../consts'
-import type { Board, PointScore } from '../types'
 
 export const directions = [
   [-1, 0], // Up
