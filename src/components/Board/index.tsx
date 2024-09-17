@@ -1,8 +1,10 @@
 import type { ReactElement } from 'react'
-import { useCallback } from 'react'
+import { useAtom } from 'jotai'
 
+import { useCallback } from 'react'
+import { overlayAtom } from '~/atoms/ui'
 import { useDispatch, useSelector } from '../../hooks'
-import { reset, startedSelector, uiActions, userPlaceChess } from '../../store'
+import { reset, startedSelector, userPlaceChess } from '../../store'
 import { Board as DumbBoard } from './Board'
 
 interface Props {
@@ -12,12 +14,12 @@ interface Props {
 export function Board({ hint }: Props): ReactElement {
   const board = useSelector((state) => state.game.board)
   const started = useSelector(startedSelector)
-  const overlay = useSelector((state) => state.ui.overlay)
+  const [overlay, setOverlay] = useAtom(overlayAtom)
   const dispatch = useDispatch()
   const placeChess = useCallback(
     (row: number, col: number): void => {
       if (overlay) {
-        dispatch(uiActions.setOverlay(''))
+        setOverlay('')
       }
       if (!started) {
         return

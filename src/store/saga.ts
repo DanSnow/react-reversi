@@ -6,6 +6,8 @@ import { Array } from 'effect'
 import { all, call, delay, put, select, takeEvery } from 'redux-saga/effects'
 import { upperFirst } from 'scule'
 import invariant from 'tiny-invariant'
+import { store } from '~/atoms/store'
+import { historyAtom, overlayAtom } from '~/atoms/ui'
 import {
   BLACK,
   DEFAULT_BOARD,
@@ -23,14 +25,13 @@ import { clearBoardCandidate, placeAndFlip, placeBoardCandidate } from './lib/bo
 import { getBestPoint, getCandidate, getOpposite, getPlayer, isPlaceable } from './lib/chess-utils'
 import { createScoreSelector } from './selector'
 import { gameActions } from './slices/game'
-import { uiActions } from './slices/ui'
 import { UserType } from './types'
 
 const DEFAULT_USER = { [BLACK]: UserType.Human, [WHITE]: UserType.Human }
 
 export function* reboot(): Generator<Effect, void, void> {
   yield put(gameActions.setState(IDLE))
-  yield put(uiActions.setOverlay(''))
+  store.set(overlayAtom, '')
   yield put(gameActions.setMessage(''))
   yield put(gameActions.clearLog())
   yield put(gameActions.resetBoard())
@@ -98,23 +99,29 @@ function* gameSet() {
   yield put(gameActions.setMessage('Game set'))
   yield put(gameActions.setState(ENDED))
   if (score.black === score.white) {
-    yield put(uiActions.setOverlay('Draw'))
+    store.set(overlayAtom, 'Draw')
     if (hasAI) {
-      yield put(uiActions.incrementHistory('draw'))
+      store.set(historyAtom, (history) => {
+        history.draw += 1
+      })
     }
     return
   }
   const winner = score.black > score.white ? BLACK : WHITE
   if (hasAI && !bothAI) {
     if (users[winner] === UserType.AI) {
-      yield put(uiActions.setOverlay('You Lose'))
-      yield put(uiActions.incrementHistory('lose'))
+      store.set(overlayAtom, 'You Lose')
+      store.set(historyAtom, (history) => {
+        history.lose += 1
+      })
     } else {
-      yield put(uiActions.setOverlay('You Win'))
-      yield put(uiActions.incrementHistory('win'))
+      store.set(overlayAtom, 'You Win')
+      store.set(historyAtom, (history) => {
+        history.win += 1
+      })
     }
   } else {
-    yield put(uiActions.setOverlay(`${upperFirst(getPlayer(winner))} Win`))
+    store.set(overlayAtom, `${upperFirst(getPlayer(winner))} Win`)
   }
 }
 

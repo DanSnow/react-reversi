@@ -1,13 +1,16 @@
 import type { ReactElement } from 'react'
-import { useCallback } from 'react'
+import { useAtomValue } from 'jotai'
 
+import { useCallback } from 'react'
+import { overlayAtom } from '~/atoms/ui'
 import { useDispatch, useSelector } from '../../hooks'
 import { ENDED, gameActions, IDLE, reboot } from '../../store'
 import { Game as DumbGame } from './Game'
 
 export function Game(): ReactElement {
   const message = useSelector((state) => state.game.message)
-  const showReplay = useSelector((state) => state.game.state === ENDED && !state.ui.overlay)
+  const overlay = useAtomValue(overlayAtom)
+  const showReplay = useSelector((state) => state.game.state === ENDED && !overlay)
   const dispatch = useDispatch()
   const setAllowRetract = useCallback(
     (allow: boolean) => {
