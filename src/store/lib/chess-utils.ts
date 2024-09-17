@@ -1,7 +1,9 @@
 import type { ReadonlyDeep } from 'type-fest'
 
+// import { filter, first,  map, maxBy,  prop, sample } from 'remeda'
+import type { Cause } from 'effect'
 import type { Board, PointScore } from '../types'
-import { filter, first, identity, map, maxBy, pipe, prop, sample } from 'remeda'
+import { Array, Effect, Option, Order, pipe, Random } from 'effect'
 import { BLACK, BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE } from '../consts'
 
 export const directions = [
@@ -55,14 +57,23 @@ export function countAroundChess(board: ReadonlyDeep<Board>, row: number, col: n
   return directions.reduce((s, [rd, cd]) => s + Number(!!getChess(board, row + rd, col + cd)), 0)
 }
 
-export function getBestPoint(scores: PointScore[], shouldRandom: boolean = true): PointScore {
-  const score = pipe(scores, map(prop('score')), maxBy(identity))
+export function getBestPoint(scores: Array.NonEmptyArray<PointScore>, shouldRandom: boolean = true): PointScore {
+  const { score } = pipe(scores, Array.max(Order.struct({ score: Order.number })))
 
   return pipe(
-    scores,
-    filter((x) => x.score === score),
+    Effect.succeed(
+      pipe(
+        scores,
+        Array.filter((x) => x.score === score),
+      ),
+    ),
     // A little random
-    shouldRandom ? sample(1) : (x) => [x[0]],
-    first(),
+    Effect.flatMap(
+      (scores): Effect.Effect<PointScore, Cause.NoSuchElementException> =>
+        shouldRandom ? Random.choice(scores) : Effect.succeed(scores[0]),
+    ),
+    Effect.option,
+    Effect.map((score) => Option.getOrThrow(score)),
+    Effect.runSync,
   )
 }

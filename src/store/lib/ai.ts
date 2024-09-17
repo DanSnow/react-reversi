@@ -1,8 +1,8 @@
 import type { ReadonlyDeep } from 'type-fest'
-import type { AIJudgeScore, Board, PointScore } from '../types'
 import { createNextState as produce } from '@reduxjs/toolkit'
 
-import { identity, maxBy, sumBy } from 'remeda'
+import { Array, Number as Num, Order } from 'effect'
+import type { AIJudgeScore, Board, PointScore } from '../types'
 import { checkFlipChess, clearBoardCandidate, countPlayerChess, placeAndFlip, placeBoardCandidate } from './board'
 import { countAroundChess, directions, getBestPoint, getCandidate, getOpposite } from './chess-utils'
 
@@ -24,7 +24,7 @@ function judgeScoreV1(board: ReadonlyDeep<Board>, ai: string, row: number, col: 
   } else if (row === 2 || col === 2 || row === 5 || col === 5) {
     posScore = 20
   }
-  const score = sumBy(flips, identity) * 2 + posScore
+  const score = Num.sumAll(flips) * 2 + posScore
   return score
 }
 
@@ -40,7 +40,7 @@ function judgeScoreV2(board: ReadonlyDeep<Board>, ai: string, row: number, col: 
     draft[row][col] = ai
   })
   const willLost = computeWillLost(nextBoard, ai, row, col, posScore)
-  const score = sumBy(flips, identity) * 2 + (willLost ? posScore : Math.abs(posScore) * 2) - willLost
+  const score = Num.sumAll(flips) * 2 + (willLost ? posScore : Math.abs(posScore) * 2) - willLost
   return score
 }
 
@@ -82,7 +82,7 @@ function computeWillLost(nextBoard: ReadonlyDeep<Board>, ai: string, row: number
   const willBeFlippedList = directions.map(([rd, cd]) =>
     checkFlipChess({ board: nextBoard, player: getOpposite(ai), row: row - rd, col: col - cd, rd, cd }),
   )
-  const willBeFlipped = maxBy(willBeFlippedList, identity) ?? 0
+  const willBeFlipped = Array.max([0, ...willBeFlippedList], Order.number)
   const willLost =
     willBeFlipped > 0 ? (posScore > 0 ? willBeFlipped * 2 + posScore * 20 : -posScore * 50 + willBeFlipped * 5) : -10000
   return willLost

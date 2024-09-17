@@ -1,5 +1,5 @@
 import { freeze } from '@reduxjs/toolkit'
-import { times } from 'remeda'
+import { Array } from 'effect'
 import { createNull } from './utils'
 
 // Sagas
@@ -20,12 +20,12 @@ export const PLAYING = 'PLAYING'
 export const ENDED = 'ENDED'
 
 export const DEFAULT_BOARD = freeze([
-  times(8, createNull),
-  times(8, createNull),
-  times(8, createNull),
+  Array.makeBy(8, createNull),
+  Array.makeBy(8, createNull),
+  Array.makeBy(8, createNull),
   [null, null, null, BLACK, WHITE, null, null, null],
   [null, null, null, WHITE, BLACK, null, null, null],
-  times(8, createNull),
-  times(8, createNull),
-  times(8, createNull),
+  Array.makeBy(8, createNull),
+  Array.makeBy(8, createNull),
+  Array.makeBy(8, createNull),
 ])
