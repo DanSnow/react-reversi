@@ -2,6 +2,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import type { Effect } from 'redux-saga/effects'
 import type { RootState } from './store'
 import type { AIJudgeScore, Board, Coords, PointScore, Score } from './types'
+import { Array } from 'effect'
 import { all, call, delay, put, select, takeEvery } from 'redux-saga/effects'
 import { upperFirst } from 'scule'
 import invariant from 'tiny-invariant'
@@ -138,7 +139,7 @@ function* aiJudgeScore() {
   }: RootState = yield select()
   // this function will call before switch user
   const ai = getOpposite(player)
-  const scores: PointScore[] = computeScores(board, version, player, ai)
+  const scores = computeScores(board, version, player, ai)
   const { row, col } = getBestPoint(scores)
 
   yield delay(300) // A little delay, to make computer looks like thinking
@@ -169,7 +170,7 @@ function computeScores(board: Board, version: string, player: string, ai: string
       }
     }
   }
-  invariant(scores.length, 'Invalid State: no candidates point')
+  invariant(Array.isNonEmptyArray(scores), 'Invalid State: no candidates point')
   return scores
 }
 

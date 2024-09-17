@@ -2953,13 +2953,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"defu@npm:6.1.4":
-  version: 6.1.4
-  resolution: "defu@npm:6.1.4"
-  checksum: 10/aeffdb47300f45b4fdef1c5bd3880ac18ea7a1fd5b8a8faf8df29350ff03bf16dd34f9800205cab513d476e4c0a3783aa0cff0a433aff0ac84a67ddc4c8a2d64
-  languageName: node
-  linkType: hard
-
 "delegates@npm:^1.0.0":
   version: 1.0.0
   resolution: "delegates@npm:1.0.0"
@@ -6358,7 +6351,6 @@ __metadata:
     autoprefixer: "npm:10.4.20"
     class-variance-authority: "npm:0.7.0"
     clsx: "npm:2.1.1"
-    defu: "npm:6.1.4"
     effect: "npm:3.8.0"
     eslint: "npm:9.10.0"
     eslint-config-prettier: "npm:9.1.0"

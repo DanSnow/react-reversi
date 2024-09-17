@@ -7,7 +7,6 @@ import { Game as DumbGame } from './Game'
 
 export function Game(): ReactElement {
   const message = useSelector((state) => state.game.message)
-  const ai = useSelector((state) => state.game.ai)
   const showReplay = useSelector((state) => state.game.state === ENDED && !state.ui.overlay)
   const dispatch = useDispatch()
   const setAllowRetract = useCallback(
@@ -16,13 +15,9 @@ export function Game(): ReactElement {
         dispatch(gameActions.setRetractStep(0))
         return
       }
-      if (ai) {
-        dispatch(gameActions.setRetractStep(3))
-      } else {
-        dispatch(gameActions.setRetractStep(3))
-      }
+      dispatch(gameActions.setRetractStep(3))
     },
-    [dispatch, ai],
+    [dispatch],
   )
 
   return (

@@ -3,12 +3,12 @@ import type { judgeScores } from '../lib/ai'
 import type { AIVersions, Board, GameState, Log, PastState, Users } from '../types'
 
 import { createSlice, freeze } from '@reduxjs/toolkit'
-import { times } from 'remeda'
+import { Array } from 'effect'
 import { BLACK, IDLE, WHITE } from '../consts'
 import { UserType } from '../types'
 
 const createNull = () => null
-const initialBoard = freeze(times(8, () => times(8, createNull)))
+const initialBoard: Board = freeze(Array.makeBy(8, () => Array.makeBy(8, createNull)))
 
 export const gameSlice = createSlice({
   name: 'game',

@@ -172,7 +172,7 @@ function computeMinMax(
     }
   }
 
-  if (oppositeScores.length === 0) {
+  if (!Array.isNonEmptyArray(oppositeScores)) {
     return {
       score: Number.MIN_SAFE_INTEGER,
       nextBoard,
