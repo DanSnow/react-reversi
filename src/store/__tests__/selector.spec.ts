@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
+import { computeScore } from '../compute-score'
 import { BLACK, BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE } from '../consts'
-import { computeScore } from '../selector'
 
 describe('selector.ts', () => {
   describe('computeScore', () => {

@@ -1,10 +1,11 @@
 import type { ReactElement } from 'react'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 
 import { useCallback } from 'react'
+import { boardAtom, playerAtom } from '~/atoms/game'
 import { overlayAtom } from '~/atoms/ui'
-import { useDispatch, useSelector } from '../../hooks'
-import { reset, startedSelector, userPlaceChess } from '../../store'
+import { useDispatch } from '../../hooks'
+import { reset, userPlaceChess } from '../../store'
 import { Board as DumbBoard } from './Board'
 
 interface Props {
@@ -12,8 +13,9 @@ interface Props {
 }
 
 export function Board({ hint }: Props): ReactElement {
-  const board = useSelector((state) => state.game.board)
-  const started = useSelector(startedSelector)
+  const board = useAtomValue(boardAtom)
+  const player = useAtomValue(playerAtom)
+  const started = !!player
   const [overlay, setOverlay] = useAtom(overlayAtom)
   const dispatch = useDispatch()
   const placeChess = useCallback(

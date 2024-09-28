@@ -1,16 +1,13 @@
 import type { ReactElement } from 'react'
 
 import { useAtomValue } from 'jotai'
+import { scoreAtom, usersAtom } from '~/atoms/game'
 import { historyAtom } from '~/atoms/ui'
-import { useSelector } from '../../hooks'
-import { createScoreSelector } from '../../store/selector'
 import { Score as DumbScore } from './Score'
 
-const scoreSelector = createScoreSelector()
-
 export function Score(): ReactElement {
-  const score = useSelector(scoreSelector)
-  const users = useSelector((state) => state.game.users)
+  const score = useAtomValue(scoreAtom)
+  const users = useAtomValue(usersAtom)
   const history = useAtomValue(historyAtom)
 
   return <DumbScore score={score} users={users} history={history} />

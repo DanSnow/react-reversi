@@ -1,9 +1,9 @@
 import { atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
-import { withImmer } from 'jotai-immer'
+import { withMutative } from 'jotai-mutative'
 import type { History } from '~/store'
 
-export const historyAtom = withImmer(
+export const historyAtom = withMutative(
   atomWithStorage<History>('react-reversi-history', {
     draw: 0,
     lose: 0,
