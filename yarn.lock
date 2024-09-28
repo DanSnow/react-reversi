@@ -1997,17 +1997,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
-  version: 18.3.7
-  resolution: "@types/react@npm:18.3.7"
-  dependencies:
-    "@types/prop-types": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: 10/30cfbe33c82e8033df5f70a4f54068f4344a691cff3f2b3901dd678e89ce5477dc8faada4a45d333ea570e1992ca8fda5b096d9deddfafb8c373acababc40c70
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:18.3.10":
+"@types/react@npm:*, @types/react@npm:18.3.10":
   version: 18.3.10
   resolution: "@types/react@npm:18.3.10"
   dependencies:
@@ -4749,9 +4739,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jotai@npm:2.9.3":
-  version: 2.9.3
-  resolution: "jotai@npm:2.9.3"
+"jotai@npm:2.10.0":
+  version: 2.10.0
+  resolution: "jotai@npm:2.10.0"
   peerDependencies:
     "@types/react": ">=17.0.0"
     react: ">=17.0.0"
@@ -4760,7 +4750,7 @@ __metadata:
       optional: true
     react:
       optional: true
-  checksum: 10/4366a50be8edd39f1430ac655677e559cfbb253101e4f2e750bca8ebd81e75ea09ea3828bce727482b15305ffe924dda75bd9a055e903e0cc804b6600478dc36
+  checksum: 10/a79e374ef0e748a6f6fea8f9199f754128c13c8c78beae5d2d2466d521dcbcfe3df3272da93c87a0157f6b77283d3cc0e9bf876d2e8d83270bf1b5f44b81730f
   languageName: node
   linkType: hard
 
@@ -6693,7 +6683,7 @@ __metadata:
     happy-dom: "npm:15.7.4"
     i18next: "npm:23.15.1"
     i18next-browser-languagedetector: "npm:8.0.0"
-    jotai: "npm:2.9.3"
+    jotai: "npm:2.10.0"
     jotai-devtools: "npm:0.10.1"
     jotai-mutative: "npm:1.0.2"
     lucide-react: "npm:0.441.0"
