@@ -8,7 +8,13 @@ export default defineConfig({
   define: {
     VERSION: JSON.stringify(`${pkg.version}`),
   },
-  plugins: [react()],
+  plugins: [
+    react({
+      babel: {
+        presets: ['jotai/babel/preset'],
+      },
+    }),
+  ],
   resolve: {
     alias: {
       '~': path.resolve(__dirname, './src'),

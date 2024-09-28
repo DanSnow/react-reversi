@@ -1,10 +1,11 @@
 import type { ReactElement } from 'react'
 
-import { useSelector } from '../../hooks'
+import { useAtomValue } from 'jotai'
+import { logAtom } from '~/atoms/game'
 import { Log as DumbLog } from './Log'
 
 export function Log(): ReactElement {
-  const log = useSelector((state) => state.game.log)
+  const log = useAtomValue(logAtom)
 
   return <DumbLog log={log} />
 }

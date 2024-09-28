@@ -1,14 +1,17 @@
 import type { ReactElement } from 'react'
 
 import type { Props as DumbProps } from './Toolbar'
-import { useDispatch, useSelector } from '../../hooks'
-import { gameActions, reboot, reset } from '../../store'
+import { useAtomValue } from 'jotai'
+import { restoreStep } from '~/atoms/actions'
+import { allowRetractAtom } from '~/atoms/computed'
+import { useDispatch } from '../../hooks'
+import { reboot, reset } from '../../store'
 import { Toolbar as DumbToolbar } from './Toolbar'
 
 type Props = Pick<DumbProps, 'onOpenSetting'>
 
 export function Toolbar(props: Props): ReactElement {
-  const allowRetract = useSelector((state) => !!(state.game.allowRetractStep && state.game.pastStep.length > 0))
+  const allowRetract = useAtomValue(allowRetractAtom)
   const dispatch = useDispatch()
 
   return (
@@ -16,7 +19,7 @@ export function Toolbar(props: Props): ReactElement {
       allowRetract={allowRetract}
       reboot={() => dispatch(reboot())}
       setHuman={() => dispatch(reset(null))}
-      restoreStep={() => dispatch(gameActions.restoreStep())}
+      restoreStep={() => restoreStep()}
       {...props}
     />
   )

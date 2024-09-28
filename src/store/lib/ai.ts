@@ -226,6 +226,8 @@ export const judgeScores = {
   v1Overview: createMinMax(judgeScoreV1PlusOverview),
 } as const satisfies Record<string, AIJudgeScore>
 
+export type AIVersions = keyof typeof judgeScores
+
 function isCorner(row: number, col: number) {
   return (row === 0 || row === 7) && (col === 0 || col === 7)
 }

@@ -64,5 +64,6 @@
     "json",
     "jsonc",
     "yaml"
-  ]
+  ],
+  "i18n-ally.localesPaths": []
 }

@@ -1,16 +1,18 @@
 import type { ReactElement } from 'react'
-import { Provider } from 'react-redux'
 
+import { Provider as AtomProvider } from 'jotai'
+import { Provider } from 'react-redux'
+import { store as atomStore } from './atoms/store'
 import { Game } from './components/Game'
-import { PersistGate } from './PersistGate'
-import { persistor, store } from './store'
+
+import { store } from './store'
 
 export default function App(): ReactElement {
   return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
+    <AtomProvider store={atomStore}>
+      <Provider store={store}>
         <Game />
-      </PersistGate>
-    </Provider>
+      </Provider>
+    </AtomProvider>
   )
 }

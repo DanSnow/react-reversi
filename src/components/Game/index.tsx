@@ -1,21 +1,28 @@
 import type { ReactElement } from 'react'
-import { useCallback } from 'react'
+import { useAtomValue, useSetAtom } from 'jotai'
 
-import { useDispatch, useSelector } from '../../hooks'
-import { ENDED, gameActions, IDLE, reboot } from '../../store'
+import { useCallback } from 'react'
+import { showReplayAtom } from '~/atoms/computed'
+import { aiVersionAtom, allowRetractStepsAtom, gameMessageAtom, gameStateAtom } from '~/atoms/game'
+import type { AIVersions } from '~/store/lib/ai'
+import { useDispatch } from '../../hooks'
+import { IDLE, reboot } from '../../store'
 import { Game as DumbGame } from './Game'
 
 export function Game(): ReactElement {
-  const message = useSelector((state) => state.game.message)
-  const showReplay = useSelector((state) => state.game.state === ENDED && !state.ui.overlay)
+  const message = useAtomValue(gameMessageAtom)
+  const setRetractStep = useSetAtom(allowRetractStepsAtom)
+  const setGameState = useSetAtom(gameStateAtom)
+  const setAIVersion = useSetAtom(aiVersionAtom)
+  const showReplay = useAtomValue(showReplayAtom)
   const dispatch = useDispatch()
   const setAllowRetract = useCallback(
     (allow: boolean) => {
       if (!allow) {
-        dispatch(gameActions.setRetractStep(0))
+        setRetractStep(0)
         return
       }
-      dispatch(gameActions.setRetractStep(3))
+      setRetractStep(3)
     },
     [dispatch],
   )
@@ -24,8 +31,8 @@ export function Game(): ReactElement {
     <DumbGame
       message={message}
       showReplay={showReplay}
-      setVersion={(version: 'v1' | 'v2') => dispatch(gameActions.setVersion(version))}
-      resetState={() => dispatch(gameActions.setState(IDLE))}
+      setVersion={(version: AIVersions) => setAIVersion(version)}
+      resetState={() => setGameState(IDLE)}
       reboot={() => dispatch(reboot())}
       setAllowRetract={setAllowRetract}
     />
