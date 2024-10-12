@@ -4,7 +4,7 @@ import { memo } from 'react'
 import { Base } from './Base'
 import { Grid } from './Grid'
 
-export function _Background(): ReactElement {
+function _Background(): ReactElement {
   return (
     <>
       <Base />

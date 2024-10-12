@@ -33,7 +33,7 @@ export function Game({ showReplay, message, reboot, setVersion, setAllowRetract,
         <div>
           <div>
             <Toolbar onOpenSetting={openSetting} />
-            <div className="flex flex-col md:flex-row gap-4 items-start">
+            <div className="flex flex-col items-start gap-4 md:flex-row">
               <div className="flex flex-col">
                 <Board hint={hint} />
                 <span className="self-end text-red-600">{message}</span>
@@ -56,7 +56,7 @@ export function Game({ showReplay, message, reboot, setVersion, setAllowRetract,
           onVersionChange={(version) => setVersion(version)}
         />
       </div>
-      <GithubCorner href="https://github.com/DanSnow/react-reversi" />
+      {/* <GithubCorner href="https://github.com/DanSnow/react-reversi" /> */}
     </>
   )
 }
