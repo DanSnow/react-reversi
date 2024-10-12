@@ -8,3 +8,5 @@ dist
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+sonda-report.html
