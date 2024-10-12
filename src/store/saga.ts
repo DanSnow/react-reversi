@@ -21,6 +21,7 @@ import {
 } from '~/atoms/game'
 import { store } from '~/atoms/store'
 import { historyAtom, overlayAtom } from '~/atoms/ui'
+import { DEFAULT_USER } from '~/lib/consts'
 import {
   BLACK,
   DEFAULT_BOARD,
@@ -37,8 +38,6 @@ import { judgeScores } from './lib/ai'
 import { clearBoardCandidate, placeAndFlip, placeBoardCandidate } from './lib/board'
 import { getBestPoint, getCandidate, getOpposite, getPlayer, isPlaceable } from './lib/chess-utils'
 import { UserType } from './types'
-
-const DEFAULT_USER = { [BLACK]: UserType.Human, [WHITE]: UserType.Human }
 
 export function* reboot(): Generator<Effect, void, void> {
   store.set(gameStateAtom, IDLE)

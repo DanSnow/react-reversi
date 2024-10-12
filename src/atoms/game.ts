@@ -1,23 +1,19 @@
-import { Array, Function } from 'effect'
 import { atom } from 'jotai'
 import { atomWithReset } from 'jotai/utils'
 import { withMutative } from 'jotai-mutative'
-import type { Board, GameState, Log, PastState } from '~/store'
+import type { Board, GameState, Log, PastState, Users } from '~/store'
 import { computeScore } from '~/store/compute-score'
 import { BLACK, IDLE, WHITE } from '~/store/consts'
 import type { AIVersions } from '~/store/lib/ai'
 import { UserType } from '~/store/types'
+import { DEFAULT_USER, initialBoard } from '../lib/consts'
 
-const initialBoard: Board = Array.makeBy(8, () => Array.makeBy(8, Function.constNull))
+export const usersAtom = atom<Users>(DEFAULT_USER)
 
 export const gameStateAtom = atom<GameState>(IDLE)
 export const aiVersionAtom = atom<AIVersions>('v3Overview')
 export const candidateAtom = atom(0)
 export const switchCountAtom = atom(0)
-export const usersAtom = atom({
-  [BLACK]: UserType.Human,
-  [WHITE]: UserType.Human,
-})
 export const aiVersionsAtom = atom({
   [BLACK]: null,
   [WHITE]: null,
