@@ -1,14 +1,23 @@
 import { atom } from 'jotai'
 import { atomWithReset } from 'jotai/utils'
 import { withMutative } from 'jotai-mutative'
+import { atomWithMachine } from 'jotai-xstate'
+import { createGameMachine } from '~/machines/game'
 import type { Board, GameState, Log, PastState, Users } from '~/store'
 import { computeScore } from '~/store/compute-score'
 import { BLACK, IDLE, WHITE } from '~/store/consts'
 import type { AIVersions } from '~/store/lib/ai'
-import { UserType } from '~/store/types'
+import { countCandidate } from '~/store/lib/board'
 import { DEFAULT_USER, initialBoard } from '../lib/consts'
 
 export const usersAtom = atom<Users>(DEFAULT_USER)
+export const gameMachineAtom = atomWithMachine((get) => {
+  return createGameMachine(get(usersAtom))
+})
+export const gameBoardAtom = atom((get) => {
+  const { context } = get(gameMachineAtom)
+  return { board: context.board, count: countCandidate(context.board) }
+})
 
 export const gameStateAtom = atom<GameState>(IDLE)
 export const aiVersionAtom = atom<AIVersions>('v3Overview')

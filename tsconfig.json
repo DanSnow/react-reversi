@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "lib": ["dom", "esnext"],
     "baseUrl": ".",
     "module": "es2022",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./app/*"]
     },
     "resolveJsonModule": true,
-    "types": ["vite/client", "node", "react", "react-dom"],
+    "types": ["vite/client", "node"],
     "allowJs": true,
     "noUnusedLocals": true,
     "downlevelIteration": true,

@@ -42,7 +42,7 @@ export function Score({ score, users, history }: Props): ReactElement {
         <div>lose: {history.lose}</div>
         <div>draw: {history.draw}</div>
         <Separator />
-        <p className="is-size-6 has-text-grey">{VERSION}</p>
+        {/* <p className="is-size-6 has-text-grey">{version}</p> */}
       </CardContent>
     </Card>
   )

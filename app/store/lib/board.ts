@@ -1,7 +1,9 @@
 import type { ReadonlyDeep } from 'type-fest'
 import type { Board } from '../types'
-import { create as produce } from 'mutative'
+import { Array, Equal, pipe, Predicate } from 'effect'
 
+import { create as produce } from 'mutative'
+import { BLACK_CANDIDATE, WHITE_CANDIDATE } from '../consts'
 import { directions, getCandidate, isCandidate, isEmpty, isValidPos } from './chess-utils'
 
 interface CheckFlipChess {
@@ -117,6 +119,15 @@ export function placeBoardCandidate({ board, player }: { board: ReadonlyDeep<Boa
     }
   })
   return { count, board: nextBoard }
+}
+
+export function countCandidate(board: ReadonlyDeep<Board>): number {
+  return pipe(
+    board,
+    Array.flatten,
+    Array.filter(Predicate.or(Equal.equals(WHITE_CANDIDATE), Equal.equals(BLACK_CANDIDATE))),
+    Array.length,
+  )
 }
 
 export function countPlayerChess(board: ReadonlyDeep<Board>, player: string): number {
