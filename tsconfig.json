@@ -9,7 +9,7 @@
       "~/*": ["./app/*"]
     },
     "resolveJsonModule": true,
-    "types": ["vite/client", "node"],
+    "types": ["vite/client", "node", "unplugin-icons/types/react"],
     "allowJs": true,
     "strict": true,
     "strictNullChecks": true,

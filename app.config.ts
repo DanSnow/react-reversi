@@ -1,13 +1,10 @@
 import { defineConfig } from '@tanstack/start/config'
-import { SondaRollupPlugin } from 'sonda'
+import Icons from 'unplugin-icons/vite'
 import TsConfigPath from 'vite-tsconfig-paths'
-import pkg from './package.json'
 
 export default defineConfig({
   server: {
-    appConfig: {
-      version: pkg.version,
-    },
+    preset: 'github-pages',
   },
   react: {
     babel: {
@@ -15,6 +12,12 @@ export default defineConfig({
     },
   },
   vite: {
-    plugins: () => [TsConfigPath(), SondaRollupPlugin()],
+    plugins: () => [
+      TsConfigPath(),
+      Icons({
+        compiler: 'jsx',
+        jsx: 'react',
+      }),
+    ],
   },
 })

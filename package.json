@@ -73,6 +73,9 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "3.7.3",
+    "@iconify-json/fa-solid": "1.2.0",
+    "@svgr/core": "8.1.0",
+    "@svgr/plugin-jsx": "8.1.0",
     "@testing-library/dom": "10.4.0",
     "@testing-library/react": "16.0.1",
     "@types/gh-pages": "6.1.0",
@@ -96,6 +99,7 @@
     "tailwindcss": "3.4.13",
     "type-fest": "4.26.1",
     "typescript": "5.6.3",
+    "unplugin-icons": "0.19.3",
     "vite": "5.4.8",
     "vite-tsconfig-paths": "5.0.1",
     "vitest": "2.1.2"
