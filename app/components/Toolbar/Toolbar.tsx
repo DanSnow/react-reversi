@@ -1,5 +1,8 @@
 import type { ReactElement } from 'react'
-import { Icon } from '@iconify-icon/react'
+import IconCog from '~icons/fa-solid/cog'
+import IconPoweroff from '~icons/fa-solid/power-off'
+import IconUndo from '~icons/fa-solid/undo'
+import IconUserFriends from '~icons/fa-solid/user-friends'
 import { useTranslation } from 'react-i18next'
 import { Button } from '~/components/ui/button'
 
@@ -25,24 +28,24 @@ export function Toolbar({ setHuman, reboot, allowRetract, restoreStep, onOpenSet
         <div className="flex gap-2 p-2">
           <Button onClick={setHuman}>
             <span className="mr-1">
-              <Icon icon="fa-solid:user-friends" />
+              <IconUserFriends />
             </span>
             <span>{t('Play with friend')}</span>
           </Button>
           <Button onClick={reboot}>
             <span className="mr-1">
-              <Icon icon="fa-solid:power-off" />
+              <IconPoweroff />
             </span>
             <span>{t('Restart')}</span>
           </Button>
           <Button disabled={!allowRetract} onClick={restoreStep}>
             <span>
-              <Icon icon="fa-solid:undo" />
+              <IconUndo />
             </span>
           </Button>
           <Button onClick={onOpenSetting}>
             <span>
-              <Icon icon="fa-solid:cog" />
+              <IconCog />
             </span>
           </Button>
         </div>

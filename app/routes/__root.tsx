@@ -6,13 +6,16 @@ import * as React from 'react'
 import { Provider } from 'react-redux'
 import { store as atomStore } from '~/atoms/store'
 import { store } from '~/store'
-
-import '~/styles/main.css'
+import styleUrl from '~/styles/main.css?url'
 
 import '~/i18n'
 
 export const Route = createRootRoute({
   links: () => [
+    {
+      rel: 'stylesheet',
+      href: styleUrl,
+    },
     {
       rel: 'shortcut icon',
       type: 'image/png',
@@ -60,10 +63,6 @@ export const Route = createRootRoute({
     },
   ],
   scripts: () => [
-    {
-      defer: true,
-      src: 'https://use.fontawesome.com/releases/v5.1.0/js/all.js',
-    },
     {
       async: true,
       src: 'https://www.googletagmanager.com/gtag/js?id=UA-91635441-2',
