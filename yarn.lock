@@ -8732,7 +8732,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pathe@npm:^1.1.1, pathe@npm:^1.1.2":
+"pathe@npm:1.1.2, pathe@npm:^1.1.1, pathe@npm:^1.1.2":
   version: 1.1.2
   resolution: "pathe@npm:1.1.2"
   checksum: 10/f201d796351bf7433d147b92c20eb154a4e0ea83512017bf4ec4e492a5d6e738fb45798be4259a61aa81270179fce11026f6ff0d3fa04173041de044defe9d80
@@ -9267,6 +9267,7 @@ __metadata:
     knip: "npm:5.33.3"
     lucide-react: "npm:0.452.0"
     mutative: "npm:1.0.11"
+    pathe: "npm:1.1.2"
     postcss: "npm:8.4.47"
     prettier: "npm:3.3.3"
     react: "npm:18.3.1"

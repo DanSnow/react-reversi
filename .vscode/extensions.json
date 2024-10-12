@@ -1,7 +1,10 @@
 {
   "recommendations": [
     "dbaeumer.vscode-eslint",
-    "arcanis.vscode-zipfs",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "fill-labs.dependi",
+    "codezombiech.gitignore",
+    "lokalise.i18n-ally",
+    "antfu.iconify"
   ]
 }

@@ -11,6 +11,8 @@
     "resolveJsonModule": true,
     "types": ["vite/client", "node"],
     "allowJs": true,
+    "strict": true,
+    "strictNullChecks": true,
     "noUnusedLocals": true,
     "downlevelIteration": true,
     "noEmit": true,

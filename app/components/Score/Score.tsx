@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card'
 import { Separator } from '~/components/ui/separator'
 import { BLACK, UserType, WHITE } from '../../store'
 
-function getPlayerType(player: string, users: Users): string {
+function getPlayerType(player: keyof Users, users: Users): string {
   return users[player] === UserType.AI ? 'ai' : 'player'
 }
 

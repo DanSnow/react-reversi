@@ -4,8 +4,6 @@
     "**/.yarn": true,
     "**/.pnp.*": true
   },
-  // Enable the ESlint flat config support
-  "eslint.experimental.useFlatConfig": true,
   // Disable the default formatter, use eslint instead
   "editor.formatOnSave": true,
   // Auto fix
@@ -65,5 +63,6 @@
     "jsonc",
     "yaml"
   ],
-  "i18n-ally.localesPaths": ["src"]
+  "i18n-ally.localesPaths": ["app/i18n"],
+  "i18n-ally.keystyle": "nested"
 }
