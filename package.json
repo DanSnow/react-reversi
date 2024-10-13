@@ -42,7 +42,7 @@
     "@reduxjs/toolkit": "2.2.8",
     "class-variance-authority": "0.7.0",
     "clsx": "2.1.1",
-    "effect": "3.9.1",
+    "effect": "3.9.2",
     "i18next": "23.16.0",
     "i18next-browser-languagedetector": "8.0.0",
     "jotai": "2.10.0",
