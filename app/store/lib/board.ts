@@ -2,7 +2,7 @@ import type { ReadonlyDeep } from 'type-fest'
 import type { Player } from '../types'
 
 import { Array, Equal, pipe, Predicate } from 'effect'
-import { create as produce } from 'mutative'
+import { original, create as produce } from 'mutative'
 import { BLACK_CANDIDATE, WHITE_CANDIDATE } from '../consts'
 import { Board, Chess } from '../types'
 import { directions, getCandidate, isCandidate, isEmpty, isValidPos } from './chess-utils'
@@ -87,13 +87,12 @@ export function placeAndFlip({ board: boardInput, row, col, player }: FlipAllChe
 }
 
 export function clearBoardCandidate(board: ReadonlyDeep<Board.Board>): Board.Board {
-  return produce(board, (d) => {
-    const draft = d as unknown as Board.Board
+  return produce(board, (draft: Board.MutableBoard) => {
     for (let r = 0; r < 8; r += 1) {
       for (let c = 0; c < 8; c += 1) {
         const chess = draft[r][c]
         if (chess && isCandidate(chess)) {
-          d[r][c] = null
+          draft[r][c] = null
         }
       }
     }
