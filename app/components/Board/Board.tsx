@@ -1,14 +1,14 @@
 import type { ReactElement } from 'react'
-import type { ReadonlyDeep } from 'type-fest'
 
-import { BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE } from '../../store'
+import type { Board as BoardType } from '../../store'
+import { Chess as ChessType } from '../../store'
 import { Background } from './Background'
 import Chess from './Chess'
 import { ChooseColor } from './ChooseColor'
 import { Overlay } from './Overlay'
 
 interface Props {
-  board: ReadonlyDeep<(null | string)[][]>
+  board: BoardType.Board
   showChooseColor: boolean
   overlay: string
   hint: boolean
@@ -28,8 +28,8 @@ export function Board({ reset, placeChess, board, hint, showChooseColor, overlay
               row={row}
               col={col}
               showHint={hint}
-              color={c === WHITE || c === WHITE_CANDIDATE ? 'white' : 'black'}
-              isCandidate={c === WHITE_CANDIDATE || c === BLACK_CANDIDATE}
+              color={c === ChessType.WHITE || c === ChessType.WHITE_CANDIDATE ? 'white' : 'black'}
+              isCandidate={ChessType.isCandidateChess(c)}
               onClick={placeChess}
             />
           ) : null,

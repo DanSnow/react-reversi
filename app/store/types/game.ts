@@ -1,6 +1,7 @@
-import type { ReadonlyDeep } from 'type-fest'
-import type { BLACK, ENDED, IDLE, PLAYING, WHITE } from './consts'
-import type { judgeScores } from './lib/ai'
+import type { BLACK, ENDED, IDLE, PLAYING, WHITE } from '../consts'
+import type { judgeScores } from '../lib/ai'
+import type { Board } from './board'
+import type { Player } from './player'
 
 export type GameState = typeof IDLE | typeof PLAYING | typeof ENDED
 
@@ -10,8 +11,8 @@ export interface Log {
 }
 
 export interface PastState {
-  board: (string | null)[][]
-  player: string | null
+  board: Board
+  player: Player | null
   log: Log[]
   candidate: number
   message: string
@@ -37,16 +38,6 @@ export interface Score {
   white: number
 }
 
-export enum UserType {
-  Human,
-  AI,
-}
-
-export interface Users {
-  [BLACK]: UserType
-  [WHITE]: UserType
-}
-
 export type AIVersion = keyof typeof judgeScores
 
 export interface AIVersions {
@@ -54,9 +45,7 @@ export interface AIVersions {
   [WHITE]: AIVersion | null
 }
 
-export type Board = (string | null)[][]
-
-export type AIJudgeScore = (board: ReadonlyDeep<Board>, ai: string, row: number, col: number) => number
+export type AIJudgeScore = (board: Board, ai: Player, row: number, col: number) => number
 
 export interface PointScore {
   row: number

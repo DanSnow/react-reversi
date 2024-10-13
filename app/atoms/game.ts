@@ -3,12 +3,11 @@ import { atomWithReset } from 'jotai/utils'
 import { withMutative } from 'jotai-mutative'
 import { atomWithMachine } from 'jotai-xstate'
 import { createGameMachine } from '~/machines/game'
-import type { Board, GameState, Log, PastState, Users } from '~/store'
 import { computeScore } from '~/store/compute-score'
 import { BLACK, IDLE, WHITE } from '~/store/consts'
 import type { AIVersions } from '~/store/lib/ai'
 import { countCandidate } from '~/store/lib/board'
-import { DEFAULT_USER, initialBoard } from '../lib/consts'
+import { Board, DEFAULT_USER, type GameState, type Log, type PastState, type Player, type Users } from '~/store/types'
 
 export const usersAtom = atom<Users>(DEFAULT_USER)
 export const gameMachineAtom = atomWithMachine((get) => {
@@ -27,8 +26,8 @@ export const aiVersionsAtom = atom({
   [BLACK]: null,
   [WHITE]: null,
 })
-export const playerAtom = atom<string>()
-export const boardAtom = withMutative(atomWithReset<Board>(initialBoard))
+export const playerAtom = atom<Player.Player | null>(null)
+export const boardAtom = withMutative(atomWithReset<Board.Board>(Board.EMPTY_BOARD))
 export const pastStepsAtom = withMutative(atomWithReset<PastState[]>([]))
 export const allowRetractStepsAtom = atom(0)
 export const logAtom = withMutative(atomWithReset<Log[]>([]))

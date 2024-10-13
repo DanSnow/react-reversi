@@ -1,6 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { Effect } from 'redux-saga/effects'
-import type { AIJudgeScore, Board, Coords, PointScore } from './types'
+import type { AIVersions } from './lib/ai'
+import type { AIJudgeScore, Coords, PointScore } from './types/game'
 import { Array, Number } from 'effect'
 import { RESET as ATOM_RESET } from 'jotai/utils'
 import { all, call, delay, takeEvery } from 'redux-saga/effects'
@@ -21,23 +22,11 @@ import {
 } from '~/atoms/game'
 import { store } from '~/atoms/store'
 import { historyAtom, overlayAtom } from '~/atoms/ui'
-import { DEFAULT_USER } from '~/lib/consts'
-import {
-  BLACK,
-  DEFAULT_BOARD,
-  ENDED,
-  IDLE,
-  PLAYING,
-  REBOOT,
-  RESET,
-  SWITCH_PLAYER,
-  USER_PLACE_CHESS,
-  WHITE,
-} from './consts'
+import { BLACK, ENDED, IDLE, PLAYING, REBOOT, RESET, SWITCH_PLAYER, USER_PLACE_CHESS, WHITE } from './consts'
 import { judgeScores } from './lib/ai'
 import { clearBoardCandidate, placeAndFlip, placeBoardCandidate } from './lib/board'
 import { getBestPoint, getCandidate, getOpposite, getPlayer, isPlaceable } from './lib/chess-utils'
-import { UserType } from './types'
+import { Board, DEFAULT_USER, getUserType, Player, User, UserType } from './types'
 
 export function* reboot(): Generator<Effect, void, void> {
   store.set(gameStateAtom, IDLE)
@@ -53,13 +42,16 @@ export function* reboot(): Generator<Effect, void, void> {
 export function* reset({ payload }: PayloadAction<string>): Generator<Effect, void, void> {
   yield call(reboot)
   if (payload != null) {
-    store.set(usersAtom, {
-      ...DEFAULT_USER,
-      [payload]: UserType.AI,
-    })
+    store.set(
+      usersAtom,
+      User.refined({
+        ...DEFAULT_USER,
+        [payload]: UserType.AI,
+      }),
+    )
   }
-  store.set(playerAtom, BLACK)
-  store.set(boardAtom, DEFAULT_BOARD)
+  store.set(playerAtom, Player.BLACK)
+  store.set(boardAtom, Board.DEFAULT_BOARD)
   yield call(placeCandidate)
   store.set(gameStateAtom, PLAYING)
   if (payload === BLACK) {
@@ -79,6 +71,7 @@ function* switchPlayer() {
 
   yield call(clearCandidate)
 
+  invariant(player, 'game is not start')
   const nextPlayer = getOpposite(player)
   store.set(playerAtom, nextPlayer)
 
@@ -93,7 +86,7 @@ function* switchPlayer() {
       store.set(gameMessageAtom, '')
     }
     store.set(switchCountAtom, 0)
-    if (users[nextPlayer] === UserType.AI) {
+    if (getUserType(users, nextPlayer) === UserType.AI) {
       yield call(aiJudgeScore)
       yield call(switchPlayer)
     }
@@ -116,9 +109,10 @@ function* gameSet() {
     }
     return
   }
-  const winner = score.black > score.white ? BLACK : WHITE
+  const winner = score.black > score.white ? Player.BLACK : Player.WHITE
+  const winnerType = getUserType(users, winner)
   if (hasAI && !bothAI) {
-    if (users[winner] === UserType.AI) {
+    if (winnerType === UserType.AI) {
       store.set(overlayAtom, 'You Lose')
       store.set(historyAtom, (history) => {
         history.lose += 1
@@ -135,7 +129,7 @@ function* gameSet() {
 }
 
 function* clearCandidate() {
-  store.set(boardAtom, (board: Board) => {
+  store.set(boardAtom, (board: Board.Board) => {
     return clearBoardCandidate(board)
   })
 }
@@ -143,8 +137,9 @@ function* clearCandidate() {
 function* placeCandidate() {
   const player = store.get(playerAtom)
   const board = store.get(boardAtom)
+  invariant(player, 'game is not start')
   const { board: nextBoard, count } = placeBoardCandidate({ board, player })
-  store.set(boardAtom, nextBoard as Board)
+  store.set(boardAtom, nextBoard)
   store.set(candidateAtom, count)
 }
 
@@ -152,6 +147,7 @@ function* aiJudgeScore() {
   const board = store.get(boardAtom)
   const player = store.get(playerAtom)
   const version = store.get(aiVersionAtom)
+  invariant(player, 'game is not start')
   // this function will call before switch user
   const ai = getOpposite(player)
   const scores = computeScores(board, version, player, ai)
@@ -165,10 +161,10 @@ function* aiJudgeScore() {
     })
   })
   const nextBoard = placeAndFlip({ board, row, col, player })
-  store.set(boardAtom, nextBoard as Board)
+  store.set(boardAtom, nextBoard)
 }
 
-function computeScores(board: Board, version: string, player: string, ai: string) {
+function computeScores(board: Board.Board, version: AIVersions, player: Player.Player, ai: string) {
   const scores: PointScore[] = []
   const judge: AIJudgeScore = judgeScores[version]
   invariant(judge, 'version invalid')
@@ -192,6 +188,7 @@ function computeScores(board: Board, version: string, player: string, ai: string
 function* userPlaceChess({ payload: { col, row } }: PayloadAction<Coords>) {
   const player = store.get(playerAtom)
   const board = store.get(boardAtom)
+  invariant(player, 'game is not start')
   if (!isPlaceable(board, player, row, col)) {
     // Not allow place on exist chess or not candidate
     return
@@ -207,7 +204,7 @@ function* userPlaceChess({ payload: { col, row } }: PayloadAction<Coords>) {
   })
 
   const nextBoard = placeAndFlip({ board, row, col, player })
-  store.set(boardAtom, nextBoard as Board)
+  store.set(boardAtom, nextBoard)
 
   yield call(switchPlayer)
 }

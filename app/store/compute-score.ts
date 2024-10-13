@@ -1,4 +1,4 @@
-import type { Board, Score } from './types'
+import type { Board, Score } from './types/game'
 import { Array, identity, pipe, Record, Struct } from 'effect'
 import { BLACK, WHITE } from './consts'
 

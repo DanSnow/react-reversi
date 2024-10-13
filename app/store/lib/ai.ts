@@ -1,12 +1,12 @@
-import type { ReadonlyDeep } from 'type-fest'
-import type { AIJudgeScore, Board, PointScore } from '../types'
+import type { AIJudgeScore, PointScore } from '../types/game'
 
 import { createNextState as produce } from '@reduxjs/toolkit'
 import { Array, Number as Num, Order } from 'effect'
+import { Board, Chess, type Player } from '../types'
 import { checkFlipChess, clearBoardCandidate, countPlayerChess, placeAndFlip, placeBoardCandidate } from './board'
 import { countAroundChess, directions, getBestPoint, getCandidate, getOpposite } from './chess-utils'
 
-function judgeScoreV1(board: ReadonlyDeep<Board>, ai: string, row: number, col: number): number {
+function judgeScoreV1(board: Board.Board, ai: string, row: number, col: number): number {
   const flips = directions.map(([rd, cd]) => checkFlipChess({ board, player: ai, row, col, rd, cd }))
   const atTopOrBottom = row === 0 || row === 7
   const atLeftOrRight = col === 0 || col === 7
@@ -28,32 +28,33 @@ function judgeScoreV1(board: ReadonlyDeep<Board>, ai: string, row: number, col: 
   return score
 }
 
-function judgeScoreV1PlusOverview(board: ReadonlyDeep<Board>, ai: string, row: number, col: number): number {
+function judgeScoreV1PlusOverview(board: Board.Board, ai: Player.Player, row: number, col: number): number {
   const score = judgeScoreV1(board, ai, row, col)
   return score + computeOverview(board, row, col, ai)
 }
 
-function judgeScoreV2(board: ReadonlyDeep<Board>, ai: string, row: number, col: number): number {
+function judgeScoreV2(board: Board.Board, ai: Player.Player, row: number, col: number): number {
   const flips = directions.map(([rd, cd]) => checkFlipChess({ board, player: ai, row, col, rd, cd }))
   const posScore = computePosScoreV2(board, row, col)
-  const nextBoard = produce(board, (draft: Board) => {
-    draft[row][col] = ai
+  const nextBoard = produce(board, (draft) => {
+    const aiChess = Chess.refined(ai)
+    Board.unsafeSet(draft, { row, col }, aiChess)
   })
   const willLost = computeWillLost(nextBoard, ai, row, col, posScore)
   const score = Num.sumAll(flips) * 2 + (willLost ? posScore : Math.abs(posScore) * 2) - willLost
   return score
 }
 
-function judgeScoreV2PlusOverview(board: ReadonlyDeep<Board>, ai: string, row: number, col: number): number {
+function judgeScoreV2PlusOverview(board: Board.Board, ai: Player.Player, row: number, col: number): number {
   const score = judgeScoreV2(board, ai, row, col)
   return score + computeOverview(board, row, col, ai)
 }
 
-function computeOverview(board: ReadonlyDeep<Board>, row: number, col: number, ai: string): number {
+function computeOverview(board: Board.Board, row: number, col: number, ai: Player.Player): number {
   return boardStatusScore(placeAndFlip({ board, row, col, player: ai }), ai)
 }
 
-function computePosScoreV2(board: readonly (readonly string[])[], row: number, col: number) {
+function computePosScoreV2(board: Board.Board, row: number, col: number) {
   const around = countAroundChess(board, row, col)
   const atTopOrBottom = row === 0 || row === 7
   const atLeftOrRight = col === 0 || col === 7
@@ -78,7 +79,7 @@ function computePosScoreV2(board: readonly (readonly string[])[], row: number, c
   return 0
 }
 
-function computeWillLost(nextBoard: ReadonlyDeep<Board>, ai: string, row: number, col: number, posScore: number) {
+function computeWillLost(nextBoard: Board.Board, ai: Player.Player, row: number, col: number, posScore: number) {
   const willBeFlippedList = directions.map(([rd, cd]) =>
     checkFlipChess({ board: nextBoard, player: getOpposite(ai), row: row - rd, col: col - cd, rd, cd }),
   )
@@ -88,34 +89,36 @@ function computeWillLost(nextBoard: ReadonlyDeep<Board>, ai: string, row: number
   return willLost
 }
 
-function boardStatusScore(board: ReadonlyDeep<Board>, player: string) {
+function boardStatusScore(board: Board.Board, player: Player.Player) {
   let score = 0
   const opposite = getOpposite(player)
+  const oppositeChess = Chess.refined(opposite)
+  const playerChess = Chess.refined(player)
   let selfCount = 0
   let oppositeCount = 0
   for (let row = 0; row < board.length; row++) {
     const rowArray = board[row]
     for (let col = 0; col < rowArray.length; col++) {
       if (isCorner(row, col)) {
-        if (rowArray[col] === player) {
+        if (rowArray[col] === playerChess) {
           score += 100000000
           selfCount += 1
-        } else if (rowArray[col] === opposite) {
+        } else if (rowArray[col] === oppositeChess) {
           score += -400000000
           oppositeCount += 1
         }
       } else if (isBorder(row, col)) {
-        if (rowArray[col] === player) {
+        if (rowArray[col] === playerChess) {
           score += 1000
           selfCount += 1
-        } else if (rowArray[col] === opposite) {
+        } else if (rowArray[col] === oppositeChess) {
           score += -6000
           oppositeCount += 1
         }
-      } else if (rowArray[col] === player) {
+      } else if (rowArray[col] === playerChess) {
         score += 1
         selfCount += 1
-      } else if (rowArray[col] === opposite) {
+      } else if (rowArray[col] === oppositeChess) {
         score += -2
         oppositeCount += 1
       }
@@ -131,7 +134,7 @@ function boardStatusScore(board: ReadonlyDeep<Board>, player: string) {
 }
 
 function createMinMax(judge: AIJudgeScore): AIJudgeScore {
-  return (board: ReadonlyDeep<Board>, ai: string, row: number, col: number) => {
+  return (board: Board.Board, ai: Player.Player, row: number, col: number) => {
     const { score } = computeMinMax(judge, board, ai, row, col)
     return score
   }
@@ -139,12 +142,12 @@ function createMinMax(judge: AIJudgeScore): AIJudgeScore {
 
 function computeMinMax(
   judge: AIJudgeScore,
-  board: ReadonlyDeep<Board>,
-  ai: string,
+  board: Board.Board,
+  ai: Player.Player,
   row: number,
   col: number,
   withOverviewBoost = false,
-): { score: number; nextBoard: ReadonlyDeep<Board> } {
+): { score: number; nextBoard: Board.Board } {
   const opposite = getOpposite(ai)
   const oppositeCandidate = getCandidate(opposite)
   const { board: nextBoard } = placeBoardCandidate({
@@ -185,7 +188,7 @@ function computeMinMax(
     score: -oppositeBest.score,
     nextBoard: clearBoardCandidate(
       placeAndFlip({
-        board: nextBoard as Board,
+        board: nextBoard,
         row: oppositeBest.row,
         col: oppositeBest.col,
         player: getOpposite(ai),
@@ -195,7 +198,7 @@ function computeMinMax(
 }
 
 function createIterateMinMax(judge: AIJudgeScore, time: number) {
-  return (board: ReadonlyDeep<Board>, ai: string, row: number, col: number) => {
+  return (board: Board.Board, ai: Player.Player, row: number, col: number) => {
     let score: number
 
     for (let i = 0; i < time; i++) {
