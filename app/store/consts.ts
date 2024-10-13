@@ -1,7 +1,3 @@
-import { freeze } from '@reduxjs/toolkit'
-import { Array } from 'effect'
-import { createNull } from './utils'
-
 // Sagas
 export const REBOOT = 'REBOOT'
 export const RESET = 'RESET'
@@ -18,14 +14,3 @@ export const BLACK_CANDIDATE = 'BC'
 export const IDLE = 'IDLE'
 export const PLAYING = 'PLAYING'
 export const ENDED = 'ENDED'
-
-export const DEFAULT_BOARD = freeze([
-  Array.makeBy(8, createNull),
-  Array.makeBy(8, createNull),
-  Array.makeBy(8, createNull),
-  [null, null, null, BLACK, WHITE, null, null, null],
-  [null, null, null, WHITE, BLACK, null, null, null],
-  Array.makeBy(8, createNull),
-  Array.makeBy(8, createNull),
-  Array.makeBy(8, createNull),
-])

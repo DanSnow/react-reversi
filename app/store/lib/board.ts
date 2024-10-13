@@ -1,13 +1,14 @@
 import type { ReadonlyDeep } from 'type-fest'
-import type { Board } from '../types'
-import { Array, Equal, pipe, Predicate } from 'effect'
+import type { Player } from '../types'
 
+import { Array, Equal, pipe, Predicate } from 'effect'
 import { create as produce } from 'mutative'
 import { BLACK_CANDIDATE, WHITE_CANDIDATE } from '../consts'
+import { Board, Chess } from '../types'
 import { directions, getCandidate, isCandidate, isEmpty, isValidPos } from './chess-utils'
 
 interface CheckFlipChess {
-  board: ReadonlyDeep<Board>
+  board: ReadonlyDeep<Board.Board>
   player: string
   row: number
   col: number
@@ -16,8 +17,8 @@ interface CheckFlipChess {
 }
 
 interface FlipChess {
-  board: Board
-  player: string
+  board: Board.MutableBoard
+  player: Player.Player
   row: number
   col: number
   rd: number
@@ -50,15 +51,17 @@ function flipChess({ board, player, row, col, rd, cd }: FlipChess) {
     return false
   }
 
+  const playerChess = Chess.refined(player)
+
   let r = row + rd
   let c = col + cd
 
   while (isValidPos(r, c)) {
-    if (isEmpty(board[r][c]) || board[r][c] === player) {
+    if (isEmpty(board[r][c]) || board[r][c] === playerChess) {
       break
     }
 
-    board[r][c] = player
+    Board.unsafeSet(board, { row: r, col: c }, playerChess)
     r += rd
     c += cd
   }
@@ -66,38 +69,40 @@ function flipChess({ board, player, row, col, rd, cd }: FlipChess) {
 }
 
 interface FlipAllChess {
-  board: ReadonlyDeep<Board>
+  board: ReadonlyDeep<Board.Board>
   row: number
   col: number
-  player: string
+  player: Player.Player
 }
 
-export function placeAndFlip({ board, row, col, player }: FlipAllChess): ReadonlyDeep<Board> {
-  return produce(board, (draft) => {
+export function placeAndFlip({ board: boardInput, row, col, player }: FlipAllChess): Board.Board {
+  return produce(boardInput, (draft) => {
+    const playerChess = Chess.refined(player)
     for (let i = 0; i < 8; i += 1) {
       const [rd, cd] = directions[i]
       flipChess({ board: draft, player, row, col, rd, cd })
     }
-    draft[row][col] = player
-  })
+    draft[row][col] = playerChess
+  }) as Board.Board
 }
 
-export function clearBoardCandidate(board: ReadonlyDeep<Board>): ReadonlyDeep<Board> {
-  return produce(board, (draft) => {
+export function clearBoardCandidate(board: ReadonlyDeep<Board.Board>): Board.Board {
+  return produce(board, (d) => {
+    const draft = d as unknown as Board.Board
     for (let r = 0; r < 8; r += 1) {
       for (let c = 0; c < 8; c += 1) {
         const chess = draft[r][c]
-        if (isCandidate(chess)) {
-          draft[r][c] = null
+        if (chess && isCandidate(chess)) {
+          d[r][c] = null
         }
       }
     }
-  })
+  }) as Board.Board
 }
 
-export function placeBoardCandidate({ board, player }: { board: ReadonlyDeep<Board>; player: string }): {
+export function placeBoardCandidate({ board, player }: { board: Board.Board; player: Player.Player }): {
   count: number
-  board: ReadonlyDeep<Board>
+  board: Board.Board
 } {
   const chess = getCandidate(player)
   let count = 0
@@ -121,7 +126,7 @@ export function placeBoardCandidate({ board, player }: { board: ReadonlyDeep<Boa
   return { count, board: nextBoard }
 }
 
-export function countCandidate(board: ReadonlyDeep<Board>): number {
+export function countCandidate(board: ReadonlyDeep<Board.Board>): number {
   return pipe(
     board,
     Array.flatten,
@@ -130,7 +135,7 @@ export function countCandidate(board: ReadonlyDeep<Board>): number {
   )
 }
 
-export function countPlayerChess(board: ReadonlyDeep<Board>, player: string): number {
+export function countPlayerChess(board: ReadonlyDeep<Board.Board>, player: string): number {
   let count = 0
   for (let row = 0; row < board.length; row++) {
     const rowArray = board[row]

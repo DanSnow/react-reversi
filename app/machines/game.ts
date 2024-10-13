@@ -1,41 +1,35 @@
 import invariant from 'tiny-invariant'
 import { assign, setup } from 'xstate'
-import { initialBoard } from '~/lib/consts'
-import type { Board, UserType, WHITE } from '~/store'
-import { BLACK, DEFAULT_BOARD } from '~/store'
+import type { Users } from '~/store'
+import { Board, Player } from '~/store'
 import { clearBoardCandidate, placeBoardCandidate } from '~/store/lib/board'
 import { getOpposite } from '~/store/lib/chess-utils'
-
-interface Users {
-  [BLACK]: UserType
-  [WHITE]: UserType
-}
 
 export const createGameMachine = (users: Users) =>
   setup({
     types: {
       context: {} as {
-        board: Board
+        board: Board.Board
         users: Users
         switchCount: number
-        currentPlayer: string
+        currentPlayer: Player.Player
       },
-      events: {} as { type: 'turn' } | { type: 'start' } | { type: 'placed'; nextBoard: Board },
+      events: {} as { type: 'turn' } | { type: 'start' } | { type: 'placed'; nextBoard: Board.Board },
     },
     actions: {
       initialGame: assign({
-        board: () => DEFAULT_BOARD,
+        board: () => Board.DEFAULT_BOARD,
       }),
       placeCandidate: assign({
         board: ({ context }) => {
           const { board } = placeBoardCandidate({ board: context.board, player: context.currentPlayer })
-          return board as Board
+          return board
         },
       }),
       clearCandidate: assign({
         board: ({ context }) => {
           const board = clearBoardCandidate(context.board)
-          return board as Board
+          return board
         },
       }),
       resetSwitch: assign({
@@ -62,10 +56,10 @@ export const createGameMachine = (users: Users) =>
     },
   }).createMachine({
     context: {
-      board: initialBoard,
+      board: Board.EMPTY_BOARD,
       switchCount: 0,
       users,
-      currentPlayer: BLACK,
+      currentPlayer: Player.BLACK,
     },
     id: 'Reversi',
     initial: 'IDLE',

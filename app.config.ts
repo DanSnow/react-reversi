@@ -1,5 +1,6 @@
 import { defineConfig } from '@tanstack/start/config'
 import Icons from 'unplugin-icons/vite'
+import Inspect from 'vite-plugin-inspect'
 import TsConfigPath from 'vite-tsconfig-paths'
 
 export default defineConfig({
@@ -13,6 +14,7 @@ export default defineConfig({
   },
   vite: {
     plugins: () => [
+      Inspect({ open: true }),
       TsConfigPath(),
       Icons({
         compiler: 'jsx',

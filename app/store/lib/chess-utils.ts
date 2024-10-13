@@ -1,10 +1,8 @@
-import type { ReadonlyDeep } from 'type-fest'
-
-// import { filter, first,  map, maxBy,  prop, sample } from 'remeda'
 import type { Cause } from 'effect'
+import type { ReadonlyDeep } from 'type-fest'
 import type { Board, PointScore } from '../types'
 import { Array, Effect, Option, Order, pipe, Random } from 'effect'
-import { BLACK, BLACK_CANDIDATE, WHITE, WHITE_CANDIDATE } from '../consts'
+import { Chess, Player } from '../types'
 
 export const directions = [
   [-1, 0], // Up
@@ -21,39 +19,46 @@ export function isValidPos(row: number, col: number): boolean {
   return row < 8 && row >= 0 && col < 8 && col >= 0
 }
 
-export function getOpposite(player: string): string {
-  return player === WHITE ? BLACK : WHITE
+export function getOpposite(player: Player.Player): Player.Player {
+  return player === Player.WHITE ? Player.BLACK : Player.WHITE
 }
 
-export function isCandidate(chess: string): boolean {
-  return chess === BLACK_CANDIDATE || chess === WHITE_CANDIDATE
+export function isCandidate(chess: Chess.Chess): boolean {
+  return Chess.isCandidateChess(chess)
 }
 
-export function isEmpty(chess: string | null): boolean {
+export function isEmpty(chess: Chess.Chess | null): boolean {
   return !chess || isCandidate(chess)
 }
 
-export function isPlaceable(board: ReadonlyDeep<Board>, player: string, row: number, col: number): boolean {
+export function isPlaceable(
+  board: ReadonlyDeep<Board.Board>,
+  player: Player.Player,
+  row: number,
+  col: number,
+): boolean {
   const candidate = getCandidate(player)
   return isValidPos(row, col) && board[row][col] === candidate
 }
 
-export function getChess(board: ReadonlyDeep<Board>, row: number, col: number): string | null {
+export function getChess(board: ReadonlyDeep<Board.Board>, row: number, col: number): Chess.Chess | null {
   if (isValidPos(row, col)) {
-    return !isEmpty(board[row][col]) && board[row][col]
+    if (!isEmpty(board[row][col])) {
+      return board[row][col]
+    }
   }
   return null
 }
 
-export function getCandidate(player: string): string {
-  return player === WHITE ? WHITE_CANDIDATE : BLACK_CANDIDATE
+export function getCandidate(player: Player.Player): Chess.Chess {
+  return player === Player.WHITE ? Chess.WHITE_CANDIDATE : Chess.BLACK_CANDIDATE
 }
 
-export function getPlayer(player: string): string {
-  return player === WHITE ? 'white' : 'black'
+export function getPlayer(player: Player.Player): string {
+  return player === Player.WHITE ? 'white' : 'black'
 }
 
-export function countAroundChess(board: ReadonlyDeep<Board>, row: number, col: number): number {
+export function countAroundChess(board: ReadonlyDeep<Board.Board>, row: number, col: number): number {
   return directions.reduce((s, [rd, cd]) => s + Number(!!getChess(board, row + rd, col + cd)), 0)
 }
 

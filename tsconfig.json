@@ -1,22 +1,6 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "lib": ["dom", "esnext"],
-    "baseUrl": ".",
-    "module": "es2022",
-    "moduleResolution": "Bundler",
-    "paths": {
-      "~/*": ["./app/*"]
-    },
-    "resolveJsonModule": true,
-    "types": ["vite/client", "node", "unplugin-icons/types/react"],
-    "allowJs": true,
-    "strict": true,
-    "strictNullChecks": true,
-    "noUnusedLocals": true,
-    "downlevelIteration": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true
-  }
+    "jsx": "react-jsx"
+  },
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
 }
