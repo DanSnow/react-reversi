@@ -27,10 +27,7 @@ export const createGameMachine = (users: Users) =>
         },
       }),
       clearCandidate: assign({
-        board: ({ context }) => {
-          const board = clearBoardCandidate(context.board)
-          return board
-        },
+        board: ({ context }) => clearBoardCandidate(context.board),
       }),
       resetSwitch: assign({
         switchCount: 0,
@@ -56,7 +53,7 @@ export const createGameMachine = (users: Users) =>
     },
   }).createMachine({
     context: {
-      board: Board.EMPTY_BOARD,
+      board: Board.DEFAULT_BOARD,
       switchCount: 0,
       users,
       currentPlayer: Player.BLACK,
@@ -74,6 +71,11 @@ export const createGameMachine = (users: Users) =>
           },
         },
       },
+      GAME_LOOP: {
+        always: {
+          target: 'PLACE_CHESS',
+        },
+      },
       PLACE_CHESS: {
         entry: {
           type: 'placeCandidate',
@@ -83,7 +85,7 @@ export const createGameMachine = (users: Users) =>
         },
         on: {
           placed: {
-            target: 'PLACE_CHESS',
+            target: 'GAME_LOOP',
             actions: [
               {
                 type: 'resetSwitch',
@@ -97,7 +99,7 @@ export const createGameMachine = (users: Users) =>
             ],
           },
           turn: {
-            target: 'PLACE_CHESS',
+            target: 'GAME_LOOP',
             actions: [
               {
                 type: 'increaseSwitch',
