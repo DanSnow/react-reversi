@@ -3166,10 +3166,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"effect@npm:3.9.2":
-  version: 3.9.2
-  resolution: "effect@npm:3.9.2"
-  checksum: 10/90722dc0cb8c9b90eb7c9dd021befb29bebb0fd65ec7889b098191b727806d2e004ede75e3094f6258e8dbb77225146e388eb9c9ec77b0486bc89c9eba9ec4fb
+"effect@npm:3.10.0":
+  version: 3.10.0
+  resolution: "effect@npm:3.10.0"
+  dependencies:
+    fast-check: "npm:^3.21.0"
+  checksum: 10/bb4af2d9d60b332dedc7358121a321a541a7404d4993c1f15dfda674b73a06e14b09baafefbce9439ac6fc668c47c314fdd21b1963b65d917f35ad8fc13bf6b9
   languageName: node
   linkType: hard
 
@@ -3873,6 +3875,15 @@ __metadata:
   version: 3.1.1
   resolution: "exponential-backoff@npm:3.1.1"
   checksum: 10/2d9bbb6473de7051f96790d5f9a678f32e60ed0aa70741dc7fdc96fec8d631124ec3374ac144387604f05afff9500f31a1d45bd9eee4cdc2e4f9ad2d9b9d5dbd
+  languageName: node
+  linkType: hard
+
+"fast-check@npm:^3.21.0":
+  version: 3.22.0
+  resolution: "fast-check@npm:3.22.0"
+  dependencies:
+    pure-rand: "npm:^6.1.0"
+  checksum: 10/26ae7cc228fcd9759124db10cbbc01efff730bcdc848544ec7c3a533b9d88dec88d2a4a79da0ea4eb1ec78611dc6576f06f3fa5f8ff7126ad2eecf5ce3da57c6
   languageName: node
   linkType: hard
 
@@ -6400,6 +6411,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pure-rand@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "pure-rand@npm:6.1.0"
+  checksum: 10/256aa4bcaf9297256f552914e03cbdb0039c8fe1db11fa1e6d3f80790e16e563eb0a859a1e61082a95e224fc0c608661839439f8ecc6a3db4e48d46d99216ee4
+  languageName: node
+  linkType: hard
+
 "queue-microtask@npm:^1.2.2":
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
@@ -6614,7 +6632,7 @@ __metadata:
     autoprefixer: "npm:10.4.20"
     class-variance-authority: "npm:0.7.0"
     clsx: "npm:2.1.1"
-    effect: "npm:3.9.2"
+    effect: "npm:3.10.0"
     eslint: "npm:9.13.0"
     eslint-plugin-prettier: "npm:5.2.1"
     gh-pages: "npm:6.2.0"
