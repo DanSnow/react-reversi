@@ -4665,12 +4665,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jiti@npm:^2.3.3":
-  version: 2.3.3
-  resolution: "jiti@npm:2.3.3"
+"jiti@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "jiti@npm:2.4.0"
   bin:
     jiti: lib/jiti-cli.mjs
-  checksum: 10/21d1e89d909101c702769537e75ad87b433f980bc6938a6f64a90d1fbe7cb1510a0d4b82d4020b3093b47cebff5568af5e39d883e26aa4413564ced43b8cfd84
+  checksum: 10/10aa999a4f9bccc82b1dab9ebaf4484a8770450883c1bf7fafc07f8fca1e417fd8e7731e651337d1060c9e2ff3f97362dcdfd27e86d1f385db97f4adf7b5a21d
   languageName: node
   linkType: hard
 
@@ -4872,16 +4872,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"knip@npm:5.36.0":
-  version: 5.36.0
-  resolution: "knip@npm:5.36.0"
+"knip@npm:5.36.1":
+  version: 5.36.1
+  resolution: "knip@npm:5.36.1"
   dependencies:
     "@nodelib/fs.walk": "npm:1.2.8"
     "@snyk/github-codeowners": "npm:1.1.0"
     easy-table: "npm:1.2.0"
     enhanced-resolve: "npm:^5.17.1"
     fast-glob: "npm:^3.3.2"
-    jiti: "npm:^2.3.3"
+    jiti: "npm:^2.4.0"
     js-yaml: "npm:^4.1.0"
     minimist: "npm:^1.2.8"
     picocolors: "npm:^1.1.0"
@@ -4898,7 +4898,7 @@ __metadata:
   bin:
     knip: bin/knip.js
     knip-bun: bin/knip-bun.js
-  checksum: 10/7e8737367c07e24242f4cf8178320223de40b889d2644d2809e28269fbfb81b0a980b536c278fc719e5a545692c35d1072347aef0a8d887e3e3b0c5e0e949478
+  checksum: 10/fe2bd375a4beae2a77d3da3258c3440ee9d9bfe46e7bd36fec8ab77364b4fd41660056182568b25d7b4bc723aa1cf4b67b9c6cad70466eeb9b8dd29093ea2335
   languageName: node
   linkType: hard
 
@@ -6649,7 +6649,7 @@ __metadata:
     jotai-devtools: "npm:0.10.1"
     jotai-mutative: "npm:1.0.2"
     jotai-xstate: "npm:0.5.0"
-    knip: "npm:5.36.0"
+    knip: "npm:5.36.1"
     lucide-react: "npm:0.454.0"
     mutative: "npm:1.0.11"
     postcss: "npm:8.4.47"
