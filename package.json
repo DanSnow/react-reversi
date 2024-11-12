@@ -80,7 +80,7 @@
     "eslint": "9.14.0",
     "eslint-plugin-prettier": "5.2.1",
     "gh-pages": "6.2.0",
-    "happy-dom": "15.11.0",
+    "happy-dom": "15.11.2",
     "jotai-devtools": "0.10.1",
     "knip": "5.36.7",
     "postcss": "8.4.49",
