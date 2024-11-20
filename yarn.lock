@@ -4429,12 +4429,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:23.16.6":
-  version: 23.16.6
-  resolution: "i18next@npm:23.16.6"
+"i18next@npm:23.16.8":
+  version: 23.16.8
+  resolution: "i18next@npm:23.16.8"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
-  checksum: 10/38e8e92707c5c9eec0ba9fc46b0b036889467e738462b101478665e9aedd54570cc33bc3e6c891c2ec15ab683673a5ecacc0ae61ed5c91f2d1cd872d4c36cfc2
+  checksum: 10/d5c38011de4d3b4aa466fac6773520eb28007b9d6138e03432bfbfc0d041c04df45e15c67d96f22cd660088cc9b24d3eda32cddc9fb4c6508c5afada6c2e6290
   languageName: node
   linkType: hard
 
@@ -6681,7 +6681,7 @@ __metadata:
     eslint-plugin-prettier: "npm:5.2.1"
     gh-pages: "npm:6.2.0"
     happy-dom: "npm:15.11.6"
-    i18next: "npm:23.16.6"
+    i18next: "npm:23.16.8"
     i18next-browser-languagedetector: "npm:8.0.0"
     jotai: "npm:2.10.3"
     jotai-devtools: "npm:0.10.1"
