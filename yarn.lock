@@ -5833,10 +5833,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mutative@npm:1.0.11":
-  version: 1.0.11
-  resolution: "mutative@npm:1.0.11"
-  checksum: 10/c69ef64c9c4060968cdae3cf983a335ac9eeb69093ac4cd941c76cea0806d7c01d5bc1bdcb149529e768e7d0ec51f892be179f8b178585c670370deffb849a4e
+"mutative@npm:1.1.0":
+  version: 1.1.0
+  resolution: "mutative@npm:1.1.0"
+  checksum: 10/45320a3a8a11f64c7d6404d5a09b877117b57a40f0b1b79a1dc2a75eea781966b50663681641b3b26842ad5e286afcbd2c90b15eb9137ecf3d8fbd073f38bab1
   languageName: node
   linkType: hard
 
@@ -6689,7 +6689,7 @@ __metadata:
     jotai-xstate: "npm:0.6.0"
     knip: "npm:5.37.2"
     lucide-react: "npm:0.460.0"
-    mutative: "npm:1.0.11"
+    mutative: "npm:1.1.0"
     postcss: "npm:8.4.49"
     prettier: "npm:3.3.3"
     react: "npm:18.3.1"
