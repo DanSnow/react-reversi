@@ -89,7 +89,7 @@
     "shadcn-ui": "0.9.3",
     "sonda": "0.6.1",
     "tailwindcss": "3.4.15",
-    "type-fest": "4.27.0",
+    "type-fest": "4.27.1",
     "typescript": "5.7.2",
     "vite": "5.4.11",
     "vitest": "2.1.5"
