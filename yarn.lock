@@ -6638,7 +6638,7 @@ __metadata:
     tailwindcss: "npm:3.4.15"
     tailwindcss-animate: "npm:1.0.7"
     tiny-invariant: "npm:1.3.3"
-    type-fest: "npm:4.28.0"
+    type-fest: "npm:4.28.1"
     typescript: "npm:5.7.2"
     vite: "npm:5.4.11"
     vitest: "npm:2.1.5"
@@ -7685,10 +7685,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:4.28.0, type-fest@npm:^4.12.0":
-  version: 4.28.0
-  resolution: "type-fest@npm:4.28.0"
-  checksum: 10/2fc54972af0aff1846786c11beeb2e446a1a6ea19b07ba80db1d3f24894002e0ed3de7f40d2a1007fe2e6e6da264a3790a844d744825dba3d31505d1983df2a5
+"type-fest@npm:4.28.1, type-fest@npm:^4.12.0":
+  version: 4.28.1
+  resolution: "type-fest@npm:4.28.1"
+  checksum: 10/52dcde6009dcda553a202fd4433be004c5ee6fd7dde0ef72373616f1b3bda437d45b490fbf07af8ca83b014918e3f9ce251cde546f66e70fc29974f3f917eff2
   languageName: node
   linkType: hard
 
