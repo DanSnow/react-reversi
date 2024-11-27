@@ -5097,9 +5097,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"knip@npm:5.37.2":
-  version: 5.37.2
-  resolution: "knip@npm:5.37.2"
+"knip@npm:5.38.1":
+  version: 5.38.1
+  resolution: "knip@npm:5.38.1"
   dependencies:
     "@nodelib/fs.walk": "npm:1.2.8"
     "@snyk/github-codeowners": "npm:1.1.0"
@@ -5112,7 +5112,7 @@ __metadata:
     picocolors: "npm:^1.1.0"
     picomatch: "npm:^4.0.1"
     pretty-ms: "npm:^9.0.0"
-    smol-toml: "npm:^1.3.0"
+    smol-toml: "npm:^1.3.1"
     strip-json-comments: "npm:5.0.1"
     summary: "npm:2.1.0"
     zod: "npm:^3.22.4"
@@ -5123,7 +5123,7 @@ __metadata:
   bin:
     knip: bin/knip.js
     knip-bun: bin/knip-bun.js
-  checksum: 10/bce209845eb14fe1fe27367f29c111d5b485305dfbc415db70c27dbef615c9f311c8a3aad44430dd3ad03a1ce616830a7a3f9ac460c2fa41464c234127ef24ec
+  checksum: 10/d711b9cfffd7dfc0408352f5cddaab17ed4792ddab8106f3e64bad04316577113304dd2da4a12e544bd088ea52a8967570382b3f0bda51b14789affef8f7a821
   languageName: node
   linkType: hard
 
@@ -6874,7 +6874,7 @@ __metadata:
     jotai-devtools: "npm:0.10.1"
     jotai-mutative: "npm:1.0.2"
     jotai-xstate: "npm:0.6.0"
-    knip: "npm:5.37.2"
+    knip: "npm:5.38.1"
     lucide-react: "npm:0.461.0"
     mutative: "npm:1.1.0"
     postcss: "npm:8.4.49"
@@ -7434,10 +7434,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"smol-toml@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "smol-toml@npm:1.3.0"
-  checksum: 10/dc3e49a9202abca4a60c352ff48c8088a0c48886924b81a0fbab8c66d4575aaa1867f4eac783acea00dcfa34047ccd22634040d2282f9ccb05dc73511c1b0e4e
+"smol-toml@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "smol-toml@npm:1.3.1"
+  checksum: 10/b999828ea46cf44ae90b6293884d6a139dfb4545ac6f86cbd1002568a943a43d8895ad82413855d095eec0c0bc21d23413c0a25a26c7fad6395c2ce42c2fdbd0
   languageName: node
   linkType: hard
 
