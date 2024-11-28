@@ -22,9 +22,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@antfu/eslint-config@npm:3.11.0":
-  version: 3.11.0
-  resolution: "@antfu/eslint-config@npm:3.11.0"
+"@antfu/eslint-config@npm:3.11.2":
+  version: 3.11.2
+  resolution: "@antfu/eslint-config@npm:3.11.2"
   dependencies:
     "@antfu/install-pkg": "npm:^0.5.0"
     "@clack/prompts": "npm:^0.8.2"
@@ -33,7 +33,7 @@ __metadata:
     "@stylistic/eslint-plugin": "npm:^2.11.0"
     "@typescript-eslint/eslint-plugin": "npm:^8.16.0"
     "@typescript-eslint/parser": "npm:^8.16.0"
-    "@vitest/eslint-plugin": "npm:^1.1.11"
+    "@vitest/eslint-plugin": "npm:^1.1.12"
     eslint-config-flat-gitignore: "npm:^0.3.0"
     eslint-flat-config-utils: "npm:^0.4.0"
     eslint-merge-processors: "npm:^0.1.0"
@@ -105,7 +105,7 @@ __metadata:
       optional: true
   bin:
     eslint-config: bin/index.js
-  checksum: 10/ef60682e802ef2ec1b37236b73f6b583595fcb5d4099575921932d20a9549bae629fc5bc0673b52fe4fdd76c873866808efd453c3e0bf4d65cd37ab984b95578
+  checksum: 10/4e846f699173daa1f408d17bb1726981cb971f99fdf5fb02df6e2316802cf2d8d1407d3c3f553601e8b8981bc3e8c9eed38a60ceac2416ad94b7de4668df6a5f
   languageName: node
   linkType: hard
 
@@ -2337,9 +2337,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/eslint-plugin@npm:^1.1.11":
-  version: 1.1.11
-  resolution: "@vitest/eslint-plugin@npm:1.1.11"
+"@vitest/eslint-plugin@npm:^1.1.12":
+  version: 1.1.12
+  resolution: "@vitest/eslint-plugin@npm:1.1.12"
   peerDependencies:
     "@typescript-eslint/utils": ">= 8.0"
     eslint: ">= 8.57.0"
@@ -2350,7 +2350,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: 10/6bfa180b37d693656adee837cce16089e8603774795144071fc2b15244549c693f6d4f29782669f8a24837394cecfa4b25e41f89e678b84ba96d587019001d9f
+  checksum: 10/0847f338e6c9414ab9cf948dbc9b1231fc5f1070a476b950f2fccff2e570518ae11785830ede8ec421de8a9b710ef5fd36dd890541c6b624fc754fbc06306812
   languageName: node
   linkType: hard
 
@@ -6843,7 +6843,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-reversi@workspace:."
   dependencies:
-    "@antfu/eslint-config": "npm:3.11.0"
+    "@antfu/eslint-config": "npm:3.11.2"
     "@hookform/resolvers": "npm:3.9.1"
     "@radix-ui/react-checkbox": "npm:1.1.2"
     "@radix-ui/react-dialog": "npm:1.1.2"
