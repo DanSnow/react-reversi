@@ -5033,12 +5033,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-react@npm:0.462.0":
-  version: 0.462.0
-  resolution: "lucide-react@npm:0.462.0"
+"lucide-react@npm:0.464.0":
+  version: 0.464.0
+  resolution: "lucide-react@npm:0.464.0"
   peerDependencies:
     react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
-  checksum: 10/a9f4d1eae10d6bcd02de6e81f9aba4286fe734c0fe383437e1e6964a2cd8efaabacc38197b7f39eaf4e44cc71103533158b1a7ae06bdcc40506f090380e8b872
+  checksum: 10/b85d4dff47b0e3b15222ae4d0244695c95f154e7705e04d4ee6583c9f62c5a48d7ee2cc3e64b7f6d9e95b9ba4fd5b94c9aab0c9552beedf9927f139c442ee5dc
   languageName: node
   linkType: hard
 
@@ -6624,7 +6624,7 @@ __metadata:
     jotai-mutative: "npm:1.0.2"
     jotai-xstate: "npm:0.6.0"
     knip: "npm:5.39.1"
-    lucide-react: "npm:0.462.0"
+    lucide-react: "npm:0.464.0"
     mutative: "npm:1.1.0"
     postcss: "npm:8.4.49"
     prettier: "npm:3.4.1"
