@@ -6445,12 +6445,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-hook-form@npm:7.53.2":
-  version: 7.53.2
-  resolution: "react-hook-form@npm:7.53.2"
+"react-hook-form@npm:7.54.0":
+  version: 7.54.0
+  resolution: "react-hook-form@npm:7.54.0"
   peerDependencies:
     react: ^16.8.0 || ^17 || ^18 || ^19
-  checksum: 10/172589ac5871bd41717e8c6bc4c825d149db88eb02e356a8fef4115615a56b21bf66ad16954575b1d6302ed265b8780f1975a2730d5aa10a53e412b56d9f72ca
+  checksum: 10/dd3f133d7635ee610e6c16630de757d1b534b397833f36e2d981a7a84334446d92ac4f17b683a11eeaf55064730a13d262c933c188390974e449256c9047d979
   languageName: node
   linkType: hard
 
@@ -6631,7 +6631,7 @@ __metadata:
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     react-github-corner: "npm:2.5.0"
-    react-hook-form: "npm:7.53.2"
+    react-hook-form: "npm:7.54.0"
     react-i18next: "npm:15.1.3"
     react-redux: "npm:9.1.2"
     react-refresh: "npm:0.16.0"
