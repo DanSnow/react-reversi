@@ -4921,9 +4921,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jotai@npm:2.10.3":
-  version: 2.10.3
-  resolution: "jotai@npm:2.10.3"
+"jotai@npm:2.10.4":
+  version: 2.10.4
+  resolution: "jotai@npm:2.10.4"
   peerDependencies:
     "@types/react": ">=17.0.0"
     react: ">=17.0.0"
@@ -4932,7 +4932,7 @@ __metadata:
       optional: true
     react:
       optional: true
-  checksum: 10/b81722db9575a72f45ee451b5fac9bdc2c119d4dadfdda2606e646d6aee309d02e26afabeaa5939c722f5e78bac21de4c9ee15fb5ea2815a924be87dd1ff4faf
+  checksum: 10/4ea2be5150c211178dba25716e5d090896f1cdca60a8be466db9eb3f5dd7e445695193d8d36c7d1e0bc0aa887bdd99dae31c191950046ae4f40556c3de4cb2fe
   languageName: node
   linkType: hard
 
@@ -6823,7 +6823,7 @@ __metadata:
     happy-dom: "npm:15.11.7"
     i18next: "npm:23.16.8"
     i18next-browser-languagedetector: "npm:8.0.2"
-    jotai: "npm:2.10.3"
+    jotai: "npm:2.10.4"
     jotai-devtools: "npm:0.10.1"
     jotai-mutative: "npm:1.1.0"
     jotai-xstate: "npm:0.6.0"

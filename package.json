@@ -45,7 +45,7 @@
     "effect": "3.11.7",
     "i18next": "23.16.8",
     "i18next-browser-languagedetector": "8.0.2",
-    "jotai": "2.10.3",
+    "jotai": "2.10.4",
     "jotai-mutative": "1.1.0",
     "jotai-xstate": "0.6.0",
     "lucide-react": "0.468.0",
