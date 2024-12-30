@@ -6657,9 +6657,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:15.3.0":
-  version: 15.3.0
-  resolution: "react-i18next@npm:15.3.0"
+"react-i18next@npm:15.4.0":
+  version: 15.4.0
+  resolution: "react-i18next@npm:15.4.0"
   dependencies:
     "@babel/runtime": "npm:^7.25.0"
     html-parse-stringify: "npm:^3.0.1"
@@ -6671,7 +6671,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: 10/196596216ef7b4708825fcdfcefa2f92adca4a95378d7290f81ddf1826dc7199e73ecb357ae3a5c1187a9bd8fd36e4ba6917ca3eb81009e21d4dcf9e2d4f87a3
+  checksum: 10/4b3666d819f01cf96a256af4419b26938d314e33c6388eafccc29f67ad02994e5d53e7bf82eac656cade7f7bcd04f4a237f0b293165d7eda91d62e3fde605a38
   languageName: node
   linkType: hard
 
@@ -6835,7 +6835,7 @@ __metadata:
     react-dom: "npm:18.3.1"
     react-github-corner: "npm:2.5.0"
     react-hook-form: "npm:7.54.2"
-    react-i18next: "npm:15.3.0"
+    react-i18next: "npm:15.4.0"
     react-redux: "npm:9.2.0"
     react-refresh: "npm:0.16.0"
     react-twc: "npm:1.4.2"
