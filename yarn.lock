@@ -3008,10 +3008,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^11.0.0":
-  version: 11.1.0
-  resolution: "commander@npm:11.1.0"
-  checksum: 10/66bd2d8a0547f6cb1d34022efb25f348e433b0e04ad76a65279b1b09da108f59a4d3001ca539c60a7a46ea38bcf399fc17d91adad76a8cf43845d8dcbaf5cda1
+"commander@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "commander@npm:13.0.0"
+  checksum: 10/e89d5bf61e84e65e0cfdfcfb740049cf6bcaba63fc32a610375957a2a57373d42f7b00fc64bec5bdde0e547593fa184f869dfabe8a415bc4fd4482edf2fb5ca8
   languageName: node
   linkType: hard
 
@@ -4388,12 +4388,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gh-pages@npm:6.2.0":
-  version: 6.2.0
-  resolution: "gh-pages@npm:6.2.0"
+"gh-pages@npm:6.3.0":
+  version: 6.3.0
+  resolution: "gh-pages@npm:6.3.0"
   dependencies:
     async: "npm:^3.2.4"
-    commander: "npm:^11.0.0"
+    commander: "npm:^13.0.0"
     email-addresses: "npm:^5.0.0"
     filenamify: "npm:^4.3.0"
     find-cache-dir: "npm:^3.3.1"
@@ -4402,7 +4402,7 @@ __metadata:
   bin:
     gh-pages: bin/gh-pages.js
     gh-pages-clean: bin/gh-pages-clean.js
-  checksum: 10/c86b99aa6f63de073c2ea0f8b8d0890dcb4e941fb57eade119386460fb870f23a0edfc26addd90cd5de92d04796c39d8c70c62fb3bdf2a191b739ea7cbdbdcae
+  checksum: 10/43b0cb353306419e270a7a7e62fa39dc202b63bf01690fb722728e196d6ab73efbead9f639f14d893a6c9d32bc8c5ae806bf0a30c6731a4071f200732403ff08
   languageName: node
   linkType: hard
 
@@ -6818,7 +6818,7 @@ __metadata:
     effect: "npm:3.12.0"
     eslint: "npm:9.17.0"
     eslint-plugin-prettier: "npm:5.2.1"
-    gh-pages: "npm:6.2.0"
+    gh-pages: "npm:6.3.0"
     happy-dom: "npm:15.11.7"
     i18next: "npm:23.16.8"
     i18next-browser-languagedetector: "npm:8.0.2"
