@@ -3400,13 +3400,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"entities@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "entities@npm:4.5.0"
-  checksum: 10/ede2a35c9bce1aeccd055a1b445d41c75a14a2bb1cd22e242f20cf04d236cdcd7f9c859eb83f76885327bfae0c25bf03303665ee1ce3d47c5927b98b0e3e3d48
-  languageName: node
-  linkType: hard
-
 "env-paths@npm:^2.2.0":
   version: 2.2.1
   resolution: "env-paths@npm:2.2.1"
@@ -4552,14 +4545,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"happy-dom@npm:15.11.7":
-  version: 15.11.7
-  resolution: "happy-dom@npm:15.11.7"
+"happy-dom@npm:16.6.0":
+  version: 16.6.0
+  resolution: "happy-dom@npm:16.6.0"
   dependencies:
-    entities: "npm:^4.5.0"
     webidl-conversions: "npm:^7.0.0"
     whatwg-mimetype: "npm:^3.0.0"
-  checksum: 10/82fb8505a940ebc2b732d1c70ae4ba08128cc82f2d469702f73e541d3bf10fc69b726386f8aaf579ccd2697f85e86dee87aa9d4f229b781fb05628d733fc93d7
+  checksum: 10/41574aaec650d85c97da7620f2914400a2c7873922b5927332a80608c85ce725cf6c8622c48445a800533b63f3dd570ac74f54967ac27b1ca1be3c5749507ebb
   languageName: node
   linkType: hard
 
@@ -6880,7 +6872,7 @@ __metadata:
     eslint: "npm:9.18.0"
     eslint-plugin-prettier: "npm:5.2.1"
     gh-pages: "npm:6.3.0"
-    happy-dom: "npm:15.11.7"
+    happy-dom: "npm:16.6.0"
     i18next: "npm:23.16.8"
     i18next-browser-languagedetector: "npm:8.0.2"
     jotai: "npm:2.11.0"
