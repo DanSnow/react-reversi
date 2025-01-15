@@ -5129,9 +5129,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"knip@npm:5.42.0":
-  version: 5.42.0
-  resolution: "knip@npm:5.42.0"
+"knip@npm:5.42.1":
+  version: 5.42.1
+  resolution: "knip@npm:5.42.1"
   dependencies:
     "@nodelib/fs.walk": "npm:3.0.1"
     "@snyk/github-codeowners": "npm:1.1.0"
@@ -5155,7 +5155,7 @@ __metadata:
   bin:
     knip: bin/knip.js
     knip-bun: bin/knip-bun.js
-  checksum: 10/e12b0d669a8659ed12cf2e8d9f5bbac5acbfe721549294ba5ecd81806040c5a71a20d3a724cacfa3f60e4b74d71418529b5b69aaf6d2233b31f4e5abf6835857
+  checksum: 10/745e3b2a90b10f3a44ac13036e8652700633c4882e28bf21240d077d73ff940c8d58383c29cd4b220d35e1fa3644b2f20da3b2c2c4adcbd85cb3d2f170343a98
   languageName: node
   linkType: hard
 
@@ -6887,7 +6887,7 @@ __metadata:
     jotai-devtools: "npm:0.10.1"
     jotai-mutative: "npm:1.1.0"
     jotai-xstate: "npm:0.6.0"
-    knip: "npm:5.42.0"
+    knip: "npm:5.42.1"
     lucide-react: "npm:0.471.1"
     mutative: "npm:1.1.0"
     postcss: "npm:8.5.1"
