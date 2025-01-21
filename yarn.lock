@@ -4964,13 +4964,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jotai-xstate@npm:0.6.0":
-  version: 0.6.0
-  resolution: "jotai-xstate@npm:0.6.0"
+"jotai-xstate@npm:0.6.1":
+  version: 0.6.1
+  resolution: "jotai-xstate@npm:0.6.1"
   peerDependencies:
     jotai: ">=2.0.0"
     xstate: ">=5.0.0"
-  checksum: 10/4e0fab655c109aca40da2f3f926a6a460dfa32c2fd64ed17e6f85f7e504886e7dead7b9f79a04458de6654b0da614b8d850f171b709405fd3dd0b6399085c7b3
+  checksum: 10/64490924a180b5f936209afd2dbaafaa2996ddafd351f494379fe0386a64980fb5182c2f0d2927b0c8cc135222820a412a65bf8df2790763d92ebf1327de0ba5
   languageName: node
   linkType: hard
 
@@ -6886,7 +6886,7 @@ __metadata:
     jotai: "npm:2.11.1"
     jotai-devtools: "npm:0.10.1"
     jotai-mutative: "npm:1.1.0"
-    jotai-xstate: "npm:0.6.0"
+    jotai-xstate: "npm:0.6.1"
     knip: "npm:5.42.2"
     lucide-react: "npm:0.473.0"
     mutative: "npm:1.1.0"
