@@ -6911,7 +6911,7 @@ __metadata:
     tiny-invariant: "npm:1.3.3"
     type-fest: "npm:4.32.0"
     typescript: "npm:5.7.3"
-    vite: "npm:6.0.9"
+    vite: "npm:6.0.10"
     vitest: "npm:2.1.8"
     xstate: "npm:5.19.2"
     zod: "npm:3.24.1"
@@ -8242,9 +8242,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:6.0.9":
-  version: 6.0.9
-  resolution: "vite@npm:6.0.9"
+"vite@npm:6.0.10":
+  version: 6.0.10
+  resolution: "vite@npm:6.0.10"
   dependencies:
     esbuild: "npm:^0.24.2"
     fsevents: "npm:~2.3.3"
@@ -8290,7 +8290,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/6f4f27c602f997537df26cc9665763b402f5978a7381146f6c0b146888ee257484a7f140df79e495b922082ca608bd1f563b0be9e272d22c689aad2b1e1da440
+  checksum: 10/dbe6fc180115fdac0013cd6245b41d2f83f67644ebddb99bd0eb6ec7c64c651ed6df168467a287272545fe2e7f803ba417ab5ddf39d87c77a2a23823dcd66cfb
   languageName: node
   linkType: hard
 
