@@ -1,5 +1,4 @@
-import { Schema } from '@effect/schema'
-import { Brand, Function, pipe } from 'effect'
+import { Brand, Function, pipe, Schema } from 'effect'
 import { BLACK as BLACK_, WHITE as WHITE_ } from '../consts'
 
 export const PlayerTypeId = Symbol.for('@app/Player')

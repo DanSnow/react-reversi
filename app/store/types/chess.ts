@@ -1,5 +1,4 @@
-import { Schema } from '@effect/schema'
-import { Array, Brand, pipe } from 'effect'
+import { Array, Brand, pipe, Schema } from 'effect'
 import {
   BLACK as BLACK_,
   BLACK_CANDIDATE as BLACK_CANDIDATE_,

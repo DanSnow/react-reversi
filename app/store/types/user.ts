@@ -1,6 +1,5 @@
 import type { Player } from './player'
-import { Schema } from '@effect/schema'
-import { Brand, Effect, Either, Function, Option, pipe, Record } from 'effect'
+import { Brand, Effect, Either, Function, Option, pipe, Record, Schema } from 'effect'
 import { BLACK, PlayerLiteralSchema, WHITE } from './player'
 
 export enum UserType {

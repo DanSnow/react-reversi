@@ -1,7 +1,6 @@
 import type { Chess } from './chess'
 import type { Coords } from './game'
-import { Schema } from '@effect/schema'
-import { Array, Brand, Either, Function, Option, pipe } from 'effect'
+import { Array, Brand, Either, Function, Option, pipe, Schema } from 'effect'
 import { BLACK, ChessSchema, WHITE } from './chess'
 
 export const BoardTypeId = Symbol.for('@app/Board')
