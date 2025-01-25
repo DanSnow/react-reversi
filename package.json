@@ -73,7 +73,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "3.16.0",
-    "@iconify-json/fa-solid": "1.2.0",
+    "@iconify-json/fa-solid": "1.2.1",
     "@svgr/core": "8.1.0",
     "@svgr/plugin-jsx": "8.1.0",
     "@testing-library/dom": "10.4.0",
