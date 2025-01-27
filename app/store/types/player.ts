@@ -12,6 +12,8 @@ export type Player = typeof PlayerSchema.Type
 
 export const isPlayer = Schema.is(PlayerSchema)
 
+export const parse = Schema.decodeUnknownSync(PlayerSchema)
+
 export const refined = Brand.refined<Player>(isPlayer, (unbranded) =>
   Brand.error(`Expected ${unbranded} to be one of [${BLACK_}, ${WHITE_}]`),
 )

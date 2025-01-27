@@ -2,6 +2,7 @@ import type { AIJudgeScore, PointScore } from '../types/game'
 
 import { createNextState as produce } from '@reduxjs/toolkit'
 import { Array, Number as Num, Order } from 'effect'
+import invariant from 'tiny-invariant'
 import { Board, Chess, type Player } from '../types'
 import { checkFlipChess, clearBoardCandidate, countPlayerChess, placeAndFlip, placeBoardCandidate } from './board'
 import { countAroundChess, directions, getBestPoint, getCandidate, getOpposite } from './chess-utils'
@@ -199,6 +200,7 @@ function computeMinMax(
 
 function createIterateMinMax(judge: AIJudgeScore, time: number) {
   return (board: Board.Board, ai: Player.Player, row: number, col: number) => {
+    invariant(time >= 1, 'can not use minmax with time < 1')
     let score: number
 
     for (let i = 0; i < time; i++) {
@@ -206,7 +208,7 @@ function createIterateMinMax(judge: AIJudgeScore, time: number) {
       board = nextBoard
       score = s
     }
-    return score
+    return score!
   }
 }
 

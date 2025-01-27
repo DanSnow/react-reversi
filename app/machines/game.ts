@@ -1,6 +1,6 @@
+import type { Users } from '~/store'
 import invariant from 'tiny-invariant'
 import { assign, setup } from 'xstate'
-import type { Users } from '~/store'
 import { Board, Player } from '~/store'
 import { clearBoardCandidate, placeBoardCandidate } from '~/store/lib/board'
 import { getOpposite } from '~/store/lib/chess-utils'
@@ -14,11 +14,15 @@ export const createGameMachine = (users: Users) =>
         switchCount: number
         currentPlayer: Player.Player
       },
-      events: {} as { type: 'turn' } | { type: 'start' } | { type: 'placed'; nextBoard: Board.Board },
+      events: {} as { type: 'turn' } | { type: 'start'; users: Users } | { type: 'placed'; nextBoard: Board.Board },
     },
     actions: {
       initialGame: assign({
         board: () => Board.DEFAULT_BOARD,
+        users: ({ event }) => {
+          invariant(event.type === 'start')
+          return event.users
+        },
       }),
       placeCandidate: assign({
         board: ({ context }) => {

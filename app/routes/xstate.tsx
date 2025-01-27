@@ -5,7 +5,7 @@ import { useCallback, useEffect } from 'react'
 import { gameMachineAtom } from '~/atoms/game'
 import { store } from '~/atoms/store'
 import { Board } from '~/components/Board/Board'
-import { getUserType, UserType } from '~/store'
+import { DEFAULT_USER, getUserType, Player, UserType } from '~/store'
 import { placeAndFlip } from '~/store/lib/board'
 
 export const Route = createFileRoute('/xstate')({
@@ -15,9 +15,18 @@ export const Route = createFileRoute('/xstate')({
 
 function XStateGame() {
   const [machine, send] = useAtom(gameMachineAtom)
-  const startGame = useCallback(() => {
-    send({ type: 'start' })
-  }, [send])
+  const startGame = useCallback(
+    (color: string) => {
+      send({
+        type: 'start',
+        users: {
+          ...DEFAULT_USER,
+          [Player.parse(color)]: UserType.AI,
+        },
+      })
+    },
+    [send],
+  )
 
   const placeChess = useCallback(
     (row: number, col: number) => {
@@ -37,7 +46,6 @@ function XStateGame() {
 
   useEffect(() => {
     send(RESTART)
-    send({ type: 'start' })
   }, [])
 
   return (

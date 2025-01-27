@@ -1,18 +1,25 @@
+import type { AIVersions } from '~/store/lib/ai'
+import { createBrowserInspector } from '@statelyai/inspect'
+import { Function } from 'effect'
 import { atom } from 'jotai'
-import { atomWithReset } from 'jotai/utils'
 import { withMutative } from 'jotai-mutative'
 import { atomWithMachine } from 'jotai-xstate'
+import { atomWithReset } from 'jotai/utils'
 import { createGameMachine } from '~/machines/game'
 import { computeScore } from '~/store/compute-score'
 import { BLACK, IDLE, WHITE } from '~/store/consts'
-import type { AIVersions } from '~/store/lib/ai'
 import { countCandidate } from '~/store/lib/board'
 import { Board, DEFAULT_USER, type GameState, type Log, type PastState, type Player, type Users } from '~/store/types'
 
+const inspect = typeof window !== 'undefined' ? createBrowserInspector().inspect : Function.constVoid
+
 export const usersAtom = atom<Users>(DEFAULT_USER)
-export const gameMachineAtom = atomWithMachine((get) => {
-  return createGameMachine(get(usersAtom))
-})
+export const gameMachineAtom = atomWithMachine(
+  (get) => {
+    return createGameMachine(get(usersAtom))
+  },
+  { inspect },
+)
 export const gameBoardAtom = atom((get) => {
   const { context } = get(gameMachineAtom)
   return { board: context.board, count: countCandidate(context.board) }

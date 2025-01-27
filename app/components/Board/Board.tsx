@@ -35,7 +35,7 @@ export function Board({ reset, placeChess, board, hint, showChooseColor, overlay
           ) : null,
         ),
       )}
-      {showChooseColor || <ChooseColor onClick={reset} />}
+      {showChooseColor && <ChooseColor onClick={reset} />}
       {!!overlay && (
         <Overlay x="50%" y="50%">
           {overlay}
