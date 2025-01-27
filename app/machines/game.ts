@@ -1,9 +1,13 @@
 import type { Users } from '~/store'
 import invariant from 'tiny-invariant'
-import { assign, setup } from 'xstate'
-import { Board, DEFAULT_USER, Player } from '~/store'
-import { clearBoardCandidate, placeBoardCandidate } from '~/store/lib/board'
-import { getOpposite } from '~/store/lib/chess-utils'
+import { assign, fromPromise, setup } from 'xstate'
+import { Board, DEFAULT_USER, getUserType, Player, UserType } from '~/store'
+import { clearBoardCandidate, countCandidate, placeAndFlip, placeBoardCandidate } from '~/store/lib/board'
+import { getBestPoint, getOpposite } from '~/store/lib/chess-utils'
+import { Effect, pipe } from 'effect'
+import { store } from '~/atoms/store'
+import { aiVersionAtom } from '~/atoms/game'
+import { computeScores } from '~/store/ai'
 
 export const createGameMachine = () =>
   setup({
@@ -26,15 +30,15 @@ export const createGameMachine = () =>
       }),
       placeCandidate: assign({
         board: ({ context }) => {
-          const { board } = placeBoardCandidate({
-            board: clearBoardCandidate(context.board),
-            player: context.currentPlayer,
-          })
+          const { board } = pipe(context.board, clearBoardCandidate, (board) =>
+            placeBoardCandidate({
+              board,
+              player: context.currentPlayer,
+            }),
+          )
+
           return board
         },
-      }),
-      clearCandidate: assign({
-        board: ({ context }) => clearBoardCandidate(context.board),
       }),
       resetSwitch: assign({
         switchCount: 0,
@@ -57,6 +61,36 @@ export const createGameMachine = () =>
       isEnded: ({ context }) => {
         return context.switchCount >= 2
       },
+      isNoValidMoves: ({ context }) => {
+        return countCandidate(context.board) === 0
+      },
+      isCurrentUserIsAI: ({ context }) => {
+        return getUserType(context.users, context.currentPlayer) === UserType.AI
+      },
+    },
+    actors: {
+      aiPlaceChess: fromPromise<Board.Board, { board: Board.Board; player: Player.Player }>(
+        ({ input: { board, player } }) => {
+          console.log('ai turn', { board, player })
+          const aiVersion = store.get(aiVersionAtom)
+          return pipe(
+            Effect.sync(() => {
+              const scores = computeScores({ board, ai: player, version: aiVersion })
+              return getBestPoint(scores)
+            }),
+            Effect.delay(300),
+            Effect.map(({ row, col }) =>
+              placeAndFlip({
+                board,
+                col,
+                row,
+                player,
+              }),
+            ),
+            Effect.runPromise,
+          )
+        },
+      ),
     },
   }).createMachine({
     context: {
@@ -87,9 +121,6 @@ export const createGameMachine = () =>
         entry: {
           type: 'placeCandidate',
         },
-        exit: {
-          type: 'clearCandidate',
-        },
         on: {
           placed: {
             target: 'GAME_LOOP',
@@ -105,7 +136,14 @@ export const createGameMachine = () =>
               },
             ],
           },
-          turn: {
+        },
+        always: [
+          {
+            guard: 'isEnded',
+            target: 'ENDED',
+          },
+          {
+            guard: 'isNoValidMoves',
             target: 'GAME_LOOP',
             actions: [
               {
@@ -116,11 +154,37 @@ export const createGameMachine = () =>
               },
             ],
           },
-        },
-        always: {
-          target: 'ENDED',
-          guard: {
-            type: 'isEnded',
+          {
+            guard: 'isCurrentUserIsAI',
+            target: 'AI_TURN',
+          },
+        ],
+      },
+      AI_TURN: {
+        entry: [
+          {
+            type: 'increaseSwitch',
+          },
+          {
+            type: 'placeCandidate',
+          },
+        ],
+        invoke: {
+          src: 'aiPlaceChess',
+          input: ({ context }) => ({ board: context.board, player: context.currentPlayer }),
+          onDone: {
+            actions: [
+              assign({
+                board: ({ event }) => event.output,
+              }),
+              {
+                type: 'resetSwitch',
+              },
+              {
+                type: 'switchPlayer',
+              },
+            ],
+            target: 'GAME_LOOP',
           },
         },
       },
