@@ -31,7 +31,7 @@ const PlayerChessSchema = pipe(PlayerChessLiterSchema, Schema.brand(ChessTypeId)
 
 export const isPlayerChess = Schema.is(PlayerChessSchema)
 
-const CandidateChessLiterSchema = Schema.Literal(BLACK_CANDIDATE_, WHITE_CANDIDATE_)
-const CandidateChessSchema = pipe(CandidateChessLiterSchema, Schema.brand(ChessTypeId))
+const CandidateChessLiteralSchema = Schema.Literal(BLACK_CANDIDATE_, WHITE_CANDIDATE_)
+const CandidateChessSchema = pipe(CandidateChessLiteralSchema, Schema.brand(ChessTypeId))
 
 export const isCandidateChess = Schema.is(CandidateChessSchema)

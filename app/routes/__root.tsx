@@ -108,6 +108,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
+        <iframe id="stately" width="100%" height="300vh" />
       </body>
     </html>
   )

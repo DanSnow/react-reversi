@@ -4009,6 +4009,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xstate/react@npm:5.0.2":
+  version: 5.0.2
+  resolution: "@xstate/react@npm:5.0.2"
+  dependencies:
+    use-isomorphic-layout-effect: "npm:^1.1.2"
+    use-sync-external-store: "npm:^1.2.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-0
+    xstate: ^5.19.2
+  peerDependenciesMeta:
+    xstate:
+      optional: true
+  checksum: 10/f7842c19299945abbd21bd2cdb892fb94cd7543fb68982e682a0ce31bb37543f81b6355c127873d87a6bc44c5619d4c9eb4675f68bafea9f51fe1d7154b7f3b9
+  languageName: node
+  linkType: hard
+
 "abbrev@npm:^2.0.0":
   version: 2.0.0
   resolution: "abbrev@npm:2.0.0"
@@ -10453,6 +10469,7 @@ __metadata:
     "@types/react-redux": "npm:7.1.34"
     "@types/ws": "npm:^8"
     "@vitejs/plugin-react": "npm:4.3.4"
+    "@xstate/react": "npm:5.0.2"
     autoprefixer: "npm:10.4.20"
     class-variance-authority: "npm:0.7.1"
     clsx: "npm:2.1.1"
@@ -12554,6 +12571,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"use-isomorphic-layout-effect@npm:^1.1.2":
+  version: 1.2.0
+  resolution: "use-isomorphic-layout-effect@npm:1.2.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 10/84fc1074b4e3ee2886fde944baef4ec210453fc78861429fe50ae97be8209e492f18c059c6b2ff1a21df231d72d1638707dabca889bd9d7bee36f21c196a0d19
+  languageName: node
+  linkType: hard
+
 "use-latest@npm:^1.2.1":
   version: 1.2.1
   resolution: "use-latest@npm:1.2.1"
@@ -12584,7 +12613,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-sync-external-store@npm:^1.4.0":
+"use-sync-external-store@npm:^1.2.0, use-sync-external-store@npm:^1.4.0":
   version: 1.4.0
   resolution: "use-sync-external-store@npm:1.4.0"
   peerDependencies:

@@ -2,7 +2,7 @@ import type { ReadonlyDeep } from 'type-fest'
 import type { Player } from '../types'
 
 import { Array, Equal, pipe, Predicate } from 'effect'
-import { original, create as produce } from 'mutative'
+import { create as produce } from 'mutative'
 import { BLACK_CANDIDATE, WHITE_CANDIDATE } from '../consts'
 import { Board, Chess } from '../types'
 import { directions, getCandidate, isCandidate, isEmpty, isValidPos } from './chess-utils'
@@ -126,12 +126,7 @@ export function placeBoardCandidate({ board, player }: { board: Board.Board; pla
 }
 
 export function countCandidate(board: ReadonlyDeep<Board.Board>): number {
-  return pipe(
-    board,
-    Array.flatten,
-    Array.filter(Predicate.or(Equal.equals(WHITE_CANDIDATE), Equal.equals(BLACK_CANDIDATE))),
-    Array.length,
-  )
+  return pipe(board, Array.flatten, Array.filter(Chess.isCandidateChess), Array.length)
 }
 
 export function countPlayerChess(board: ReadonlyDeep<Board.Board>, player: string): number {

@@ -1,8 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { Effect } from 'redux-saga/effects'
-import type { AIVersions } from './lib/ai'
-import type { AIJudgeScore, Coords, PointScore } from './types/game'
-import { Array, Number } from 'effect'
+import type { Coords } from './types/game'
+import { Number } from 'effect'
 import { RESET as ATOM_RESET } from 'jotai/utils'
 import { all, call, delay, takeEvery } from 'redux-saga/effects'
 import { upperFirst } from 'scule'
@@ -22,10 +21,10 @@ import {
 } from '~/atoms/game'
 import { store } from '~/atoms/store'
 import { historyAtom, overlayAtom } from '~/atoms/ui'
+import { computeScores } from './ai'
 import { BLACK, ENDED, IDLE, PLAYING, REBOOT, RESET, SWITCH_PLAYER, USER_PLACE_CHESS, WHITE } from './consts'
-import { judgeScores } from './lib/ai'
 import { clearBoardCandidate, placeAndFlip, placeBoardCandidate } from './lib/board'
-import { getBestPoint, getCandidate, getOpposite, getPlayer, isPlaceable } from './lib/chess-utils'
+import { getBestPoint, getOpposite, getPlayer, isPlaceable } from './lib/chess-utils'
 import { Board, DEFAULT_USER, getUserType, Player, User, UserType } from './types'
 
 export function* reboot(): Generator<Effect, void, void> {
@@ -150,7 +149,7 @@ function* aiJudgeScore() {
   invariant(player, 'game is not start')
   // this function will call before switch user
   const ai = getOpposite(player)
-  const scores = computeScores(board, version, player, ai)
+  const scores = computeScores({ board, version, player, ai })
   const { row, col } = getBestPoint(scores)
 
   yield delay(300) // A little delay, to make computer looks like thinking
@@ -162,27 +161,6 @@ function* aiJudgeScore() {
   })
   const nextBoard = placeAndFlip({ board, row, col, player })
   store.set(boardAtom, nextBoard)
-}
-
-function computeScores(board: Board.Board, version: AIVersions, player: Player.Player, ai: string) {
-  const scores: PointScore[] = []
-  const judge: AIJudgeScore = judgeScores[version]
-  invariant(judge, 'version invalid')
-  const chess = getCandidate(player)
-  for (let r = 0; r < 8; r += 1) {
-    for (let c = 0; c < 8; c += 1) {
-      if (board[r][c] === chess) {
-        const score = judge(board, ai, r, c)
-        scores.push({
-          row: r,
-          col: c,
-          score,
-        })
-      }
-    }
-  }
-  invariant(Array.isNonEmptyArray(scores), 'Invalid State: no candidates point')
-  return scores
 }
 
 function* userPlaceChess({ payload: { col, row } }: PayloadAction<Coords>) {

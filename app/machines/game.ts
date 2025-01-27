@@ -1,11 +1,11 @@
 import type { Users } from '~/store'
 import invariant from 'tiny-invariant'
 import { assign, setup } from 'xstate'
-import { Board, Player } from '~/store'
+import { Board, DEFAULT_USER, Player } from '~/store'
 import { clearBoardCandidate, placeBoardCandidate } from '~/store/lib/board'
 import { getOpposite } from '~/store/lib/chess-utils'
 
-export const createGameMachine = (users: Users) =>
+export const createGameMachine = () =>
   setup({
     types: {
       context: {} as {
@@ -26,7 +26,10 @@ export const createGameMachine = (users: Users) =>
       }),
       placeCandidate: assign({
         board: ({ context }) => {
-          const { board } = placeBoardCandidate({ board: context.board, player: context.currentPlayer })
+          const { board } = placeBoardCandidate({
+            board: clearBoardCandidate(context.board),
+            player: context.currentPlayer,
+          })
           return board
         },
       }),
@@ -59,7 +62,7 @@ export const createGameMachine = (users: Users) =>
     context: {
       board: Board.DEFAULT_BOARD,
       switchCount: 0,
-      users,
+      users: DEFAULT_USER,
       currentPlayer: Player.BLACK,
     },
     id: 'Reversi',
