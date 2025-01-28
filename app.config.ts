@@ -10,7 +10,7 @@ export default defineConfig({
   },
   react: {
     babel: {
-      plugins: ['jotai/babel/plugin-react-refresh', 'jotai/babel/plugin-debug-label'],
+      plugins: ['jotai/babel/plugin-react-refresh', 'jotai/babel/plugin-debug-label', 'babel-plugin-react-compiler'],
     },
   },
   vite: {
