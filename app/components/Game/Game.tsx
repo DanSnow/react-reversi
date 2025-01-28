@@ -1,25 +1,35 @@
-import type { ReactElement } from 'react'
+import type { ReactElement, ReactNode } from 'react'
+import type { ScoreProps } from '../Score'
+
+import type { AIVersions } from '~/store/lib/ai'
 import { useCallback, useState } from 'react'
 import GithubCorner from 'react-github-corner'
 import { useTranslation } from 'react-i18next'
-
-import { Board } from '../Board'
 import { Confirm } from '../Confirm'
 import { Log } from '../Log'
 import { Score } from '../Score'
 import { SettingModal } from '../SettingModal'
 import { Toolbar } from '../Toolbar'
 
-interface Props {
+export interface Props extends ScoreProps {
   message: string
+  children: ReactNode
   showReplay: boolean
   setAllowRetract: (allow: boolean) => void
-  resetState: () => void
-  setVersion: (version: string) => void
-  reboot: () => void
+  onRestart: () => void
+  setVersion: (version: AIVersions) => void
 }
 
-export function Game({ showReplay, message, reboot, setVersion, setAllowRetract, resetState }: Props): ReactElement {
+export function Game({
+  showReplay,
+  message,
+  children,
+  setVersion,
+  setAllowRetract,
+  onRestart,
+  users,
+  score,
+}: Props): ReactElement {
   const [hint, setHint] = useState(false)
   const [settingOpen, setSettingOpen] = useState(false)
   const openSetting = useCallback(() => setSettingOpen(true), [])
@@ -35,17 +45,17 @@ export function Game({ showReplay, message, reboot, setVersion, setAllowRetract,
             <Toolbar onOpenSetting={openSetting} />
             <div className="flex flex-col items-start gap-4 md:flex-row">
               <div className="flex flex-col">
-                <Board hint={hint} />
+                {children}
                 <span className="self-end text-red-600">{message}</span>
               </div>
-              <Score />
+              <Score users={users} score={score} />
               <div className="hidden grow max-w-64 lg:block">
                 <Log />
               </div>
             </div>
           </div>
         </div>
-        <Confirm open={showReplay} onConfirm={reboot} onCancel={resetState}>
+        <Confirm open={showReplay} onConfirm={onRestart} onCancel={closeSetting}>
           {t('Play Again?') as string}
         </Confirm>
         <SettingModal

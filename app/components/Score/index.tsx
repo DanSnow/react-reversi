@@ -1,13 +1,13 @@
 import type { ReactElement } from 'react'
 
+import type { ScoreProps as DumbScoreProps } from './Score'
 import { useAtomValue } from 'jotai'
-import { scoreAtom, usersAtom } from '~/atoms/game'
 import { historyAtom } from '~/atoms/ui'
 import { Score as DumbScore } from './Score'
 
-export function Score(): ReactElement {
-  const score = useAtomValue(scoreAtom)
-  const users = useAtomValue(usersAtom)
+export interface ScoreProps extends Omit<DumbScoreProps, 'history'> {}
+
+export function Score({ score, users }: ScoreProps): ReactElement {
   const history = useAtomValue(historyAtom)
 
   return <DumbScore score={score} users={users} history={history} />

@@ -1,9 +1,10 @@
+import type { AIVersions } from '~/store/lib/ai'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { type ReactElement, useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { z } from 'zod'
 
+import { z } from 'zod'
 import { Button } from '~/components/ui/button'
 import { Dialog, DialogContent } from '~/components/ui/dialog'
 import { Checkbox } from './ui/checkbox'
@@ -15,7 +16,7 @@ interface Props {
   onClose: () => void
   onHintChange: (value: boolean) => void
   onRetractChange: (value: boolean) => void
-  onVersionChange: (value: string) => void
+  onVersionChange: (value: AIVersions) => void
 }
 
 const AI: [key: string, display: string][] = [

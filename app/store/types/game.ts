@@ -47,8 +47,11 @@ export interface AIVersions {
 
 export type AIJudgeScore = (board: Board, ai: Player, row: number, col: number) => number
 
-export interface PointScore {
-  row: number
-  col: number
-  score: number
+export interface Point {
+  readonly row: number
+  readonly col: number
+}
+
+export interface PointScore extends Point {
+  readonly score: number
 }

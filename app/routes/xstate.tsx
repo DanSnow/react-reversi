@@ -1,20 +1,21 @@
+import type { Point, Score, Users } from '~/store'
 import { createBrowserInspector } from '@statelyai/inspect'
-import { createFileRoute } from '@tanstack/react-router'
-import { useMachine } from '@xstate/react'
-import { useAtomValue } from 'jotai'
-import { useCallback, useMemo } from 'react'
+import { createFileRoute, invariant } from '@tanstack/react-router'
+import { useMachine, useSelector } from '@xstate/react'
+import { Option, pipe } from 'effect'
+import { useAtom } from 'jotai'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { createAIActor } from '~/actor/ai'
 import { aiVersionAtom } from '~/atoms/game'
-import { Board } from '~/components/Board/Board'
-import { createGameMachine } from '~/machines/game'
-import { DEFAULT_USER, getUserType, Player, UserType } from '~/store'
+import { Board } from '~/components/Board'
+import { Game } from '~/components/Game/Game'
+import { gameMachine } from '~/machines/game'
+import { computeScore, DEFAULT_USER, getUserType, Player, UserType } from '~/store'
 import { placeAndFlip } from '~/store/lib/board'
 
 export const Route = createFileRoute('/xstate')({
   component: XStateGame,
 })
-
-const gameMachine = createGameMachine()
 
 const inspector =
   typeof window !== 'undefined'
@@ -24,11 +25,15 @@ const inspector =
       }
 
 function XStateGame() {
-  const aiVersion = useAtomValue(aiVersionAtom)
+  const [aiVersion, setAIVersion] = useAtom(aiVersionAtom)
   const aiActor = useMemo(() => createAIActor(aiVersion), [aiVersion])
-  const [machine, send] = useMachine(gameMachine.provide({ actors: { aiPlaceChess: aiActor } }), {
+  const [machine, send, actorRef] = useMachine(gameMachine.provide({ actors: { aiPlaceChess: aiActor } }), {
     inspect: inspector.inspect,
   })
+  const [overlay, setOverlay] = useState('')
+
+  const users = useSelector(actorRef, ({ context }) => context.users)
+  const score = useSelector(actorRef, ({ context }) => computeScore(context.board))
 
   const startGame = useCallback(
     (color: string) => {
@@ -44,7 +49,7 @@ function XStateGame() {
   )
 
   const placeChess = useCallback(
-    (row: number, col: number) => {
+    ({ col, row }: Point) => {
       if (getUserType(machine.context.users, machine.context.currentPlayer) !== UserType.Human) {
         return
       }
@@ -59,14 +64,61 @@ function XStateGame() {
     [machine, send],
   )
 
+  const onRestart = useCallback(() => {
+    send({ type: 'restart' })
+  }, [send])
+
+  const isEnded = machine.matches('ENDED')
+
+  useEffect(() => {
+    if (!isEnded) {
+      setOverlay('')
+      return
+    }
+    setOverlay(getOverlay(score, machine.context.users))
+  }, [isEnded])
+
   return (
-    <Board
-      hint
-      board={machine.context.board}
-      reset={startGame}
-      showChooseColor={machine.matches('IDLE')}
-      overlay=""
-      placeChess={placeChess}
-    />
+    <Game message="" users={users} score={score} setVersion={setAIVersion} onRestart={onRestart}>
+      <Board.Root>
+        <Board.Background />
+        <Board.Chesses hint board={machine.context.board} onPlaceChess={placeChess} />
+        {machine.matches('IDLE') && <Board.ChooseColor onStart={startGame} />}
+        {overlay && <Board.Overlay>{overlay}</Board.Overlay>}
+      </Board.Root>
+    </Game>
   )
+}
+
+function getOverlay(score: Score, users: Users): string {
+  const winner = getWinner(score)
+  // Either black or white is computer, and another is human
+  const humamVsComputer = users.B !== users.W
+
+  return pipe(
+    winner,
+    // eslint-disable-next-line array-callback-return
+    Option.map((winner) => {
+      const isWinnerHuman = users[Player.unbrand(winner)] === UserType.Human
+      if (isWinnerHuman && humamVsComputer) {
+        return 'You win!'
+      } else if (!isWinnerHuman && humamVsComputer) {
+        return 'You lose!'
+      } else if (winner === Player.BLACK) {
+        return 'Black wins!'
+      } else if (winner === Player.WHITE) {
+        return 'White wins!'
+      }
+      invariant(false, 'Unknown winner')
+    }),
+    Option.getOrElse(() => "It's a tie!"),
+  )
+}
+
+function getWinner(score: Score): Option.Option<Player.Player> {
+  if (score.black > score.white) return Option.some(Player.BLACK)
+
+  if (score.black < score.white) return Option.some(Player.WHITE)
+
+  return Option.none()
 }

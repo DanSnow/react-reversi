@@ -1,9 +1,8 @@
 import type { ReadonlyDeep } from 'type-fest'
 import type { Player } from '../types'
 
-import { Array, Equal, pipe, Predicate } from 'effect'
+import { Array, pipe } from 'effect'
 import { create as produce } from 'mutative'
-import { BLACK_CANDIDATE, WHITE_CANDIDATE } from '../consts'
 import { Board, Chess } from '../types'
 import { directions, getCandidate, isCandidate, isEmpty, isValidPos } from './chess-utils'
 

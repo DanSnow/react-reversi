@@ -15,13 +15,13 @@ interface ScoreData {
   white: number
 }
 
-interface Props {
+export interface ScoreProps {
   history: History
   users: Users
   score: ScoreData
 }
 
-export function Score({ score, users, history }: Props): ReactElement {
+export function Score({ score, users, history }: ScoreProps): ReactElement {
   const { t } = useTranslation()
 
   return (
