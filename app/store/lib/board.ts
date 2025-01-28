@@ -1,9 +1,9 @@
 import type { ReadonlyDeep } from 'type-fest'
-import type { Player } from '../types'
+import type { Player } from '~/types'
 
 import { Array, pipe } from 'effect'
 import { create as produce } from 'mutative'
-import { Board, Chess } from '../types'
+import { Board, Chess } from '~/types'
 import { directions, getCandidate, isCandidate, isEmpty, isValidPos } from './chess-utils'
 
 interface CheckFlipChess {

@@ -1,5 +1,5 @@
-import type { Board as BoardType, Point } from '../../store'
-import { Chess as ChessType } from '../../store'
+import type { Board as BoardType, Point } from '~/types'
+import { Chess as ChessType } from '~/types'
 import { Chess } from './Chess'
 
 export interface BoardChessesProps {

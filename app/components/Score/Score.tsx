@@ -1,10 +1,11 @@
 import type { ReactElement } from 'react'
-import type { History, Users } from '../../store'
+import type { History, Users } from '~/types'
 
 import { useTranslation } from 'react-i18next'
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card'
 import { Separator } from '~/components/ui/separator'
-import { BLACK, UserType, WHITE } from '../../store'
+import { BLACK, WHITE } from '~/consts'
+import { UserType } from '~/types'
 
 function getPlayerType(player: keyof Users, users: Users): string {
   return users[player] === UserType.AI ? 'ai' : 'player'

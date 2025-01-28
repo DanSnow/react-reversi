@@ -29,7 +29,8 @@
     "build": "vinxi build",
     "deploy": "DEPLOY=true yarn build && gh-pages -d dist",
     "test": "vitest",
-    "knip": "knip"
+    "knip": "knip",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "3.10.0",

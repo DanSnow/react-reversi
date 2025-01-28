@@ -1,12 +1,13 @@
-import type { Users } from '~/store'
+import type { Users } from '~/types'
+import type { GameEmittedEvents } from '~/types/events'
 import { pipe } from 'effect'
 import invariant from 'tiny-invariant'
-import { assertEvent, assign, setup } from 'xstate'
+import { assertEvent, assign, emit, setup } from 'xstate'
 import { createAIActor } from '~/actor/ai'
-import { Board, DEFAULT_USER, getUserType, Player, UserType } from '~/store'
 import { DEFAULT_AI_VERSION } from '~/store/lib/ai'
 import { clearBoardCandidate, countCandidate, placeBoardCandidate } from '~/store/lib/board'
 import { getOpposite } from '~/store/lib/chess-utils'
+import { Board, DEFAULT_USER, getUserType, Player, UserType } from '~/types'
 
 export type GameEvents =
   | { type: 'start'; users: Users }
@@ -22,6 +23,7 @@ export const gameMachine = setup({
       currentPlayer: Player.Player
     },
     events: {} as GameEvents,
+    emitted: {} as GameEmittedEvents,
   },
   actions: {
     initialGame: assign({
@@ -135,6 +137,7 @@ export const gameMachine = setup({
             {
               type: 'increaseSwitch',
             },
+            emit(({ context }) => ({ type: 'noValidMove', player: context.currentPlayer })),
             {
               type: 'switchPlayer',
             },

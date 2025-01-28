@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import type { Point } from '~/store'
+import type { Point } from '~/types'
 import { useCallback } from 'react'
 import { twc } from 'react-twc'
 

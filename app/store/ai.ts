@@ -1,4 +1,4 @@
-import type { AIJudgeScore, Board, Player, PointScore } from './types'
+import type { AIJudgeScore, Board, Player, PointScore } from '~/types'
 import { Array } from 'effect'
 import invariant from 'tiny-invariant'
 import { type AIVersions, judgeScores } from './lib/ai'

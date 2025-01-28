@@ -1,9 +1,9 @@
-import type { AIJudgeScore, PointScore } from '../types/game'
+import type { AIJudgeScore, PointScore } from '~/types/game'
 
 import { createNextState as produce } from '@reduxjs/toolkit'
 import { Array, Number as Num, Order } from 'effect'
 import invariant from 'tiny-invariant'
-import { Board, Chess, type Player } from '../types'
+import { Board, Chess, type Player } from '~/types'
 import { checkFlipChess, clearBoardCandidate, countPlayerChess, placeAndFlip, placeBoardCandidate } from './board'
 import { countAroundChess, directions, getBestPoint, getCandidate, getOpposite } from './chess-utils'
 

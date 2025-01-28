@@ -1,9 +1,7 @@
-import type { BLACK, ENDED, IDLE, PLAYING, WHITE } from '../consts'
-import type { judgeScores } from '../lib/ai'
 import type { Board } from './board'
 import type { Player } from './player'
-
-export type GameState = typeof IDLE | typeof PLAYING | typeof ENDED
+import type { BLACK, WHITE } from '~/consts'
+import type { judgeScores } from '~/store/lib/ai'
 
 export interface Log {
   player: string

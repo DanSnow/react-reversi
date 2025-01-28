@@ -3,9 +3,7 @@ import { createRootRoute, Outlet, ScrollRestoration } from '@tanstack/react-rout
 import { Meta, Scripts } from '@tanstack/start'
 import { Provider as AtomProvider } from 'jotai'
 import * as React from 'react'
-import { Provider } from 'react-redux'
 import { store as atomStore } from '~/atoms/store'
-import { store } from '~/store'
 import styleUrl from '~/styles/main.css?url'
 
 import '~/i18n'
@@ -88,11 +86,9 @@ function RootComponent() {
   return (
     <RootDocument>
       <AtomProvider store={atomStore}>
-        <Provider store={store}>
-          <Outlet />
-          <div className="confirm-root" />
-          <div className="dialog-root" />
-        </Provider>
+        <Outlet />
+        <div className="confirm-root" />
+        <div className="dialog-root" />
       </AtomProvider>
     </RootDocument>
   )

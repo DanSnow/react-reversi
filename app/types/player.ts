@@ -1,5 +1,5 @@
 import { Brand, Function, pipe, Schema } from 'effect'
-import { BLACK as BLACK_, WHITE as WHITE_ } from '../consts'
+import { BLACK as BLACK_, WHITE as WHITE_ } from '~/consts'
 
 export const PlayerTypeId = Symbol.for('@app/Player')
 

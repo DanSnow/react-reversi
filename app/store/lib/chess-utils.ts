@@ -1,8 +1,8 @@
 import type { Cause } from 'effect'
 import type { ReadonlyDeep } from 'type-fest'
-import type { Board, PointScore } from '../types'
+import type { Board, PointScore } from '~/types'
 import { Array, Effect, Option, Order, pipe, Random } from 'effect'
-import { Chess, Player } from '../types'
+import { Chess, Player } from '~/types'
 
 export const directions = [
   [-1, 0], // Up

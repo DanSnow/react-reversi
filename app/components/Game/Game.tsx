@@ -40,19 +40,15 @@ export function Game({
   return (
     <>
       <div className="container">
-        <div>
-          <div>
-            <Toolbar onOpenSetting={openSetting} />
-            <div className="flex flex-col items-start gap-4 md:flex-row">
-              <div className="flex flex-col">
-                {children}
-                <span className="self-end text-red-600">{message}</span>
-              </div>
-              <Score users={users} score={score} />
-              <div className="hidden grow max-w-64 lg:block">
-                <Log />
-              </div>
-            </div>
+        <Toolbar onOpenSetting={openSetting} />
+        <div className="flex flex-col items-start gap-4 md:flex-row">
+          <div className="flex flex-col">
+            {children}
+            <span className="self-end text-red-600">{message}</span>
+          </div>
+          <Score users={users} score={score} />
+          <div className="hidden grow max-w-64 lg:block">
+            <Log />
           </div>
         </div>
         <Confirm open={showReplay} onConfirm={onRestart} onCancel={closeSetting}>

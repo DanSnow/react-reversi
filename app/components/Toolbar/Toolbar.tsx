@@ -1,9 +1,9 @@
 import type { ReactElement } from 'react'
+import { useTranslation } from 'react-i18next'
 import IconCog from '~icons/fa-solid/cog'
 import IconPoweroff from '~icons/fa-solid/power-off'
 import IconUndo from '~icons/fa-solid/undo'
 import IconUserFriends from '~icons/fa-solid/user-friends'
-import { useTranslation } from 'react-i18next'
 import { Button } from '~/components/ui/button'
 
 export interface Props {

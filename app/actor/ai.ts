@@ -1,5 +1,5 @@
 import type { AIVersions } from '~/store/lib/ai'
-import type { Board, Player } from '~/store/types'
+import type { Board, Player } from '~/types'
 import { Effect, pipe } from 'effect'
 import { fromPromise } from 'xstate'
 import { computeScores } from '~/store/ai'

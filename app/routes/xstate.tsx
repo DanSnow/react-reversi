@@ -1,4 +1,4 @@
-import type { Point, Score, Users } from '~/store'
+import type { Point, Score, Users } from '~/types'
 import { createBrowserInspector } from '@statelyai/inspect'
 import { createFileRoute, invariant } from '@tanstack/react-router'
 import { useMachine, useSelector } from '@xstate/react'
@@ -10,8 +10,9 @@ import { aiVersionAtom } from '~/atoms/game'
 import { Board } from '~/components/Board'
 import { Game } from '~/components/Game/Game'
 import { gameMachine } from '~/machines/game'
-import { computeScore, DEFAULT_USER, getUserType, Player, UserType } from '~/store'
+import { computeScore } from '~/store'
 import { placeAndFlip } from '~/store/lib/board'
+import { DEFAULT_USER, getUserType, Player, UserType } from '~/types'
 
 export const Route = createFileRoute('/xstate')({
   component: XStateGame,
@@ -31,6 +32,7 @@ function XStateGame() {
     inspect: inspector.inspect,
   })
   const [overlay, setOverlay] = useState('')
+  const [message, setMessage] = useState('')
 
   const users = useSelector(actorRef, ({ context }) => context.users)
   const score = useSelector(actorRef, ({ context }) => computeScore(context.board))
@@ -53,6 +55,7 @@ function XStateGame() {
       if (getUserType(machine.context.users, machine.context.currentPlayer) !== UserType.Human) {
         return
       }
+      setMessage('')
       const board = placeAndFlip({
         board: machine.context.board,
         col,
@@ -75,11 +78,23 @@ function XStateGame() {
       setOverlay('')
       return
     }
+    setMessage('')
     setOverlay(getOverlay(score, machine.context.users))
   }, [isEnded])
 
+  useEffect(() => {
+    const { unsubscribe } = actorRef.on('noValidMove', ({ player }) => {
+      const playerName = player === Player.WHITE ? 'white' : 'black'
+      setMessage(`No valid move for ${playerName}!`)
+    })
+
+    return () => {
+      unsubscribe()
+    }
+  }, [machine])
+
   return (
-    <Game message="" users={users} score={score} setVersion={setAIVersion} onRestart={onRestart}>
+    <Game message={message} users={users} score={score} setVersion={setAIVersion} onRestart={onRestart}>
       <Board.Root>
         <Board.Background />
         <Board.Chesses hint board={machine.context.board} onPlaceChess={placeChess} />

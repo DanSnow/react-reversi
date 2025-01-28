@@ -5,5 +5,5 @@
     "target": "es2022",
     "module": "Node16"
   },
-  "include": ["./scripts/**/*"]
+  "include": ["./**/*"]
 }

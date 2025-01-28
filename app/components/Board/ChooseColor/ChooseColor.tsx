@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react'
 
-import { Player } from '~/store'
+import { Player } from '~/types'
 import { ColorButton } from './ColorButton'
 
 interface Props {

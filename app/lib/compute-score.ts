@@ -1,7 +1,7 @@
-import type { Board } from './types/board'
-import type { Score } from './types/game'
+import type { Score } from '~/types'
+import type { Board } from '~/types/board'
 import { Array, pipe, Record, Struct } from 'effect'
-import { BLACK, WHITE } from './consts'
+import { BLACK, WHITE } from '../consts'
 
 export const computeScore: (board: Board) => Score = (board: Board): Score =>
   pipe(

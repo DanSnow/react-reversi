@@ -1,4 +1,4 @@
-import type { History } from '~/store'
+import type { History } from '~/types'
 import { atom } from 'jotai'
 import { withMutative } from 'jotai-mutative'
 import { atomWithStorage } from 'jotai/utils'
