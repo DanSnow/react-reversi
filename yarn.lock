@@ -567,7 +567,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.7, @babel/runtime@npm:^7.20.13, @babel/runtime@npm:^7.20.6, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.25.0, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.7, @babel/runtime@npm:^7.20.13, @babel/runtime@npm:^7.20.6, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.25.0, @babel/runtime@npm:^7.9.2":
   version: 7.25.7
   resolution: "@babel/runtime@npm:7.25.7"
   dependencies:
@@ -1417,17 +1417,6 @@ __metadata:
   version: 0.4.1
   resolution: "@humanwhocodes/retry@npm:0.4.1"
   checksum: 10/39fafc7319e88f61befebd5e1b4f0136534ea6a9bd10d74366698187bd63544210ec5d79a87ed4d91297f1cc64c4c53d45fb0077a2abfdce212cf0d3862d5f04
-  languageName: node
-  linkType: hard
-
-"@iconify-icon/react@npm:2.3.0":
-  version: 2.3.0
-  resolution: "@iconify-icon/react@npm:2.3.0"
-  dependencies:
-    iconify-icon: "npm:^2.3.0"
-  peerDependencies:
-    react: ">=16"
-  checksum: 10/c66394b90875b564f9a363d11c378b1aa384ed9e76594311cc218f457cab9276f1438fa47eaa1a48ade78940072fb42548d64818b5865adc85b902d4c29b0295
   languageName: node
   linkType: hard
 
@@ -2457,61 +2446,6 @@ __metadata:
   peerDependencies:
     redux: ^3.1.0 || ^4.0.0 || ^5.0.0
   checksum: 10/07c2bb6f786900f29509f1e414ae0af845cb276a471e1e0e961d3a6a7dc16485ffe620bf01a1e0a545181d550058d197525760bbddb2c172acac25ddbe9dbd0d
-  languageName: node
-  linkType: hard
-
-"@redux-saga/core@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "@redux-saga/core@npm:1.3.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.6.3"
-    "@redux-saga/deferred": "npm:^1.2.1"
-    "@redux-saga/delay-p": "npm:^1.2.1"
-    "@redux-saga/is": "npm:^1.1.3"
-    "@redux-saga/symbols": "npm:^1.1.3"
-    "@redux-saga/types": "npm:^1.2.1"
-    typescript-tuple: "npm:^2.2.1"
-  checksum: 10/a310a31dda8a9dc6ff9e35e14d4a6439af9dcce48470e66feab31141b6f3647b6325d8d6533893f14bb5b9c950104ef5ad17e87328f48239cccb8103ef5cac1b
-  languageName: node
-  linkType: hard
-
-"@redux-saga/deferred@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "@redux-saga/deferred@npm:1.2.1"
-  checksum: 10/d06af67b3da8fb9932e5ab6c75de999be113c757f0bc05688e3509ec26c73e823eae6d16626079691342caedc3b179bd2665a006690a9fc372eea80b5bf0d404
-  languageName: node
-  linkType: hard
-
-"@redux-saga/delay-p@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "@redux-saga/delay-p@npm:1.2.1"
-  dependencies:
-    "@redux-saga/symbols": "npm:^1.1.3"
-  checksum: 10/060533ce8ba6b919caa5d47961eb5d8c1d171519fccd5d44208c26a0b94f3f315c8ea440f1b23af70ed53ebd0445b64567d6a0ac9663a6f703dd8088746ce2b5
-  languageName: node
-  linkType: hard
-
-"@redux-saga/is@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "@redux-saga/is@npm:1.1.3"
-  dependencies:
-    "@redux-saga/symbols": "npm:^1.1.3"
-    "@redux-saga/types": "npm:^1.2.1"
-  checksum: 10/36907fcd8bd6acfdcc2e4cca8bb1ae0676e4169375da7dc1ef0dab66b6e367417e1653def98d02ee8e8f654de1f3694d15e5110a614444d3f9f1ad6169476bea
-  languageName: node
-  linkType: hard
-
-"@redux-saga/symbols@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "@redux-saga/symbols@npm:1.1.3"
-  checksum: 10/005cb0939673c0c50b477c40df942e10c31d4f3405561c223640c6f8c2bd29cb207ad089a02ad79a8777f307e128904f00336358aba7e72869f1263fe6744b3e
-  languageName: node
-  linkType: hard
-
-"@redux-saga/types@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "@redux-saga/types@npm:1.2.1"
-  checksum: 10/521bda9f19cb28c9572bcef28b065908d10b3acec5ad27d0b8993f4d21ecb2ccef8cdbce459e27c60f7cc6a8b87d5d5231048ddb1026527e05d145ea0db5aec2
   languageName: node
   linkType: hard
 
@@ -3709,15 +3643,6 @@ __metadata:
   version: 0.0.6
   resolution: "@types/use-sync-external-store@npm:0.0.6"
   checksum: 10/a95ce330668501ad9b1c5b7f2b14872ad201e552a0e567787b8f1588b22c7040c7c3d80f142cbb9f92d13c4ea41c46af57a20f2af4edf27f224d352abcfe4049
-  languageName: node
-  linkType: hard
-
-"@types/ws@npm:^8":
-  version: 8.5.14
-  resolution: "@types/ws@npm:8.5.14"
-  dependencies:
-    "@types/node": "npm:*"
-  checksum: 10/956692dd47d5fe042780f61a6310d47203d07622aa185ef2eee7e849f9e7d1e5c190b0d8db8c3ab204a8829e3603b6c6bcab9024cd11dffdd5ffc0df9fd83f2d
   languageName: node
   linkType: hard
 
@@ -7552,15 +7477,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iconify-icon@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "iconify-icon@npm:2.3.0"
-  dependencies:
-    "@iconify/types": "npm:^2.0.0"
-  checksum: 10/464718bfc16f35d033964fd9583137a5e065c7f732dc8eb74a415376b026eeefaf84377b0fba68c5600ab3d312a7cfd24ff8aa7ee96c26a5b7366f05d0e2a48d
-  languageName: node
-  linkType: hard
-
 "iconv-lite@npm:^0.6.2":
   version: 0.6.3
   resolution: "iconv-lite@npm:0.6.3"
@@ -8026,16 +7942,6 @@ __metadata:
     mutative: ^1.0
     react: ^17.0 || ^18.0 || ^19.0
   checksum: 10/182ef6ad471c40b7557d9dfc3cb996779f3bea2c48532737bfa6fe3e7418d24120a99616993bee34b9bf6deb74a9e04ba7f928811919e105f29dc53ea4e69205
-  languageName: node
-  linkType: hard
-
-"jotai-xstate@npm:0.6.1":
-  version: 0.6.1
-  resolution: "jotai-xstate@npm:0.6.1"
-  peerDependencies:
-    jotai: ">=2.0.0"
-    xstate: ">=5.0.0"
-  checksum: 10/64490924a180b5f936209afd2dbaafaa2996ddafd351f494379fe0386a64980fb5182c2f0d2927b0c8cc135222820a412a65bf8df2790763d92ebf1327de0ba5
   languageName: node
   linkType: hard
 
@@ -10625,7 +10531,6 @@ __metadata:
   dependencies:
     "@antfu/eslint-config": "npm:4.0.1"
     "@hookform/resolvers": "npm:3.10.0"
-    "@iconify-icon/react": "npm:2.3.0"
     "@iconify-json/fa-solid": "npm:1.2.1"
     "@radix-ui/react-checkbox": "npm:1.1.3"
     "@radix-ui/react-dialog": "npm:1.1.5"
@@ -10648,7 +10553,6 @@ __metadata:
     "@types/react": "npm:19.0.8"
     "@types/react-dom": "npm:19.0.3"
     "@types/react-redux": "npm:7.1.34"
-    "@types/ws": "npm:^8"
     "@vitejs/plugin-react": "npm:4.3.4"
     "@xstate/react": "npm:5.0.2"
     autoprefixer: "npm:10.4.20"
@@ -10666,7 +10570,6 @@ __metadata:
     jotai: "npm:2.11.1"
     jotai-devtools: "npm:0.10.1"
     jotai-mutative: "npm:1.1.0"
-    jotai-xstate: "npm:0.6.1"
     knip: "npm:5.43.3"
     lucide-react: "npm:0.474.0"
     madge: "npm:8.0.0"
@@ -10682,9 +10585,6 @@ __metadata:
     react-redux: "npm:9.2.0"
     react-refresh: "npm:0.16.0"
     react-twc: "npm:1.4.2"
-    redux: "npm:5.0.1"
-    redux-saga: "npm:1.3.0"
-    scule: "npm:1.3.0"
     shadcn-ui: "npm:0.9.4"
     sonda: "npm:0.7.1"
     tailwind-merge: "npm:2.6.0"
@@ -10700,7 +10600,6 @@ __metadata:
     vite-plugin-inspect: "npm:10.1.0"
     vite-tsconfig-paths: "npm:5.1.4"
     vitest: "npm:3.0.4"
-    ws: "npm:8.18.0"
     xstate: "npm:5.19.2"
     zod: "npm:3.24.1"
     zx: "npm:8.3.0"
@@ -10878,15 +10777,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redux-saga@npm:1.3.0":
-  version: 1.3.0
-  resolution: "redux-saga@npm:1.3.0"
-  dependencies:
-    "@redux-saga/core": "npm:^1.3.0"
-  checksum: 10/caa8bbc46f23ac6e4c87ddd55f0f496bfd6b2b6dfbc8c5639372c304ae83a9fa593529d83eefcbd79e15c518d9ad59e6d1b4e7e742fc1a5e5a2e92d39e960291
-  languageName: node
-  linkType: hard
-
 "redux-thunk@npm:^3.1.0":
   version: 3.1.0
   resolution: "redux-thunk@npm:3.1.0"
@@ -10896,19 +10786,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redux@npm:5.0.1, redux@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "redux@npm:5.0.1"
-  checksum: 10/a373f9ed65693ead58bea5ef61c1d6bef39da9f2706db3be6f84815f3a1283230ecd1184efb1b3daa7f807d8211b0181564ca8f336fc6ee0b1e2fa0ba06737c2
-  languageName: node
-  linkType: hard
-
 "redux@npm:^4.0.0":
   version: 4.2.1
   resolution: "redux@npm:4.2.1"
   dependencies:
     "@babel/runtime": "npm:^7.9.2"
   checksum: 10/371e4833b671193303a7dea7803c8fdc8e0d566740c78f580e0a3b77b4161da25037626900a2205a5d616117fa6ad09a4232e5a110bd437186b5c6355a041750
+  languageName: node
+  linkType: hard
+
+"redux@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "redux@npm:5.0.1"
+  checksum: 10/a373f9ed65693ead58bea5ef61c1d6bef39da9f2706db3be6f84815f3a1283230ecd1184efb1b3daa7f807d8211b0181564ca8f336fc6ee0b1e2fa0ba06737c2
   languageName: node
   linkType: hard
 
@@ -11269,7 +11159,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scule@npm:1.3.0, scule@npm:^1.3.0":
+"scule@npm:^1.3.0":
   version: 1.3.0
   resolution: "scule@npm:1.3.0"
   checksum: 10/f2968b292e33c0eddca4a68b5c70f08dfc8479e492461c248f72873deaf77ae87c9f27dde7a342b3cb6394d2fae9665890b07a2243f79cff5cba65c9525ccf7e
@@ -12311,31 +12201,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-compare@npm:^0.0.2":
-  version: 0.0.2
-  resolution: "typescript-compare@npm:0.0.2"
-  dependencies:
-    typescript-logic: "npm:^0.0.0"
-  checksum: 10/d6c43213e7689f8519438b6deceb9877cdc83b4f64677bbc07e6d88d8b63bee713035731678facfd3f81b019b93131a876a230194b4f8d31737bfc5af71594d2
-  languageName: node
-  linkType: hard
-
-"typescript-logic@npm:^0.0.0":
-  version: 0.0.0
-  resolution: "typescript-logic@npm:0.0.0"
-  checksum: 10/84506bd58b7e15455b3233ded7f43f2ff8667500dca94f8e96e61aa16fa5a78bd9c45455f27c49f0e4aee7322c3e5a4b270e68bf8ba29fdf1571256fe2607152
-  languageName: node
-  linkType: hard
-
-"typescript-tuple@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "typescript-tuple@npm:2.2.1"
-  dependencies:
-    typescript-compare: "npm:^0.0.2"
-  checksum: 10/6e03ff36696aa0b832465234f1ce5496717b50b22c8597f903894a1e7577ab0d0d86eeb84d509dc206f02aa21a75d196c0082d59325fde3ac9a22b6bc5ff3d14
-  languageName: node
-  linkType: hard
-
 "typescript@npm:5.7.3, typescript@npm:^5.4.4, typescript@npm:^5.4.5, typescript@npm:^5.5.4":
   version: 5.7.3
   resolution: "typescript@npm:5.7.3"
@@ -13190,21 +13055,6 @@ __metadata:
   version: 1.0.2
   resolution: "wrappy@npm:1.0.2"
   checksum: 10/159da4805f7e84a3d003d8841557196034155008f817172d4e986bd591f74aa82aa7db55929a54222309e01079a65a92a9e6414da5a6aa4b01ee44a511ac3ee5
-  languageName: node
-  linkType: hard
-
-"ws@npm:8.18.0":
-  version: 8.18.0
-  resolution: "ws@npm:8.18.0"
-  peerDependencies:
-    bufferutil: ^4.0.1
-    utf-8-validate: ">=5.0.2"
-  peerDependenciesMeta:
-    bufferutil:
-      optional: true
-    utf-8-validate:
-      optional: true
-  checksum: 10/70dfe53f23ff4368d46e4c0b1d4ca734db2c4149c6f68bc62cb16fc21f753c47b35fcc6e582f3bdfba0eaeb1c488cddab3c2255755a5c3eecb251431e42b3ff6
   languageName: node
   linkType: hard
 
