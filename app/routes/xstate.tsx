@@ -1,11 +1,14 @@
+import { createBrowserInspector } from '@statelyai/inspect'
 import { createFileRoute } from '@tanstack/react-router'
-import { useCallback } from 'react'
+import { useMachine } from '@xstate/react'
+import { useAtomValue } from 'jotai'
+import { useCallback, useMemo } from 'react'
+import { createAIActor } from '~/actor/ai'
+import { aiVersionAtom } from '~/atoms/game'
 import { Board } from '~/components/Board/Board'
+import { createGameMachine } from '~/machines/game'
 import { DEFAULT_USER, getUserType, Player, UserType } from '~/store'
 import { placeAndFlip } from '~/store/lib/board'
-import { useMachine } from '@xstate/react'
-import { createGameMachine } from '~/machines/game'
-import { createBrowserInspector } from '@statelyai/inspect'
 
 export const Route = createFileRoute('/xstate')({
   component: XStateGame,
@@ -21,7 +24,11 @@ const inspector =
       }
 
 function XStateGame() {
-  const [machine, send] = useMachine(gameMachine, { inspect: inspector.inspect })
+  const aiVersion = useAtomValue(aiVersionAtom)
+  const aiActor = useMemo(() => createAIActor(aiVersion), [aiVersion])
+  const [machine, send] = useMachine(gameMachine.provide({ actors: { aiPlaceChess: aiActor } }), {
+    inspect: inspector.inspect,
+  })
 
   const startGame = useCallback(
     (color: string) => {

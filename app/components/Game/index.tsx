@@ -1,10 +1,10 @@
 import type { ReactElement } from 'react'
-import { useAtomValue, useSetAtom } from 'jotai'
+import type { AIVersions } from '~/store/lib/ai'
 
+import { useAtomValue, useSetAtom } from 'jotai'
 import { useCallback } from 'react'
 import { showReplayAtom } from '~/atoms/computed'
 import { aiVersionAtom, allowRetractStepsAtom, gameMessageAtom, gameStateAtom } from '~/atoms/game'
-import type { AIVersions } from '~/store/lib/ai'
 import { useDispatch } from '../../hooks'
 import { IDLE, reboot } from '../../store'
 import { Game as DumbGame } from './Game'

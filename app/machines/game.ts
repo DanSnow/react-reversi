@@ -1,13 +1,15 @@
 import type { Users } from '~/store'
+import { Effect, pipe } from 'effect'
 import invariant from 'tiny-invariant'
 import { assign, fromPromise, setup } from 'xstate'
+import { createAIActor } from '~/actor/ai'
+import { aiVersionAtom } from '~/atoms/game'
+import { store } from '~/atoms/store'
 import { Board, DEFAULT_USER, getUserType, Player, UserType } from '~/store'
+import { computeScores } from '~/store/ai'
+import { DEFAULT_AI_VERSION } from '~/store/lib/ai'
 import { clearBoardCandidate, countCandidate, placeAndFlip, placeBoardCandidate } from '~/store/lib/board'
 import { getBestPoint, getOpposite } from '~/store/lib/chess-utils'
-import { Effect, pipe } from 'effect'
-import { store } from '~/atoms/store'
-import { aiVersionAtom } from '~/atoms/game'
-import { computeScores } from '~/store/ai'
 
 export const createGameMachine = () =>
   setup({
@@ -69,28 +71,7 @@ export const createGameMachine = () =>
       },
     },
     actors: {
-      aiPlaceChess: fromPromise<Board.Board, { board: Board.Board; player: Player.Player }>(
-        ({ input: { board, player } }) => {
-          console.log('ai turn', { board, player })
-          const aiVersion = store.get(aiVersionAtom)
-          return pipe(
-            Effect.sync(() => {
-              const scores = computeScores({ board, ai: player, version: aiVersion })
-              return getBestPoint(scores)
-            }),
-            Effect.delay(300),
-            Effect.map(({ row, col }) =>
-              placeAndFlip({
-                board,
-                col,
-                row,
-                player,
-              }),
-            ),
-            Effect.runPromise,
-          )
-        },
-      ),
+      aiPlaceChess: createAIActor(DEFAULT_AI_VERSION),
     },
   }).createMachine({
     context: {

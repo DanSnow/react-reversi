@@ -233,6 +233,8 @@ export const judgeScores = {
 
 export type AIVersions = keyof typeof judgeScores
 
+export const DEFAULT_AI_VERSION: AIVersions = 'v3OverviewIterated'
+
 function isCorner(row: number, col: number) {
   return (row === 0 || row === 7) && (col === 0 || col === 7)
 }
