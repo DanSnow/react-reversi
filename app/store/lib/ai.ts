@@ -1,7 +1,7 @@
 import type { AIJudgeScore, PointScore } from '~/types/game'
 
-import { createNextState as produce } from '@reduxjs/toolkit'
 import { Array, Number as Num, Order } from 'effect'
+import { create as produce } from 'mutative'
 import invariant from 'tiny-invariant'
 import { Board, Chess, type Player } from '~/types'
 import { checkFlipChess, clearBoardCandidate, countPlayerChess, placeAndFlip, placeBoardCandidate } from './board'
