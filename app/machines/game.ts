@@ -1,4 +1,4 @@
-import type { Users } from '~/types'
+import type { Point, Users } from '~/types'
 import type { GameEmittedEvents } from '~/types/events'
 import { pipe } from 'effect'
 import invariant from 'tiny-invariant'
@@ -11,7 +11,7 @@ import { Board, DEFAULT_USER, getUserType, Player, UserType } from '~/types'
 
 export type GameEvents =
   | { type: 'start'; users: Users }
-  | { type: 'placed'; nextBoard: Board.Board }
+  | { type: 'placed'; point: Point; nextBoard: Board.Board }
   | { type: 'restart' }
 
 export const gameMachine = setup({
@@ -113,6 +113,14 @@ export const gameMachine = setup({
         placed: {
           target: 'GAME_LOOP',
           actions: [
+            emit(({ event, context }) => {
+              assertEvent(event, 'placed')
+              return {
+                type: 'placed',
+                point: event.point,
+                player: context.currentPlayer,
+              }
+            }),
             {
               type: 'resetSwitch',
             },
@@ -164,8 +172,13 @@ export const gameMachine = setup({
         onDone: {
           actions: [
             assign({
-              board: ({ event }) => event.output,
+              board: ({ event }) => event.output.nextBoard,
             }),
+            emit(({ event, context }) => ({
+              type: 'placed',
+              point: event.output.point,
+              player: context.currentPlayer,
+            })),
             {
               type: 'resetSwitch',
             },

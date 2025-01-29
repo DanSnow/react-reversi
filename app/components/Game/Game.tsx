@@ -10,11 +10,13 @@ import { Log } from '../Log'
 import { Score } from '../Score'
 import { SettingModal } from '../SettingModal'
 import { Toolbar } from '../Toolbar'
+import { Log as LogData } from '~/types'
 
 export interface Props extends ScoreProps {
   message: string
   children: ReactNode
   showReplay: boolean
+  log: LogData[]
   setAllowRetract: (allow: boolean) => void
   onRestart: () => void
   setVersion: (version: AIVersions) => void
@@ -28,6 +30,7 @@ export function Game({
   setAllowRetract,
   onRestart,
   users,
+  log,
   score,
 }: Props): ReactElement {
   const [hint, setHint] = useState(false)
@@ -48,11 +51,11 @@ export function Game({
           </div>
           <Score users={users} score={score} />
           <div className="hidden grow max-w-64 lg:block">
-            <Log />
+            <Log log={log} />
           </div>
         </div>
         <Confirm open={showReplay} onConfirm={onRestart} onCancel={closeSetting}>
-          {t('Play Again?') as string}
+          {t('Play Again?')}
         </Confirm>
         <SettingModal
           isOpen={settingOpen}
