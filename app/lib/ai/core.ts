@@ -4,8 +4,8 @@ import { Array, Number as Num, Order } from 'effect'
 import { create as produce } from 'mutative'
 import invariant from 'tiny-invariant'
 import { Board, Chess, type Player } from '~/types'
-import { checkFlipChess, clearBoardCandidate, countPlayerChess, placeAndFlip, placeBoardCandidate } from './board'
-import { countAroundChess, directions, getBestPoint, getCandidate, getOpposite } from './chess-utils'
+import { checkFlipChess, clearBoardCandidate, countPlayerChess, placeAndFlip, placeBoardCandidate } from '../board'
+import { countAroundChess, directions, getBestPoint, getCandidate, getOpposite } from '../chess-utils'
 
 function judgeScoreV1(board: Board.Board, ai: string, row: number, col: number): number {
   const flips = directions.map(([rd, cd]) => checkFlipChess({ board, player: ai, row, col, rd, cd }))

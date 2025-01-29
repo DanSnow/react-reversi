@@ -4,9 +4,9 @@ import { pipe } from 'effect'
 import invariant from 'tiny-invariant'
 import { assertEvent, assign, emit, setup } from 'xstate'
 import { createAIActor } from '~/actor/ai'
-import { DEFAULT_AI_VERSION } from '~/store/lib/ai'
-import { clearBoardCandidate, countCandidate, placeBoardCandidate } from '~/store/lib/board'
-import { getOpposite } from '~/store/lib/chess-utils'
+import { DEFAULT_AI_VERSION } from '~/lib/ai/core'
+import { clearBoardCandidate, countCandidate, placeBoardCandidate } from '~/lib/board'
+import { getOpposite } from '~/lib/chess-utils'
 import { Board, DEFAULT_USER, getUserType, Player, UserType } from '~/types'
 
 export type GameEvents =

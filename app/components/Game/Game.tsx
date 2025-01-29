@@ -1,7 +1,7 @@
 import type { ReactElement, ReactNode } from 'react'
 import type { ScoreProps } from '../Score'
 
-import type { AIVersions } from '~/store/lib/ai'
+import type { AIVersions } from '~/lib/ai/core'
 import { useCallback, useState } from 'react'
 import GithubCorner from 'react-github-corner'
 import { useTranslation } from 'react-i18next'

@@ -1,4 +1,4 @@
-import type { AIVersions } from '~/store/lib/ai'
+import type { AIVersions } from '~/lib/ai/core'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { type ReactElement, useCallback } from 'react'
 import { useForm } from 'react-hook-form'

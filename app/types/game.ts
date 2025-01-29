@@ -1,7 +1,7 @@
 import type { Board } from './board'
 import type { Player } from './player'
 import type { BLACK, WHITE } from '~/consts'
-import type { judgeScores } from '~/store/lib/ai'
+import type { judgeScores } from '~/lib/ai/core'
 
 export interface Log {
   player: string

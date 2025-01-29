@@ -1,4 +1,4 @@
-import type { AIVersions } from '~/store/lib/ai'
+import type { AIVersions } from '~/lib/ai/core'
 import type { PastState } from '~/types'
 import { atom } from 'jotai'
 import { withMutative } from 'jotai-mutative'

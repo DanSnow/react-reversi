@@ -1,10 +1,18 @@
 import type { AIJudgeScore, Board, Player, PointScore } from '~/types'
 import { Array } from 'effect'
 import invariant from 'tiny-invariant'
-import { type AIVersions, judgeScores } from './lib/ai'
-import { getCandidate } from './lib/chess-utils'
+import { type AIVersions, judgeScores } from './ai/core'
+import { getCandidate } from './chess-utils'
 
-export function computeScores({ board, version, ai }: { board: Board.Board; version: AIVersions; ai: Player.Player }) {
+export function aiComputeScores({
+  board,
+  version,
+  ai,
+}: {
+  board: Board.Board
+  version: AIVersions
+  ai: Player.Player
+}) {
   const scores: PointScore[] = []
   const judge: AIJudgeScore = judgeScores[version]
   invariant(judge, 'version invalid')

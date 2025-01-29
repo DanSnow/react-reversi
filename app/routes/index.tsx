@@ -11,8 +11,8 @@ import { aiVersionAtom } from '~/atoms/game'
 import { Board } from '~/components/Board'
 import { Game } from '~/components/Game/Game'
 import { gameMachine } from '~/machines/game'
-import { computeScore } from '~/store'
-import { placeAndFlip } from '~/store/lib/board'
+import { computeScore } from '~/lib/compute-score'
+import { placeAndFlip } from '~/lib/board'
 import { DEFAULT_USER, getUserType, Player, UserType } from '~/types'
 
 export const Route = createFileRoute('/')({
