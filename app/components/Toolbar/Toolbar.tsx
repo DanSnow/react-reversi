@@ -4,7 +4,7 @@ import IconCog from '~icons/fa-solid/cog'
 import IconPoweroff from '~icons/fa-solid/power-off'
 import IconUndo from '~icons/fa-solid/undo'
 import IconUserFriends from '~icons/fa-solid/user-friends'
-import { Button } from '~/components/ui/button'
+import { IconButton } from '../ui/icon-button'
 
 export interface Props {
   allowRetract: boolean
@@ -18,37 +18,17 @@ export function Toolbar({ setHuman, reboot, allowRetract, restoreStep, onOpenSet
   const { t } = useTranslation()
 
   return (
-    <nav className="flex justify-between pr-16">
-      <div>
-        <div className="p-2">
-          <p className="text-4xl font-bold tracking-tight lg:text-5xl">{t('Reversi')}</p>
-        </div>
-      </div>
-      <div>
-        <div className="flex gap-2 p-2">
-          <Button onClick={setHuman}>
-            <span className="mr-1">
-              <IconUserFriends />
-            </span>
-            <span>{t('Play with friend')}</span>
-          </Button>
-          <Button onClick={reboot}>
-            <span className="mr-1">
-              <IconPoweroff />
-            </span>
-            <span>{t('Restart')}</span>
-          </Button>
-          <Button disabled={!allowRetract} onClick={restoreStep}>
-            <span>
-              <IconUndo />
-            </span>
-          </Button>
-          <Button onClick={onOpenSetting}>
-            <span>
-              <IconCog />
-            </span>
-          </Button>
-        </div>
+    <nav className="flex justify-between p-2 pr-16">
+      <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">{t('Reversi')}</h1>
+      <div className="flex gap-2 ">
+        <IconButton icon={<IconUserFriends />} onClick={setHuman}>
+          <span>{t('Play with friend')}</span>
+        </IconButton>
+        <IconButton icon={<IconPoweroff />} onClick={reboot}>
+          <span>{t('Restart')}</span>
+        </IconButton>
+        <IconButton icon={<IconUndo />} disabled={!allowRetract} onClick={restoreStep} />
+        <IconButton icon={<IconCog />} onClick={onOpenSetting} />
       </div>
     </nav>
   )
