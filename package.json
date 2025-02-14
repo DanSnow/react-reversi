@@ -71,7 +71,7 @@
     "@testing-library/dom": "10.4.0",
     "@testing-library/react": "16.2.0",
     "@types/gh-pages": "6.1.0",
-    "@types/node": "22.13.2",
+    "@types/node": "22.13.4",
     "@types/react": "18.3.18",
     "@types/react-dom": "18.3.5",
     "@types/react-redux": "7.1.34",
