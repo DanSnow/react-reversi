@@ -6928,7 +6928,7 @@ __metadata:
     redux-saga: "npm:1.3.0"
     scule: "npm:1.3.0"
     shadcn-ui: "npm:0.9.4"
-    sonda: "npm:0.6.2"
+    sonda: "npm:0.7.1"
     tailwind-merge: "npm:2.6.0"
     tailwindcss: "npm:3.4.17"
     tailwindcss-animate: "npm:1.0.7"
@@ -7501,14 +7501,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sonda@npm:0.6.2":
-  version: 0.6.2
-  resolution: "sonda@npm:0.6.2"
+"sonda@npm:0.7.1":
+  version: 0.7.1
+  resolution: "sonda@npm:0.7.1"
   dependencies:
     "@ampproject/remapping": "npm:^2.3.0"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
     open: "npm:^10.1.0"
-  checksum: 10/3ca0b41a5fa52ed4645f10a17d86635ee1b51b5185cff7b0dfdea6e185090f03d427c5d8c52cc78c25b189de00a1d4fe887010ee0ef970a192ba3646194f9707
+  bin:
+    sonda-angular: bin/sonda-angular.js
+  checksum: 10/46570d0a800ec042d2f5920dd664b27cc95c49cbd74337e127c7b25b5b593710e2191268596edcadb193174e416ca65be9ff06f657436432311d3bdd21cd03fe
   languageName: node
   linkType: hard
 
