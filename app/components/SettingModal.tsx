@@ -1,15 +1,17 @@
+import type { ReactElement } from 'react'
 import type { AIVersions } from '~/lib/ai/core'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { type ReactElement, useCallback } from 'react'
+import type { Setting } from '~/schemas/settings'
+import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
+import { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
-import { useTranslation } from 'react-i18next'
 
+import { useTranslation } from 'react-i18next'
 import { Button } from '~/components/ui/button'
 import { Dialog, DialogContent } from '~/components/ui/dialog'
+import { SettingSchema } from '~/schemas/settings'
 import { Checkbox } from './ui/checkbox'
 import { Form, FormControl, FormField, FormItem, FormLabel } from './ui/form'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
-import { Setting, SettingSchema } from '~/schemas/settings'
 
 interface Props {
   isOpen: boolean
@@ -45,7 +47,7 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
   )
 
   const form = useForm<Setting>({
-    resolver: zodResolver(SettingSchema),
+    resolver: standardSchemaResolver(SettingSchema),
     defaultValues: {
       version: 'v3Overview',
     },
