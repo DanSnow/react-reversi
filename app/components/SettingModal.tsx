@@ -4,12 +4,12 @@ import { type ReactElement, useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
-import { z } from 'zod'
 import { Button } from '~/components/ui/button'
 import { Dialog, DialogContent } from '~/components/ui/dialog'
 import { Checkbox } from './ui/checkbox'
 import { Form, FormControl, FormField, FormItem, FormLabel } from './ui/form'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
+import { Setting, SettingSchema } from '~/schemas/settings'
 
 interface Props {
   isOpen: boolean
@@ -34,12 +34,6 @@ const AI: [key: string, display: string][] = [
   ['v1Overview', 'V1 + min-max + overview'],
 ]
 
-const schema = z.object({
-  hint: z.boolean(),
-  retract: z.boolean(),
-  version: z.string(),
-})
-
 export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, onVersionChange }: Props): ReactElement {
   const { t } = useTranslation()
 
@@ -50,8 +44,8 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
     [onClose],
   )
 
-  const form = useForm<z.infer<typeof schema>>({
-    resolver: zodResolver(schema),
+  const form = useForm<Setting>({
+    resolver: zodResolver(SettingSchema),
     defaultValues: {
       version: 'v3Overview',
     },

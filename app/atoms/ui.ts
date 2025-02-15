@@ -1,5 +1,4 @@
 import type { History } from '~/types'
-import { atom } from 'jotai'
 import { withMutative } from 'jotai-mutative'
 import { atomWithStorage } from 'jotai/utils'
 
@@ -10,5 +9,3 @@ export const historyAtom = withMutative(
     win: 0,
   }),
 )
-
-export const overlayAtom = atom('')

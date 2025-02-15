@@ -5,4 +5,6 @@ import { withMutative } from 'jotai-mutative'
 import { atomWithReset } from 'jotai/utils'
 
 export const aiVersionAtom = atom<AIVersions>('v3Overview')
+export const showHintAtom = atom(false)
+
 export const pastStepsAtom = withMutative(atomWithReset<PastState[]>([]))
