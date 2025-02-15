@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import { WHITE } from '../../../store'
+import { WHITE } from '~/consts'
 import { Log } from '../Log'
 
 describe('log.tsx', (): void => {
