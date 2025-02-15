@@ -1,6 +1,6 @@
 import path from 'node:path'
 import react from '@vitejs/plugin-react'
-import { SondaRollupPlugin } from 'sonda'
+import Sonda from 'sonda/vite'
 import { defineConfig } from 'vite'
 import pkg from './package.json'
 
@@ -18,7 +18,7 @@ export default defineConfig({
         presets: ['jotai/babel/preset'],
       },
     }),
-    SondaRollupPlugin(),
+    Sonda(),
   ],
   resolve: {
     alias: {
