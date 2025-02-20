@@ -81,7 +81,7 @@
     "eslint-plugin-prettier": "5.2.3",
     "gh-pages": "6.3.0",
     "happy-dom": "17.1.1",
-    "jotai-devtools": "0.10.1",
+    "jotai-devtools": "0.11.0",
     "knip": "5.44.4",
     "postcss": "8.5.3",
     "prettier": "3.5.1",
