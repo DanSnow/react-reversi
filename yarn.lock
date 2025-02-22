@@ -832,14 +832,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hookform/resolvers@npm:4.1.0":
-  version: 4.1.0
-  resolution: "@hookform/resolvers@npm:4.1.0"
+"@hookform/resolvers@npm:4.1.1":
+  version: 4.1.1
+  resolution: "@hookform/resolvers@npm:4.1.1"
   dependencies:
     caniuse-lite: "npm:^1.0.30001698"
   peerDependencies:
     react-hook-form: ^7.0.0
-  checksum: 10/9769dadd038f817a119aa810ff3f951f492686e814b99246dc6ada7a89daad22490381c79ff4406484870d98d5a0bd8400a6e4f22082509db1974adbf62e0a6d
+  checksum: 10/c3e904654cac64692ab657e463d7a37f7cda08fb3ea6b203107c299973764ada5dec29b72cef85554195d8fc72c27cac872a6a6daf537fe35a7abe5e4fed9d39
   languageName: node
   linkType: hard
 
@@ -6625,7 +6625,7 @@ __metadata:
   resolution: "react-reversi@workspace:."
   dependencies:
     "@antfu/eslint-config": "npm:4.3.0"
-    "@hookform/resolvers": "npm:4.1.0"
+    "@hookform/resolvers": "npm:4.1.1"
     "@radix-ui/react-checkbox": "npm:1.1.4"
     "@radix-ui/react-dialog": "npm:1.1.6"
     "@radix-ui/react-label": "npm:2.1.2"
