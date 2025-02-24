@@ -832,14 +832,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hookform/resolvers@npm:4.1.1":
-  version: 4.1.1
-  resolution: "@hookform/resolvers@npm:4.1.1"
+"@hookform/resolvers@npm:4.1.2":
+  version: 4.1.2
+  resolution: "@hookform/resolvers@npm:4.1.2"
   dependencies:
-    caniuse-lite: "npm:^1.0.30001698"
+    "@standard-schema/utils": "npm:^0.3.0"
   peerDependencies:
     react-hook-form: ^7.0.0
-  checksum: 10/c3e904654cac64692ab657e463d7a37f7cda08fb3ea6b203107c299973764ada5dec29b72cef85554195d8fc72c27cac872a6a6daf537fe35a7abe5e4fed9d39
+  checksum: 10/8dbad9bcef7a98a8d794c069ac2b1f68734d33d3862d38b251430070751cb080d9d5c55f1eb5f737f5727ef1bc67e8b703dbeb5f6c68a4892838a94a969eb385
   languageName: node
   linkType: hard
 
@@ -1837,6 +1837,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@standard-schema/utils@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@standard-schema/utils@npm:0.3.0"
+  checksum: 10/7084f875d322792f2e0a5904009434c8374b9345b09ba89828b68fd56fa3c2b366d35bf340d9e8c72736ef01793c2f70d350c372ed79845dc3566c58d34b4b51
+  languageName: node
+  linkType: hard
+
 "@stylistic/eslint-plugin@npm:^4.0.0":
   version: 4.0.1
   resolution: "@stylistic/eslint-plugin@npm:4.0.1"
@@ -2679,7 +2686,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001646, caniuse-lite@npm:^1.0.30001688, caniuse-lite@npm:^1.0.30001698":
+"caniuse-lite@npm:^1.0.30001646, caniuse-lite@npm:^1.0.30001688":
   version: 1.0.30001700
   resolution: "caniuse-lite@npm:1.0.30001700"
   checksum: 10/9203ed502fd1b74c47f315a001e1d91abe2abecb951f8e15dd1556cfc23a29fa7a7b2cc654380604bb6f58bcfa0c65b78055b9d99a7489c13baa0d4158a6e25e
@@ -6625,7 +6632,7 @@ __metadata:
   resolution: "react-reversi@workspace:."
   dependencies:
     "@antfu/eslint-config": "npm:4.3.0"
-    "@hookform/resolvers": "npm:4.1.1"
+    "@hookform/resolvers": "npm:4.1.2"
     "@radix-ui/react-checkbox": "npm:1.1.4"
     "@radix-ui/react-dialog": "npm:1.1.6"
     "@radix-ui/react-label": "npm:2.1.2"
