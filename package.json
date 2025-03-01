@@ -2,7 +2,7 @@
   "name": "react-reversi",
   "type": "module",
   "version": "1.9.0",
-  "packageManager": "yarn@4.6.0",
+  "packageManager": "yarn@4.7.0",
   "description": "Reversi game implement in React",
   "author": "DanSnow",
   "license": "MIT",
