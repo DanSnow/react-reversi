@@ -22,9 +22,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@antfu/eslint-config@npm:4.7.0":
-  version: 4.7.0
-  resolution: "@antfu/eslint-config@npm:4.7.0"
+"@antfu/eslint-config@npm:4.8.1":
+  version: 4.8.1
+  resolution: "@antfu/eslint-config@npm:4.8.1"
   dependencies:
     "@antfu/install-pkg": "npm:^1.0.0"
     "@clack/prompts": "npm:^0.10.0"
@@ -39,7 +39,7 @@ __metadata:
     eslint-config-flat-gitignore: "npm:^2.1.0"
     eslint-flat-config-utils: "npm:^2.0.1"
     eslint-merge-processors: "npm:^2.0.0"
-    eslint-plugin-antfu: "npm:^3.1.0"
+    eslint-plugin-antfu: "npm:^3.1.1"
     eslint-plugin-command: "npm:^3.1.0"
     eslint-plugin-import-x: "npm:^4.6.1"
     eslint-plugin-jsdoc: "npm:^50.6.3"
@@ -47,7 +47,7 @@ __metadata:
     eslint-plugin-n: "npm:^17.16.2"
     eslint-plugin-no-only-tests: "npm:^3.3.0"
     eslint-plugin-perfectionist: "npm:^4.9.0"
-    eslint-plugin-pnpm-catalogs: "npm:^0.1.0"
+    eslint-plugin-pnpm: "npm:^0.1.1"
     eslint-plugin-regexp: "npm:^2.7.0"
     eslint-plugin-toml: "npm:^0.12.0"
     eslint-plugin-unicorn: "npm:^57.0.0"
@@ -106,7 +106,7 @@ __metadata:
       optional: true
   bin:
     eslint-config: bin/index.js
-  checksum: 10/ae07c938cd4d5808e15efc90805cadf0a0d1690c2e2fbb9a39b55d0e4eefcb4478f2f31253785eba0bb6f382fa914681313393b55009abf8221e5a855376f267
+  checksum: 10/eb13f968f31c1d4a78da44204b1360e443e20b3a9566492bc02303f178724cdea70c5355fae1292e69415dc16c96f0f6cc2e4c1cf903d22fcc05e1908dcf2104
   languageName: node
   linkType: hard
 
@@ -3248,12 +3248,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-antfu@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "eslint-plugin-antfu@npm:3.1.0"
+"eslint-plugin-antfu@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "eslint-plugin-antfu@npm:3.1.1"
   peerDependencies:
     eslint: "*"
-  checksum: 10/8ad1ee64f5150451a8ac8630283a0c56ba318731eb1576b5bcbaa6a04ac2069081bb87163950b348f8edb861512a7ab27ed009765cb9caa531b228bc08fbcd7b
+  checksum: 10/848cf2cb07c3a2964ca250fd98474b2e32c04bdf7a64534d05370a6d3bcfbbfafc33aad23b0af57e13f5101207e337e81892872be6ae0739b02eb69944115ecb
   languageName: node
   linkType: hard
 
@@ -3381,16 +3381,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-pnpm-catalogs@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "eslint-plugin-pnpm-catalogs@npm:0.1.0"
+"eslint-plugin-pnpm@npm:^0.1.1":
+  version: 0.1.2
+  resolution: "eslint-plugin-pnpm@npm:0.1.2"
   dependencies:
     find-up-simple: "npm:^1.0.1"
     jsonc-eslint-parser: "npm:^2.4.0"
-    pnpm-catalogs-utils: "npm:0.1.0"
+    pnpm-workspace-yaml: "npm:0.1.2"
   peerDependencies:
     eslint: ^9.0.0
-  checksum: 10/182a6c95d8228c3c6e1a31b925c5725866e955a4bfa62451e1f4e978c76edc30224b371ccde0f3ff470951f51c5d7306c10b346a4a70195e46686fda3c789a25
+  checksum: 10/77b8f031be62db07c174d365d8133177a6844ad5ca2c33c7626371757f88f0dd09cca5227c6aa6962e762c3a57667dc39b761f5397835830b83d49ed8e21b760
   languageName: node
   linkType: hard
 
@@ -5786,12 +5786,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pnpm-catalogs-utils@npm:0.1.0":
-  version: 0.1.0
-  resolution: "pnpm-catalogs-utils@npm:0.1.0"
+"pnpm-workspace-yaml@npm:0.1.2":
+  version: 0.1.2
+  resolution: "pnpm-workspace-yaml@npm:0.1.2"
   dependencies:
     yaml: "npm:^2.7.0"
-  checksum: 10/13ec4a763dbf3ef6083e9f0b1d7697e6095733f36e74dd941b9aeb8a85d177356a53066d45c829b152ff33480c6804dba269150917306257923cad0dee411078
+  checksum: 10/4a1dad39b08d12fa44a4ccbce9c9b7aa279004f96c02dd5703e2249e3885172e9efff320d1c52dfa70349125896b8696c9ea664634588344516bccee8ed1753b
   languageName: node
   linkType: hard
 
@@ -6159,7 +6159,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-reversi@workspace:."
   dependencies:
-    "@antfu/eslint-config": "npm:4.7.0"
+    "@antfu/eslint-config": "npm:4.8.1"
     "@hookform/resolvers": "npm:4.1.3"
     "@radix-ui/react-checkbox": "npm:1.1.4"
     "@radix-ui/react-dialog": "npm:1.1.6"
