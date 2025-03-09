@@ -4044,13 +4044,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"happy-dom@npm:17.4.1":
-  version: 17.4.1
-  resolution: "happy-dom@npm:17.4.1"
+"happy-dom@npm:17.4.2":
+  version: 17.4.2
+  resolution: "happy-dom@npm:17.4.2"
   dependencies:
     webidl-conversions: "npm:^7.0.0"
     whatwg-mimetype: "npm:^3.0.0"
-  checksum: 10/a84800a520c6a5e200a528b1ff05663dc764aff3041a3f049d7a2dd364cbeb3bfcf5895f48ebe4af21b374df0d1bd56f2227e88054584707da326589392ead2c
+  checksum: 10/c1103de02ddd3113f4689e5175d66c6e7687d3d4c103af74571103c84d56ec2044988e522f161414a7557d0636137ebd8fd8a39f141b11be5c34ad61dab73c54
   languageName: node
   linkType: hard
 
@@ -6191,7 +6191,7 @@ __metadata:
     eslint: "npm:9.22.0"
     eslint-plugin-prettier: "npm:5.2.3"
     gh-pages: "npm:6.3.0"
-    happy-dom: "npm:17.4.1"
+    happy-dom: "npm:17.4.2"
     i18next: "npm:24.2.2"
     i18next-browser-languagedetector: "npm:8.0.4"
     jotai: "npm:2.12.1"
