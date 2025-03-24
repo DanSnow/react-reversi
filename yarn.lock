@@ -1010,6 +1010,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@pkgr/core@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@pkgr/core@npm:0.2.0"
+  checksum: 10/b7e126161ecf59ceaa0a95ba4b937cc57bf29c42bd72dc129391e4c9ab06aac31e37379dde4f523a736aab9765b18c2494096eedcbe1f494df415998eef2b949
+  languageName: node
+  linkType: hard
+
 "@radix-ui/number@npm:1.1.0":
   version: 1.1.0
   resolution: "@radix-ui/number@npm:1.1.0"
@@ -3533,12 +3540,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:5.2.3":
-  version: 5.2.3
-  resolution: "eslint-plugin-prettier@npm:5.2.3"
+"eslint-plugin-prettier@npm:5.2.4":
+  version: 5.2.4
+  resolution: "eslint-plugin-prettier@npm:5.2.4"
   dependencies:
     prettier-linter-helpers: "npm:^1.0.0"
-    synckit: "npm:^0.9.1"
+    synckit: "npm:^0.10.2"
   peerDependencies:
     "@types/eslint": ">=8.0.0"
     eslint: ">=8.0.0"
@@ -3549,7 +3556,7 @@ __metadata:
       optional: true
     eslint-config-prettier:
       optional: true
-  checksum: 10/6444a0b89f3e2a6b38adce69761133f8539487d797f1655b3fa24f93a398be132c4f68f87041a14740b79202368d5782aa1dffd2bd7a3ea659f263d6796acf15
+  checksum: 10/6508bf7e12b98e16fe185c64cd290a6d055b7fadaef30b5b4677cf4a1ce8b1d5975590722809fa762b1cdf01b605559cf4d40fc900a6f67f49bb02ecff092e78
   languageName: node
   linkType: hard
 
@@ -6342,7 +6349,7 @@ __metadata:
     clsx: "npm:2.1.1"
     effect: "npm:3.14.1"
     eslint: "npm:9.23.0"
-    eslint-plugin-prettier: "npm:5.2.3"
+    eslint-plugin-prettier: "npm:5.2.4"
     gh-pages: "npm:6.3.0"
     happy-dom: "npm:17.4.4"
     i18next: "npm:24.2.3"
@@ -7108,6 +7115,16 @@ __metadata:
   version: 1.0.0
   resolution: "supports-preserve-symlinks-flag@npm:1.0.0"
   checksum: 10/a9dc19ae2220c952bd2231d08ddeecb1b0328b61e72071ff4000c8384e145cc07c1c0bdb3b5a1cb06e186a7b2790f1dee793418b332f6ddf320de25d9125be7e
+  languageName: node
+  linkType: hard
+
+"synckit@npm:^0.10.2":
+  version: 0.10.2
+  resolution: "synckit@npm:0.10.2"
+  dependencies:
+    "@pkgr/core": "npm:^0.2.0"
+    tslib: "npm:^2.8.1"
+  checksum: 10/1bdab0f2d57e311682bb72eedbccf59edc09a5741157b10c22563d65e33532a63464b54fe33e7933b6492062bf0e0e3a0a53099232bb7be2fecd6bf6c22fa155
   languageName: node
   linkType: hard
 
