@@ -3110,13 +3110,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"effect@npm:3.14.7":
-  version: 3.14.7
-  resolution: "effect@npm:3.14.7"
+"effect@npm:3.14.8":
+  version: 3.14.8
+  resolution: "effect@npm:3.14.8"
   dependencies:
     "@standard-schema/spec": "npm:^1.0.0"
     fast-check: "npm:^3.23.1"
-  checksum: 10/4a17b12e4436eac6281299be1ddd19b2c7cac9d178f54ba00f0793a5750f0bd8a30fe99a4680d14d794222fd09c46c3892e1349155acbe94b93ec7e316e8fb9a
+  checksum: 10/a0d709235ac7b52d6d271dfc0aba3ff5246e071deb6dec0ce033da01d685f2ccb6c80ecbc06c759fab34cace370177924a5608fc5a94be2259dc2e2707bc8c84
   languageName: node
   linkType: hard
 
@@ -6334,7 +6334,7 @@ __metadata:
     autoprefixer: "npm:10.4.21"
     class-variance-authority: "npm:0.7.1"
     clsx: "npm:2.1.1"
-    effect: "npm:3.14.7"
+    effect: "npm:3.14.8"
     eslint: "npm:9.24.0"
     eslint-plugin-prettier: "npm:5.2.6"
     gh-pages: "npm:6.3.0"
