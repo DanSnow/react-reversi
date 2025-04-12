@@ -1,4 +1,4 @@
-import { defineConfig } from '@tanstack/start/config'
+import { defineConfig } from '@tanstack/react-start/config'
 import Sonda from 'sonda/vite'
 import Icons from 'unplugin-icons/vite'
 import Inspect from 'vite-plugin-inspect'

@@ -1,6 +1,5 @@
 // app/routes/__root.tsx
-import { createRootRoute, Outlet, ScrollRestoration } from '@tanstack/react-router'
-import { Meta, Scripts } from '@tanstack/start'
+import { createRootRoute, HeadContent, Outlet, Scripts } from '@tanstack/react-router'
 import { Provider as AtomProvider } from 'jotai'
 import * as React from 'react'
 import { store as atomStore } from '~/atoms/store'
@@ -98,11 +97,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     <html>
       <head>
-        <Meta />
+        <HeadContent />
       </head>
       <body>
         {children}
-        <ScrollRestoration />
         <Scripts />
         <iframe id="stately" width="100%" height="300vh" />
       </body>
