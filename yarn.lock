@@ -4446,12 +4446,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next-browser-languagedetector@npm:8.0.5":
-  version: 8.0.5
-  resolution: "i18next-browser-languagedetector@npm:8.0.5"
+"i18next-browser-languagedetector@npm:8.1.0":
+  version: 8.1.0
+  resolution: "i18next-browser-languagedetector@npm:8.1.0"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
-  checksum: 10/536b7ad6faa2dc7bb64294466372119f02299701f70aa6875c846ed147c478df71c07706dd3e49fb7686186c88af4e66942eb083490405244faba2a959273e4b
+  checksum: 10/34b94ec7832842f16933fde46fe88b36fdc6985bd0a17315f7a5741400be32f5d2d3bd6977929001fb067f82cc696645546d7458febd6983926711d691633c50
   languageName: node
   linkType: hard
 
@@ -6513,7 +6513,7 @@ __metadata:
     gh-pages: "npm:6.3.0"
     happy-dom: "npm:17.4.6"
     i18next: "npm:24.2.3"
-    i18next-browser-languagedetector: "npm:8.0.5"
+    i18next-browser-languagedetector: "npm:8.1.0"
     jotai: "npm:2.12.3"
     jotai-devtools: "npm:0.12.0"
     jotai-mutative: "npm:1.1.0"
