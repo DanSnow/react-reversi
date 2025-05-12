@@ -6996,7 +6996,7 @@ __metadata:
     typescript: "npm:5.8.3"
     vite: "npm:6.3.5"
     vitest: "npm:3.1.3"
-    xstate: "npm:5.19.2"
+    xstate: "npm:5.19.3"
     zod: "npm:3.24.4"
   languageName: unknown
   linkType: soft
@@ -8579,10 +8579,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"xstate@npm:5.19.2":
-  version: 5.19.2
-  resolution: "xstate@npm:5.19.2"
-  checksum: 10/e482600e8df96d29df92e4a9498359a03450612a503ac33c6fa1e56f966ee6985ac8f455771f6c5b65e3e4bae06fea0e762c3ca0ba86eec8419c1f7c01a0f102
+"xstate@npm:5.19.3":
+  version: 5.19.3
+  resolution: "xstate@npm:5.19.3"
+  checksum: 10/2c70e24ca16eb60ac813a990965b6b7611e5d8223ea4b0517c39e80cdfa79b33ff59fa059bd283af0bcefb865fa7f65188c34e8215bcd74641a74640c32bcda8
   languageName: node
   linkType: hard
 
