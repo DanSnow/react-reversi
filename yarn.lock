@@ -4814,15 +4814,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jotai-mutative@npm:1.1.0":
-  version: 1.1.0
-  resolution: "jotai-mutative@npm:1.1.0"
+"jotai-mutative@npm:1.2.0":
+  version: 1.2.0
+  resolution: "jotai-mutative@npm:1.2.0"
   peerDependencies:
     "@types/react": ^18.0 || ^17.0 || ^19.0
     jotai: ^2.0
-    mutative: ^1.0
+    mutative: ^1.2.0
     react: ^17.0 || ^18.0 || ^19.0
-  checksum: 10/182ef6ad471c40b7557d9dfc3cb996779f3bea2c48532737bfa6fe3e7418d24120a99616993bee34b9bf6deb74a9e04ba7f928811919e105f29dc53ea4e69205
+  checksum: 10/10171707484a7efdf6716db978fbada1fdb490587cefffc577d9af98387ad0973a123acc317f6b2964947e7795c2c98fe1c7c466443af04201a76c7f3b7ff574
   languageName: node
   linkType: hard
 
@@ -6658,7 +6658,7 @@ __metadata:
     i18next-browser-languagedetector: "npm:8.1.0"
     jotai: "npm:2.12.4"
     jotai-devtools: "npm:0.12.0"
-    jotai-mutative: "npm:1.1.0"
+    jotai-mutative: "npm:1.2.0"
     jotai-xstate: "npm:0.6.1"
     knip: "npm:5.57.2"
     lucide-react: "npm:0.511.0"
