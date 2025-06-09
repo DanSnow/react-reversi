@@ -768,14 +768,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hookform/resolvers@npm:5.1.0":
-  version: 5.1.0
-  resolution: "@hookform/resolvers@npm:5.1.0"
+"@hookform/resolvers@npm:5.1.1":
+  version: 5.1.1
+  resolution: "@hookform/resolvers@npm:5.1.1"
   dependencies:
     "@standard-schema/utils": "npm:^0.3.0"
   peerDependencies:
     react-hook-form: ^7.55.0
-  checksum: 10/acd1011858d73c47ddd2907b43ab2c4e9dd26b988ccacd613686b66f8c39245ae3c09f8793cadad35f71744b9f3cec82fcd233d08080a1f0f49f355624ff2a8a
+  checksum: 10/4d686cd268786e1b56b5e6478e4298542ac7866ffe978de970399480dc42fddf57ebbb6c1df87a0b37c5f42e0fef26770843912639599b1419056ff5d99b4dcb
   languageName: node
   linkType: hard
 
@@ -6472,7 +6472,7 @@ __metadata:
   resolution: "react-reversi@workspace:."
   dependencies:
     "@antfu/eslint-config": "npm:4.14.1"
-    "@hookform/resolvers": "npm:5.1.0"
+    "@hookform/resolvers": "npm:5.1.1"
     "@radix-ui/react-checkbox": "npm:1.3.2"
     "@radix-ui/react-dialog": "npm:1.1.14"
     "@radix-ui/react-label": "npm:2.1.7"
