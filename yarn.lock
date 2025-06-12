@@ -6537,7 +6537,7 @@ __metadata:
     vite: "npm:6.3.5"
     vitest: "npm:3.2.3"
     xstate: "npm:5.19.4"
-    zod: "npm:3.25.61"
+    zod: "npm:3.25.63"
   languageName: unknown
   linkType: soft
 
@@ -8028,10 +8028,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:3.25.61, zod@npm:^3.22.4":
-  version: 3.25.61
-  resolution: "zod@npm:3.25.61"
-  checksum: 10/273cc9e7b655addb1ff35f3782a71c4e0ad0272997e9cdc0268c5fcb598894b7c4be7b245ad75f4126d2837775bc6c2a3846d4dfa9bada816f5527d90131d132
+"zod@npm:3.25.63, zod@npm:^3.22.4":
+  version: 3.25.63
+  resolution: "zod@npm:3.25.63"
+  checksum: 10/ef3de3e94b27c94fd9c6b8d8fcd61bf6702494c91dcfb84f585f2822bcdf1d96305c953c264a221af79745795517d9d5b5ce59889d2a8d23967e6096945049bd
   languageName: node
   linkType: hard
 
