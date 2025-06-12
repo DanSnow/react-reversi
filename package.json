@@ -54,7 +54,7 @@
     "react-dom": "19.1.0",
     "react-github-corner": "2.5.0",
     "react-hook-form": "7.57.0",
-    "react-i18next": "15.5.2",
+    "react-i18next": "15.5.3",
     "react-redux": "9.2.0",
     "react-twc": "1.4.2",
     "redux": "5.0.1",
