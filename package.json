@@ -78,7 +78,7 @@
     "@vitejs/plugin-react": "4.5.2",
     "autoprefixer": "10.4.21",
     "eslint": "9.29.0",
-    "eslint-plugin-prettier": "5.4.1",
+    "eslint-plugin-prettier": "5.5.0",
     "gh-pages": "6.3.0",
     "happy-dom": "17.6.3",
     "jotai-devtools": "0.12.0",
