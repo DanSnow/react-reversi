@@ -38,6 +38,22 @@ function XStateGame() {
 
   const users = useSelector(actorRef, ({ context }) => context.users)
   const score = useSelector(actorRef, ({ context }) => computeScore(context.board))
+  const [allowRetract, setAllowRetract] = useState(false) // Add state for allowRetract
+
+  // Handlers for Game component props
+  const setHuman = useCallback(() => {
+    // TODO: Implement setHuman logic if needed
+    console.log('setHuman called')
+  }, [])
+
+  const reboot = useCallback(() => {
+    // TODO: Implement reboot logic if needed
+    console.log('reboot called')
+  }, [])
+
+  const onUndo = useCallback(() => {
+    send({ type: 'undo' }) // Send the undo event to the state machine
+  }, [send])
 
   const startGame = useCallback(
     (color: string) => {
@@ -103,10 +119,23 @@ function XStateGame() {
       unsubscribeNoValidMove()
       unsubscribePlaced()
     }
-  }, [machine])
+  }, [actorRef, updateLog]) // Added dependencies
 
   return (
-    <Game message={message} users={users} log={log} score={score} setVersion={setAIVersion} onRestart={onRestart}>
+    <Game
+      message={message}
+      users={users}
+      log={log}
+      score={score}
+      setVersion={setAIVersion}
+      onRestart={onRestart}
+      showReplay={isEnded} // Pass isEnded as showReplay
+      setAllowRetract={setAllowRetract} // Pass setAllowRetract setter
+      allowRetract={allowRetract} // Pass allowRetract state
+      setHuman={setHuman} // Pass setHuman handler
+      reboot={reboot} // Pass reboot handler
+      onUndo={onUndo} // Pass onUndo handler
+    >
       <Board.Root>
         <Board.Background />
         <Board.Chesses hint board={machine.context.board} onPlaceChess={placeChess} />

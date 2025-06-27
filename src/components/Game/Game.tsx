@@ -21,6 +21,10 @@ export interface Props extends ScoreProps {
   setAllowRetract: (allow: boolean) => void
   onRestart: () => void
   setVersion: (version: AIVersions) => void
+  allowRetract: boolean // Added allowRetract prop
+  setHuman: () => void // Added setHuman prop
+  reboot: () => void // Added reboot prop
+  onUndo: () => void // Added onUndo prop
 }
 
 export function Game({
@@ -33,6 +37,10 @@ export function Game({
   users,
   log,
   score,
+  allowRetract, // Added allowRetract
+  setHuman, // Added setHuman
+  reboot, // Added reboot
+  onUndo, // Added onUndo
 }: Props): ReactElement {
   const [hint, setHint] = useState(false)
   const [settingOpen, setSettingOpen] = useState(false)
@@ -44,7 +52,14 @@ export function Game({
   return (
     <>
       <div className="container">
-        <Toolbar onOpenSetting={openSetting} />
+        {/* Pass new props to Toolbar */}
+        <Toolbar
+          onOpenSetting={openSetting}
+          allowRetract={allowRetract}
+          setHuman={setHuman}
+          reboot={reboot}
+          onUndo={onUndo}
+        />
         <div className="flex flex-col items-start gap-4 md:flex-row">
           <div className="flex flex-col">
             {children}

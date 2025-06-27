@@ -11,10 +11,11 @@ export interface Props {
   onOpenSetting: () => void
   setHuman: () => void
   reboot: () => void
-  restoreStep: () => void
+  onUndo: () => void // Added onUndo prop
 }
 
-export function Toolbar({ setHuman, reboot, allowRetract, restoreStep, onOpenSetting }: Props): ReactElement {
+export function Toolbar({ setHuman, reboot, allowRetract, onUndo, onOpenSetting }: Props): ReactElement {
+  // Removed restoreStep, added onUndo
   const { t } = useTranslation()
 
   return (
@@ -27,7 +28,7 @@ export function Toolbar({ setHuman, reboot, allowRetract, restoreStep, onOpenSet
         <IconButton icon={<IconPoweroff />} onClick={reboot}>
           <span>{t('Restart')}</span>
         </IconButton>
-        <IconButton icon={<IconUndo />} disabled={!allowRetract} onClick={restoreStep} />
+        <IconButton icon={<IconUndo />} disabled={!allowRetract} onClick={onUndo} /> {/* Changed onClick to onUndo */}
         <IconButton icon={<IconCog />} onClick={onOpenSetting} />
       </div>
     </nav>
