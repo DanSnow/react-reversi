@@ -109,8 +109,23 @@ function XStateGame() {
     const { unsubscribe: unsubscribePlaced } = actorRef.on('placed', ({ point: { row, col }, player }) => {
       updateLog((currentLog) => {
         currentLog.push({
+          type: 'move', // Added type
           pos: `(${row}, ${col})`,
           player,
+        })
+      })
+    })
+
+    // Add subscription for undoOccurred event
+    const { unsubscribe: unsubscribeUndoOccurred } = actorRef.on('undoOccurred', () => {
+      updateLog((currentLog) => {
+        // Remove the last two entries (human move + AI move)
+        currentLog.pop()
+        currentLog.pop()
+        // Add an undo entry
+        currentLog.push({
+          type: 'undo',
+          message: 'Undo last turn',
         })
       })
     })
@@ -118,6 +133,7 @@ function XStateGame() {
     return () => {
       unsubscribeNoValidMove()
       unsubscribePlaced()
+      unsubscribeUndoOccurred() // Add unsubscribe for undoOccurred
     }
   }, [actorRef, updateLog]) // Added dependencies
 

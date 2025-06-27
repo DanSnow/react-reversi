@@ -184,6 +184,7 @@ export const gameMachine = setup({
           actions: [
             { type: 'revertTurn' }, // Call the new action
             { type: 'placeCandidate' }, // Re-calculate candidates for the reverted board
+            emit(() => ({ type: 'undoOccurred' })), // Emit undo event for log
           ],
           // Stay in PLACE_CHESS state
           target: 'PLACE_CHESS',

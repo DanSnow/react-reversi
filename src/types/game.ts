@@ -3,9 +3,17 @@ import type { Player } from './player'
 import type { BLACK, WHITE } from '~/consts'
 import type { judgeScores } from '~/lib/ai/core'
 
-export interface Log {
+export type Log = MoveLog | UndoLog
+
+export interface MoveLog {
+  type: 'move'
   player: string
   pos: string
+}
+
+export interface UndoLog {
+  type: 'undo'
+  message: string // e.g., "Undo last turn"
 }
 
 export interface PastState {
