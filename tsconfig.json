@@ -6,7 +6,7 @@
     "module": "es2022",
     "moduleResolution": "Bundler",
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["./src/*"]
     },
     "resolveJsonModule": true,
     "types": ["vite/client", "node", "unplugin-icons/types/react"],
@@ -19,5 +19,5 @@
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "include": ["./app/**/*", "app.config.ts", "vitest.config.ts"]
+  "include": ["./src/**/*", "vite.config.ts", "vitest.config.ts"]
 }
