@@ -2,6 +2,8 @@ import type { ReactElement, ReactNode } from 'react'
 import type { ScoreProps } from '../Score'
 
 import type { AIVersions } from '~/lib/ai/core'
+import type { Log as LogData } from '~/types'
+import { ClientOnly } from '@tanstack/react-router'
 import { useCallback, useState } from 'react'
 import GithubCorner from 'react-github-corner'
 import { useTranslation } from 'react-i18next'
@@ -10,7 +12,6 @@ import { Log } from '../Log'
 import { Score } from '../Score'
 import { SettingModal } from '../SettingModal'
 import { Toolbar } from '../Toolbar'
-import { Log as LogData } from '~/types'
 
 export interface Props extends ScoreProps {
   message: string
@@ -65,7 +66,9 @@ export function Game({
           onVersionChange={(version) => setVersion(version)}
         />
       </div>
-      {/* <GithubCorner href="https://github.com/DanSnow/react-reversi" /> */}
+      <ClientOnly>
+        <GithubCorner href="https://github.com/DanSnow/react-reversi" />
+      </ClientOnly>
     </>
   )
 }
