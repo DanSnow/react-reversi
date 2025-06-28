@@ -4,8 +4,12 @@ import Icons from 'unplugin-icons/vite'
 import { defineConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
 import TsConfigPath from 'vite-tsconfig-paths'
+import pkg from './package.json'
 
 export default defineConfig({
+  define: {
+    VERSION: JSON.stringify(`${pkg.version}`),
+  },
   plugins: [
     Sonda(),
     Inspect({ open: true }),
@@ -27,4 +31,7 @@ export default defineConfig({
       },
     }),
   ],
+  test: {
+    environment: 'happy-dom',
+  },
 })
