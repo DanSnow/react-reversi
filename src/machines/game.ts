@@ -189,6 +189,10 @@ export const gameMachine = setup({
           // Stay in PLACE_CHESS state
           target: 'PLACE_CHESS',
         },
+        restart: {
+          target: 'IDLE',
+          actions: 'resetGame',
+        },
       },
       always: [
         {

@@ -38,6 +38,8 @@ export const DEFAULT_USER = pipe(
   Effect.runSync,
 )
 
+export const HUMAN_GAME = DEFAULT_USER
+
 function getUserType_(user: Users, player: Player): UserType {
   return pipe(user as Brand.Brand.Unbranded<Users>, Record.get(player), Option.getOrThrow)
 }

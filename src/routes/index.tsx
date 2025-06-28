@@ -14,6 +14,7 @@ import { placeAndFlip } from '~/lib/board'
 import { computeScore } from '~/lib/compute-score'
 import { gameMachine } from '~/machines/game'
 import { DEFAULT_USER, getUserType, Player, UserType } from '~/types'
+import { HUMAN_GAME } from '~/types/user'
 
 export const Route = createFileRoute('/')({
   component: XStateGame,
@@ -42,13 +43,15 @@ function XStateGame() {
 
   // Handlers for Game component props
   const setHuman = useCallback(() => {
-    // TODO: Implement setHuman logic if needed
-    console.log('setHuman called')
+    send({
+      type: 'start',
+      users: HUMAN_GAME,
+    })
   }, [])
 
   const reboot = useCallback(() => {
-    // TODO: Implement reboot logic if needed
-    console.log('reboot called')
+    send({ type: 'restart' })
+    updateLog([])
   }, [])
 
   const onUndo = useCallback(() => {
