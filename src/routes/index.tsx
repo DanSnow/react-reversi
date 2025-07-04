@@ -3,11 +3,11 @@ import { createBrowserInspector } from '@statelyai/inspect'
 import { createFileRoute, invariant } from '@tanstack/react-router'
 import { useMachine, useSelector } from '@xstate/react'
 import { Option, pipe } from 'effect'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useMutative } from 'use-mutative'
 import { createAIActor } from '~/actor/ai'
-import { aiVersionAtom } from '~/atoms/game'
+import { aiVersionAtom, showHintAtom } from '~/atoms/game'
 import { Board } from '~/components/Board'
 import { Game } from '~/components/Game/Game'
 import { placeAndFlip } from '~/lib/board'
@@ -40,6 +40,7 @@ function XStateGame() {
   const users = useSelector(actorRef, ({ context }) => context.users)
   const score = useSelector(actorRef, ({ context }) => computeScore(context.board))
   const [allowRetract, setAllowRetract] = useState(false) // Add state for allowRetract
+  const hint = useAtomValue(showHintAtom)
 
   // Handlers for Game component props
   const setHuman = useCallback(() => {
@@ -157,7 +158,7 @@ function XStateGame() {
     >
       <Board.Root>
         <Board.Background />
-        <Board.Chesses hint board={machine.context.board} onPlaceChess={placeChess} />
+        <Board.Chesses hint={hint} board={machine.context.board} onPlaceChess={placeChess} />
         {machine.matches('IDLE') && <Board.ChooseColor onStart={startGame} />}
         {overlay && <Board.Overlay>{overlay}</Board.Overlay>}
       </Board.Root>

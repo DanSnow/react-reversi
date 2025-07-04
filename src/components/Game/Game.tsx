@@ -4,8 +4,10 @@ import type { ScoreProps } from '../Score'
 import type { AIVersions } from '~/lib/ai/core'
 import type { Log as LogData } from '~/types'
 import { ClientOnly } from '@tanstack/react-router'
+import { useSetAtom } from 'jotai'
 import { useCallback, useState } from 'react'
 import GithubCorner from 'react-github-corner'
+import { showHintAtom } from '~/atoms/game'
 import { m } from '~/paraglide/messages'
 import { Confirm } from '../Confirm'
 import { Log } from '../Log'
@@ -42,7 +44,7 @@ export function Game({
   reboot, // Added reboot
   onUndo, // Added onUndo
 }: Props): ReactElement {
-  const [hint, setHint] = useState(false)
+  const setHint = useSetAtom(showHintAtom)
   const [settingOpen, setSettingOpen] = useState(false)
   const openSetting = useCallback(() => setSettingOpen(true), [])
   const closeSetting = useCallback(() => setSettingOpen(false), [])
