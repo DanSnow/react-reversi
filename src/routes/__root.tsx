@@ -5,8 +5,6 @@ import * as React from 'react'
 import { store as atomStore } from '~/atoms/store'
 import styleUrl from '~/styles/main.css?url'
 
-import '~/i18n'
-
 export const Route = createRootRoute({
   head: () => ({
     links: [

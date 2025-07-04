@@ -1,3 +1,4 @@
+import { paraglideVitePlugin } from '@inlang/paraglide-js'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import Sonda from 'sonda/vite'
 import Icons from 'unplugin-icons/vite'
@@ -11,6 +12,11 @@ export default defineConfig({
     VERSION: JSON.stringify(`${pkg.version}`),
   },
   plugins: [
+    paraglideVitePlugin({
+      project: './project.inlang',
+      strategy: ['localStorage', 'preferredLanguage', 'baseLocale'],
+      outdir: './src/paraglide',
+    }),
     Sonda(),
     Inspect({ open: true }),
     TsConfigPath(),

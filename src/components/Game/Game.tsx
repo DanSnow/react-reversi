@@ -6,7 +6,7 @@ import type { Log as LogData } from '~/types'
 import { ClientOnly } from '@tanstack/react-router'
 import { useCallback, useState } from 'react'
 import GithubCorner from 'react-github-corner'
-import { useTranslation } from 'react-i18next'
+import { m } from '~/paraglide/messages'
 import { Confirm } from '../Confirm'
 import { Log } from '../Log'
 import { Score } from '../Score'
@@ -47,8 +47,6 @@ export function Game({
   const openSetting = useCallback(() => setSettingOpen(true), [])
   const closeSetting = useCallback(() => setSettingOpen(false), [])
 
-  const { t } = useTranslation()
-
   return (
     <>
       <div className="container">
@@ -71,7 +69,7 @@ export function Game({
           </div>
         </div>
         <Confirm open={showReplay} onConfirm={onRestart} onCancel={closeSetting}>
-          {t('Play Again?')}
+          {m.play_again()}
         </Confirm>
         <SettingModal
           isOpen={settingOpen}

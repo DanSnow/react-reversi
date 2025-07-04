@@ -1,0 +1,11 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "reversi": "黑白棋",
+  "play_with_friend": "跟朋友同樂",
+  "restart": "重新",
+  "play_again": "再來一局？",
+  "score": "記分板",
+  "hint": "顯示提示",
+  "allow_retract": "允許悔棋",
+  "ai_version": "AI 版本"
+}

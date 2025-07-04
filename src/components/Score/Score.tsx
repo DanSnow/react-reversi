@@ -1,10 +1,10 @@
 import type { ReactElement } from 'react'
 import type { History, Users } from '~/types'
 
-import { useTranslation } from 'react-i18next'
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card'
 import { Separator } from '~/components/ui/separator'
 import { BLACK, WHITE } from '~/consts'
+import { m } from '~/paraglide/messages'
 import { UserType } from '~/types'
 
 function getPlayerType(player: keyof Users, users: Users): string {
@@ -23,12 +23,10 @@ export interface ScoreProps {
 }
 
 export function Score({ score, users, history }: ScoreProps): ReactElement {
-  const { t } = useTranslation()
-
   return (
     <Card className="flex flex-col gap-2">
       <CardHeader>
-        <CardTitle>{t('Score')}</CardTitle>
+        <CardTitle>{m.score()}</CardTitle>
       </CardHeader>
       <Separator />
       <CardContent className="flex flex-col gap-2">

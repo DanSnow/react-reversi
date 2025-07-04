@@ -2,7 +2,7 @@ import antfu from '@antfu/eslint-config'
 import prettier from 'eslint-plugin-prettier'
 import reactCompiler from 'eslint-plugin-react-compiler'
 
-const ignores = ['dist/', '**/dist/**/', '**/.yarn/**', 'node_modules/**', '*.md']
+const ignores = ['dist/', '**/dist/**/', '**/.yarn/**', 'node_modules/**', '*.md', 'src/paraglide/**/*']
 
 export default antfu({
   ignores,
