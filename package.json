@@ -26,6 +26,7 @@
     "lint": "eslint .",
     "build": "vite build",
     "deploy": "DEPLOY=true pnpm build && gh-pages -d dist",
+    "analyze": "ANALYZE=true pnpm build",
     "test": "vitest",
     "knip": "knip",
     "typecheck": "tsc --noEmit"

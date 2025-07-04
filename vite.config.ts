@@ -1,3 +1,4 @@
+import process from 'node:process'
 import { paraglideVitePlugin } from '@inlang/paraglide-js'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import Sonda from 'sonda/vite'
@@ -10,6 +11,9 @@ import pkg from './package.json'
 export default defineConfig({
   define: {
     VERSION: JSON.stringify(`${pkg.version}`),
+  },
+  build: {
+    sourcemap: !!process.env.ANALYZE,
   },
   plugins: [
     paraglideVitePlugin({
