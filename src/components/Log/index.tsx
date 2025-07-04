@@ -1,11 +1,8 @@
 import type { ReactElement } from 'react'
 
-import { useAtomValue } from 'jotai'
-import { logAtom } from '~/atoms/game'
 import { Log as DumbLog } from './Log'
+import { Log as LogData } from '~/types'
 
-export function Log(): ReactElement {
-  const log = useAtomValue(logAtom)
-
+export function Log({ log }: { log: LogData[] }): ReactElement {
   return <DumbLog log={log} />
 }

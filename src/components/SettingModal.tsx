@@ -1,11 +1,14 @@
-import { zodResolver } from '@hookform/resolvers/zod'
-import { type ReactElement, useCallback } from 'react'
+import type { ReactElement } from 'react'
+import type { AIVersions } from '~/lib/ai/core'
+import type { Setting } from '~/schemas/settings'
+import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
+import { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
-import { useTranslation } from 'react-i18next'
-import { z } from 'zod'
 
 import { Button } from '~/components/ui/button'
 import { Dialog, DialogContent } from '~/components/ui/dialog'
+import { m } from '~/paraglide/messages'
+import { SettingSchema } from '~/schemas/settings'
 import { Checkbox } from './ui/checkbox'
 import { Form, FormControl, FormField, FormItem, FormLabel } from './ui/form'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
@@ -15,7 +18,7 @@ interface Props {
   onClose: () => void
   onHintChange: (value: boolean) => void
   onRetractChange: (value: boolean) => void
-  onVersionChange: (value: string) => void
+  onVersionChange: (value: AIVersions) => void
 }
 
 const AI: [key: string, display: string][] = [
@@ -33,15 +36,7 @@ const AI: [key: string, display: string][] = [
   ['v1Overview', 'V1 + min-max + overview'],
 ]
 
-const schema = z.object({
-  hint: z.boolean(),
-  retract: z.boolean(),
-  version: z.string(),
-})
-
 export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, onVersionChange }: Props): ReactElement {
-  const { t } = useTranslation()
-
   const onOpenChange = useCallback(
     (val: boolean) => {
       if (!val) onClose()
@@ -49,8 +44,8 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
     [onClose],
   )
 
-  const form = useForm<z.infer<typeof schema>>({
-    resolver: zodResolver(schema),
+  const form = useForm<Setting>({
+    resolver: standardSchemaResolver(SettingSchema),
     defaultValues: {
       version: 'v3Overview',
     },
@@ -71,7 +66,7 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
                       <Checkbox onCheckedChange={onHintChange} />
                     </FormControl>
                     <div className="space-y-1 leading-none">
-                      <FormLabel>{t('Hint')}</FormLabel>
+                      <FormLabel>{m.hint()}</FormLabel>
                     </div>
                   </FormItem>
                 )}
@@ -85,7 +80,7 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
                       <Checkbox onCheckedChange={onRetractChange} />
                     </FormControl>
                     <div className="space-y-1 leading-none">
-                      <FormLabel>{t('Allow Retract')}</FormLabel>
+                      <FormLabel>{m.allow_retract()}</FormLabel>
                     </div>
                   </FormItem>
                 )}
@@ -95,7 +90,7 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
                 name="version"
                 render={() => (
                   <FormItem>
-                    <FormLabel>{t('AI Version')}</FormLabel>
+                    <FormLabel>{m.ai_version()}</FormLabel>
                     <FormControl>
                       <Select name="version" defaultValue="v3Overview" onValueChange={onVersionChange}>
                         <SelectTrigger>

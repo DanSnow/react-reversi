@@ -9,4 +9,12 @@ dist
 !.yarn/versions
 .pnp.*
 
+.cache
+.env
+.output
+.vinxi
+
 sonda-report.html
+.tanstack
+.nitro
+.sonda

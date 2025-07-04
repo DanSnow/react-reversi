@@ -1,12 +1,13 @@
 import type { ReactElement } from 'react'
-import type { History, Users } from '../../store'
+import type { History, Users } from '~/types'
 
-import { useTranslation } from 'react-i18next'
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card'
 import { Separator } from '~/components/ui/separator'
-import { BLACK, UserType, WHITE } from '../../store'
+import { BLACK, WHITE } from '~/consts'
+import { m } from '~/paraglide/messages'
+import { UserType } from '~/types'
 
-function getPlayerType(player: string, users: Users): string {
+function getPlayerType(player: keyof Users, users: Users): string {
   return users[player] === UserType.AI ? 'ai' : 'player'
 }
 
@@ -15,19 +16,17 @@ interface ScoreData {
   white: number
 }
 
-interface Props {
+export interface ScoreProps {
   history: History
   users: Users
   score: ScoreData
 }
 
-export function Score({ score, users, history }: Props): ReactElement {
-  const { t } = useTranslation()
-
+export function Score({ score, users, history }: ScoreProps): ReactElement {
   return (
     <Card className="flex flex-col gap-2">
       <CardHeader>
-        <CardTitle>{t('Score')}</CardTitle>
+        <CardTitle>{m.score()}</CardTitle>
       </CardHeader>
       <Separator />
       <CardContent className="flex flex-col gap-2">
@@ -42,7 +41,7 @@ export function Score({ score, users, history }: Props): ReactElement {
         <div>lose: {history.lose}</div>
         <div>draw: {history.draw}</div>
         <Separator />
-        <p className="is-size-6 has-text-grey">{VERSION}</p>
+        {/* <p className="is-size-6 has-text-grey">{version}</p> */}
       </CardContent>
     </Card>
   )

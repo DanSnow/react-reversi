@@ -1,0 +1,9 @@
+{
+  "extends": ["@tsconfig/node22/tsconfig.json"],
+  "compilerOptions": {
+    "composite": true,
+    "target": "es2022",
+    "module": "Node16"
+  },
+  "include": ["./**/*"]
+}

@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react'
+import type { Point } from '~/types'
 import { useCallback } from 'react'
 import { twc } from 'react-twc'
 
@@ -10,12 +11,12 @@ interface Props {
   row: number
   col: number
   isCandidate: boolean
-  onClick: (row: number, col: number) => void
+  onClick: (point: Point) => void
 }
 
-function Chess({ color, row, col, isCandidate, showHint, onClick }: Props): ReactElement {
+export function Chess({ color, row, col, isCandidate, showHint, onClick }: Props): ReactElement {
   const handleClick = useCallback(() => {
-    onClick(row, col)
+    onClick({ row, col })
   }, [row, col, onClick])
 
   return (
@@ -31,5 +32,3 @@ function Chess({ color, row, col, isCandidate, showHint, onClick }: Props): Reac
     </>
   )
 }
-
-export default Chess

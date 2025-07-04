@@ -1,7 +1,6 @@
-import { atom } from 'jotai'
-import { atomWithStorage } from 'jotai/utils'
+import type { History } from '~/types'
 import { withMutative } from 'jotai-mutative'
-import type { History } from '~/store'
+import { atomWithStorage } from 'jotai/utils'
 
 export const historyAtom = withMutative(
   atomWithStorage<History>('react-reversi-history', {
@@ -10,5 +9,3 @@ export const historyAtom = withMutative(
     win: 0,
   }),
 )
-
-export const overlayAtom = atom('')

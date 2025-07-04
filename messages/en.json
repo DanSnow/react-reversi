@@ -1,0 +1,11 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "reversi": "Reversi",
+  "play_with_friend": "Play with friend",
+  "restart": "Restart",
+  "play_again": "Play Again?",
+  "score": "Score",
+  "hint": "Hint",
+  "allow_retract": "Allow Retract",
+  "ai_version": "AI Version"
+}

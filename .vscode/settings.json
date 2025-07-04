@@ -4,8 +4,6 @@
     "**/.yarn": true,
     "**/.pnp.*": true
   },
-  // Enable the ESlint flat config support
-  "eslint.experimental.useFlatConfig": true,
   // Disable the default formatter, use eslint instead
   "editor.formatOnSave": true,
   // Auto fix
@@ -65,5 +63,19 @@
     "jsonc",
     "yaml"
   ],
-  "i18n-ally.localesPaths": []
+  "i18n-ally.localesPaths": ["app/i18n"],
+  "i18n-ally.keystyle": "nested",
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "keep",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.defaultColorDecorators": "never",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    }
+  }
 }

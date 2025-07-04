@@ -1,19 +1,19 @@
 import type { ReactElement } from 'react'
 
-import { BLACK, WHITE } from '../../../store'
+import { Player } from '~/types'
 import { ColorButton } from './ColorButton'
 
 interface Props {
-  onClick: (x: string) => void
+  onStart: (x: Player.Player) => void
 }
 
-export function ChooseColor({ onClick }: Props): ReactElement {
+export function ChooseColor({ onStart }: Props): ReactElement {
   return (
     <>
-      <ColorButton color="white" background="black" x={160} y={300} value={WHITE} onClick={onClick}>
+      <ColorButton color="white" background="black" x={160} y={300} value={Player.WHITE} onClick={onStart}>
         Black
       </ColorButton>
-      <ColorButton color="black" background="white" x={480} y={300} value={BLACK} onClick={onClick}>
+      <ColorButton color="black" background="white" x={480} y={300} value={Player.BLACK} onClick={onStart}>
         White
       </ColorButton>
     </>

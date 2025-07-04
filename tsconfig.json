@@ -1,20 +1,23 @@
 {
   "compilerOptions": {
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "lib": ["dom", "esnext"],
     "baseUrl": ".",
     "module": "es2022",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "paths": {
       "~/*": ["./src/*"]
     },
     "resolveJsonModule": true,
-    "types": ["vite/client", "node", "react", "react-dom"],
+    "types": ["vite/client", "node", "unplugin-icons/types/react"],
     "allowJs": true,
+    "strict": true,
+    "strictNullChecks": true,
     "noUnusedLocals": true,
     "downlevelIteration": true,
     "noEmit": true,
     "esModuleInterop": true,
     "skipLibCheck": true
-  }
+  },
+  "include": ["./src/**/*", "vite.config.ts", "vitest.config.ts"]
 }
