@@ -291,7 +291,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.7, @babel/runtime@npm:^7.20.13, @babel/runtime@npm:^7.20.6, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.26.10, @babel/runtime@npm:^7.27.6, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.7, @babel/runtime@npm:^7.20.13, @babel/runtime@npm:^7.20.6, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.27.6, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.9.2":
   version: 7.27.6
   resolution: "@babel/runtime@npm:7.27.6"
   checksum: 10/cc957a12ba3781241b83d528eb69ddeb86ca5ac43179a825e83aa81263a6b3eb88c57bed8a937cdeacfc3192e07ec24c73acdfea4507d0c0428c8e23d6322bfe
@@ -4452,17 +4452,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:24.2.3":
-  version: 24.2.3
-  resolution: "i18next@npm:24.2.3"
+"i18next@npm:25.3.1":
+  version: 25.3.1
+  resolution: "i18next@npm:25.3.1"
   dependencies:
-    "@babel/runtime": "npm:^7.26.10"
+    "@babel/runtime": "npm:^7.27.6"
   peerDependencies:
     typescript: ^5
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/6c73d964f2a98b1aa2c2717fe6da66fc265bcbbc5fcd52b2bfff51ff013d30d4f7d7449c4eb7f464d27af43e2e73f2e7f1d46a144d731bd3bdb1385d4c199e4c
+  checksum: 10/f5f38af0f7b7c0055e607d4017dade5aedd1c75c44e091473b4d01537f0849e21a7ae7f66397719a2557fc53767cf9ea96a4da34127b906d3fe5ce21db895224
   languageName: node
   linkType: hard
 
@@ -6548,7 +6548,7 @@ __metadata:
     eslint-plugin-prettier: "npm:5.5.1"
     gh-pages: "npm:6.3.0"
     happy-dom: "npm:17.6.3"
-    i18next: "npm:24.2.3"
+    i18next: "npm:25.3.1"
     i18next-browser-languagedetector: "npm:8.2.0"
     jotai: "npm:2.12.5"
     jotai-devtools: "npm:0.12.0"
