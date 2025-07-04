@@ -1,12 +1,12 @@
 {
   "pages": [
     {
-      "path": "/",
+      "path": "/react-reversi/",
       "prerender": {
         "enabled": true
       }
     }
   ],
   "host": "https://dansnow.github.io/react-reversi/",
-  "lastBuilt": "2025-07-04T15:48:54.580Z"
+  "lastBuilt": "2025-07-04T16:08:33.467Z"
 }

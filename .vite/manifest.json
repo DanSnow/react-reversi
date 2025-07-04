@@ -1,6 +1,6 @@
 {
   "../../../../../~start/default-client-entry.tsx": {
-    "file": "assets/main-B1DmeIx1.js",
+    "file": "assets/main-Pq6ZkeeI.js",
     "name": "main",
     "src": "../../../../../~start/default-client-entry.tsx",
     "isEntry": true,
@@ -16,7 +16,7 @@
     "src": "/Users/snow/Workspace/OpenSource/react-reversi/src/styles/main.css"
   },
   "src/routes/index.tsx?tsr-split=component": {
-    "file": "assets/index-DjIgbaFW.js",
+    "file": "assets/index-BKjVMfgV.js",
     "name": "index",
     "src": "src/routes/index.tsx?tsr-split=component",
     "isDynamicEntry": true,
