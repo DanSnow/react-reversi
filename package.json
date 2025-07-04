@@ -25,7 +25,7 @@
     "dev": "vite dev --port 3000",
     "lint": "eslint .",
     "build": "vite build",
-    "deploy": "DEPLOY=true pnpm build && gh-pages -d dist",
+    "deploy": "DEPLOY=true pnpm build && gh-pages --dotfiles -d .output/public",
     "analyze": "ANALYZE=true pnpm build",
     "test": "vitest",
     "knip": "knip",
