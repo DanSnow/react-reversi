@@ -1,0 +1,27 @@
+{
+  "../../../../../~start/default-client-entry.tsx": {
+    "file": "assets/main-BjC5E-0a.js",
+    "name": "main",
+    "src": "../../../../../~start/default-client-entry.tsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "src/routes/index.tsx?tsr-split=component"
+    ],
+    "assets": [
+      "assets/main-BN_W6yNJ.css"
+    ]
+  },
+  "/Users/snow/Workspace/OpenSource/react-reversi/src/styles/main.css": {
+    "file": "assets/main-BN_W6yNJ.css",
+    "src": "/Users/snow/Workspace/OpenSource/react-reversi/src/styles/main.css"
+  },
+  "src/routes/index.tsx?tsr-split=component": {
+    "file": "assets/index-BwU3185s.js",
+    "name": "index",
+    "src": "src/routes/index.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "../../../../../~start/default-client-entry.tsx"
+    ]
+  }
+}
