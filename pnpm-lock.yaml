@@ -30,7 +30,7 @@ importers:
         specifier: 1.2.3
         version: 1.2.3(@types/react@19.1.8)(react@19.1.0)
       '@t3-oss/env-core':
-        specifier: ^0.13.8
+        specifier: 0.13.8
         version: 0.13.8(typescript@5.8.3)(zod@3.25.73)
       '@tanstack/react-router':
         specifier: 1.124.0
@@ -3942,7 +3942,6 @@ packages:
     resolution: {integrity: sha512-Quz3MvAwHxVYNXsOByL7xI5EB2WYOeFswqaHIA3qOK3isRWTxiplBEocmmru6XmxDB2L7jDNYtYA4FyimoAFEw==}
     engines: {node: '>=8.17.0'}
     hasBin: true
-    bundledDependencies: []
 
   jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
