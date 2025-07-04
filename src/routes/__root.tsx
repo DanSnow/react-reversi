@@ -15,7 +15,7 @@ export const Route = createRootRoute({
       {
         rel: 'shortcut icon',
         type: 'image/png',
-        href: 'https://dansnow.github.io/react-reversi/static/thumbnail.png',
+        href: 'https://dansnow.github.io/react-reversi/thumbnail.png',
       },
     ],
     meta: [
@@ -44,7 +44,7 @@ export const Route = createRootRoute({
       },
       {
         property: 'og:image',
-        content: 'https://dansnow.github.io/react-reversi/static/thumbnail.png',
+        content: 'https://dansnow.github.io/react-reversi/thumbnail.png',
       },
       {
         property: 'og:image:width',

@@ -7,14 +7,20 @@ import { defineConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
 import TsConfigPath from 'vite-tsconfig-paths'
 import pkg from './package.json'
+import { env } from './src/env'
+
+const baseUrl = env.DEPLOY ? '/react-reversi/' : '/'
+
+process.env.VITE_BASE_URL = baseUrl
 
 export default defineConfig({
   define: {
     VERSION: JSON.stringify(`${pkg.version}`),
   },
   build: {
-    sourcemap: !!process.env.ANALYZE,
+    sourcemap: !!env.ANALYZE,
   },
+  base: baseUrl,
   plugins: [
     paraglideVitePlugin({
       project: './project.inlang',
@@ -30,6 +36,17 @@ export default defineConfig({
     }),
     tanstackStart({
       target: 'github-pages',
+      pages: [
+        {
+          path: baseUrl,
+          prerender: {
+            enabled: true,
+          },
+        },
+      ],
+      sitemap: {
+        host: 'https://dansnow.github.io/react-reversi/',
+      },
       react: {
         babel: {
           plugins: [
