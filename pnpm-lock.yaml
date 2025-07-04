@@ -29,6 +29,9 @@ importers:
       '@radix-ui/react-slot':
         specifier: 1.2.3
         version: 1.2.3(@types/react@19.1.8)(react@19.1.0)
+      '@t3-oss/env-core':
+        specifier: ^0.13.8
+        version: 0.13.8(typescript@5.8.3)(zod@3.25.73)
       '@tanstack/react-router':
         specifier: 1.124.0
         version: 1.124.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -117,9 +120,6 @@ importers:
       '@svgr/plugin-jsx':
         specifier: 8.1.0
         version: 8.1.0(@svgr/core@8.1.0(typescript@5.8.3))
-      '@t3-oss/env-core':
-        specifier: ^0.13.8
-        version: 0.13.8(typescript@5.8.3)(zod@3.25.73)
       '@tailwindcss/postcss':
         specifier: 4.1.11
         version: 4.1.11
