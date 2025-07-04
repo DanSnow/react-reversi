@@ -38,5 +38,3 @@ export const DEFAULT_BOARD = refined([
   Array.makeBy(8, Function.constNull),
   Array.makeBy(8, Function.constNull),
 ])
-
-export const EMPTY_BOARD = refined(Array.makeBy(8, () => Array.makeBy(8, Function.constNull)))

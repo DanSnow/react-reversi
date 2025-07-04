@@ -10,7 +10,7 @@ import { getOpposite } from '~/lib/chess-utils'
 import { Board, DEFAULT_USER, getUserType, Player, UserType } from '~/types'
 
 // 1. Update GameEvents: Add 'undo'
-export type GameEvents =
+type GameEvents =
   | { type: 'start'; users: Users }
   | { type: 'placed'; point: Point; nextBoard: Board.Board }
   | { type: 'restart' }

@@ -31,17 +31,7 @@ export function isEmpty(chess: Chess.Chess | null): boolean {
   return !chess || isCandidate(chess)
 }
 
-export function isPlaceable(
-  board: ReadonlyDeep<Board.Board>,
-  player: Player.Player,
-  row: number,
-  col: number,
-): boolean {
-  const candidate = getCandidate(player)
-  return isValidPos(row, col) && board[row][col] === candidate
-}
-
-export function getChess(board: ReadonlyDeep<Board.Board>, row: number, col: number): Chess.Chess | null {
+function getChess(board: ReadonlyDeep<Board.Board>, row: number, col: number): Chess.Chess | null {
   if (isValidPos(row, col)) {
     if (!isEmpty(board[row][col])) {
       return board[row][col]
@@ -52,10 +42,6 @@ export function getChess(board: ReadonlyDeep<Board.Board>, row: number, col: num
 
 export function getCandidate(player: Player.Player): Chess.Chess {
   return player === Player.WHITE ? Chess.WHITE_CANDIDATE : Chess.BLACK_CANDIDATE
-}
-
-export function getPlayer(player: Player.Player): string {
-  return player === Player.WHITE ? 'white' : 'black'
 }
 
 export function countAroundChess(board: ReadonlyDeep<Board.Board>, row: number, col: number): number {

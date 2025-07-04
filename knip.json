@@ -1,5 +1,5 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
-  "entry": ["./app/client.tsx", "./app/ssr.tsx", "./scripts/**/*.{ts,mts}", "app.config.ts"],
-  "ignore": ["./app/components/ui/**/*", "./app/routeTree.gen.ts"]
+  "entry": ["./src/routes/**/*.{ts,tsx}", "./src/router.tsx", "./scripts/**/*.{ts,mts}"],
+  "ignore": ["./src/components/ui/**/*", "./src/routeTree.gen.ts", "./src/paraglide/**/*.js"]
 }
