@@ -31,7 +31,7 @@ importers:
         version: 1.2.3(@types/react@19.1.8)(react@19.1.0)
       '@t3-oss/env-core':
         specifier: 0.13.8
-        version: 0.13.8(typescript@5.8.3)(zod@3.25.73)
+        version: 0.13.8(typescript@5.8.3)(zod@3.25.74)
       '@tanstack/react-router':
         specifier: 1.124.0
         version: 1.124.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -93,8 +93,8 @@ importers:
         specifier: 5.20.0
         version: 5.20.0
       zod:
-        specifier: 3.25.73
-        version: 3.25.73
+        specifier: 3.25.74
+        version: 3.25.74
     devDependencies:
       '@antfu/eslint-config':
         specifier: 4.16.2
@@ -6026,8 +6026,8 @@ packages:
     peerDependencies:
       zod: ^3.25.0
 
-  zod@3.25.73:
-    resolution: {integrity: sha512-fuIKbQAWQl22Ba5d1quwEETQYjqnpKVyZIWAhbnnHgnDd3a+z4YgEfkI5SZ2xMELnLAXo/Flk2uXgysZNf0uaA==}
+  zod@3.25.74:
+    resolution: {integrity: sha512-J8poo92VuhKjNknViHRAIuuN6li/EwFbAC8OedzI8uxpEPGiXHGQu9wemIAioIpqgfB4SySaJhdk0mH5Y4ICBg==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -6804,7 +6804,7 @@ snapshots:
       unixify: 1.0.0
       urlpattern-polyfill: 8.0.2
       yargs: 17.7.2
-      zod: 3.25.73
+      zod: 3.25.74
     transitivePeerDependencies:
       - encoding
       - rollup
@@ -7529,10 +7529,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@t3-oss/env-core@0.13.8(typescript@5.8.3)(zod@3.25.73)':
+  '@t3-oss/env-core@0.13.8(typescript@5.8.3)(zod@3.25.74)':
     optionalDependencies:
       typescript: 5.8.3
-      zod: 3.25.73
+      zod: 3.25.74
 
   '@tailwindcss/node@4.1.11':
     dependencies:
@@ -7650,7 +7650,7 @@ snapshots:
       '@tanstack/start-plugin-core': 1.124.1(@tanstack/react-router@1.124.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(vite@7.0.2(@types/node@22.16.0)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0))
       '@vitejs/plugin-react': 4.6.0(vite@7.0.2(@types/node@22.16.0)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0))
       vite: 7.0.2(@types/node@22.16.0)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0)
-      zod: 3.25.73
+      zod: 3.25.74
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -7763,7 +7763,7 @@ snapshots:
       recast: 0.23.11
       source-map: 0.7.4
       tsx: 4.20.3
-      zod: 3.25.73
+      zod: 3.25.74
     transitivePeerDependencies:
       - supports-color
 
@@ -7782,7 +7782,7 @@ snapshots:
       babel-dead-code-elimination: 1.0.10
       chokidar: 3.6.0
       unplugin: 2.3.5
-      zod: 3.25.73
+      zod: 3.25.74
     optionalDependencies:
       '@tanstack/react-router': 1.124.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       vite: 7.0.2(@types/node@22.16.0)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0)
@@ -7844,7 +7844,7 @@ snapshots:
       ufo: 1.6.1
       vite: 7.0.2(@types/node@22.16.0)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0)
       xmlbuilder2: 3.1.1
-      zod: 3.25.73
+      zod: 3.25.74
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -9254,8 +9254,8 @@ snapshots:
       '@babel/plugin-proposal-private-methods': 7.18.6(@babel/core@7.28.0)
       eslint: 9.30.1(jiti@2.4.2)
       hermes-parser: 0.25.1
-      zod: 3.25.73
-      zod-validation-error: 3.5.2(zod@3.25.73)
+      zod: 3.25.74
+      zod-validation-error: 3.5.2(zod@3.25.74)
     transitivePeerDependencies:
       - supports-color
 
@@ -10113,8 +10113,8 @@ snapshots:
       smol-toml: 1.4.1
       strip-json-comments: 5.0.2
       typescript: 5.8.3
-      zod: 3.25.73
-      zod-validation-error: 3.5.2(zod@3.25.73)
+      zod: 3.25.74
+      zod-validation-error: 3.5.2(zod@3.25.74)
 
   knitwork@1.2.0: {}
 
@@ -12421,11 +12421,11 @@ snapshots:
       compress-commons: 6.0.2
       readable-stream: 4.7.0
 
-  zod-validation-error@3.5.2(zod@3.25.73):
+  zod-validation-error@3.5.2(zod@3.25.74):
     dependencies:
-      zod: 3.25.73
+      zod: 3.25.74
 
-  zod@3.25.73: {}
+  zod@3.25.74: {}
 
   zwitch@2.0.4: {}
 
