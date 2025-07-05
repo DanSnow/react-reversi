@@ -6,7 +6,7 @@ import { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { Button } from '~/components/ui/button'
-import { Dialog, DialogContent } from '~/components/ui/dialog'
+import { Dialog, DialogContent, DialogTitle } from '~/components/ui/dialog'
 import { m } from '~/paraglide/messages'
 import { SettingSchema } from '~/schemas/settings'
 import { Checkbox } from './ui/checkbox'
@@ -54,68 +54,67 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent>
-        <div className="box">
-          <Form {...form}>
-            <div className="flex flex-col gap-2">
-              <FormField
-                control={form.control}
-                name="hint"
-                render={() => (
-                  <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                    <FormControl>
-                      <Checkbox onCheckedChange={onHintChange} />
-                    </FormControl>
-                    <div className="space-y-1 leading-none">
-                      <FormLabel>{m.hint()}</FormLabel>
-                    </div>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="retract"
-                render={() => (
-                  <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                    <FormControl>
-                      <Checkbox onCheckedChange={onRetractChange} />
-                    </FormControl>
-                    <div className="space-y-1 leading-none">
-                      <FormLabel>{m.allow_retract()}</FormLabel>
-                    </div>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="version"
-                render={() => (
-                  <FormItem>
-                    <FormLabel>{m.ai_version()}</FormLabel>
-                    <FormControl>
-                      <Select name="version" defaultValue="v3Overview" onValueChange={onVersionChange}>
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {AI.map(([value, display]) => (
-                            <SelectItem key={value} value={value}>
-                              {display}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <div className="field">
-                <Button className="button is-primary" onClick={onClose}>
-                  OK
-                </Button>
-              </div>
+        <DialogTitle>{m.settings()}</DialogTitle>
+        <Form {...form}>
+          <div className="flex flex-col gap-2">
+            <FormField
+              control={form.control}
+              name="hint"
+              render={() => (
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                  <FormControl>
+                    <Checkbox onCheckedChange={onHintChange} />
+                  </FormControl>
+                  <div className="space-y-1 leading-none">
+                    <FormLabel>{m.hint()}</FormLabel>
+                  </div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="retract"
+              render={() => (
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                  <FormControl>
+                    <Checkbox onCheckedChange={onRetractChange} />
+                  </FormControl>
+                  <div className="space-y-1 leading-none">
+                    <FormLabel>{m.allow_retract()}</FormLabel>
+                  </div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="version"
+              render={() => (
+                <FormItem>
+                  <FormLabel>{m.ai_version()}</FormLabel>
+                  <FormControl>
+                    <Select name="version" defaultValue="v3Overview" onValueChange={onVersionChange}>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {AI.map(([value, display]) => (
+                          <SelectItem key={value} value={value}>
+                            {display}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <div className="field">
+              <Button className="button is-primary" onClick={onClose}>
+                OK
+              </Button>
             </div>
-          </Form>
-        </div>
+          </div>
+        </Form>
       </DialogContent>
     </Dialog>
   )

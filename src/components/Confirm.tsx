@@ -1,7 +1,7 @@
 import { type ReactElement, useCallback } from 'react'
 
 import { Button } from './ui/button'
-import { Dialog, DialogContent } from './ui/dialog'
+import { Dialog, DialogContent, DialogTitle } from './ui/dialog'
 
 interface Props {
   open: boolean
@@ -20,7 +20,7 @@ export function Confirm({ open, children, onConfirm, onCancel }: Props): ReactEl
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
-        <p className="pb-8 text-4xl font-medium leading-tight">{children}</p>
+        <DialogTitle className="text-4xl">{children}</DialogTitle>
         <div className="flex gap-4">
           <Button className="bg-teal-400 button" onClick={onConfirm}>
             Yes

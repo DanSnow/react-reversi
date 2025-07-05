@@ -15,5 +15,6 @@
   "white_win": "White wins!",
   "no_valid_move": "No valid move for {player}!",
   "black": "Black",
-  "white": "White"
+  "white": "White",
+  "settings": "Settings"
 }

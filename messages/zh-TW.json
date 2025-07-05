@@ -15,5 +15,6 @@
   "white_win": "白棋勝利！",
   "no_valid_move": "{player}沒有可下的棋子！",
   "black": "黑棋",
-  "white": "白棋"
+  "white": "白棋",
+  "settings": "設定"
 }
