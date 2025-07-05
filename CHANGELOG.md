@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.3.0](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.2.0...react-reversi-v2.3.0) (2025-07-05)
+
+
+### Features
+
+* display app version and build time in the UI ([9dd146d](https://github.com/DanSnow/react-reversi/commit/9dd146dc14efb574df7ec7ed34edba65b0dbfe54))
+* implement smart setting model and connect to game retract ([152a2e5](https://github.com/DanSnow/react-reversi/commit/152a2e55fa0c825310d0dd2665671127dcbb14d3))
+* migrate Confirm component to use AlertDialog ([be7b05c](https://github.com/DanSnow/react-reversi/commit/be7b05c2bbc8f20c8ccafd3676bd1a2d56e939c8))
+
+
+### Bug Fixes
+
+* **deps:** pin dependencies ([#3054](https://github.com/DanSnow/react-reversi/issues/3054)) ([44c0700](https://github.com/DanSnow/react-reversi/commit/44c0700f1da59078bc2a92b1bd0f9e76d8347f09))
+* **deps:** update tanstack-router monorepo to v1.125.0 ([#3053](https://github.com/DanSnow/react-reversi/issues/3053)) ([e9e522c](https://github.com/DanSnow/react-reversi/commit/e9e522c86e2f7b6c54bb211325cd3175cd6231c5))
+* remove stately inspector in prod build ([ff78064](https://github.com/DanSnow/react-reversi/commit/ff780643b92f3311cdd6df8e4b69e2bfa426fafa))
+
 ## [2.2.0](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.1.0...react-reversi-v2.2.0) (2025-07-05)
 
 
