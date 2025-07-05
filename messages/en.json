@@ -16,5 +16,15 @@
   "no_valid_move": "No valid move for {player}!",
   "black": "Black",
   "white": "White",
-  "settings": "Settings"
+  "settings": "Settings",
+  "version": "Version: {version}",
+  "updated_at": [
+    {
+      "declarations": ["input updatedAt", "local time = updatedAt: datetime"],
+      "selectors": ["time"],
+      "match": {
+        "time=*": "Updated at: {time}"
+      }
+    }
+  ]
 }

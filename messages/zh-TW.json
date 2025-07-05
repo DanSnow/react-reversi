@@ -16,5 +16,15 @@
   "no_valid_move": "{player}沒有可下的棋子！",
   "black": "黑棋",
   "white": "白棋",
-  "settings": "設定"
+  "settings": "設定",
+  "version": "版本: {version}",
+  "updated_at": [
+    {
+      "declarations": ["input updatedAt", "local time = updatedAt: datetime"],
+      "selectors": ["time"],
+      "match": {
+        "time=*": "更新時間: {time}"
+      }
+    }
+  ]
 }

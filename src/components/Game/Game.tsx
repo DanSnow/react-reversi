@@ -9,6 +9,7 @@ import { useCallback, useState } from 'react'
 import GithubCorner from 'react-github-corner'
 import { showHintAtom } from '~/atoms/game'
 import { m } from '~/paraglide/messages'
+import { AppInfo } from '../AppInfo'
 import { Confirm } from '../Confirm'
 import { Log } from '../Log'
 import { Score } from '../Score'
@@ -67,7 +68,10 @@ export function Game({
             {children}
             <span className="self-end text-red-600">{message}</span>
           </div>
-          <Score users={users} score={score} />
+          <div>
+            <Score users={users} score={score} />
+            <AppInfo />
+          </div>
           <div className="hidden max-w-64 grow lg:block">
             <Log log={log} />
           </div>

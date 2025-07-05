@@ -3,7 +3,7 @@
     "jsx": "react-jsx",
     "lib": ["dom", "esnext"],
     "baseUrl": ".",
-    "module": "es2022",
+    "module": "esnext",
     "moduleResolution": "Bundler",
     "paths": {
       "~/*": ["./src/*"]
