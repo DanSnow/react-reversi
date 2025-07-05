@@ -6,7 +6,7 @@ import { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { Button } from '~/components/ui/button'
-import { Dialog, DialogContent, DialogTitle } from '~/components/ui/dialog'
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '~/components/ui/dialog'
 import { m } from '~/paraglide/messages'
 import { SettingSchema } from '~/schemas/settings'
 import { Checkbox } from '../ui/checkbox'
@@ -54,18 +54,20 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent>
-        <DialogTitle>{m.settings()}</DialogTitle>
+        <DialogHeader>
+          <DialogTitle>{m.settings()}</DialogTitle>
+        </DialogHeader>
         <Form {...form}>
           <div className="flex flex-col gap-2">
             <FormField
               control={form.control}
               name="hint"
               render={() => (
-                <FormItem className="flex flex-row items-start space-y-0 space-x-3">
+                <FormItem className="flex flex-row items-start gap-1">
                   <FormControl>
                     <Checkbox onCheckedChange={onHintChange} />
                   </FormControl>
-                  <div className="space-y-1 leading-none">
+                  <div className="leading-none">
                     <FormLabel>{m.hint()}</FormLabel>
                   </div>
                 </FormItem>
@@ -75,11 +77,11 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
               control={form.control}
               name="retract"
               render={() => (
-                <FormItem className="flex flex-row items-start space-y-0 space-x-3">
+                <FormItem className="flex flex-row items-start gap-1">
                   <FormControl>
                     <Checkbox onCheckedChange={onRetractChange} />
                   </FormControl>
-                  <div className="space-y-1 leading-none">
+                  <div className="leading-none">
                     <FormLabel>{m.allow_retract()}</FormLabel>
                   </div>
                 </FormItem>
@@ -108,11 +110,9 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
                 </FormItem>
               )}
             />
-            <div className="field">
-              <Button className="button is-primary" onClick={onClose}>
-                OK
-              </Button>
-            </div>
+            <DialogFooter>
+              <Button onClick={onClose}>OK</Button>
+            </DialogFooter>
           </div>
         </Form>
       </DialogContent>
