@@ -56,9 +56,6 @@ importers:
       jotai-mutative:
         specifier: 1.2.0
         version: 1.2.0(@types/react@19.1.8)(jotai@2.12.5(@types/react@19.1.8)(react@19.1.0))(mutative@1.2.0)(react@19.1.0)
-      lucide-react:
-        specifier: 0.525.0
-        version: 0.525.0(react@19.1.0)
       mutative:
         specifier: 1.2.0
         version: 1.2.0
@@ -111,6 +108,9 @@ importers:
       '@iconify-json/fa-solid':
         specifier: 1.2.1
         version: 1.2.1
+      '@iconify-json/lucide':
+        specifier: ^1.2.55
+        version: 1.2.55
       '@inlang/paraglide-js':
         specifier: 2.2.0
         version: 2.2.0
@@ -808,6 +808,9 @@ packages:
 
   '@iconify-json/fa-solid@1.2.1':
     resolution: {integrity: sha512-eEcnCb6yjRJ0bZrQQZOvO9P5PYCGujz2V8PpiIxBSlm6xqoVLNtOfUyPr6xZD4zWeW7H3cmWi2ZXSzqxQ5e4lw==}
+
+  '@iconify-json/lucide@1.2.55':
+    resolution: {integrity: sha512-JXEV8emCxVZpdfV7d4X+nhn3cp0HU06apijGoxOHpR9CQB2jERqUHpXR6g1p0tEh2IZk84QJBCujG0Ei8XI1Dg==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -4306,11 +4309,6 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-react@0.525.0:
-    resolution: {integrity: sha512-Tm1txJ2OkymCGkvwoHt33Y2JpN5xucVq1slHcgE6Lk0WjDfjgKWor5CdVER8U6DvcfMwh4M8XxmpTiyzfmfDYQ==}
-    peerDependencies:
-      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
-
   luxon@3.6.1:
     resolution: {integrity: sha512-tJLxrKJhO2ukZ5z0gyjY1zPh3Rh88Ej9P7jNrZiHMUXHae1yvI2imgOZtL1TO8TW6biMMKfTtAOoEJANgtWBMQ==}
     engines: {node: '>=12'}
@@ -7026,6 +7024,10 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/fa-solid@1.2.1':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/lucide@1.2.55':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -10891,10 +10893,6 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
-
-  lucide-react@0.525.0(react@19.1.0):
-    dependencies:
-      react: 19.1.0
 
   luxon@3.6.1: {}
 
