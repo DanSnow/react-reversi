@@ -9,9 +9,9 @@ import { Button } from '~/components/ui/button'
 import { Dialog, DialogContent, DialogTitle } from '~/components/ui/dialog'
 import { m } from '~/paraglide/messages'
 import { SettingSchema } from '~/schemas/settings'
-import { Checkbox } from './ui/checkbox'
-import { Form, FormControl, FormField, FormItem, FormLabel } from './ui/form'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
+import { Checkbox } from '../ui/checkbox'
+import { Form, FormControl, FormField, FormItem, FormLabel } from '../ui/form'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 
 interface Props {
   isOpen: boolean

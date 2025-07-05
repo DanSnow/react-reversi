@@ -1,19 +1,16 @@
 import type { ReactElement, ReactNode } from 'react'
 import type { ScoreProps } from '../Score'
 
-import type { AIVersions } from '~/lib/ai/core'
 import type { Log as LogData } from '~/types'
 import { ClientOnly } from '@tanstack/react-router'
-import { useSetAtom } from 'jotai'
 import { useCallback, useState } from 'react'
 import GithubCorner from 'react-github-corner'
-import { showHintAtom } from '~/atoms/game'
 import { m } from '~/paraglide/messages'
 import { AppInfo } from '../AppInfo'
 import { Confirm } from '../Confirm'
 import { Log } from '../Log'
 import { Score } from '../Score'
-import { SettingModal } from '../SettingModal'
+import { SettingModal } from '../SettingModel'
 import { Toolbar } from '../Toolbar'
 
 export interface Props extends ScoreProps {
@@ -21,10 +18,8 @@ export interface Props extends ScoreProps {
   children: ReactNode
   showReplay: boolean
   log: LogData[]
-  setAllowRetract: (allow: boolean) => void
   onRestart: () => void
   onCloseConfirm: () => void
-  setVersion: (version: AIVersions) => void
   allowRetract: boolean // Added allowRetract prop
   setHuman: () => void // Added setHuman prop
   reboot: () => void // Added reboot prop
@@ -35,8 +30,6 @@ export function Game({
   showReplay,
   message,
   children,
-  setVersion,
-  setAllowRetract,
   onRestart,
   users,
   log,
@@ -47,7 +40,6 @@ export function Game({
   reboot, // Added reboot
   onUndo, // Added onUndo
 }: Props): ReactElement {
-  const setHint = useSetAtom(showHintAtom)
   const [settingOpen, setSettingOpen] = useState(false)
   const openSetting = useCallback(() => setSettingOpen(true), [])
   const closeSetting = useCallback(() => setSettingOpen(false), [])
@@ -79,13 +71,7 @@ export function Game({
         <Confirm open={showReplay} onConfirm={onRestart} onCancel={onCloseConfirm}>
           {m.play_again()}
         </Confirm>
-        <SettingModal
-          isOpen={settingOpen}
-          onClose={closeSetting}
-          onHintChange={(checked) => setHint(checked)}
-          onRetractChange={(checked) => setAllowRetract(checked)}
-          onVersionChange={(version) => setVersion(version)}
-        />
+        <SettingModal isOpen={settingOpen} onClose={closeSetting} />
       </div>
       <ClientOnly>
         <GithubCorner href="https://github.com/DanSnow/react-reversi" />

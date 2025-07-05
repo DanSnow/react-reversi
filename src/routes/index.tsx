@@ -3,11 +3,11 @@ import { createBrowserInspector } from '@statelyai/inspect'
 import { createFileRoute, invariant } from '@tanstack/react-router'
 import { useMachine, useSelector } from '@xstate/react'
 import { Option, pipe } from 'effect'
-import { useAtom, useAtomValue } from 'jotai'
+import { useAtomValue } from 'jotai'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useMutative } from 'use-mutative'
 import { createAIActor } from '~/actor/ai'
-import { aiVersionAtom, showHintAtom } from '~/atoms/game'
+import { aiVersionAtom, allowRetractAtom, showHintAtom } from '~/atoms/game'
 import { Board } from '~/components/Board'
 import { Game } from '~/components/Game/Game'
 import { placeAndFlip } from '~/lib/board'
@@ -30,7 +30,7 @@ const inspector =
       }
 
 function XStateGame() {
-  const [aiVersion, setAIVersion] = useAtom(aiVersionAtom)
+  const aiVersion = useAtomValue(aiVersionAtom)
   const aiActor = useMemo(() => createAIActor(aiVersion), [aiVersion])
   const [machine, send, actorRef] = useMachine(gameMachine.provide({ actors: { aiPlaceChess: aiActor } }), {
     inspect: inspector.inspect,
@@ -41,7 +41,7 @@ function XStateGame() {
 
   const users = useSelector(actorRef, ({ context }) => context.users)
   const score = useSelector(actorRef, ({ context }) => computeScore(context.board))
-  const [allowRetract, setAllowRetract] = useState(false) // Add state for allowRetract
+  const allowRetract = useAtomValue(allowRetractAtom)
   const hint = useAtomValue(showHintAtom)
   const [showReplay, setShowReplay] = useState(false)
 
@@ -161,10 +161,8 @@ function XStateGame() {
       users={users}
       log={log}
       score={score}
-      setVersion={setAIVersion}
       onRestart={onRestart}
       showReplay={showReplay}
-      setAllowRetract={setAllowRetract}
       allowRetract={allowRetract}
       setHuman={setHuman}
       reboot={reboot}
