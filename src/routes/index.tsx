@@ -23,7 +23,7 @@ export const Route = createFileRoute('/')({
 })
 
 const inspector =
-  typeof window !== 'undefined'
+  typeof window !== 'undefined' && import.meta.env.DEV
     ? createBrowserInspector({})
     : {
         inspect: undefined,
