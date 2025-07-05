@@ -15,6 +15,7 @@ import { computeScore } from '~/lib/compute-score'
 import { gameMachine } from '~/machines/game'
 import { DEFAULT_USER, getUserType, Player, UserType } from '~/types'
 import { HUMAN_GAME } from '~/types/user'
+import { m } from '~/paraglide/messages'
 
 export const Route = createFileRoute('/')({
   component: XStateGame,
@@ -106,8 +107,9 @@ function XStateGame() {
 
   useEffect(() => {
     const { unsubscribe: unsubscribeNoValidMove } = actorRef.on('noValidMove', ({ player }) => {
-      const playerName = player === Player.WHITE ? 'white' : 'black'
-      setMessage(`No valid move for ${playerName}!`)
+      const playerName = player === Player.WHITE ? m.white() : m.black()
+
+      setMessage(m.no_valid_move({ player: playerName }))
     })
 
     const { unsubscribe: unsubscribePlaced } = actorRef.on('placed', ({ point: { row, col }, player }) => {
@@ -177,17 +179,17 @@ function getOverlay(score: Score, users: Users): string {
     Option.map((winner) => {
       const isWinnerHuman = users[Player.unbrand(winner)] === UserType.Human
       if (isWinnerHuman && humamVsComputer) {
-        return 'You win!'
+        return m.user_win()
       } else if (!isWinnerHuman && humamVsComputer) {
-        return 'You lose!'
+        return m.user_lose()
       } else if (winner === Player.BLACK) {
-        return 'Black wins!'
+        return m.black_win()
       } else if (winner === Player.WHITE) {
-        return 'White wins!'
+        return m.white_win()
       }
       invariant(false, 'Unknown winner')
     }),
-    Option.getOrElse(() => "It's a tie!"),
+    Option.getOrElse(() => m.draw()),
   )
 }
 

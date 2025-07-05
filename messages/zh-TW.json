@@ -7,5 +7,13 @@
   "score": "記分板",
   "hint": "顯示提示",
   "allow_retract": "允許悔棋",
-  "ai_version": "AI 版本"
+  "ai_version": "AI 版本",
+  "user_win": "你贏了！",
+  "user_lose": "你輸了！",
+  "draw": "平手!",
+  "black_win": "黑棋勝利！",
+  "white_win": "白棋勝利！",
+  "no_valid_move": "{player}沒有可下的棋子！",
+  "black": "黑棋",
+  "white": "白棋"
 }

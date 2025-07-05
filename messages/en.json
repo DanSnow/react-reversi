@@ -7,5 +7,13 @@
   "score": "Score",
   "hint": "Hint",
   "allow_retract": "Allow Retract",
-  "ai_version": "AI Version"
+  "ai_version": "AI Version",
+  "user_win": "You win!",
+  "user_lose": "You lose!",
+  "draw": "Draw!",
+  "black_win": "Black wins!",
+  "white_win": "White wins!",
+  "no_valid_move": "No valid move for {player}!",
+  "black": "Black",
+  "white": "White"
 }
