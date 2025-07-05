@@ -58,6 +58,12 @@ export default defineConfig(({ command }) => {
         },
       }),
     ],
+    ssr: {
+      noExternal: ['react-use'],
+    },
+    optimizeDeps: {
+      include: ['react-use'],
+    },
     test: {
       environment: 'happy-dom',
     },
