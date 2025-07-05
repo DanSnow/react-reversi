@@ -1,6 +1,6 @@
 {
   "../../../../../~start/default-client-entry.tsx": {
-    "file": "assets/main-Dqjt3hT3.js",
+    "file": "assets/main-BoE4NqFX.js",
     "name": "main",
     "src": "../../../../../~start/default-client-entry.tsx",
     "isEntry": true,
@@ -8,15 +8,15 @@
       "src/routes/index.tsx?tsr-split=component"
     ],
     "assets": [
-      "assets/main-BN_W6yNJ.css"
+      "assets/main-BXintbpL.css"
     ]
   },
   "/Users/snow/Workspace/OpenSource/react-reversi/src/styles/main.css": {
-    "file": "assets/main-BN_W6yNJ.css",
+    "file": "assets/main-BXintbpL.css",
     "src": "/Users/snow/Workspace/OpenSource/react-reversi/src/styles/main.css"
   },
   "src/routes/index.tsx?tsr-split=component": {
-    "file": "assets/index-IrL-qqr3.js",
+    "file": "assets/index-V3e-ZK2d.js",
     "name": "index",
     "src": "src/routes/index.tsx?tsr-split=component",
     "isDynamicEntry": true,
