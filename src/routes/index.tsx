@@ -1,49 +1,69 @@
-import type { Log, Point, Score, Users } from '~/types'
-import { createBrowserInspector } from '@statelyai/inspect'
+import type { Log, Score, Users } from '~/types'
 import { createFileRoute, invariant } from '@tanstack/react-router'
-import { useMachine, useSelector } from '@xstate/react'
 import { Option, pipe } from 'effect'
 import { useAtomValue } from 'jotai'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useMutative } from 'use-mutative'
-import { createAIActor } from '~/actor/ai'
-import { aiVersionAtom, allowRetractAtom, showHintAtom } from '~/atoms/game'
+import { allowRetractAtom, showHintAtom } from '~/atoms/game'
 import { Board } from '~/components/Board'
 import { Game } from '~/components/Game/Game'
-import { placeAndFlip } from '~/lib/board'
-import { isValidPosForPlacingChess } from '~/lib/chess-utils'
-import { computeScore } from '~/lib/compute-score'
-import { gameMachine } from '~/machines/game'
+import { useGameMachine } from '~/hooks/useGameMachine'
 import { m } from '~/paraglide/messages'
-import { DEFAULT_USER, getUserType, Player, UserType } from '~/types'
+import { DEFAULT_USER, Player, UserType } from '~/types'
 import { HUMAN_GAME } from '~/types/user'
 
 export const Route = createFileRoute('/')({
   component: XStateGame,
 })
 
-const inspector =
-  typeof window !== 'undefined' && import.meta.env.DEV
-    ? createBrowserInspector({})
-    : {
-        inspect: undefined,
-      }
-
 function XStateGame() {
-  const aiVersion = useAtomValue(aiVersionAtom)
-  const aiActor = useMemo(() => createAIActor(aiVersion), [aiVersion])
-  const [machine, send, actorRef] = useMachine(gameMachine.provide({ actors: { aiPlaceChess: aiActor } }), {
-    inspect: inspector.inspect,
-  })
   const [overlay, setOverlay] = useState('')
   const [message, setMessage] = useState('')
   const [log, updateLog] = useMutative<Log[]>([])
+  const [showReplay, setShowReplay] = useState(false)
 
-  const users = useSelector(actorRef, ({ context }) => context.users)
-  const score = useSelector(actorRef, ({ context }) => computeScore(context.board))
+  const { users, score, send, placeChess, machine } = useGameMachine({
+    onGameStart: () => {
+      setOverlay('')
+    },
+    onGameSettled: () => {
+      setMessage('')
+      setOverlay(getOverlay(score, machine.context.users))
+      setShowReplay(true)
+    },
+    onNoValidMove: ({ player }) => {
+      const playerName = player === Player.WHITE ? m.white() : m.black()
+
+      setMessage(m.no_valid_move({ player: playerName }))
+    },
+    onBeforePlaceChess: () => {
+      setMessage('')
+    },
+    onPlaced: ({ player, point: { row, col } }) => {
+      updateLog((currentLog) => {
+        currentLog.push({
+          type: 'move', // Added type
+          pos: `(${row}, ${col})`,
+          player,
+        })
+      })
+    },
+    onUndoOccurred: () => {
+      updateLog((currentLog) => {
+        // Remove the last two entries (human move + AI move)
+        currentLog.pop()
+        currentLog.pop()
+        // Add an undo entry
+        currentLog.push({
+          type: 'undo',
+          message: 'Undo last turn',
+        })
+      })
+    },
+  })
+
   const allowRetract = useAtomValue(allowRetractAtom)
   const hint = useAtomValue(showHintAtom)
-  const [showReplay, setShowReplay] = useState(false)
 
   // Handlers for Game component props
   const setHuman = useCallback(() => {
@@ -51,12 +71,12 @@ function XStateGame() {
       type: 'start',
       users: HUMAN_GAME,
     })
-  }, [])
+  }, [send])
 
   const reboot = useCallback(() => {
     send({ type: 'restart' })
     updateLog([])
-  }, [])
+  }, [send, updateLog])
 
   const onUndo = useCallback(() => {
     send({ type: 'undo' }) // Send the undo event to the state machine
@@ -75,81 +95,9 @@ function XStateGame() {
     [send],
   )
 
-  const placeChess = useCallback(
-    ({ col, row }: Point) => {
-      if (getUserType(machine.context.users, machine.context.currentPlayer) !== UserType.Human) {
-        return
-      }
-
-      if (!isValidPosForPlacingChess(machine.context.board, machine.context.currentPlayer, { row, col })) {
-        return
-      }
-
-      setMessage('')
-      const board = placeAndFlip({
-        board: machine.context.board,
-        col,
-        row,
-        player: machine.context.currentPlayer,
-      })
-      send({ type: 'placed', point: { row, col }, nextBoard: board })
-    },
-    [machine, send],
-  )
-
   const onRestart = useCallback(() => {
     send({ type: 'restart' })
   }, [send])
-
-  const isEnded = machine.matches('ENDED')
-
-  useEffect(() => {
-    if (!isEnded) {
-      setOverlay('')
-      return
-    }
-    setMessage('')
-    setOverlay(getOverlay(score, machine.context.users))
-    setShowReplay(true)
-  }, [isEnded])
-
-  useEffect(() => {
-    const { unsubscribe: unsubscribeNoValidMove } = actorRef.on('noValidMove', ({ player }) => {
-      const playerName = player === Player.WHITE ? m.white() : m.black()
-
-      setMessage(m.no_valid_move({ player: playerName }))
-    })
-
-    const { unsubscribe: unsubscribePlaced } = actorRef.on('placed', ({ point: { row, col }, player }) => {
-      updateLog((currentLog) => {
-        currentLog.push({
-          type: 'move', // Added type
-          pos: `(${row}, ${col})`,
-          player,
-        })
-      })
-    })
-
-    // Add subscription for undoOccurred event
-    const { unsubscribe: unsubscribeUndoOccurred } = actorRef.on('undoOccurred', () => {
-      updateLog((currentLog) => {
-        // Remove the last two entries (human move + AI move)
-        currentLog.pop()
-        currentLog.pop()
-        // Add an undo entry
-        currentLog.push({
-          type: 'undo',
-          message: 'Undo last turn',
-        })
-      })
-    })
-
-    return () => {
-      unsubscribeNoValidMove()
-      unsubscribePlaced()
-      unsubscribeUndoOccurred() // Add unsubscribe for undoOccurred
-    }
-  }, [actorRef, updateLog]) // Added dependencies
 
   const onCancelConfirm = useCallback(() => {
     setShowReplay(false)

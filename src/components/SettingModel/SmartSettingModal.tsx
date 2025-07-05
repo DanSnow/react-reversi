@@ -1,6 +1,6 @@
 import { useSetAtom } from 'jotai'
-import { SettingModal } from './SettingModal'
 import { aiVersionAtom, allowRetractAtom, showHintAtom } from '~/atoms/game'
+import { SettingModal } from './SettingModal'
 
 interface Props {
   isOpen: boolean

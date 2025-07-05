@@ -7,6 +7,7 @@ const ignores = ['dist/', '**/dist/**/', '**/.yarn/**', 'node_modules/**', '*.md
 export default antfu({
   ignores,
   stylistic: false,
+  react: true,
   plugins: {
     prettier,
   },
