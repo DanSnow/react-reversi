@@ -1,5 +1,4 @@
-react-reversi
-=============
+# react-reversi
 
 Reversi game implement with React.  
 This repo is build for fun.
@@ -12,10 +11,38 @@ This repo is build for fun.
 
 ## Build with ##
 
-- react
-- redux
-- redux-actions
-- redux-saga
-- reselect
-- emotion
-- lo-dash
+- React
+- xstate (for state management)
+- jotai (for state management)
+- TypeScript
+- tailwindcss
+- Vite (for bundling and development server)
+- TanStack Start
+- Vitest (for testing)
+- ESLint (for linting)
+- Prettier (for formatting)
+
+## Installation ##
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/DanSnow/react-reversi
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd react-reversi
+   ```
+3. Install dependencies using pnpm:
+   ```bash
+   pnpm install
+   ```
+
+## Running the Project ##
+
+To run the project locally:
+
+```bash
+pnpm run dev
+```
+
+This will start the development server at `http://localhost:3000`.
