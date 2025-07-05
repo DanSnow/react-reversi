@@ -1,6 +1,6 @@
 import type { Cause } from 'effect'
 import type { ReadonlyDeep } from 'type-fest'
-import type { Board, PointScore } from '~/types'
+import type { Board, Point, PointScore } from '~/types'
 import { Array, Effect, Option, Order, pipe, Random } from 'effect'
 import { Chess, Player } from '~/types'
 
@@ -25,6 +25,12 @@ export function getOpposite(player: Player.Player): Player.Player {
 
 export function isCandidate(chess: Chess.Chess): boolean {
   return Chess.isCandidateChess(chess)
+}
+
+export function isValidPosForPlacingChess(board: Board.Board, player: Player.Player, { row, col }: Point): boolean {
+  const candidate = getCandidate(player)
+
+  return board[row][col] === candidate
 }
 
 export function isEmpty(chess: Chess.Chess | null): boolean {

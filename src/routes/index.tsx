@@ -16,6 +16,7 @@ import { gameMachine } from '~/machines/game'
 import { DEFAULT_USER, getUserType, Player, UserType } from '~/types'
 import { HUMAN_GAME } from '~/types/user'
 import { m } from '~/paraglide/messages'
+import { isValidPosForPlacingChess } from '~/lib/chess-utils'
 
 export const Route = createFileRoute('/')({
   component: XStateGame,
@@ -78,6 +79,11 @@ function XStateGame() {
       if (getUserType(machine.context.users, machine.context.currentPlayer) !== UserType.Human) {
         return
       }
+
+      if (!isValidPosForPlacingChess(machine.context.board, machine.context.currentPlayer, { row, col })) {
+        return
+      }
+
       setMessage('')
       const board = placeAndFlip({
         board: machine.context.board,
