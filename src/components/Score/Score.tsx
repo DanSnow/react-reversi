@@ -29,7 +29,7 @@ export function Score({ score, users, history }: ScoreProps): ReactElement {
         <CardTitle>{m.score()}</CardTitle>
       </CardHeader>
       <Separator />
-      <CardContent className="flex flex-col gap-2">
+      <CardContent className="flex flex-col gap-1 text-sm">
         <div>
           black({getPlayerType(BLACK, users)}): {score.black}
         </div>
@@ -40,8 +40,6 @@ export function Score({ score, users, history }: ScoreProps): ReactElement {
         <div>win: {history.win}</div>
         <div>lose: {history.lose}</div>
         <div>draw: {history.draw}</div>
-        <Separator />
-        {/* <p className="is-size-6 has-text-grey">{version}</p> */}
       </CardContent>
     </Card>
   )

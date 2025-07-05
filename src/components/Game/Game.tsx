@@ -58,7 +58,7 @@ export function Game({
         <div className="flex flex-col items-start gap-4 md:flex-row">
           <div className="flex flex-col">
             {children}
-            <span className="self-end text-red-600">{message}</span>
+            <span className="text-destructive self-end">{message}</span>
           </div>
           <div>
             <Score users={users} score={score} />

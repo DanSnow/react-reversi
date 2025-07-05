@@ -3,6 +3,7 @@ import { createRootRoute, HeadContent, Outlet, Scripts } from '@tanstack/react-r
 import { Provider as AtomProvider } from 'jotai'
 import * as React from 'react'
 import { store as atomStore } from '~/atoms/store'
+import { ThemeProvider } from '~/components/ui/theme-provider'
 import styleUrl from '~/styles/main.css?url'
 
 export const Route = createRootRoute({
@@ -97,8 +98,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body>
-        {children}
+      <body className="bg-background text-foreground">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
         <Scripts />
       </body>
     </html>
