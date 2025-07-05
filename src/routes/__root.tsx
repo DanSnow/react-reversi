@@ -100,7 +100,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body>
         {children}
         <Scripts />
-        <iframe id="stately" width="100%" height="300vh" />
       </body>
     </html>
   )

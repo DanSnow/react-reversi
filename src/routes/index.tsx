@@ -163,12 +163,12 @@ function XStateGame() {
       score={score}
       setVersion={setAIVersion}
       onRestart={onRestart}
-      showReplay={showReplay} // Pass isEnded as showReplay
-      setAllowRetract={setAllowRetract} // Pass setAllowRetract setter
-      allowRetract={allowRetract} // Pass allowRetract state
-      setHuman={setHuman} // Pass setHuman handler
-      reboot={reboot} // Pass reboot handler
-      onUndo={onUndo} // Pass onUndo handler
+      showReplay={showReplay}
+      setAllowRetract={setAllowRetract}
+      allowRetract={allowRetract}
+      setHuman={setHuman}
+      reboot={reboot}
+      onUndo={onUndo}
       onCloseConfirm={onCancelConfirm}
     >
       <Board.Root>

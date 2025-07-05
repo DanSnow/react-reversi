@@ -18,7 +18,7 @@ export default defineConfig({
     VERSION: JSON.stringify(`${pkg.version}`),
   },
   build: {
-    sourcemap: !!env.ANALYZE,
+    sourcemap: env.ANALYZE,
   },
   base: baseUrl,
   plugins: [
