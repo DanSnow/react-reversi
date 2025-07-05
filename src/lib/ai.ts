@@ -1,7 +1,8 @@
+import type { AIVersions } from './ai/core'
 import type { AIJudgeScore, Board, Player, PointScore } from '~/types'
 import { Array } from 'effect'
 import invariant from 'tiny-invariant'
-import { type AIVersions, judgeScores } from './ai/core'
+import { judgeScores } from './ai/core'
 import { getCandidate } from './chess-utils'
 
 export function aiComputeScores({

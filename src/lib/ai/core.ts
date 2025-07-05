@@ -1,9 +1,10 @@
-import type { AIJudgeScore, PointScore } from '~/types/game'
+import type { Player } from '~/types'
 
+import type { AIJudgeScore, PointScore } from '~/types/game'
 import { Array, Number as Num, Order } from 'effect'
 import { create as produce } from 'mutative'
 import invariant from 'tiny-invariant'
-import { Board, Chess, type Player } from '~/types'
+import { Board, Chess } from '~/types'
 import { checkFlipChess, clearBoardCandidate, countPlayerChess, placeAndFlip, placeBoardCandidate } from '../board'
 import { countAroundChess, directions, getBestPoint, getCandidate, getOpposite } from '../chess-utils'
 

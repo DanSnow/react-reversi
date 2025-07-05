@@ -20,7 +20,7 @@ export function Toolbar({ setHuman, reboot, allowRetract, onUndo, onOpenSetting 
   return (
     <nav className="flex justify-between p-2 pr-16">
       <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">{m.reversi()}</h1>
-      <div className="flex gap-2 ">
+      <div className="flex gap-2">
         <IconButton icon={<IconUserFriends />} onClick={setHuman}>
           <span>{m.play_with_friend()}</span>
         </IconButton>

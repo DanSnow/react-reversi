@@ -11,12 +11,12 @@ import { aiVersionAtom, showHintAtom } from '~/atoms/game'
 import { Board } from '~/components/Board'
 import { Game } from '~/components/Game/Game'
 import { placeAndFlip } from '~/lib/board'
+import { isValidPosForPlacingChess } from '~/lib/chess-utils'
 import { computeScore } from '~/lib/compute-score'
 import { gameMachine } from '~/machines/game'
+import { m } from '~/paraglide/messages'
 import { DEFAULT_USER, getUserType, Player, UserType } from '~/types'
 import { HUMAN_GAME } from '~/types/user'
-import { m } from '~/paraglide/messages'
-import { isValidPosForPlacingChess } from '~/lib/chess-utils'
 
 export const Route = createFileRoute('/')({
   component: XStateGame,

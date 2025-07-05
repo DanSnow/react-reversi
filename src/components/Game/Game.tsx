@@ -68,7 +68,7 @@ export function Game({
             <span className="self-end text-red-600">{message}</span>
           </div>
           <Score users={users} score={score} />
-          <div className="hidden grow max-w-64 lg:block">
+          <div className="hidden max-w-64 grow lg:block">
             <Log log={log} />
           </div>
         </div>
