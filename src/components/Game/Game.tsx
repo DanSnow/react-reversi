@@ -22,6 +22,7 @@ export interface Props extends ScoreProps {
   log: LogData[]
   setAllowRetract: (allow: boolean) => void
   onRestart: () => void
+  onCloseConfirm: () => void
   setVersion: (version: AIVersions) => void
   allowRetract: boolean // Added allowRetract prop
   setHuman: () => void // Added setHuman prop
@@ -39,6 +40,7 @@ export function Game({
   users,
   log,
   score,
+  onCloseConfirm,
   allowRetract, // Added allowRetract
   setHuman, // Added setHuman
   reboot, // Added reboot
@@ -70,7 +72,7 @@ export function Game({
             <Log log={log} />
           </div>
         </div>
-        <Confirm open={showReplay} onConfirm={onRestart} onCancel={closeSetting}>
+        <Confirm open={showReplay} onConfirm={onRestart} onCancel={onCloseConfirm}>
           {m.play_again()}
         </Confirm>
         <SettingModal

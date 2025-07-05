@@ -43,6 +43,7 @@ function XStateGame() {
   const score = useSelector(actorRef, ({ context }) => computeScore(context.board))
   const [allowRetract, setAllowRetract] = useState(false) // Add state for allowRetract
   const hint = useAtomValue(showHintAtom)
+  const [showReplay, setShowReplay] = useState(false)
 
   // Handlers for Game component props
   const setHuman = useCallback(() => {
@@ -109,6 +110,7 @@ function XStateGame() {
     }
     setMessage('')
     setOverlay(getOverlay(score, machine.context.users))
+    setShowReplay(true)
   }, [isEnded])
 
   useEffect(() => {
@@ -149,6 +151,10 @@ function XStateGame() {
     }
   }, [actorRef, updateLog]) // Added dependencies
 
+  const onCancelConfirm = useCallback(() => {
+    setShowReplay(false)
+  }, [])
+
   return (
     <Game
       message={message}
@@ -157,12 +163,13 @@ function XStateGame() {
       score={score}
       setVersion={setAIVersion}
       onRestart={onRestart}
-      showReplay={isEnded} // Pass isEnded as showReplay
+      showReplay={showReplay} // Pass isEnded as showReplay
       setAllowRetract={setAllowRetract} // Pass setAllowRetract setter
       allowRetract={allowRetract} // Pass allowRetract state
       setHuman={setHuman} // Pass setHuman handler
       reboot={reboot} // Pass reboot handler
       onUndo={onUndo} // Pass onUndo handler
+      onCloseConfirm={onCancelConfirm}
     >
       <Board.Root>
         <Board.Background />

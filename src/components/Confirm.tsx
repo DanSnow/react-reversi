@@ -20,18 +20,14 @@ export function Confirm({ open, children, onConfirm, onCancel }: Props): ReactEl
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
-        <div className="modal-content">
-          <div className="box">
-            <p className="font-medium text-4xl leading-tight pb-8">{children}</p>
-            <div className="flex gap-4">
-              <Button className="button bg-teal-400" onClick={onConfirm}>
-                Yes
-              </Button>
-              <Button className="button" onClick={onCancel}>
-                No
-              </Button>
-            </div>
-          </div>
+        <p className="pb-8 text-4xl font-medium leading-tight">{children}</p>
+        <div className="flex gap-4">
+          <Button className="bg-teal-400 button" onClick={onConfirm}>
+            Yes
+          </Button>
+          <Button className="button" onClick={onCancel}>
+            No
+          </Button>
         </div>
       </DialogContent>
     </Dialog>
