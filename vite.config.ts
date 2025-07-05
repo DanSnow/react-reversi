@@ -27,7 +27,7 @@ export default defineConfig({
       strategy: ['localStorage', 'preferredLanguage', 'baseLocale'],
       outdir: './src/paraglide',
     }),
-    Sonda(),
+    env.ANALYZE && Sonda(),
     Inspect({ open: true }),
     TsConfigPath(),
     Icons({
