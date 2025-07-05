@@ -1,8 +1,15 @@
 import type { ReactElement } from 'react'
-import { useCallback } from 'react'
 
-import { Button } from './ui/button'
-import { Dialog, DialogContent, DialogTitle } from './ui/dialog'
+import { useCallback } from 'react'
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from './ui/alert-dialog'
 
 interface Props {
   open: boolean
@@ -19,18 +26,16 @@ export function Confirm({ open, children, onConfirm, onCancel }: Props): ReactEl
     [onCancel],
   )
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent>
-        <DialogTitle className="text-4xl">{children}</DialogTitle>
-        <div className="flex gap-4">
-          <Button className="button bg-teal-400" onClick={onConfirm}>
-            Yes
-          </Button>
-          <Button className="button" onClick={onCancel}>
-            No
-          </Button>
-        </div>
-      </DialogContent>
-    </Dialog>
+    <AlertDialog open={open} onOpenChange={onOpenChange}>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle className="text-4xl">{children}</AlertDialogTitle>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogAction onClick={onConfirm}>Yes</AlertDialogAction>
+          <AlertDialogCancel onClick={onCancel}>No</AlertDialogCancel>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   )
 }
