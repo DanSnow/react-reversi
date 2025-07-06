@@ -34,7 +34,7 @@ function ThemeSwitcherButton({
       <label
         htmlFor={`theme-switch-${value}`}
         className={cn(
-          'group flex h-8 w-8 cursor-pointer items-center justify-center rounded-[999999px]',
+          'group flex size-8 cursor-pointer items-center justify-center rounded-full',
           selectedTheme === value && 'border-shadow border',
         )}
       >
