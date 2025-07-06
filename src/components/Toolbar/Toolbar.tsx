@@ -3,6 +3,7 @@ import IconCog from '~icons/fa-solid/cog'
 import IconPoweroff from '~icons/fa-solid/power-off'
 import IconUndo from '~icons/fa-solid/undo'
 import IconUserFriends from '~icons/fa-solid/user-friends'
+import { LocaleSwitcher } from '~/components/LocaleSwitcher/LocaleSwitcher'
 import { ThemeSwitcher } from '~/components/ui/theme-switcher'
 import { m } from '~/paraglide/messages'
 import { IconButton } from '../ui/icon-button'
@@ -31,6 +32,7 @@ export function Toolbar({ setHuman, reboot, allowRetract, onUndo, onOpenSetting 
         <IconButton icon={<IconUndo />} disabled={!allowRetract} onClick={onUndo} /> {/* Changed onClick to onUndo */}
         <IconButton icon={<IconCog />} onClick={onOpenSetting} />
         <ThemeSwitcher />
+        <LocaleSwitcher />
       </div>
     </nav>
   )

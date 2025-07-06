@@ -78,9 +78,6 @@
   --shadow-opacity: var(--shadow-opacity);
   --color-shadow-color: var(--shadow-color);
   --color-destructive-foreground: var(--destructive-foreground);
-  --color-ds-shadow: var(----ds-shadow);
-  --color-ds-gray-1000: var(----ds-gray-1000);
-  --color-ds-gray-700: var(----ds-gray-700);
 }
 
 /*
