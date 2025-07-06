@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.4.0](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.3.0...react-reversi-v2.4.0) (2025-07-06)
+
+
+### Features
+
+* improve game result tracking and event handling ([2244e9d](https://github.com/DanSnow/react-reversi/commit/2244e9d67220f19ddac6df60e199f246f405fd08))
+
+
+### Bug Fixes
+
+* **deps:** pin dependencies ([#3055](https://github.com/DanSnow/react-reversi/issues/3055)) ([6d63c48](https://github.com/DanSnow/react-reversi/commit/6d63c48f43765fef34d6c20a33d8e7ee2ffd9931))
+* **deps:** update tanstack-router monorepo to v1.125.1 ([#3057](https://github.com/DanSnow/react-reversi/issues/3057)) ([04f071e](https://github.com/DanSnow/react-reversi/commit/04f071e8199d014678e397521495997f58e99e10))
+
 ## [2.3.0](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.2.0...react-reversi-v2.3.0) (2025-07-05)
 
 
