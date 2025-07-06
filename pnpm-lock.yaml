@@ -43,7 +43,7 @@ importers:
         version: 1.125.1(@tanstack/react-router@1.125.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@vitejs/plugin-react@4.6.0(vite@7.0.2(@types/node@22.16.0)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0)))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vite@7.0.2(@types/node@22.16.0)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0))
       '@xstate/react':
         specifier: 6.0.0
-        version: 6.0.0(@types/react@19.1.8)(react@19.1.0)(xstate@5.20.0)
+        version: 6.0.0(@types/react@19.1.8)(react@19.1.0)(xstate@5.20.1)
       class-variance-authority:
         specifier: 0.7.1
         version: 0.7.1
@@ -93,8 +93,8 @@ importers:
         specifier: 1.3.0
         version: 1.3.0(@types/react@19.1.8)(mutative@1.2.0)(react@19.1.0)
       xstate:
-        specifier: 5.20.0
-        version: 5.20.0
+        specifier: 5.20.1
+        version: 5.20.1
       zod:
         specifier: 3.25.74
         version: 3.25.74
@@ -119,7 +119,7 @@ importers:
         version: 2.2.0
       '@statelyai/inspect':
         specifier: 0.4.0
-        version: 0.4.0(ws@8.18.3)(xstate@5.20.0)
+        version: 0.4.0(ws@8.18.3)(xstate@5.20.1)
       '@svgr/core':
         specifier: 8.1.0
         version: 8.1.0(typescript@5.8.3)
@@ -6337,8 +6337,8 @@ packages:
     resolution: {integrity: sha512-WCSfbfZnQDdLQLiMdGUQpMxxckeQ4oZNMNhLVkcekTu7xhD4tuUDyAPoY8CwXvBYE6LwBHd6QW2WZXlOWr1vCw==}
     engines: {node: '>=12.0'}
 
-  xstate@5.20.0:
-    resolution: {integrity: sha512-lFQ0fLwVa0OMZnjNP8zUkt2fwIS85ZBNPvxE41APVYhYj0++aTssgmsnTAiBHdKYbgnd6+L8DRTZ9jPZAFPuyw==}
+  xstate@5.20.1:
+    resolution: {integrity: sha512-i9ZpNnm/XhCOMUxae1suT8PjYNTStZWbhmuKt4xeTPaYG5TS0Fz0i+Ka5yxoNPpaHW3VW6JIowrwFgSTZONxig==}
 
   y18n@5.0.8:
     resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==}
@@ -7877,7 +7877,7 @@ snapshots:
 
   '@standard-schema/utils@0.3.0': {}
 
-  '@statelyai/inspect@0.4.0(ws@8.18.3)(xstate@5.20.0)':
+  '@statelyai/inspect@0.4.0(ws@8.18.3)(xstate@5.20.1)':
     dependencies:
       fast-safe-stringify: 2.1.1
       isomorphic-ws: 5.0.0(ws@8.18.3)
@@ -7885,7 +7885,7 @@ snapshots:
       safe-stable-stringify: 2.5.0
       superjson: 1.13.3
       uuid: 9.0.1
-      xstate: 5.20.0
+      xstate: 5.20.1
     transitivePeerDependencies:
       - ws
 
@@ -8818,13 +8818,13 @@ snapshots:
 
   '@xobotyi/scrollbar-width@1.9.5': {}
 
-  '@xstate/react@6.0.0(@types/react@19.1.8)(react@19.1.0)(xstate@5.20.0)':
+  '@xstate/react@6.0.0(@types/react@19.1.8)(react@19.1.0)(xstate@5.20.1)':
     dependencies:
       react: 19.1.0
       use-isomorphic-layout-effect: 1.2.1(@types/react@19.1.8)(react@19.1.0)
       use-sync-external-store: 1.5.0(react@19.1.0)
     optionalDependencies:
-      xstate: 5.20.0
+      xstate: 5.20.1
     transitivePeerDependencies:
       - '@types/react'
 
@@ -13157,7 +13157,7 @@ snapshots:
       '@oozcitak/util': 8.3.8
       js-yaml: 3.14.1
 
-  xstate@5.20.0: {}
+  xstate@5.20.1: {}
 
   y18n@5.0.8: {}
 
