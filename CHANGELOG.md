@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.4.0...react-reversi-v2.5.0) (2025-07-06)
+
+
+### Features
+
+* introduce i18n locale switcher ([f846ec0](https://github.com/DanSnow/react-reversi/commit/f846ec0b6b4d37ce955a95ede0ac53eb599bbe8d))
+
 ## [2.4.0](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.3.0...react-reversi-v2.4.0) (2025-07-06)
 
 
