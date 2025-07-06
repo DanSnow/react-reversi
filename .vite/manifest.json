@@ -1,6 +1,6 @@
 {
   "../../../../../~start/default-client-entry.tsx": {
-    "file": "assets/main-Duj5jZai.js",
+    "file": "assets/main-DYJgV1zB.js",
     "name": "main",
     "src": "../../../../../~start/default-client-entry.tsx",
     "isEntry": true,
@@ -16,7 +16,7 @@
     "src": "/home/runner/work/react-reversi/react-reversi/src/styles/main.css"
   },
   "src/routes/index.tsx?tsr-split=component": {
-    "file": "assets/index-ysYSp-jw.js",
+    "file": "assets/index-DG3YfjcW.js",
     "name": "index",
     "src": "src/routes/index.tsx?tsr-split=component",
     "isDynamicEntry": true,
