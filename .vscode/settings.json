@@ -11,6 +11,7 @@
     "source.fixAll.eslint": "always",
     "source.organizeImports": "never"
   },
+  "headwind.runOnSave": false,
   // Silent the stylistic rules in you IDE, but still auto fix them
   "eslint.rules.customizations": [
     {
