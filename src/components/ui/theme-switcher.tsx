@@ -1,12 +1,52 @@
+import type { ReactNode } from 'react'
 import { useTheme } from 'next-themes'
 import { useCallback, useState } from 'react'
+import { useEffectOnce } from 'react-use'
 import MoonIcon from '~icons/lucide/moon'
 import SunIcon from '~icons/lucide/sun'
+import { cn } from '~/lib/utils'
 
 type TTheme = 'light' | 'dark'
 
+function ThemeSwitcherButton({
+  selectedTheme,
+  value,
+  setTheme,
+  children,
+}: {
+  selectedTheme: TTheme
+  value: TTheme
+  setTheme: (theme: TTheme) => void
+  children: ReactNode
+}) {
+  return (
+    <div className="-mt-px first:-ml-px last:-mr-px">
+      <input
+        aria-label={value}
+        id={`theme-switch-${value}`}
+        type="radio"
+        value={value}
+        checked={selectedTheme === value}
+        onClick={() => setTheme(value)}
+        onChange={() => setTheme(value)}
+        className="absolute m-0 appearance-none p-0"
+      />
+      <label
+        htmlFor={`theme-switch-${value}`}
+        className={cn(
+          'group flex h-8 w-8 cursor-pointer items-center justify-center rounded-[999999px]',
+          selectedTheme === value && 'border-shadow border',
+        )}
+      >
+        <span className="sr-only">{value}</span>
+        {children}
+      </label>
+    </div>
+  )
+}
+
 export const ThemeSwitcher = () => {
-  const { systemTheme = 'light', setTheme: setAppTheme } = useTheme()
+  const { systemTheme = 'light', setTheme: setAppTheme, theme: appTheme, resolvedTheme = appTheme } = useTheme()
   const getInitialTheme = (): TTheme => {
     if (typeof window === 'undefined') {
       return 'light'
@@ -24,45 +64,21 @@ export const ThemeSwitcher = () => {
     [setAppTheme],
   )
 
+  useEffectOnce(() => {
+    if (resolvedTheme && theme !== resolvedTheme) {
+      setTheme(resolvedTheme as TTheme)
+    }
+  })
+
   return (
-    <fieldset className="border-shadow m-0 flex h-8 rounded-[999999px] border p-0">
+    <fieldset className="border-shadow m-0 flex h-8 rounded-full border p-0">
       <legend className="sr-only">Select a display theme:</legend>
-      <div className="-mt-px -ml-px">
-        <input
-          aria-label="light"
-          id="theme-switch-light"
-          type="radio"
-          value="light"
-          checked={theme === 'light'}
-          onChange={() => setTheme('light')}
-          className="absolute m-0 appearance-none p-0"
-        />
-        <label
-          htmlFor="theme-switch-light"
-          className={`flex h-8 w-8 cursor-pointer items-center justify-center rounded-[999999px] group${theme === 'light' ? 'border-shadow border' : ''}`}
-        >
-          <span className="sr-only">light</span>
-          <SunIcon />
-        </label>
-      </div>
-      <div className="-mt-px -mr-px">
-        <input
-          aria-label="dark"
-          id="theme-switch-dark"
-          type="radio"
-          value="dark"
-          checked={theme === 'dark'}
-          onChange={() => setTheme('dark')}
-          className="absolute m-0 appearance-none p-0"
-        />
-        <label
-          htmlFor="theme-switch-dark"
-          className={`flex h-8 w-8 cursor-pointer items-center justify-center rounded-[999999px] group${theme === 'dark' ? 'border-shadow border-l' : ''}`}
-        >
-          <span className="sr-only">dark</span>
-          <MoonIcon />
-        </label>
-      </div>
+      <ThemeSwitcherButton value="light" selectedTheme={theme} setTheme={setTheme}>
+        <SunIcon />
+      </ThemeSwitcherButton>
+      <ThemeSwitcherButton value="dark" selectedTheme={theme} setTheme={setTheme}>
+        <MoonIcon />
+      </ThemeSwitcherButton>
     </fieldset>
   )
 }
