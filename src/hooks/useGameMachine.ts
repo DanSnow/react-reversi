@@ -1,4 +1,4 @@
-import type { Player, Point } from '~/types'
+import type { Player, Point, Score, Users } from '~/types'
 import { createBrowserInspector } from '@statelyai/inspect'
 import { useMachine, useSelector } from '@xstate/react'
 import { useAtomValue } from 'jotai'
@@ -22,7 +22,7 @@ const inspector =
 interface UseGameMachineInput {
   onBeforePlaceChess: () => void
   onGameStart: () => void
-  onGameSettled: () => void
+  onGameSettled: (input: { users: Users; score: Score }) => void
   onPlaced: (input: { player: Player.Player; point: Point }) => void
   onNoValidMove: (input: { player: Player.Player }) => void
   onUndoOccurred: () => void
@@ -82,7 +82,7 @@ export function useGameMachine({
       onGameStart.current()
       return
     }
-    onGameSettled.current()
+    onGameSettled.current({ users, score })
   }, [isEnded, onGameSettled, onGameStart])
 
   useEffect(() => {

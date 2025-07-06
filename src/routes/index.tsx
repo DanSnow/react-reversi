@@ -1,10 +1,11 @@
-import type { Log, Score, Users } from '~/types'
+import type { History, Log, Score, Users } from '~/types'
 import { createFileRoute, invariant } from '@tanstack/react-router'
 import { Option, pipe } from 'effect'
-import { useAtomValue } from 'jotai'
+import { useAtomValue, useSetAtom } from 'jotai'
 import { useCallback, useState } from 'react'
 import { useMutative } from 'use-mutative'
 import { allowRetractAtom, showHintAtom } from '~/atoms/game'
+import { historyAtom } from '~/atoms/ui'
 import { Board } from '~/components/Board'
 import { Game } from '~/components/Game/Game'
 import { useGameMachine } from '~/hooks/useGameMachine'
@@ -21,15 +22,22 @@ function XStateGame() {
   const [message, setMessage] = useState('')
   const [log, updateLog] = useMutative<Log[]>([])
   const [showReplay, setShowReplay] = useState(false)
+  const updateHistory = useSetAtom(historyAtom)
 
   const { users, score, send, placeChess, machine } = useGameMachine({
     onGameStart: () => {
       setOverlay('')
     },
-    onGameSettled: () => {
+    onGameSettled: ({ users, score }) => {
       setMessage('')
-      setOverlay(getOverlay(score, machine.context.users))
+      setOverlay(getOverlay(score, users))
       setShowReplay(true)
+      const gameResult = getGameResult(score, users)
+      if (Option.isSome(gameResult)) {
+        updateHistory((history) => {
+          history[gameResult.value] += 1
+        })
+      }
     },
     onNoValidMove: ({ player }) => {
       const playerName = player === Player.WHITE ? m.white() : m.black()
@@ -124,6 +132,24 @@ function XStateGame() {
         {overlay && <Board.Overlay>{overlay}</Board.Overlay>}
       </Board.Root>
     </Game>
+  )
+}
+
+function getGameResult(score: Score, users: Users): Option.Option<keyof History> {
+  const winner = getWinner(score)
+  // Either black or white is computer, and another is human
+  const humamVsComputer = users.B !== users.W
+
+  return pipe(
+    winner,
+    Option.flatMap((winner): Option.Option<keyof History> => {
+      const isWinnerHuman = users[Player.unbrand(winner)] === UserType.Human
+      if (!humamVsComputer) {
+        return Option.none()
+      }
+      return Option.some(isWinnerHuman ? 'win' : 'lose')
+    }),
+    Option.orElse((): Option.Option<keyof History> => (humamVsComputer ? Option.some('draw') : Option.none())),
   )
 }
 
