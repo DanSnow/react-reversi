@@ -68,7 +68,6 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "4.16.2",
-    "@chromatic-com/storybook": "4.0.1",
     "@eslint-react/eslint-plugin": "1.52.2",
     "@iconify-json/fa-regular": "1.2.1",
     "@iconify-json/fa-solid": "1.2.1",
