@@ -7,6 +7,7 @@ import Macros from 'unplugin-macros/vite'
 import { defineConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
 import TsConfigPath from 'vite-tsconfig-paths'
+import { coverageConfigDefaults } from 'vitest/config'
 import { env } from './src/env'
 
 const baseUrl = env.DEPLOY ? '/react-reversi/' : '/'
@@ -66,6 +67,15 @@ export default defineConfig(({ command }) => {
     },
     test: {
       environment: 'happy-dom',
+      coverage: {
+        include: ['src/**/*.{js,jsx,ts,tsx}'],
+        exclude: [
+          ...coverageConfigDefaults.exclude,
+          'src/routeTree.gen.ts',
+          'src/paraglide/**/*.js',
+          'src/components/ui/**/*.tsx',
+        ],
+      },
     },
   }
 })
