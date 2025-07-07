@@ -26,5 +26,6 @@
         "time=*": "Updated at: {time}"
       }
     }
-  ]
+  ],
+  "start_as_color": "Start a new game as {player} vs AI"
 }

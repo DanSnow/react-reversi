@@ -26,5 +26,6 @@
         "time=*": "更新時間: {time}"
       }
     }
-  ]
+  ],
+  "start_as_color": "開始一場新遊戲，做為{player} vs AI"
 }

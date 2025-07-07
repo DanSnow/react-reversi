@@ -1,40 +1,27 @@
+import path from 'node:path'
 import process from 'node:process'
-import { paraglideVitePlugin } from '@inlang/paraglide-js'
+import { fileURLToPath } from 'node:url'
+import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import Sonda from 'sonda/vite'
-import Icons from 'unplugin-icons/vite'
-import Macros from 'unplugin-macros/vite'
-import { defineConfig } from 'vite'
+import { defineConfig, mergeConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
-import TsConfigPath from 'vite-tsconfig-paths'
 import { coverageConfigDefaults } from 'vitest/config'
 import { env } from './src/env'
+import baseConfig from './vite.config.base'
 
 const baseUrl = env.DEPLOY ? '/react-reversi/' : '/'
+
+const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url))
 
 process.env.VITE_BASE_URL = baseUrl
 
 export default defineConfig(({ command }) => {
   const isBuild = command === 'build'
-  return {
-    build: {
-      sourcemap: env.ANALYZE,
-    },
-    base: baseUrl,
+  return mergeConfig(baseConfig, {
     plugins: [
-      Macros(),
-      paraglideVitePlugin({
-        project: './project.inlang',
-        strategy: ['localStorage', 'preferredLanguage', 'baseLocale'],
-        outdir: './src/paraglide',
-      }),
       env.ANALYZE && Sonda(),
       Inspect({ open: true }),
-      TsConfigPath(),
-      Icons({
-        compiler: 'jsx',
-        jsx: 'react',
-      }),
       tanstackStart({
         target: 'github-pages',
         pages: [
@@ -76,6 +63,38 @@ export default defineConfig(({ command }) => {
           'src/components/ui/**/*.tsx',
         ],
       },
+      projects: [
+        {
+          extends: true,
+          test: {
+            name: 'unit-test',
+          },
+        },
+        {
+          extends: true,
+          plugins: [
+            storybookTest({
+              // The location of your Storybook config, main.js|ts
+              configDir: path.join(dirname, '.storybook'),
+              // This should match your package.json script to run Storybook
+              // The --ci flag will skip prompts and not open a browser
+              storybookScript: 'pnpm run storybook --ci',
+            }),
+          ],
+          test: {
+            name: 'storybook',
+            // Enable browser mode
+            browser: {
+              enabled: true,
+              // Make sure to install Playwright
+              provider: 'playwright',
+              headless: true,
+              instances: [{ browser: 'chromium' }],
+            },
+            setupFiles: ['./.storybook/vitest.setup.ts'],
+          },
+        },
+      ],
     },
-  }
+  })
 })

@@ -19,3 +19,5 @@ sonda-report.html
 .nitro
 .sonda
 coverage
+*storybook.log
+storybook-static

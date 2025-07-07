@@ -1,6 +1,8 @@
 import antfu from '@antfu/eslint-config'
+
 import prettier from 'eslint-plugin-prettier'
 import reactCompiler from 'eslint-plugin-react-compiler'
+import storybook from 'eslint-plugin-storybook'
 
 const ignores = [
   'dist/',
@@ -22,4 +24,4 @@ export default antfu({
   rules: {
     'prettier/prettier': 'error',
   },
-}).append(reactCompiler.configs.recommended)
+}).append(reactCompiler.configs.recommended, storybook.configs['flat/recommended'])
