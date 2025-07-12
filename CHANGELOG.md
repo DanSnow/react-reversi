@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.5.1](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.5.0...react-reversi-v2.5.1) (2025-07-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @tanstack/react-start to v1.125.5 ([#3063](https://github.com/DanSnow/react-reversi/issues/3063)) ([7f3f4d6](https://github.com/DanSnow/react-reversi/commit/7f3f4d61a411154dd0f3cc04705ad6f72755361a))
+* **deps:** update dependency xstate to v5.20.1 ([#3059](https://github.com/DanSnow/react-reversi/issues/3059)) ([7841293](https://github.com/DanSnow/react-reversi/commit/784129349e70ea96e46ff0f9212791804a6aa63f))
+* **deps:** update dependency zod to v3.25.75 ([#3065](https://github.com/DanSnow/react-reversi/issues/3065)) ([89a8716](https://github.com/DanSnow/react-reversi/commit/89a87167605a50f523ff3375aff304f403e4b486))
+* **deps:** update dependency zod to v3.25.76 ([#3069](https://github.com/DanSnow/react-reversi/issues/3069)) ([86f6eab](https://github.com/DanSnow/react-reversi/commit/86f6eab69480bfe50d971e760a6a463df6f59f09))
+* **deps:** update tanstack-router monorepo ([#3083](https://github.com/DanSnow/react-reversi/issues/3083)) ([2195bec](https://github.com/DanSnow/react-reversi/commit/2195bec8dce2f6993434ca4a04475b17bf37ba26))
+* **deps:** update tanstack-router monorepo to v1.125.4 ([#3061](https://github.com/DanSnow/react-reversi/issues/3061)) ([a62f3b4](https://github.com/DanSnow/react-reversi/commit/a62f3b44538ad2d101dcad5c4cb01b143f6c6075))
+* **deps:** update tanstack-router monorepo to v1.125.6 ([#3067](https://github.com/DanSnow/react-reversi/issues/3067)) ([dce910b](https://github.com/DanSnow/react-reversi/commit/dce910b01e6eba7329055e22ec7efad915f121d6))
+* **deps:** update tanstack-router monorepo to v1.127.0 ([#3076](https://github.com/DanSnow/react-reversi/issues/3076)) ([be92825](https://github.com/DanSnow/react-reversi/commit/be92825a01aa45b4f82f46a37dff9d040b8e6b02))
+
 ## [2.5.0](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.4.0...react-reversi-v2.5.0) (2025-07-06)
 
 
