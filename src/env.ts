@@ -1,6 +1,6 @@
 import process from 'node:process'
 import { createEnv } from '@t3-oss/env-core'
-import { z } from 'zod/v4'
+import { z } from 'zod'
 
 function getEnv(key: string) {
   try {
