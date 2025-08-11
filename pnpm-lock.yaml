@@ -106,8 +106,8 @@ importers:
         specifier: 1.52.3
         version: 1.52.3(eslint@9.33.0(jiti@2.5.1))(ts-api-utils@2.1.0(typescript@5.9.2))(typescript@5.9.2)
       '@iconify-json/fa-regular':
-        specifier: 1.2.1
-        version: 1.2.1
+        specifier: 1.2.2
+        version: 1.2.2
       '@iconify-json/fa-solid':
         specifier: 1.2.1
         version: 1.2.1
@@ -1150,8 +1150,8 @@ packages:
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
 
-  '@iconify-json/fa-regular@1.2.1':
-    resolution: {integrity: sha512-wKuHQchlr/zEd/Dl0ckEaWzgEXkWDs8zm5MczCX4Z7Ysd4xo9Iqk1t1EMJi3RtjrTE8Eh0s+PyHccH6qvZbNyQ==}
+  '@iconify-json/fa-regular@1.2.2':
+    resolution: {integrity: sha512-OxxofoXzGCJ2lZcQAuNRTySdrc25k/x/wG8+uoVWx/k/xyuJmP2D/Fm2JJt8g2l7iZRmo6axbpUWnhkAeW/YXg==}
 
   '@iconify-json/fa-solid@1.2.1':
     resolution: {integrity: sha512-eEcnCb6yjRJ0bZrQQZOvO9P5PYCGujz2V8PpiIxBSlm6xqoVLNtOfUyPr6xZD4zWeW7H3cmWi2ZXSzqxQ5e4lw==}
@@ -7778,7 +7778,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@iconify-json/fa-regular@1.2.1':
+  '@iconify-json/fa-regular@1.2.2':
     dependencies:
       '@iconify/types': 2.0.0
 
