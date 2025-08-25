@@ -112,8 +112,8 @@ importers:
         specifier: 1.2.2
         version: 1.2.2
       '@iconify-json/lucide':
-        specifier: 1.2.63
-        version: 1.2.63
+        specifier: 1.2.64
+        version: 1.2.64
       '@inlang/paraglide-js':
         specifier: 2.2.0
         version: 2.2.0
@@ -1027,8 +1027,8 @@ packages:
   '@iconify-json/fa-solid@1.2.2':
     resolution: {integrity: sha512-V8TDk62dGswAwbWwoSTnaoiTVEfQyjLCq4/TPmI29evFb9GwPyU0OGX4+BdQMGsDDzk8ByR81RjR618FtELSaw==}
 
-  '@iconify-json/lucide@1.2.63':
-    resolution: {integrity: sha512-4rRKhUhEh4TsBq5ypbimHbBA6ApIcDLR9gzjnJT2cvUn2+rG+oG4TPXgHLFmIaRkHKYcMKukdcfOUaJbM/G4pQ==}
+  '@iconify-json/lucide@1.2.64':
+    resolution: {integrity: sha512-QpeOqBwKztm/KD9L7sjc9ttLLfktMrsLKRMgqJRH6A2Z0s4BB/0XnhKEHPhrQugA9d1ES5aMy33ztbAHXZhqjQ==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -7646,7 +7646,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/lucide@1.2.63':
+  '@iconify-json/lucide@1.2.64':
     dependencies:
       '@iconify/types': 2.0.0
 
