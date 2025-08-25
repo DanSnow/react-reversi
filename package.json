@@ -119,7 +119,7 @@
     "unplugin-icons": "22.2.0",
     "unplugin-macros": "0.18.0",
     "vite": "7.1.3",
-    "vite-plugin-inspect": "11.3.2",
+    "vite-plugin-inspect": "11.3.3",
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "3.2.4",
     "zx": "8.8.1"
