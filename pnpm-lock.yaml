@@ -34,7 +34,7 @@ importers:
         version: 1.2.3(@types/react@19.1.12)(react@19.1.1)
       '@t3-oss/env-core':
         specifier: 0.13.8
-        version: 0.13.8(typescript@5.9.2)(zod@4.1.4)
+        version: 0.13.8(typescript@5.9.2)(zod@4.1.5)
       '@tanstack/react-router':
         specifier: 1.131.28
         version: 1.131.28(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -96,8 +96,8 @@ importers:
         specifier: 5.20.2
         version: 5.20.2
       zod:
-        specifier: 4.1.4
-        version: 4.1.4
+        specifier: 4.1.5
+        version: 4.1.5
     devDependencies:
       '@antfu/eslint-config':
         specifier: 5.2.1
@@ -6904,9 +6904,6 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
-  zod@4.1.4:
-    resolution: {integrity: sha512-2YqJuWkU6IIK9qcE4k1lLLhyZ6zFw7XVRdQGpV97jEIZwTrscUw+DY31Xczd8nwaoksyJUIxCojZXwckJovWxA==}
-
   zod@4.1.5:
     resolution: {integrity: sha512-rcUUZqlLJgBC33IT3PNMgsCq6TzLQEG/Ei/KTCU0PedSWRMAXoOUN+4t/0H+Q8bdnLPdqUYnvboJT0bn/229qg==}
 
@@ -8778,10 +8775,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@t3-oss/env-core@0.13.8(typescript@5.9.2)(zod@4.1.4)':
+  '@t3-oss/env-core@0.13.8(typescript@5.9.2)(zod@4.1.5)':
     optionalDependencies:
       typescript: 5.9.2
-      zod: 4.1.4
+      zod: 4.1.5
 
   '@tailwindcss/node@4.1.12':
     dependencies:
@@ -14267,8 +14264,6 @@ snapshots:
       zod: 3.25.76
 
   zod@3.25.76: {}
-
-  zod@4.1.4: {}
 
   zod@4.1.5: {}
 
