@@ -115,8 +115,8 @@ importers:
         specifier: 1.2.66
         version: 1.2.66
       '@inlang/paraglide-js':
-        specifier: 2.2.0
-        version: 2.2.0
+        specifier: 2.3.0
+        version: 2.3.0
       '@statelyai/inspect':
         specifier: 0.4.0
         version: 0.4.0(ws@8.18.3)(xstate@5.21.0)
@@ -1042,8 +1042,8 @@ packages:
   '@iconify/utils@2.3.0':
     resolution: {integrity: sha512-GmQ78prtwYW6EtzXRU1rY+KwOKfz32PD7iJh6Iyqw68GiKuoZ2A6pRtzWONz5VQJbp50mEjXh/7NkumtrAgRKA==}
 
-  '@inlang/paraglide-js@2.2.0':
-    resolution: {integrity: sha512-pkpXu1LanvpcAbvpVPf7PgF11Uq7DliSEBngrcUN36l4ZOOpzn3QBTvVr/tJxvks0O67WseQgiMHet8KH7Oz5A==}
+  '@inlang/paraglide-js@2.3.0':
+    resolution: {integrity: sha512-BXrQ77UL04zs5lRhfNW+DmTNbCcH1xBt5eDxntq+or5YHbJP1Srf57mRUHybX1A0XOQFThd+pvtkzcrnBvlc1w==}
     hasBin: true
 
   '@inlang/recommend-sherlock@0.2.1':
@@ -7712,14 +7712,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@inlang/paraglide-js@2.2.0':
+  '@inlang/paraglide-js@2.3.0':
     dependencies:
       '@inlang/recommend-sherlock': 0.2.1
       '@inlang/sdk': 2.4.9
       commander: 11.1.0
       consola: 3.4.0
       json5: 2.2.3
-      unplugin: 2.3.5
+      unplugin: 2.3.6
       urlpattern-polyfill: 10.1.0
     transitivePeerDependencies:
       - babel-plugin-macros
