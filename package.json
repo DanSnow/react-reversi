@@ -86,7 +86,7 @@
     "@tsconfig/node22": "22.0.2",
     "@types/gh-pages": "6.1.0",
     "@types/madge": "5.0.3",
-    "@types/node": "22.18.1",
+    "@types/node": "22.18.3",
     "@types/react": "19.1.12",
     "@types/react-dom": "19.1.9",
     "@vitejs/plugin-react": "5.0.2",
