@@ -3,6 +3,7 @@ import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
+import React from '@vitejs/plugin-react'
 import Sonda from 'sonda/vite'
 import { defineConfig, mergeConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
@@ -35,14 +36,15 @@ export default defineConfig(({ command }) => {
         sitemap: {
           host: 'https://dansnow.github.io/react-reversi/',
         },
-        react: {
-          babel: {
-            plugins: [
-              !isBuild && 'jotai/babel/plugin-react-refresh',
-              !isBuild && 'jotai/babel/plugin-debug-label',
-              'babel-plugin-react-compiler',
-            ].filter((plugin): plugin is string => typeof plugin === 'string'),
-          },
+        customViteReactPlugin: true,
+      }),
+      React({
+        babel: {
+          plugins: [
+            !isBuild && 'jotai/babel/plugin-react-refresh',
+            !isBuild && 'jotai/babel/plugin-debug-label',
+            'babel-plugin-react-compiler',
+          ].filter((plugin): plugin is string => typeof plugin === 'string'),
         },
       }),
     ],
