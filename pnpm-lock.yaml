@@ -34,7 +34,7 @@ importers:
         version: 1.2.3(@types/react@19.1.13)(react@19.1.1)
       '@t3-oss/env-core':
         specifier: 0.13.8
-        version: 0.13.8(typescript@5.9.2)(zod@4.1.10)
+        version: 0.13.8(typescript@5.9.2)(zod@4.1.11)
       '@tanstack/react-router':
         specifier: 1.131.49
         version: 1.131.49(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -96,8 +96,8 @@ importers:
         specifier: 5.22.0
         version: 5.22.0
       zod:
-        specifier: 4.1.10
-        version: 4.1.10
+        specifier: 4.1.11
+        version: 4.1.11
     devDependencies:
       '@antfu/eslint-config':
         specifier: 5.4.1
@@ -6746,8 +6746,8 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
-  zod@4.1.10:
-    resolution: {integrity: sha512-XuQhz4bDMHS66VWMD/ZQI+BT4DYbOYGjhV/sIlSA4vAzMuxjLT31Oa7m6Z7lEdCGDkt1VCt0x4Ro2PHonEdKFA==}
+  zod@4.1.11:
+    resolution: {integrity: sha512-WPsqwxITS2tzx1bzhIKsEs19ABD5vmCVa4xBo2tq/SrV4RNZtfws1EnCWQXM6yh8bD08a1idvkB5MZSBiZsjwg==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -7330,7 +7330,7 @@ snapshots:
       '@eslint-react/eff': 1.53.1
       '@typescript-eslint/utils': 8.44.0(eslint@9.36.0(jiti@2.5.1))(typescript@5.9.2)
       ts-pattern: 5.8.0
-      zod: 4.1.10
+      zod: 4.1.11
     transitivePeerDependencies:
       - eslint
       - supports-color
@@ -7342,7 +7342,7 @@ snapshots:
       '@eslint-react/kit': 1.53.1(eslint@9.36.0(jiti@2.5.1))(typescript@5.9.2)
       '@typescript-eslint/utils': 8.44.0(eslint@9.36.0(jiti@2.5.1))(typescript@5.9.2)
       ts-pattern: 5.8.0
-      zod: 4.1.10
+      zod: 4.1.11
     transitivePeerDependencies:
       - eslint
       - supports-color
@@ -8516,10 +8516,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@t3-oss/env-core@0.13.8(typescript@5.9.2)(zod@4.1.10)':
+  '@t3-oss/env-core@0.13.8(typescript@5.9.2)(zod@4.1.11)':
     optionalDependencies:
       typescript: 5.9.2
-      zod: 4.1.10
+      zod: 4.1.11
 
   '@tailwindcss/node@4.1.13':
     dependencies:
@@ -13821,7 +13821,7 @@ snapshots:
 
   zod@3.25.76: {}
 
-  zod@4.1.10: {}
+  zod@4.1.11: {}
 
   zwitch@2.0.4: {}
 
