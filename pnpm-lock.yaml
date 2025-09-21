@@ -58,10 +58,10 @@ importers:
         version: 2.14.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1)
       jotai-mutative:
         specifier: 1.2.0
-        version: 1.2.0(@types/react@19.1.13)(jotai@2.14.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1))(mutative@1.2.0)(react@19.1.1)
+        version: 1.2.0(@types/react@19.1.13)(jotai@2.14.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1))(mutative@1.3.0)(react@19.1.1)
       mutative:
-        specifier: 1.2.0
-        version: 1.2.0
+        specifier: 1.3.0
+        version: 1.3.0
       next-themes:
         specifier: 0.4.6
         version: 0.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -91,7 +91,7 @@ importers:
         version: 1.3.3
       use-mutative:
         specifier: 1.3.0
-        version: 1.3.0(@types/react@19.1.13)(mutative@1.2.0)(react@19.1.1)
+        version: 1.3.0(@types/react@19.1.13)(mutative@1.3.0)(react@19.1.1)
       xstate:
         specifier: 5.22.0
         version: 5.22.0
@@ -4916,8 +4916,8 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
-  mutative@1.2.0:
-    resolution: {integrity: sha512-1muFw45Lwjso6TSBGiXfbjKS01fVSD/qaqBfTo/gXgp79e8KM4Sa1XP/S4iN2/DvSdIZgjFJI+JIhC7eKf3GTg==}
+  mutative@1.3.0:
+    resolution: {integrity: sha512-8MJj6URmOZAV70dpFe1YnSppRTKC4DsMkXQiBDFayLcDI4ljGokHxmpqaBQuDWa4iAxWaJJ1PS8vAmbntjjKmQ==}
     engines: {node: '>=14.0'}
 
   nano-css@5.6.2:
@@ -11238,11 +11238,11 @@ snapshots:
       - react-dom
       - redux
 
-  jotai-mutative@1.2.0(@types/react@19.1.13)(jotai@2.14.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1))(mutative@1.2.0)(react@19.1.1):
+  jotai-mutative@1.2.0(@types/react@19.1.13)(jotai@2.14.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1))(mutative@1.3.0)(react@19.1.1):
     dependencies:
       '@types/react': 19.1.13
       jotai: 2.14.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1)
-      mutative: 1.2.0
+      mutative: 1.3.0
       react: 19.1.1
 
   jotai@2.14.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1):
@@ -11926,7 +11926,7 @@ snapshots:
 
   ms@2.1.3: {}
 
-  mutative@1.2.0: {}
+  mutative@1.3.0: {}
 
   nano-css@5.6.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
@@ -13503,10 +13503,10 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.1.13
 
-  use-mutative@1.3.0(@types/react@19.1.13)(mutative@1.2.0)(react@19.1.1):
+  use-mutative@1.3.0(@types/react@19.1.13)(mutative@1.3.0)(react@19.1.1):
     dependencies:
       '@types/react': 19.1.13
-      mutative: 1.2.0
+      mutative: 1.3.0
       react: 19.1.1
 
   use-sidecar@1.1.3(@types/react@19.1.13)(react@19.1.1):
