@@ -57,8 +57,8 @@ importers:
         specifier: 2.14.0
         version: 2.14.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1)
       jotai-mutative:
-        specifier: 1.2.0
-        version: 1.2.0(@types/react@19.1.13)(jotai@2.14.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1))(mutative@1.3.0)(react@19.1.1)
+        specifier: 1.2.1
+        version: 1.2.1(@types/react@19.1.13)(jotai@2.14.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1))(mutative@1.3.0)(react@19.1.1)
       mutative:
         specifier: 1.3.0
         version: 1.3.0
@@ -4371,12 +4371,12 @@ packages:
       jotai: '>=2.14.0'
       react: '>=17.0.0'
 
-  jotai-mutative@1.2.0:
-    resolution: {integrity: sha512-oQijrtkKJIY9RY+BvhLEc2tEAUH3LG6iC+9dgppKnQaQUMBCw49eSmI9MK0GetanSaoiMM1iM6f0vrw852UKsw==}
+  jotai-mutative@1.2.1:
+    resolution: {integrity: sha512-nys4k0G1WvsOwlS1C5zDNnwSlKImg7ML2Rcj+7TFm8OJibZQ8a+ODLTcoxRosxbMbIM+kappVGPFg8j4/MwRug==}
     peerDependencies:
       '@types/react': ^18.0 || ^17.0 || ^19.0
       jotai: ^2.0
-      mutative: ^1.2.0
+      mutative: ^1.3.0
       react: ^17.0 || ^18.0 || ^19.0
 
   jotai@2.14.0:
@@ -11238,7 +11238,7 @@ snapshots:
       - react-dom
       - redux
 
-  jotai-mutative@1.2.0(@types/react@19.1.13)(jotai@2.14.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1))(mutative@1.3.0)(react@19.1.1):
+  jotai-mutative@1.2.1(@types/react@19.1.13)(jotai@2.14.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1))(mutative@1.3.0)(react@19.1.1):
     dependencies:
       '@types/react': 19.1.13
       jotai: 2.14.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1)
