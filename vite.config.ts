@@ -2,6 +2,7 @@ import path from 'node:path'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
+import { devtools } from '@tanstack/devtools-vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import React from '@vitejs/plugin-react'
 import Sonda from 'sonda/vite'
@@ -22,7 +23,8 @@ export default defineConfig(({ command }) => {
   return mergeConfig(baseConfig, {
     plugins: [
       env.ANALYZE && Sonda(),
-      Inspect({ open: true }),
+      devtools(),
+      Inspect(),
       tanstackStart({
         spa: {
           enabled: true,

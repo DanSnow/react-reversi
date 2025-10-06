@@ -5,6 +5,7 @@ import * as React from 'react'
 import { store as atomStore } from '~/atoms/store'
 import { ThemeProvider } from '~/components/ui/theme-provider'
 import styleUrl from '~/styles/main.css?url'
+import { Devtools as Devtools_ } from '../components/Devtools'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -80,11 +81,14 @@ export const Route = createRootRoute({
   component: RootComponent,
 })
 
+const Devtool = import.meta.env.DEV ? Devtools_ : () => null
+
 function RootComponent() {
   return (
     <RootDocument>
       <AtomProvider store={atomStore}>
         <Outlet />
+        <Devtool />
         <div className="confirm-root" />
         <div className="dialog-root" />
       </AtomProvider>
