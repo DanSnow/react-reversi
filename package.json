@@ -26,7 +26,7 @@
     "lint": "eslint .",
     "build": "vite build",
     "build-pages": "DEPLOY=true pnpm build",
-    "deploy": "pnpm run build-pages && gh-pages --dotfiles -d .output/public",
+    "deploy": "pnpm run build-pages && gh-pages --dotfiles -d dist/client",
     "analyze": "ANALYZE=true pnpm build",
     "test": "vitest",
     "knip": "knip",

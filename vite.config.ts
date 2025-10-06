@@ -24,7 +24,13 @@ export default defineConfig(({ command }) => {
       env.ANALYZE && Sonda(),
       Inspect({ open: true }),
       tanstackStart({
-        target: 'github-pages',
+        spa: {
+          enabled: true,
+          prerender: {
+            enabled: true,
+            crawlLinks: true,
+          },
+        },
         pages: [
           {
             path: baseUrl,
@@ -36,7 +42,6 @@ export default defineConfig(({ command }) => {
         sitemap: {
           host: 'https://dansnow.github.io/react-reversi/',
         },
-        customViteReactPlugin: true,
       }),
       React({
         babel: {
