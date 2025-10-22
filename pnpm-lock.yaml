@@ -253,8 +253,8 @@ importers:
         specifier: 5.9.3
         version: 5.9.3
       unplugin-icons:
-        specifier: 22.4.2
-        version: 22.4.2(@svgr/core@8.1.0(typescript@5.9.3))(@vue/compiler-sfc@3.5.17)
+        specifier: 22.5.0
+        version: 22.5.0(@svgr/core@8.1.0(typescript@5.9.3))(@vue/compiler-sfc@3.5.17)
       unplugin-macros:
         specifier: 0.18.2
         version: 0.18.2(@types/node@22.18.12)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.43.1)(tsx@4.20.6)(yaml@2.8.1)
@@ -5121,8 +5121,8 @@ packages:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
 
-  unplugin-icons@22.4.2:
-    resolution: {integrity: sha512-Yv15405unO67Chme0Slk0JRA/H2AiAZLK5t7ebt8/ZpTDlBfM4d4En2qD3MX2rzOSkIteQ0syIm3q8MSofeoBA==}
+  unplugin-icons@22.5.0:
+    resolution: {integrity: sha512-MBlMtT5RuMYZy4TZgqUL2OTtOdTUVsS1Mhj6G1pEzMlFJlEnq6mhUfoIt45gBWxHcsOdXJDWLg3pRZ+YmvAVWQ==}
     peerDependencies:
       '@svgr/core': '>=7.0.0'
       '@svgx/core': ^1.0.1
@@ -10799,7 +10799,7 @@ snapshots:
 
   universalify@2.0.1: {}
 
-  unplugin-icons@22.4.2(@svgr/core@8.1.0(typescript@5.9.3))(@vue/compiler-sfc@3.5.17):
+  unplugin-icons@22.5.0(@svgr/core@8.1.0(typescript@5.9.3))(@vue/compiler-sfc@3.5.17):
     dependencies:
       '@antfu/install-pkg': 1.1.0
       '@iconify/utils': 3.0.2
