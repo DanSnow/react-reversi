@@ -67,7 +67,7 @@
     "zod": "4.1.12"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "6.0.0",
+    "@antfu/eslint-config": "6.1.0",
     "@eslint-react/eslint-plugin": "2.2.3",
     "@iconify-json/fa-regular": "1.2.2",
     "@iconify-json/fa-solid": "1.2.2",
