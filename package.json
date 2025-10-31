@@ -45,7 +45,7 @@
     "@radix-ui/react-slot": "1.2.3",
     "@t3-oss/env-core": "0.13.8",
     "@tanstack/react-router": "1.133.36",
-    "@tanstack/react-start": "1.134.0",
+    "@tanstack/react-start": "1.134.3",
     "@xstate/react": "6.0.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
