@@ -35,7 +35,7 @@ export default defineConfig(({ command }) => {
         },
         pages: [
           {
-            path: baseUrl,
+            path: '/index.html',
             prerender: {
               enabled: true,
             },
