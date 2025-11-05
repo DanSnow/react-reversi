@@ -43,7 +43,7 @@ importers:
         version: 1.134.12(crossws@0.4.1(srvx@0.8.9))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@22.19.0)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.43.1)(tsx@4.20.6)(yaml@2.8.1))
       '@xstate/react':
         specifier: 6.0.0
-        version: 6.0.0(@types/react@19.2.2)(react@19.2.0)(xstate@5.23.0)
+        version: 6.0.0(@types/react@19.2.2)(react@19.2.0)(xstate@5.24.0)
       class-variance-authority:
         specifier: 0.7.1
         version: 0.7.1
@@ -93,8 +93,8 @@ importers:
         specifier: 1.3.1
         version: 1.3.1(@types/react@19.2.2)(mutative@1.3.0)(react@19.2.0)
       xstate:
-        specifier: 5.23.0
-        version: 5.23.0
+        specifier: 5.24.0
+        version: 5.24.0
       zod:
         specifier: 4.1.12
         version: 4.1.12
@@ -119,7 +119,7 @@ importers:
         version: 2.4.0
       '@statelyai/inspect':
         specifier: 0.4.0
-        version: 0.4.0(ws@8.18.3)(xstate@5.23.0)
+        version: 0.4.0(ws@8.18.3)(xstate@5.24.0)
       '@storybook/addon-a11y':
         specifier: 10.0.4
         version: 10.0.4(storybook@10.0.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@22.19.0)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.43.1)(tsx@4.20.6)(yaml@2.8.1)))
@@ -5368,8 +5368,8 @@ packages:
     resolution: {integrity: sha512-WCSfbfZnQDdLQLiMdGUQpMxxckeQ4oZNMNhLVkcekTu7xhD4tuUDyAPoY8CwXvBYE6LwBHd6QW2WZXlOWr1vCw==}
     engines: {node: '>=12.0'}
 
-  xstate@5.23.0:
-    resolution: {integrity: sha512-jo126xWXkU6ySQ91n51+H2xcgnMuZcCQpQoD3FQ79d32a6RQvryRh8rrDHnH4WDdN/yg5xNjlIRol9ispMvzeg==}
+  xstate@5.24.0:
+    resolution: {integrity: sha512-h/213ThFfZbOefUWrLc9ZvYggEVBr0jrD2dNxErxNMLQfZRN19v+80TaXFho17hs8Q2E1mULtm/6nv12um0C4A==}
 
   yallist@3.1.1:
     resolution: {integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==}
@@ -6703,7 +6703,7 @@ snapshots:
 
   '@standard-schema/utils@0.3.0': {}
 
-  '@statelyai/inspect@0.4.0(ws@8.18.3)(xstate@5.23.0)':
+  '@statelyai/inspect@0.4.0(ws@8.18.3)(xstate@5.24.0)':
     dependencies:
       fast-safe-stringify: 2.1.1
       isomorphic-ws: 5.0.0(ws@8.18.3)
@@ -6711,7 +6711,7 @@ snapshots:
       safe-stable-stringify: 2.5.0
       superjson: 1.13.3
       uuid: 9.0.1
-      xstate: 5.23.0
+      xstate: 5.24.0
     transitivePeerDependencies:
       - ws
 
@@ -7626,13 +7626,13 @@ snapshots:
 
   '@xobotyi/scrollbar-width@1.9.5': {}
 
-  '@xstate/react@6.0.0(@types/react@19.2.2)(react@19.2.0)(xstate@5.23.0)':
+  '@xstate/react@6.0.0(@types/react@19.2.2)(react@19.2.0)(xstate@5.24.0)':
     dependencies:
       react: 19.2.0
       use-isomorphic-layout-effect: 1.2.1(@types/react@19.2.2)(react@19.2.0)
       use-sync-external-store: 1.5.0(react@19.2.0)
     optionalDependencies:
-      xstate: 5.23.0
+      xstate: 5.24.0
     transitivePeerDependencies:
       - '@types/react'
 
@@ -10932,7 +10932,7 @@ snapshots:
       '@oozcitak/util': 8.3.8
       js-yaml: 3.14.1
 
-  xstate@5.23.0: {}
+  xstate@5.24.0: {}
 
   yallist@3.1.1: {}
 
