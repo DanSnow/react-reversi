@@ -89,7 +89,7 @@
     "@types/gh-pages": "6.1.0",
     "@types/madge": "5.0.3",
     "@types/node": "22.19.0",
-    "@types/react": "19.2.2",
+    "@types/react": "19.2.3",
     "@types/react-dom": "19.2.2",
     "@vitejs/plugin-react": "5.1.0",
     "@vitest/browser": "3.2.4",
