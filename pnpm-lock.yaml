@@ -51,8 +51,8 @@ importers:
         specifier: 2.1.1
         version: 2.1.1
       effect:
-        specifier: 3.19.3
-        version: 3.19.3
+        specifier: 3.19.4
+        version: 3.19.4
       jotai:
         specifier: 2.15.1
         version: 2.15.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.5)(react@19.2.0)
@@ -2914,8 +2914,8 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  effect@3.19.3:
-    resolution: {integrity: sha512-LodiPXiyUJWQ5LoMhUGbu0acD2ff5A5teJtUlLKDPVfoeWEBcZLlzK8BeVXpVa0f30UsdHouVCf0C/E0TxYMrA==}
+  effect@3.19.4:
+    resolution: {integrity: sha512-gApFffMwpDVgmw/FzCaYWt6zw4m0xAnQf5+cPS0+Sl85AxfeovJeEIsiEQVlk+ZvtBYcoPXxi65GIyruzanQ5g==}
 
   electron-to-chromium@1.5.191:
     resolution: {integrity: sha512-xcwe9ELcuxYLUFqZZxL19Z6HVKcvNkIwhbHUz7L3us6u12yR+7uY89dSl570f/IqNthx8dAw3tojG7i4Ni4tDA==}
@@ -8371,7 +8371,7 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  effect@3.19.3:
+  effect@3.19.4:
     dependencies:
       '@standard-schema/spec': 1.0.0
       fast-check: 3.23.2
