@@ -93,6 +93,7 @@
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.1.1",
     "@vitest/browser": "4.0.13",
+    "@vitest/browser-playwright": "^4.0.13",
     "@vitest/coverage-v8": "4.0.13",
     "babel-plugin-react-compiler": "19.1.0-rc.3",
     "eslint": "9.39.1",
