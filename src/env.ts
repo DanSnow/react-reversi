@@ -22,6 +22,6 @@ export const env = createEnv({
   runtimeEnvStrict: {
     DEPLOY: getEnv('DEPLOY'),
     ANALYZE: getEnv('ANALYZE'),
-    VITE_BASE_URL: getEnv('VITE_BASE_URL') ?? import.meta.env?.VITE_BASE_URL,
+    VITE_BASE_URL: getEnv('VITE_BASE_URL') ?? import.meta.env?.BASE_URL,
   },
 })

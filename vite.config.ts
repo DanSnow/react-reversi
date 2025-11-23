@@ -29,19 +29,12 @@ export default defineConfig(({ command }) => {
       tanstackStart({
         spa: {
           enabled: true,
+          maskPath: baseUrl,
           prerender: {
             enabled: true,
-            crawlLinks: true,
+            outputPath: 'index.html',
           },
         },
-        pages: [
-          {
-            path: '/index.html',
-            prerender: {
-              enabled: true,
-            },
-          },
-        ],
         sitemap: {
           host: 'https://dansnow.github.io/react-reversi/',
         },
