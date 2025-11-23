@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.1](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.6.0...react-reversi-v2.6.1) (2025-11-23)
+
+
+### Bug Fixes
+
+* fix build ([06b3310](https://github.com/DanSnow/react-reversi/commit/06b3310a5b1ffcccba63839933211e6de08048cb))
+
 ## [2.6.0](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.5.0...react-reversi-v2.6.0) (2025-11-23)
 
 
