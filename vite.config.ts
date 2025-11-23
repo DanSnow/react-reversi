@@ -5,6 +5,7 @@ import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 import { devtools } from '@tanstack/devtools-vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import React from '@vitejs/plugin-react'
+import { playwright } from '@vitest/browser-playwright'
 import Sonda from 'sonda/vite'
 import { defineConfig, mergeConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
@@ -96,8 +97,11 @@ export default defineConfig(({ command }) => {
             browser: {
               enabled: true,
               // Make sure to install Playwright
-              provider: 'playwright',
-              headless: true,
+              provider: playwright({
+                launchOptions: {
+                  headless: true,
+                },
+              }),
               instances: [{ browser: 'chromium' }],
             },
             setupFiles: ['./.storybook/vitest.setup.ts'],
