@@ -34,7 +34,7 @@ importers:
         version: 1.2.4(@types/react@19.2.6)(react@19.2.0)
       '@t3-oss/env-core':
         specifier: 0.13.8
-        version: 0.13.8(typescript@5.9.3)(zod@4.1.12)
+        version: 0.13.8(typescript@5.9.3)(zod@4.1.13)
       '@tanstack/react-router':
         specifier: 1.139.3
         version: 1.139.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -96,8 +96,8 @@ importers:
         specifier: 5.24.0
         version: 5.24.0
       zod:
-        specifier: 4.1.12
-        version: 4.1.12
+        specifier: 4.1.13
+        version: 4.1.13
     devDependencies:
       '@antfu/eslint-config':
         specifier: 6.2.0
@@ -5434,8 +5434,8 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
-  zod@4.1.12:
-    resolution: {integrity: sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ==}
+  zod@4.1.13:
+    resolution: {integrity: sha512-AvvthqfqrAhNH9dnfmrfKzX5upOdjUVJYFqNSlkmGf64gRaTzlPwz99IHYnVs28qYAybvAlBV+H7pn0saFY4Ig==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -5917,7 +5917,7 @@ snapshots:
       '@eslint-react/eff': 2.3.7
       '@typescript-eslint/utils': 8.47.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       ts-pattern: 5.9.0
-      zod: 4.1.12
+      zod: 4.1.13
     transitivePeerDependencies:
       - eslint
       - supports-color
@@ -6923,10 +6923,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@t3-oss/env-core@0.13.8(typescript@5.9.3)(zod@4.1.12)':
+  '@t3-oss/env-core@0.13.8(typescript@5.9.3)(zod@4.1.13)':
     optionalDependencies:
       typescript: 5.9.3
-      zod: 4.1.12
+      zod: 4.1.13
 
   '@tailwindcss/node@4.1.17':
     dependencies:
@@ -8540,8 +8540,8 @@ snapshots:
       '@babel/parser': 7.28.5
       eslint: 9.39.1(jiti@2.6.1)
       hermes-parser: 0.25.1
-      zod: 4.1.12
-      zod-validation-error: 3.5.2(zod@4.1.12)
+      zod: 4.1.13
+      zod-validation-error: 3.5.2(zod@4.1.13)
     transitivePeerDependencies:
       - supports-color
 
@@ -9272,7 +9272,7 @@ snapshots:
       smol-toml: 1.5.2
       strip-json-comments: 5.0.3
       typescript: 5.9.3
-      zod: 4.1.12
+      zod: 4.1.13
 
   kolorist@1.8.0: {}
 
@@ -11039,13 +11039,13 @@ snapshots:
     dependencies:
       zod: 3.25.76
 
-  zod-validation-error@3.5.2(zod@4.1.12):
+  zod-validation-error@3.5.2(zod@4.1.13):
     dependencies:
-      zod: 4.1.12
+      zod: 4.1.13
 
   zod@3.25.76: {}
 
-  zod@4.1.12: {}
+  zod@4.1.13: {}
 
   zwitch@2.0.4: {}
 
