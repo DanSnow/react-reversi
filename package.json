@@ -92,9 +92,9 @@
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.1.1",
-    "@vitest/browser": "4.0.13",
-    "@vitest/browser-playwright": "4.0.13",
-    "@vitest/coverage-v8": "4.0.13",
+    "@vitest/browser": "4.0.14",
+    "@vitest/browser-playwright": "4.0.14",
+    "@vitest/coverage-v8": "4.0.14",
     "babel-plugin-react-compiler": "19.1.0-rc.3",
     "eslint": "9.39.1",
     "eslint-plugin-prettier": "5.5.4",
@@ -124,7 +124,7 @@
     "vite": "7.2.4",
     "vite-plugin-inspect": "11.3.3",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "4.0.13",
+    "vitest": "4.0.14",
     "zx": "8.8.5"
   }
 }
