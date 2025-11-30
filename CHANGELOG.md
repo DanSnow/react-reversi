@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.6.2](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.6.1...react-reversi-v2.6.2) (2025-11-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency effect to v3.19.7 ([#3546](https://github.com/DanSnow/react-reversi/issues/3546)) ([24f91ef](https://github.com/DanSnow/react-reversi/commit/24f91ef56463e2310598c4159561fe0dd8a3afd6))
+* **deps:** update dependency effect to v3.19.8 ([#3550](https://github.com/DanSnow/react-reversi/issues/3550)) ([872c998](https://github.com/DanSnow/react-reversi/commit/872c9985448f634d1265fbd1943ca461bf47233c))
+* **deps:** update dependency react-hook-form to v7.67.0 ([#3556](https://github.com/DanSnow/react-reversi/issues/3556)) ([dbc1214](https://github.com/DanSnow/react-reversi/commit/dbc121463a3d14497007aca04367574de6c75497))
+* **deps:** update dependency zod to v4.1.13 ([#3534](https://github.com/DanSnow/react-reversi/issues/3534)) ([de28a8d](https://github.com/DanSnow/react-reversi/commit/de28a8d883fa9f2b9b5411a1db6a2c547987fccb))
+* **deps:** update tanstack-router monorepo ([#3544](https://github.com/DanSnow/react-reversi/issues/3544)) ([090447c](https://github.com/DanSnow/react-reversi/commit/090447cd82fd9346744abf0daaaae02d13140ada))
+* **deps:** update tanstack-router monorepo to v1.139.10 ([#3551](https://github.com/DanSnow/react-reversi/issues/3551)) ([5c8b37e](https://github.com/DanSnow/react-reversi/commit/5c8b37eceb2f49d1df1333b7508b52e3dbf6393a))
+* **deps:** update tanstack-router monorepo to v1.139.11 ([#3558](https://github.com/DanSnow/react-reversi/issues/3558)) ([3deb77b](https://github.com/DanSnow/react-reversi/commit/3deb77bc4739a6b439ae36b5cb2afed0b8af8d04))
+* **deps:** update tanstack-router monorepo to v1.139.12 ([#3560](https://github.com/DanSnow/react-reversi/issues/3560)) ([afe0100](https://github.com/DanSnow/react-reversi/commit/afe0100d8cd69b85fd076ecae95a9013bdc35012))
+* **deps:** update tanstack-router monorepo to v1.139.6 ([#3542](https://github.com/DanSnow/react-reversi/issues/3542)) ([1386b79](https://github.com/DanSnow/react-reversi/commit/1386b793c19a3d38aa34fb74f84990431cd3c9a9))
+
 ## [2.6.1](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.6.0...react-reversi-v2.6.1) (2025-11-23)
 
 
