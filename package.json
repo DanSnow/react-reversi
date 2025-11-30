@@ -112,7 +112,7 @@
     "prettier": "3.7.3",
     "prettier-plugin-tailwindcss": "0.7.1",
     "react-refresh": "0.18.0",
-    "sonda": "0.10.0",
+    "sonda": "0.10.1",
     "storybook": "10.1.2",
     "tailwindcss": "4.1.17",
     "tsx": "4.20.6",
