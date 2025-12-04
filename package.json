@@ -57,7 +57,7 @@
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "react-github-corner": "2.5.0",
-    "react-hook-form": "7.67.0",
+    "react-hook-form": "7.68.0",
     "react-twc": "1.5.1",
     "react-use": "17.6.0",
     "tailwind-merge": "3.4.0",
