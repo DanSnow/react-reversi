@@ -84,7 +84,7 @@
     "@tanstack/devtools-vite": "0.3.12",
     "@tanstack/react-devtools": "0.8.4",
     "@testing-library/dom": "10.4.1",
-    "@testing-library/react": "16.3.0",
+    "@testing-library/react": "16.3.1",
     "@tsconfig/node22": "22.0.5",
     "@types/gh-pages": "6.1.0",
     "@types/madge": "5.0.3",
