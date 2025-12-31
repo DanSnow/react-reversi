@@ -34,7 +34,7 @@ importers:
         version: 1.2.4(@types/react@19.2.7)(react@19.2.3)
       '@t3-oss/env-core':
         specifier: 0.13.10
-        version: 0.13.10(typescript@5.9.3)(zod@4.2.1)
+        version: 0.13.10(typescript@5.9.3)(zod@4.3.2)
       '@tanstack/react-router':
         specifier: 1.144.0
         version: 1.144.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -96,8 +96,8 @@ importers:
         specifier: 5.25.0
         version: 5.25.0
       zod:
-        specifier: 4.2.1
-        version: 4.2.1
+        specifier: 4.3.2
+        version: 4.3.2
     devDependencies:
       '@antfu/eslint-config':
         specifier: 6.7.3
@@ -5468,9 +5468,6 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
-  zod@4.2.1:
-    resolution: {integrity: sha512-0wZ1IRqGGhMP76gLqz8EyfBXKk0J2qo2+H3fi4mcUP/KtTocoX08nmIAHl1Z2kJIZbZee8KOpBCSNPRgauucjw==}
-
   zod@4.3.2:
     resolution: {integrity: sha512-b8L8yn4rIVfiXyHAmnr52/ZEpDumlT0bmxiq3Ws1ybrinhflGpt12Hvv54kYnEsGPRs6o/Ka3/ppA2OWY21IVg==}
 
@@ -6929,10 +6926,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@t3-oss/env-core@0.13.10(typescript@5.9.3)(zod@4.2.1)':
+  '@t3-oss/env-core@0.13.10(typescript@5.9.3)(zod@4.3.2)':
     optionalDependencies:
       typescript: 5.9.3
-      zod: 4.2.1
+      zod: 4.3.2
 
   '@tailwindcss/node@4.1.18':
     dependencies:
@@ -8564,8 +8561,8 @@ snapshots:
       '@babel/parser': 7.28.5
       eslint: 9.39.2(jiti@2.6.1)
       hermes-parser: 0.25.1
-      zod: 4.2.1
-      zod-validation-error: 3.5.2(zod@4.2.1)
+      zod: 4.3.2
+      zod-validation-error: 3.5.2(zod@4.3.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -9290,7 +9287,7 @@ snapshots:
       smol-toml: 1.5.2
       strip-json-comments: 5.0.3
       typescript: 5.9.3
-      zod: 4.2.1
+      zod: 4.3.2
 
   kolorist@1.8.0: {}
 
@@ -11061,13 +11058,11 @@ snapshots:
     dependencies:
       zod: 3.25.76
 
-  zod-validation-error@3.5.2(zod@4.2.1):
+  zod-validation-error@3.5.2(zod@4.3.2):
     dependencies:
-      zod: 4.2.1
+      zod: 4.3.2
 
   zod@3.25.76: {}
-
-  zod@4.2.1: {}
 
   zod@4.3.2: {}
 
