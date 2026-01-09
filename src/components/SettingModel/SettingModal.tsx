@@ -1,16 +1,13 @@
 import type { ReactElement } from 'react'
 import type { AIVersions } from '~/lib/ai/core'
-import type { Setting } from '~/schemas/settings'
-import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
+import { useForm } from '@tanstack/react-form'
 import { useCallback } from 'react'
-import { useForm } from 'react-hook-form'
-
 import { Button } from '~/components/ui/button'
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '~/components/ui/dialog'
 import { m } from '~/paraglide/messages'
 import { SettingSchema } from '~/schemas/settings'
 import { Checkbox } from '../ui/checkbox'
-import { Form, FormControl, FormField, FormItem, FormLabel } from '../ui/form'
+import { Field, FieldGroup, FieldLabel } from '../ui/field'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 
 interface Props {
@@ -44,10 +41,22 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
     [onClose],
   )
 
-  const form = useForm<Setting>({
-    resolver: standardSchemaResolver(SettingSchema),
+  const form = useForm({
     defaultValues: {
+      hint: false,
+      retract: false,
       version: 'v3Overview',
+    },
+    validators: {
+      onChange: SettingSchema,
+    },
+    listeners: {
+      onChange: ({ formApi }) => {
+        const { hint, retract, version } = formApi.state.values
+        onHintChange(hint)
+        onRetractChange(retract)
+        onVersionChange(version as AIVersions)
+      },
     },
   })
 
@@ -57,64 +66,93 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
         <DialogHeader>
           <DialogTitle>{m.settings()}</DialogTitle>
         </DialogHeader>
-        <Form {...form}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+            form.handleSubmit()
+          }}
+        >
           <div className="flex flex-col gap-2">
-            <FormField
-              control={form.control}
-              name="hint"
-              render={() => (
-                <FormItem className="flex flex-row items-start gap-1">
-                  <FormControl>
-                    <Checkbox onCheckedChange={onHintChange} />
-                  </FormControl>
-                  <div className="leading-none">
-                    <FormLabel>{m.hint()}</FormLabel>
-                  </div>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="retract"
-              render={() => (
-                <FormItem className="flex flex-row items-start gap-1">
-                  <FormControl>
-                    <Checkbox onCheckedChange={onRetractChange} />
-                  </FormControl>
-                  <div className="leading-none">
-                    <FormLabel>{m.allow_retract()}</FormLabel>
-                  </div>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="version"
-              render={() => (
-                <FormItem>
-                  <FormLabel>{m.ai_version()}</FormLabel>
-                  <FormControl>
-                    <Select name="version" defaultValue="v3Overview" onValueChange={onVersionChange}>
-                      <SelectTrigger>
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {AI.map(([value, display]) => (
-                          <SelectItem key={value} value={value}>
-                            {display}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </FormControl>
-                </FormItem>
-              )}
-            />
+            <FieldGroup>
+              <form.Field
+                name="hint"
+                children={(field) => {
+                  const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
+                  return (
+                    <Field orientation="horizontal" data-invalid={isInvalid}>
+                      <Checkbox
+                        id={field.name}
+                        name={field.name}
+                        checked={field.state.value}
+                        onBlur={field.handleBlur}
+                        onCheckedChange={(checked) => field.handleChange(checked === true)}
+                      />
+                      <div className="leading-none">
+                        <FieldLabel htmlFor={field.name}>{m.hint()}</FieldLabel>
+                      </div>
+                    </Field>
+                  )
+                }}
+              />
+            </FieldGroup>
+
+            <FieldGroup>
+              <form.Field
+                name="retract"
+                children={(field) => {
+                  const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
+                  return (
+                    <Field orientation="horizontal" data-invalid={isInvalid}>
+                      <Checkbox
+                        id={field.name}
+                        name={field.name}
+                        checked={field.state.value}
+                        onBlur={field.handleBlur}
+                        onCheckedChange={(checked) => field.handleChange(checked === true)}
+                      />
+                      <div className="leading-none">
+                        <FieldLabel htmlFor={field.name}>{m.allow_retract()}</FieldLabel>
+                      </div>
+                    </Field>
+                  )
+                }}
+              />
+            </FieldGroup>
+            <FieldGroup>
+              <form.Field
+                name="version"
+                children={(field) => {
+                  const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
+                  return (
+                    <Field data-invalid={isInvalid}>
+                      <FieldLabel htmlFor={field.name}>{m.ai_version()}</FieldLabel>
+                      <Select
+                        name={field.name}
+                        defaultValue="v3Overview"
+                        value={field.state.value}
+                        onValueChange={field.handleChange}
+                      >
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {AI.map(([value, display]) => (
+                            <SelectItem key={value} value={value}>
+                              {display}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </Field>
+                  )
+                }}
+              />
+            </FieldGroup>
             <DialogFooter>
               <Button onClick={onClose}>OK</Button>
             </DialogFooter>
           </div>
-        </Form>
+        </form>
       </DialogContent>
     </Dialog>
   )
