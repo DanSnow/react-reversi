@@ -2,7 +2,7 @@ import * as React from 'react'
 import { cn } from '~/lib/utils'
 import { Button } from './button'
 
-export interface IconButtonProps extends React.ComponentProps<typeof Button> {
+export type IconButtonProps = React.ComponentProps<typeof Button> & {
   icon: React.ReactNode
 }
 
