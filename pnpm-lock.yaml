@@ -214,8 +214,8 @@ importers:
         specifier: 0.13.0
         version: 0.13.0(@types/react@19.2.7)(jotai@2.16.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.7)(react@19.2.3))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(redux@5.0.1)
       knip:
-        specifier: 5.80.0
-        version: 5.80.0(@types/node@24.10.4)(typescript@5.9.3)
+        specifier: 5.80.1
+        version: 5.80.1(@types/node@24.10.4)(typescript@5.9.3)
       madge:
         specifier: 8.0.0
         version: 8.0.0(typescript@5.9.3)
@@ -3794,8 +3794,8 @@ packages:
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
-  knip@5.80.0:
-    resolution: {integrity: sha512-K/Ga2f/SHEUXXriVdaw2GfeIUJ5muwdqusHGkCtaG/1qeMmQJiuwZj9KnPxaDbnYPAu8RWjYYh8Nyb+qlJ3d8A==}
+  knip@5.80.1:
+    resolution: {integrity: sha512-aMqGxyoAgLzTd6g3bN7J+Mef0R/WqWKz4zazvKQisprPdszp7X/CHRAPVsVYIkUAIDWCiC/s65JOrva3DwR9yQ==}
     engines: {node: '>=18.18.0'}
     hasBin: true
     peerDependencies:
@@ -9284,7 +9284,7 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-  knip@5.80.0(@types/node@24.10.4)(typescript@5.9.3):
+  knip@5.80.1(@types/node@24.10.4)(typescript@5.9.3):
     dependencies:
       '@nodelib/fs.walk': 1.2.8
       '@types/node': 24.10.4
