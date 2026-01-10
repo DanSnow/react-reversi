@@ -94,8 +94,8 @@ importers:
         specifier: 1.2.83
         version: 1.2.83
       '@inlang/paraglide-js':
-        specifier: 2.7.2
-        version: 2.7.2
+        specifier: 2.8.0
+        version: 2.8.0
       '@statelyai/inspect':
         specifier: 0.4.0
         version: 0.4.0(ws@8.18.3)(xstate@5.25.0)
@@ -830,15 +830,15 @@ packages:
   '@iconify/utils@3.0.2':
     resolution: {integrity: sha512-EfJS0rLfVuRuJRn4psJHtK2A9TqVnkxPpHY6lYHiB9+8eSuudsxbwMiavocG45ujOo6FJ+CIRlRnlOGinzkaGQ==}
 
-  '@inlang/paraglide-js@2.7.2':
-    resolution: {integrity: sha512-tUkzcK7yCuJsQCeSHLlCaISFFX65efYeYdFBXtTXyorl1PClH2/BxFg4MqCsemXiX7KZWgbvIfjnsDiVTrj7bQ==}
+  '@inlang/paraglide-js@2.8.0':
+    resolution: {integrity: sha512-ataaSmV53zz+tIr+KJLdC3tTB1uikS79hvtLlZk2ikbGRB/kcyQeg+lsqzjsXCAvy0/O28ucCRjxbHsTzOVQVg==}
     hasBin: true
 
   '@inlang/recommend-sherlock@0.2.1':
     resolution: {integrity: sha512-ckv8HvHy/iTqaVAEKrr+gnl+p3XFNwe5D2+6w6wJk2ORV2XkcRkKOJ/XsTUJbPSiyi4PI+p+T3bqbmNx/rDUlg==}
 
-  '@inlang/sdk@2.4.10':
-    resolution: {integrity: sha512-MLcYSb9ERwvyfxMsMXGjmAYfh6Bn/rkT58ffkibWxbFLiL3ejSdmLGP8Wl7118dMo6nj2PXTcEPzUw+2YPQ62Q==}
+  '@inlang/sdk@2.6.0':
+    resolution: {integrity: sha512-f4iVHVXyzOi0CXlXSAT7XPrReLBaVXy/po/qrOPf2OHh+hUwyD1bDx2EYC5KgrZ16z3ylWfqWVuc7o4l7/tuUQ==}
     engines: {node: '>=18.0.0'}
 
   '@isaacs/balanced-match@4.0.1':
@@ -4955,6 +4955,10 @@ packages:
     resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
     hasBin: true
 
+  uuid@13.0.0:
+    resolution: {integrity: sha512-XQegIaBTVUjSHliKqcnFqYypAd4S+WCYt5NIeRs6w/UAry7z8Y9j5ZwRRL4kzq9U3sD6v+85er9FvkEaBpji2w==}
+    hasBin: true
+
   uuid@9.0.1:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
     hasBin: true
@@ -5802,10 +5806,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@inlang/paraglide-js@2.7.2':
+  '@inlang/paraglide-js@2.8.0':
     dependencies:
       '@inlang/recommend-sherlock': 0.2.1
-      '@inlang/sdk': 2.4.10
+      '@inlang/sdk': 2.6.0
       commander: 11.1.0
       consola: 3.4.0
       json5: 2.2.3
@@ -5818,13 +5822,13 @@ snapshots:
     dependencies:
       comment-json: 4.2.5
 
-  '@inlang/sdk@2.4.10':
+  '@inlang/sdk@2.6.0':
     dependencies:
       '@lix-js/sdk': 0.4.7
       '@sinclair/typebox': 0.31.28
       kysely: 0.27.6
       sqlite-wasm-kysely: 0.3.0(kysely@0.27.6)
-      uuid: 10.0.0
+      uuid: 13.0.0
     transitivePeerDependencies:
       - babel-plugin-macros
 
@@ -10365,6 +10369,8 @@ snapshots:
   util-deprecate@1.0.2: {}
 
   uuid@10.0.0: {}
+
+  uuid@13.0.0: {}
 
   uuid@9.0.1: {}
 
