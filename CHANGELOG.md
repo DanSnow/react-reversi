@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.6.3](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.6.2...react-reversi-v2.6.3) (2026-01-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @base-ui/react to v1.1.0 ([#3746](https://github.com/DanSnow/react-reversi/issues/3746)) ([426aef5](https://github.com/DanSnow/react-reversi/commit/426aef5f57cc8c94d59ee4298879f8bcd5872aad))
+* **deps:** update dependency @tanstack/react-start to v1.149.1 ([#3722](https://github.com/DanSnow/react-reversi/issues/3722)) ([f7fb88d](https://github.com/DanSnow/react-reversi/commit/f7fb88dbd9a8853a07ad522ab672c700f9aea40d))
+* **deps:** update dependency @tanstack/react-start to v1.149.2 ([#3725](https://github.com/DanSnow/react-reversi/issues/3725)) ([4d4857e](https://github.com/DanSnow/react-reversi/commit/4d4857e928070a37cab9285e7ad9d6c6db1ec3da))
+* **deps:** update dependency jotai to v2.16.2 ([#3727](https://github.com/DanSnow/react-reversi/issues/3727)) ([96bf362](https://github.com/DanSnow/react-reversi/commit/96bf3625cc5ff737844dec9b5974efd4bac30a48))
+* **deps:** update dependency xstate to v5.25.1 ([#3744](https://github.com/DanSnow/react-reversi/issues/3744)) ([6cd3655](https://github.com/DanSnow/react-reversi/commit/6cd3655ac61f7568e58aca62a31ca82495829b56))
+* **deps:** update tanstack-router monorepo ([#3715](https://github.com/DanSnow/react-reversi/issues/3715)) ([fde29d4](https://github.com/DanSnow/react-reversi/commit/fde29d41b7cfd46e2156d1954efb8f4b4435e0db))
+* **deps:** update tanstack-router monorepo ([#3730](https://github.com/DanSnow/react-reversi/issues/3730)) ([6d21ec4](https://github.com/DanSnow/react-reversi/commit/6d21ec4c185ff7299b672aca1b81e6965413c5c1))
+* **deps:** update tanstack-router monorepo to v1.150.0 ([#3740](https://github.com/DanSnow/react-reversi/issues/3740)) ([3a7609e](https://github.com/DanSnow/react-reversi/commit/3a7609e87db410c0f11d483869c84bbcf29ca34a))
+* **deps:** update tanstack-router monorepo to v1.151.2 ([#3751](https://github.com/DanSnow/react-reversi/issues/3751)) ([6a437f7](https://github.com/DanSnow/react-reversi/commit/6a437f79c72ca65e326307acfb1b52636ed65bff))
+
 ## [2.6.2](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.6.1...react-reversi-v2.6.2) (2026-01-09)
 
 
