@@ -1,5 +1,35 @@
 # Changelog
 
+## [2.6.3](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.6.2...react-reversi-v2.6.3) (2026-01-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @base-ui/react to v1.1.0 ([#3746](https://github.com/DanSnow/react-reversi/issues/3746)) ([426aef5](https://github.com/DanSnow/react-reversi/commit/426aef5f57cc8c94d59ee4298879f8bcd5872aad))
+* **deps:** update dependency @tanstack/react-form to v1.28.0 ([#3781](https://github.com/DanSnow/react-reversi/issues/3781)) ([ecd8883](https://github.com/DanSnow/react-reversi/commit/ecd888351d34501af5f8b5a288c47beef182c827))
+* **deps:** update dependency @tanstack/react-start to v1.149.1 ([#3722](https://github.com/DanSnow/react-reversi/issues/3722)) ([f7fb88d](https://github.com/DanSnow/react-reversi/commit/f7fb88dbd9a8853a07ad522ab672c700f9aea40d))
+* **deps:** update dependency @tanstack/react-start to v1.149.2 ([#3725](https://github.com/DanSnow/react-reversi/issues/3725)) ([4d4857e](https://github.com/DanSnow/react-reversi/commit/4d4857e928070a37cab9285e7ad9d6c6db1ec3da))
+* **deps:** update dependency effect to v3.19.15 ([#3771](https://github.com/DanSnow/react-reversi/issues/3771)) ([35ee06f](https://github.com/DanSnow/react-reversi/commit/35ee06f13af2d5260ac1b22abf36c47607a9dea4))
+* **deps:** update dependency jotai to v2.16.2 ([#3727](https://github.com/DanSnow/react-reversi/issues/3727)) ([96bf362](https://github.com/DanSnow/react-reversi/commit/96bf3625cc5ff737844dec9b5974efd4bac30a48))
+* **deps:** update dependency jotai to v2.17.0 ([#3791](https://github.com/DanSnow/react-reversi/issues/3791)) ([df778ec](https://github.com/DanSnow/react-reversi/commit/df778ec18633804b1848d7d7fd6d9172b5bbecfd))
+* **deps:** update dependency xstate to v5.25.1 ([#3744](https://github.com/DanSnow/react-reversi/issues/3744)) ([6cd3655](https://github.com/DanSnow/react-reversi/commit/6cd3655ac61f7568e58aca62a31ca82495829b56))
+* **deps:** update dependency xstate to v5.26.0 ([#3785](https://github.com/DanSnow/react-reversi/issues/3785)) ([9e2f4e9](https://github.com/DanSnow/react-reversi/commit/9e2f4e997368e11c4b29f4a91e9153af4e2c438e))
+* **deps:** update dependency zod to v4.3.6 ([#3769](https://github.com/DanSnow/react-reversi/issues/3769)) ([9e61aac](https://github.com/DanSnow/react-reversi/commit/9e61aac1423171d7407326f51858dbb340e9619c))
+* **deps:** update react monorepo to v19.2.4 ([#3783](https://github.com/DanSnow/react-reversi/issues/3783)) ([bca1622](https://github.com/DanSnow/react-reversi/commit/bca1622a5fbe02659524391f4affacaca289be9c))
+* **deps:** update tanstack-router monorepo ([#3715](https://github.com/DanSnow/react-reversi/issues/3715)) ([fde29d4](https://github.com/DanSnow/react-reversi/commit/fde29d41b7cfd46e2156d1954efb8f4b4435e0db))
+* **deps:** update tanstack-router monorepo ([#3730](https://github.com/DanSnow/react-reversi/issues/3730)) ([6d21ec4](https://github.com/DanSnow/react-reversi/commit/6d21ec4c185ff7299b672aca1b81e6965413c5c1))
+* **deps:** update tanstack-router monorepo ([#3753](https://github.com/DanSnow/react-reversi/issues/3753)) ([fe8c51b](https://github.com/DanSnow/react-reversi/commit/fe8c51ba2e138034c61fa3e7e76ad8aaee5ca259))
+* **deps:** update tanstack-router monorepo ([#3755](https://github.com/DanSnow/react-reversi/issues/3755)) ([5d80017](https://github.com/DanSnow/react-reversi/commit/5d8001791f85f68c9fa06c2eab31f92db3772106))
+* **deps:** update tanstack-router monorepo ([#3760](https://github.com/DanSnow/react-reversi/issues/3760)) ([54661df](https://github.com/DanSnow/react-reversi/commit/54661dffcd7fc5a786b2198f2f8cad9b2f61b811))
+* **deps:** update tanstack-router monorepo to v1.150.0 ([#3740](https://github.com/DanSnow/react-reversi/issues/3740)) ([3a7609e](https://github.com/DanSnow/react-reversi/commit/3a7609e87db410c0f11d483869c84bbcf29ca34a))
+* **deps:** update tanstack-router monorepo to v1.151.2 ([#3751](https://github.com/DanSnow/react-reversi/issues/3751)) ([6a437f7](https://github.com/DanSnow/react-reversi/commit/6a437f79c72ca65e326307acfb1b52636ed65bff))
+* **deps:** update tanstack-router monorepo to v1.154.12 ([#3768](https://github.com/DanSnow/react-reversi/issues/3768)) ([44a786a](https://github.com/DanSnow/react-reversi/commit/44a786ac926f4b7dd0bad5644f7c8425c35ceed9))
+* **deps:** update tanstack-router monorepo to v1.154.7 ([#3764](https://github.com/DanSnow/react-reversi/issues/3764)) ([58945cc](https://github.com/DanSnow/react-reversi/commit/58945cc5521138e202811b3dff67837473536bd2))
+* **deps:** update tanstack-router monorepo to v1.156.0 ([#3772](https://github.com/DanSnow/react-reversi/issues/3772)) ([013de87](https://github.com/DanSnow/react-reversi/commit/013de8704484e2fded170d5ed5337a500c908885))
+* **deps:** update tanstack-router monorepo to v1.157.15 ([#3778](https://github.com/DanSnow/react-reversi/issues/3778)) ([20cfd88](https://github.com/DanSnow/react-reversi/commit/20cfd885e0f5554719859d159b11b24965e022e3))
+* **deps:** update tanstack-router monorepo to v1.157.16 ([#3784](https://github.com/DanSnow/react-reversi/issues/3784)) ([756bc7a](https://github.com/DanSnow/react-reversi/commit/756bc7a2f134e2bf8eb13987120285e495101793))
+* **deps:** update tanstack-router monorepo to v1.157.5 ([#3776](https://github.com/DanSnow/react-reversi/issues/3776)) ([4f5152b](https://github.com/DanSnow/react-reversi/commit/4f5152bd85920a992963175f129bd2270759c54c))
+
 ## [2.6.2](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.6.1...react-reversi-v2.6.2) (2026-01-09)
 
 
