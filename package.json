@@ -81,7 +81,7 @@
     "@tsconfig/node24": "24.0.4",
     "@types/gh-pages": "6.1.0",
     "@types/madge": "5.0.3",
-    "@types/node": "24.10.10",
+    "@types/node": "24.10.11",
     "@types/react": "19.2.13",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.1.3",
