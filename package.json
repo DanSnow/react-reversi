@@ -35,7 +35,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@base-ui/react": "1.1.0",
+    "@base-ui/react": "1.2.0",
     "@t3-oss/env-core": "0.13.10",
     "@tanstack/react-form": "1.28.0",
     "@tanstack/react-router": "1.159.5",
