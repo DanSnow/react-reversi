@@ -43,7 +43,7 @@
     "@xstate/react": "6.0.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
-    "effect": "3.19.16",
+    "effect": "3.19.17",
     "jotai": "2.17.1",
     "jotai-mutative": "1.2.1",
     "mutative": "1.3.0",
