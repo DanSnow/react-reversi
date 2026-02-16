@@ -94,8 +94,8 @@ importers:
         specifier: 1.2.90
         version: 1.2.90
       '@inlang/paraglide-js':
-        specifier: 2.11.0
-        version: 2.11.0
+        specifier: 2.12.0
+        version: 2.12.0
       '@statelyai/inspect':
         specifier: 0.4.0
         version: 0.4.0(ws@8.18.3)(xstate@5.28.0)
@@ -878,8 +878,8 @@ packages:
   '@iconify/utils@3.1.0':
     resolution: {integrity: sha512-Zlzem1ZXhI1iHeeERabLNzBHdOa4VhQbqAcOQaMKuTuyZCpwKbC2R4Dd0Zo3g9EAc+Y4fiarO8HIHRAth7+skw==}
 
-  '@inlang/paraglide-js@2.11.0':
-    resolution: {integrity: sha512-UObGgxglpRpQA7Vt9tfPsLgfHOtZ6I6hnJjHSTNLP+8rqpmOjt5Xto2jubUaEzjteT3oqPV/yYB5O2GDwpIVgA==}
+  '@inlang/paraglide-js@2.12.0':
+    resolution: {integrity: sha512-wnqTeSLcMMS2usL8zjS8bDGs9r16X00aeoGk2wVAnPfAgCChYalKdG20pS2XtJVMM1H6nBBBLKt3ZQMnKrusKQ==}
     hasBin: true
 
   '@inlang/recommend-sherlock@0.2.1':
@@ -5908,7 +5908,7 @@ snapshots:
       '@iconify/types': 2.0.0
       mlly: 1.8.0
 
-  '@inlang/paraglide-js@2.11.0':
+  '@inlang/paraglide-js@2.12.0':
     dependencies:
       '@inlang/recommend-sherlock': 0.2.1
       '@inlang/sdk': 2.7.0
