@@ -214,8 +214,8 @@ importers:
         specifier: 0.18.0
         version: 0.18.0
       sonda:
-        specifier: 0.10.2
-        version: 0.10.2
+        specifier: 0.11.0
+        version: 0.11.0
       storybook:
         specifier: 10.2.8
         version: 10.2.8(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -4546,8 +4546,8 @@ packages:
   solid-js@1.9.9:
     resolution: {integrity: sha512-A0ZBPJQldAeGCTW0YRYJmt7RCeh5rbFfPZ2aOttgYnctHE7HgKeHCBB/PVc2P7eOfmNXqMFFFoYYdm3S4dcbkA==}
 
-  sonda@0.10.2:
-    resolution: {integrity: sha512-LYStDIhOipXMRC9BQGL05SUZrYqfm//hfccCS+jo0HhJc3N4uChZXap0cqqyOE6iWWUs0uJbHgX/+2bin0FqPg==}
+  sonda@0.11.0:
+    resolution: {integrity: sha512-m+nV0HjFRIsGga+632zpM2PleUPG5vxorNHzqlpqcGV4QQtUrNyg6PEc9yDW/k0yw2S5S/oyO7UvyuwvWNm8/A==}
     engines: {node: '>=20.19 || >=22.12'}
     hasBin: true
 
@@ -10008,7 +10008,7 @@ snapshots:
       seroval: 1.3.2
       seroval-plugins: 1.3.3(seroval@1.3.2)
 
-  sonda@0.10.2:
+  sonda@0.11.0:
     dependencies:
       '@jridgewell/remapping': 2.3.5
       open: 11.0.0
