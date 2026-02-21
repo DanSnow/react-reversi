@@ -18,6 +18,8 @@
   "white": "White",
   "settings": "Settings",
   "version": "Version: {version}",
+  "renderer_label": "Render Mode",
+  "renderer_description": "often canvas is faster, but svg has better support",
   "updated_at": [
     {
       "declarations": ["input updatedAt", "local time = updatedAt: datetime"],

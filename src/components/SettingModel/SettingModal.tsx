@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '
 import { m } from '~/paraglide/messages'
 import { SettingSchema } from '~/schemas/settings'
 import { Checkbox } from '../ui/checkbox'
-import { Field, FieldGroup, FieldLabel } from '../ui/field'
+import { Field, FieldDescription, FieldGroup, FieldLabel } from '../ui/field'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 
 interface Props {
@@ -16,6 +16,7 @@ interface Props {
   onHintChange: (value: boolean) => void
   onRetractChange: (value: boolean) => void
   onVersionChange: (value: AIVersions) => void
+  onRendererChange: (value: 'svg' | 'canvas') => void
 }
 
 const AI: [key: string, display: string][] = [
@@ -33,7 +34,14 @@ const AI: [key: string, display: string][] = [
   ['v1Overview', 'V1 + min-max + overview'],
 ]
 
-export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, onVersionChange }: Props): ReactElement {
+export function SettingModal({
+  isOpen,
+  onClose,
+  onHintChange,
+  onRetractChange,
+  onVersionChange,
+  onRendererChange,
+}: Props): ReactElement {
   const onOpenChange = useCallback(
     (val: boolean) => {
       if (!val) onClose()
@@ -46,6 +54,7 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
       hint: false,
       retract: false,
       version: 'v3Overview',
+      renderer: 'svg',
     },
     validators: {
       onChange: SettingSchema,
@@ -56,6 +65,7 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
         onHintChange(hint)
         onRetractChange(retract)
         onVersionChange(version as AIVersions)
+        onRendererChange(formApi.state.values.renderer as 'svg' | 'canvas')
       },
     },
   })
@@ -139,6 +149,37 @@ export function SettingModal({ isOpen, onClose, onHintChange, onRetractChange, o
                           {AI.map(([value, display]) => (
                             <SelectItem key={value} value={value}>
                               {display}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </Field>
+                  )
+                }}
+              />
+            </FieldGroup>
+            <FieldGroup>
+              <form.Field
+                name="renderer"
+                children={(field) => {
+                  const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
+                  return (
+                    <Field data-invalid={isInvalid}>
+                      <FieldLabel htmlFor={field.name}>{m.renderer_label()}</FieldLabel>
+                      <FieldDescription>{m.renderer_description()}</FieldDescription>
+                      <Select
+                        name={field.name}
+                        defaultValue="svg"
+                        value={field.state.value}
+                        onValueChange={field.handleChange}
+                      >
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {['svg', 'canvas'].map((value) => (
+                            <SelectItem key={value} value={value}>
+                              {value}
                             </SelectItem>
                           ))}
                         </SelectContent>

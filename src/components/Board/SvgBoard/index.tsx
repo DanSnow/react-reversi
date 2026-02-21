@@ -5,7 +5,7 @@ import { Chesses } from './Chesses'
 import { ChooseColor } from './ChooseColor'
 import { Overlay } from './Overlay'
 
-export const Board = {
+export const SvgBoard = {
   Root,
   Background,
   Chesses,

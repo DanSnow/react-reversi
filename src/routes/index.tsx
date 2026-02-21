@@ -5,9 +5,9 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import { useCallback, useState } from 'react'
 import invariant from 'tiny-invariant'
 import { useMutative } from 'use-mutative'
-import { allowRetractAtom, showHintAtom } from '~/atoms/game'
+import { allowRetractAtom, rendererAtom, showHintAtom } from '~/atoms/game'
 import { historyAtom } from '~/atoms/ui'
-import { Board } from '~/components/Board'
+import { CanvasBoard, SvgBoard } from '~/components/Board'
 import { Game } from '~/components/Game/Game'
 import { useGameMachine } from '~/hooks/useGameMachine'
 import { m } from '~/paraglide/messages'
@@ -73,6 +73,9 @@ function XStateGame() {
 
   const allowRetract = useAtomValue(allowRetractAtom)
   const hint = useAtomValue(showHintAtom)
+  const renderer = useAtomValue(rendererAtom)
+
+  const Board = renderer === 'svg' ? SvgBoard : CanvasBoard
 
   // Handlers for Game component props
   const setHuman = useCallback(() => {

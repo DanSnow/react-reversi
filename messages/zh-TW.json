@@ -18,6 +18,8 @@
   "white": "白棋",
   "settings": "設定",
   "version": "版本: {version}",
+  "renderer_label": "顯示模式",
+  "renderer_description": "通常 canvas 會較快，但 svg 的支援度較好",
   "updated_at": [
     {
       "declarations": ["input updatedAt", "local time = updatedAt: datetime"],
