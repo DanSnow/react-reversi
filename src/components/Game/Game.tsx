@@ -3,7 +3,7 @@ import type { ScoreProps } from '../Score'
 
 import type { Log as LogData } from '~/types'
 import { ClientOnly } from '@tanstack/react-router'
-import { useCallback, useState } from 'react'
+import { Suspense, useCallback, useState } from 'react'
 import GithubCorner from 'react-github-corner'
 import { m } from '~/paraglide/messages'
 import { AppInfo } from '../AppInfo'
@@ -71,7 +71,7 @@ export function Game({
         <Confirm open={showReplay} onConfirm={onRestart} onCancel={onCloseConfirm}>
           {m.play_again()}
         </Confirm>
-        <SettingModal isOpen={settingOpen} onClose={closeSetting} />
+        <Suspense>{settingOpen && <SettingModal isOpen={settingOpen} onClose={closeSetting} />}</Suspense>
       </div>
       <ClientOnly>
         <GithubCorner href="https://github.com/DanSnow/react-reversi" />

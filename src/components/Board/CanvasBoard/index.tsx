@@ -1,14 +1,9 @@
-import { Background } from './Background'
-
-import { Board as Root } from './Board'
-import { Chesses } from './Chesses'
-import { ChooseColor } from './ChooseColor'
-import { Overlay } from './Overlay'
+import { lazy } from 'react'
 
 export const CanvasBoard = {
-  Root,
-  Background,
-  Chesses,
-  Overlay,
-  ChooseColor,
+  Root: lazy(() => import('./Board').then((module) => ({ default: module.Board }))),
+  Background: lazy(() => import('./Background').then((module) => ({ default: module.Background }))),
+  Chesses: lazy(() => import('./Chesses').then((module) => ({ default: module.Chesses }))),
+  Overlay: lazy(() => import('./Overlay').then((module) => ({ default: module.Overlay }))),
+  ChooseColor: lazy(() => import('./ChooseColor').then((module) => ({ default: module.ChooseColor }))),
 }

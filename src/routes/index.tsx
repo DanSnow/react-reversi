@@ -2,7 +2,7 @@ import type { History, Log, Score, Users } from '~/types'
 import { createFileRoute } from '@tanstack/react-router'
 import { Option, pipe } from 'effect'
 import { useAtomValue, useSetAtom } from 'jotai'
-import { useCallback, useState } from 'react'
+import { Suspense, useCallback, useState } from 'react'
 import invariant from 'tiny-invariant'
 import { useMutative } from 'use-mutative'
 import { allowRetractAtom, rendererAtom, showHintAtom } from '~/atoms/game'
@@ -129,12 +129,20 @@ function XStateGame() {
       onUndo={onUndo}
       onCloseConfirm={onCancelConfirm}
     >
-      <Board.Root>
-        <Board.Background />
-        <Board.Chesses hint={hint} board={machine.context.board} onPlaceChess={placeChess} />
-        {machine.matches('IDLE') && <Board.ChooseColor onStart={startGame} />}
-        {overlay && <Board.Overlay>{overlay}</Board.Overlay>}
-      </Board.Root>
+      <Suspense
+        fallback={
+          <SvgBoard.Root>
+            <SvgBoard.Background />
+          </SvgBoard.Root>
+        }
+      >
+        <Board.Root>
+          <Board.Background />
+          <Board.Chesses hint={hint} board={machine.context.board} onPlaceChess={placeChess} />
+          {machine.matches('IDLE') && <Board.ChooseColor onStart={startGame} />}
+          {overlay && <Board.Overlay>{overlay}</Board.Overlay>}
+        </Board.Root>
+      </Suspense>
     </Game>
   )
 }
