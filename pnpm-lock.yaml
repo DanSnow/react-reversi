@@ -196,7 +196,7 @@ importers:
         specifier: 20.7.0
         version: 20.7.0
       jotai-babel:
-        specifier: ^0.1.0
+        specifier: 0.1.0
         version: 0.1.0(@babel/core@7.29.0)(@babel/template@7.28.6)(jotai@2.18.0(@babel/core@7.29.0)(@babel/template@7.28.6)(@types/react@19.2.14)(react@19.2.4))
       jotai-devtools:
         specifier: 0.13.0
@@ -3550,7 +3550,6 @@ packages:
     resolution: {integrity: sha512-Quz3MvAwHxVYNXsOByL7xI5EB2WYOeFswqaHIA3qOK3isRWTxiplBEocmmru6XmxDB2L7jDNYtYA4FyimoAFEw==}
     engines: {node: '>=8.17.0'}
     hasBin: true
-    bundledDependencies: []
 
   jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
