@@ -85,7 +85,7 @@ function computeWillLost(nextBoard: Board.Board, ai: Player.Player, row: number,
   const willBeFlippedList = directions.map(([rd, cd]) =>
     checkFlipChess({ board: nextBoard, player: getOpposite(ai), row: row - rd, col: col - cd, rd, cd }),
   )
-  const willBeFlipped = Array.max([0, ...willBeFlippedList], Order.number)
+  const willBeFlipped = Array.max([0, ...willBeFlippedList], Order.Number)
   const willLost =
     willBeFlipped > 0 ? (posScore > 0 ? willBeFlipped * 2 + posScore * 20 : -posScore * 50 + willBeFlipped * 5) : -10000
   return willLost
@@ -177,7 +177,7 @@ function computeMinMax(
     }
   }
 
-  if (!Array.isNonEmptyArray(oppositeScores)) {
+  if (!Array.isArrayNonEmpty(oppositeScores)) {
     return {
       score: Number.MIN_SAFE_INTEGER,
       nextBoard,

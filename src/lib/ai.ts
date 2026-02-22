@@ -30,6 +30,6 @@ export function aiComputeScores({
       }
     }
   }
-  invariant(Array.isNonEmptyArray(scores), 'Invalid State: no candidates point')
+  invariant(Array.isArrayNonEmpty(scores), 'Invalid State: no candidates point')
   return scores
 }

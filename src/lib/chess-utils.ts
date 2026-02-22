@@ -55,7 +55,7 @@ export function countAroundChess(board: ReadonlyDeep<Board.Board>, row: number, 
 }
 
 export function getBestPoint(scores: Array.NonEmptyArray<PointScore>, shouldRandom: boolean = true): PointScore {
-  const { score } = pipe(scores, Array.max(Order.struct({ score: Order.number })))
+  const { score } = pipe(scores, Array.max(Order.Struct({ score: Order.Number })))
 
   return pipe(
     Effect.succeed(
@@ -66,11 +66,18 @@ export function getBestPoint(scores: Array.NonEmptyArray<PointScore>, shouldRand
     ),
     // A little random
     Effect.flatMap(
-      (scores): Effect.Effect<PointScore, Cause.NoSuchElementException> =>
-        shouldRandom ? Random.choice(scores) : Effect.succeed(scores[0]),
+      (scores): Effect.Effect<PointScore, Cause.NoSuchElementError> =>
+        shouldRandom ? choiceRandomly(scores) : Effect.succeed(scores[0]),
     ),
     Effect.option,
     Effect.map((score) => Option.getOrThrow(score)),
     Effect.runSync,
+  )
+}
+
+function choiceRandomly<T>(arr: T[]): Effect.Effect<T> {
+  return pipe(
+    Random.nextIntBetween(0, arr.length - 1),
+    Effect.map((index) => arr[index]),
   )
 }

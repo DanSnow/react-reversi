@@ -42,8 +42,8 @@ export default defineConfig(({ command }) => {
       React({
         babel: {
           plugins: [
-            !isBuild && 'jotai/babel/plugin-react-refresh',
-            !isBuild && 'jotai/babel/plugin-debug-label',
+            !isBuild && 'jotai-babel/plugin-react-refresh',
+            !isBuild && 'jotai-babel/plugin-debug-label',
             'babel-plugin-react-compiler',
           ].filter((plugin): plugin is string => typeof plugin === 'string'),
         },

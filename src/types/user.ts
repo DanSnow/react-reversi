@@ -1,5 +1,5 @@
 import type { Player } from './player'
-import { Brand, Effect, Either, Function, Option, pipe, Record, Schema } from 'effect'
+import { Brand, Effect, Function, Option, pipe, Record, Schema } from 'effect'
 import { BLACK, PlayerLiteralSchema, WHITE } from './player'
 
 export enum UserType {
@@ -7,28 +7,19 @@ export enum UserType {
   AI = 'AI',
 }
 
-const UserTypeSchema = Schema.Enums(UserType)
+const UserTypeSchema = Schema.Enum(UserType)
 
-export const UsersTypeId = Symbol.for('@app/Users')
+export const UsersTypeId = '@app/Users'
 
-const UsersSchema = pipe(
-  Schema.Record({
-    key: PlayerLiteralSchema,
-    value: UserTypeSchema,
-  }),
-  Schema.brand(UsersTypeId),
-)
+const UsersSchema = pipe(Schema.Record(PlayerLiteralSchema, UserTypeSchema), Schema.brand(UsersTypeId))
 
 export type Users = typeof UsersSchema.Type
 
 export const isUsers = Schema.is(UsersSchema)
 
-const decodeUnknown = Schema.decodeUnknown(UsersSchema)
-const decodeUsersEither = Schema.decodeEither(UsersSchema)
+const decodeUnknown = Schema.decodeUnknownEffect(UsersSchema)
 
-export const refined = Brand.refined<Users>(isUsers, (unbranded) =>
-  pipe(unbranded, decodeUsersEither, Either.getLeft, Option.getOrThrow, (error) => Brand.error(error.message)),
-)
+export const refined = Brand.make<Users>(isUsers)
 
 export const DEFAULT_USER = pipe(
   Record.empty(),

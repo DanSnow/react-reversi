@@ -8,8 +8,7 @@ export const computeScore: (board: Board) => Score = (board: Board): Score =>
     board,
     Array.flatten,
     Array.groupBy((chess) => chess as string),
-    Struct.pick(WHITE, BLACK),
-    (struct) => ({ [WHITE]: [], [BLACK]: [], ...struct }),
+    Struct.pick([WHITE, BLACK]),
     Record.map(Array.length),
     (record) => ({
       white: record[WHITE],

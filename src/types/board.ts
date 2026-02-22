@@ -1,14 +1,13 @@
 import type { Chess } from './chess'
 import type { Coords } from './game'
-import { Array, Brand, Either, Function, Option, pipe, Schema } from 'effect'
+import { Array, Brand, Function, pipe, Schema } from 'effect'
 import { BLACK, ChessSchema, WHITE } from './chess'
 
-export const BoardTypeId = Symbol.for('@app/Board')
+export const BoardTypeId = '@app/Board'
 
-const BoardBaseSchema = pipe(
-  Schema.Array(pipe(Schema.Array(Schema.NullOr(ChessSchema)), Schema.itemsCount(8))),
-  Schema.itemsCount(8),
-)
+const BoardBaseSchema = Schema.Array(
+  pipe(Schema.Array(Schema.NullOr(ChessSchema)).check(Schema.isLengthBetween(8, 8))),
+).check(Schema.isLengthBetween(8, 8))
 const BoardSchema = pipe(BoardBaseSchema, Schema.brand(BoardTypeId))
 
 export type Board = typeof BoardSchema.Type
@@ -17,11 +16,7 @@ export type MutableBoard = (Chess | null)[][]
 
 export const isBoard = Schema.is(BoardSchema)
 
-const decodeBoardEither = Schema.decodeEither(BoardSchema)
-
-export const refined = Brand.refined<Board>(isBoard, (unbranded) =>
-  pipe(unbranded, decodeBoardEither, Either.getLeft, Option.getOrThrow, (error) => Brand.error(error.message)),
-)
+export const refined = Brand.make<Board>(isBoard)
 
 export function unsafeSet(board_: Board | MutableBoard, { col, row }: Coords, chess: Chess): void {
   const board = board_ as unknown as MutableBoard

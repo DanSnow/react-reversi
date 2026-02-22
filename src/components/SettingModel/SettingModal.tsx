@@ -140,7 +140,7 @@ export function SettingModal({
                         name={field.name}
                         defaultValue="v3Overview"
                         value={field.state.value}
-                        onValueChange={field.handleChange}
+                        onValueChange={(value) => field.handleChange(value ?? 'v3Overview')}
                       >
                         <SelectTrigger>
                           <SelectValue />
@@ -171,7 +171,7 @@ export function SettingModal({
                         name={field.name}
                         defaultValue="svg"
                         value={field.state.value}
-                        onValueChange={field.handleChange}
+                        onValueChange={(value) => field.handleChange(value ?? 'svg')}
                       >
                         <SelectTrigger>
                           <SelectValue />

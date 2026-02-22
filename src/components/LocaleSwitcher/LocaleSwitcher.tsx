@@ -3,7 +3,7 @@ import { getLocale, locales, setLocale } from '~/paraglide/runtime'
 
 export function LocaleSwitcher() {
   return (
-    <Select value={getLocale()} onValueChange={setLocale}>
+    <Select value={getLocale()} onValueChange={(value) => setLocale(value ?? 'en')}>
       <SelectTrigger>
         <SelectValue placeholder="Select a language" />
       </SelectTrigger>
