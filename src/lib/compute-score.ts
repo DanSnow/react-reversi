@@ -11,7 +11,7 @@ export const computeScore: (board: Board) => Score = (board: Board): Score =>
     Struct.pick([WHITE, BLACK]),
     Record.map(Array.length),
     (record) => ({
-      white: record[WHITE],
-      black: record[BLACK],
+      white: record[WHITE] ?? 0,
+      black: record[BLACK] ?? 0,
     }),
   )
