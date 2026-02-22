@@ -1,0 +1,1 @@
+import{c as n,j as o}from"./main-CHwKZILN.js";import{T as c}from"./ReactKonvaCore-BpNKwv1g.js";function x(i){const t=n.c(2),{children:r}=i;let e;return t[0]!==r?(e=o.jsx(c,{x:120,y:200,align:"center",verticalAlign:"center",fontSize:128,fill:"red",text:r}),t[0]=r,t[1]=e):e=t[1],e}export{x as Overlay};

@@ -1,0 +1,1 @@
+import{c as i,j as o}from"./main-CHwKZILN.js";import{S as n,L as c}from"./ReactKonvaCore-BpNKwv1g.js";function p(s){const t=i.c(2),{children:e}=s;let r;return t[0]!==e?(r=o.jsx(n,{width:640,height:640,children:o.jsx(c,{children:e})}),t[0]=e,t[1]=r):r=t[1],r}export{p as Board};
