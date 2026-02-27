@@ -166,7 +166,7 @@ importers:
         specifier: 19.1.0-rc.3
         version: 19.1.0-rc.3
       eslint-plugin-storybook:
-        specifier: ^10.2.13
+        specifier: 10.2.13
         version: 10.2.13(eslint@10.0.2(jiti@2.6.1))(storybook@10.2.13(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(typescript@5.9.3)
       gh-pages:
         specifier: 6.3.0
@@ -187,10 +187,10 @@ importers:
         specifier: 8.0.0
         version: 8.0.0(typescript@5.9.3)
       oxfmt:
-        specifier: ^0.35.0
+        specifier: 0.35.0
         version: 0.35.0
       oxlint:
-        specifier: ^1.50.0
+        specifier: 1.50.0
         version: 1.50.0
       playwright:
         specifier: 1.58.2
@@ -3114,7 +3114,6 @@ packages:
     resolution: {integrity: sha512-Quz3MvAwHxVYNXsOByL7xI5EB2WYOeFswqaHIA3qOK3isRWTxiplBEocmmru6XmxDB2L7jDNYtYA4FyimoAFEw==}
     engines: {node: '>=8.17.0'}
     hasBin: true
-    bundledDependencies: []
 
   jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
@@ -6035,8 +6034,8 @@ snapshots:
 
   '@typescript-eslint/project-service@8.55.0(typescript@5.9.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.55.0(typescript@5.9.3)
-      '@typescript-eslint/types': 8.55.0
+      '@typescript-eslint/tsconfig-utils': 8.56.1(typescript@5.9.3)
+      '@typescript-eslint/types': 8.56.1
       debug: 4.4.3
       typescript: 5.9.3
     transitivePeerDependencies:
