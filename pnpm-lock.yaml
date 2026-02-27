@@ -226,8 +226,8 @@ importers:
         specifier: 23.0.1
         version: 23.0.1(@svgr/core@8.1.0(typescript@5.9.3))(@vue/compiler-sfc@3.5.17)
       unplugin-macros:
-        specifier: 0.18.7
-        version: 0.18.7(@types/node@24.10.15)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.43.1)(tsx@4.21.0)(yaml@2.8.2)
+        specifier: 0.19.0
+        version: 0.19.0(@types/node@24.10.15)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.43.1)(tsx@4.21.0)(yaml@2.8.2)
       vite:
         specifier: 7.3.1
         version: 7.3.1(@types/node@24.10.15)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.43.1)(tsx@4.21.0)(yaml@2.8.2)
@@ -4220,8 +4220,8 @@ packages:
       svelte:
         optional: true
 
-  unplugin-macros@0.18.7:
-    resolution: {integrity: sha512-/FnRb9VN+5JZHufmYd0vn9a0hPT37QqsdGk5I2a4+mDASHQlMOelCGHgvVJKohcLH+VmlJq/9gfAtwwi+8doGg==}
+  unplugin-macros@0.19.0:
+    resolution: {integrity: sha512-WCyCf5nPoXOqRjX0GVdbM5nirE16S5kUQjOEY7D8HxIzsNQfsVzJWpxc63WujigHtjnFIVnkm14KlCq2chZ+Zg==}
     engines: {node: '>=20.19.0'}
 
   unplugin-utils@0.3.0:
@@ -8490,7 +8490,7 @@ snapshots:
       '@svgr/core': 8.1.0(typescript@5.9.3)
       '@vue/compiler-sfc': 3.5.17
 
-  unplugin-macros@0.18.7(@types/node@24.10.15)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.43.1)(tsx@4.21.0)(yaml@2.8.2):
+  unplugin-macros@0.19.0(@types/node@24.10.15)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.43.1)(tsx@4.21.0)(yaml@2.8.2):
     dependencies:
       '@babel/types': 7.29.0
       ast-kit: 2.2.0
