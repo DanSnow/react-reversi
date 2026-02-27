@@ -20,7 +20,9 @@ export function ColorButton<T>({ x, y, color, children, background, onClick, val
     <g
       role="button"
       className="cursor-pointer"
-      aria-description={m.start_as_color({ player: value === Player.BLACK ? m.black() : m.white() })}
+      aria-description={m.start_as_color({
+        player: value === Player.BLACK ? m.black() : m.white(),
+      })}
       onClick={() => onClick(value)}
     >
       <circle fill={background} cx={x} cy={y} r={80} />

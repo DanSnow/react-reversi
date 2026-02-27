@@ -59,7 +59,12 @@ export function useGameMachine({
         return
       }
 
-      if (!isValidPosForPlacingChess(machine.context.board, machine.context.currentPlayer, { row, col })) {
+      if (
+        !isValidPosForPlacingChess(machine.context.board, machine.context.currentPlayer, {
+          row,
+          col,
+        })
+      ) {
         return
       }
 

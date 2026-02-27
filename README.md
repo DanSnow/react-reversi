@@ -3,13 +3,13 @@
 Reversi game implement with React.  
 This repo is build for fun.
 
-## Features ##
+## Features
 
 - Hint candidate
 - Retract
 - AI
 
-## Build with ##
+## Build with
 
 - React
 - xstate (for state management)
@@ -22,7 +22,7 @@ This repo is build for fun.
 - ESLint (for linting)
 - Prettier (for formatting)
 
-## Installation ##
+## Installation
 
 1. Clone the repository:
    ```bash
@@ -37,7 +37,7 @@ This repo is build for fun.
    pnpm install
    ```
 
-## Running the Project ##
+## Running the Project
 
 To run the project locally:
 

@@ -83,7 +83,14 @@ function computePosScoreV2(board: Board.Board, row: number, col: number) {
 
 function computeWillLost(nextBoard: Board.Board, ai: Player.Player, row: number, col: number, posScore: number) {
   const willBeFlippedList = directions.map(([rd, cd]) =>
-    checkFlipChess({ board: nextBoard, player: getOpposite(ai), row: row - rd, col: col - cd, rd, cd }),
+    checkFlipChess({
+      board: nextBoard,
+      player: getOpposite(ai),
+      row: row - rd,
+      col: col - cd,
+      rd,
+      cd,
+    }),
   )
   const willBeFlipped = Array.max([0, ...willBeFlippedList], Order.Number)
   const willLost =

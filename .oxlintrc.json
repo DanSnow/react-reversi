@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "import", "unicorn", "oxc", "react", "react-perf", "jsdoc", "promise", "node", "vitest"],
+  "jsPlugins": [{ "name": "storybook", "specifier": "eslint-plugin-storybook" }],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "ignorePatterns": [
+    "dist/",
+    "**/dist/**/",
+    "**/.yarn/**",
+    "node_modules/**",
+    "src/paraglide/**/*",
+    "src/routeTree.gen.ts"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  }
+}
