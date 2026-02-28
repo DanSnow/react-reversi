@@ -44,7 +44,7 @@
     "@xstate/react": "6.1.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
-    "effect": "4.0.0-beta.19",
+    "effect": "4.0.0-beta.20",
     "jotai": "2.18.0",
     "jotai-mutative": "1.2.1",
     "konva": "10.2.0",
