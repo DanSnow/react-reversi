@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.7.1](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.7.0...react-reversi-v2.7.1) (2026-03-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xstate/react to v6.1.0 ([#3919](https://github.com/DanSnow/react-reversi/issues/3919)) ([e4fc4fd](https://github.com/DanSnow/react-reversi/commit/e4fc4fd8c96c7068411d5e23542e1ce71dc46255))
+* **deps:** update dependency effect to v4.0.0-beta.11 ([#3900](https://github.com/DanSnow/react-reversi/issues/3900)) ([16d8c3c](https://github.com/DanSnow/react-reversi/commit/16d8c3c08601da9f04f36ffffe408fda81871224))
+* **deps:** update dependency effect to v4.0.0-beta.12 ([#3908](https://github.com/DanSnow/react-reversi/issues/3908)) ([a330e4c](https://github.com/DanSnow/react-reversi/commit/a330e4c296cd071282181346352b4f14259e4f5a))
+* **deps:** update dependency effect to v4.0.0-beta.13 ([#3911](https://github.com/DanSnow/react-reversi/issues/3911)) ([3fc4ead](https://github.com/DanSnow/react-reversi/commit/3fc4eadc786ac3c93184296c7cfdd183d9e2df1f))
+* **deps:** update dependency effect to v4.0.0-beta.14 ([#3914](https://github.com/DanSnow/react-reversi/issues/3914)) ([2ae84cb](https://github.com/DanSnow/react-reversi/commit/2ae84cb0ba1ec22c8716b97f11065fd489db9ebe))
+* **deps:** update dependency effect to v4.0.0-beta.18 ([#3916](https://github.com/DanSnow/react-reversi/issues/3916)) ([44eeb21](https://github.com/DanSnow/react-reversi/commit/44eeb2114208b37472d27eee8612c417e0e8bf38))
+* **deps:** update dependency effect to v4.0.0-beta.19 ([#3922](https://github.com/DanSnow/react-reversi/issues/3922)) ([f7211c3](https://github.com/DanSnow/react-reversi/commit/f7211c343148d73bc06723c691c75cdfef68d4a1))
+* **deps:** update dependency effect to v4.0.0-beta.20 ([#3926](https://github.com/DanSnow/react-reversi/issues/3926)) ([1ac1d38](https://github.com/DanSnow/react-reversi/commit/1ac1d3894376592db56a18038b9f13381f4fc6f0))
+* **deps:** update dependency effect to v4.0.0-beta.21 ([#3931](https://github.com/DanSnow/react-reversi/issues/3931)) ([5375411](https://github.com/DanSnow/react-reversi/commit/53754118d72e6c523a535d6a630744777eff32b0))
+* **deps:** update dependency react-konva to v19.2.3 ([#3932](https://github.com/DanSnow/react-reversi/issues/3932)) ([d006a47](https://github.com/DanSnow/react-reversi/commit/d006a47f0fc8804b3764e71be709e1579ae38a3d))
+* **deps:** update tanstack-router monorepo to v1.162.4 ([#3899](https://github.com/DanSnow/react-reversi/issues/3899)) ([46d3c3e](https://github.com/DanSnow/react-reversi/commit/46d3c3e99c92430686a45e329c99cc14f0d0acea))
+* **deps:** update tanstack-router monorepo to v1.162.6 ([#3904](https://github.com/DanSnow/react-reversi/issues/3904)) ([8f3467c](https://github.com/DanSnow/react-reversi/commit/8f3467c06680f2cf177cfc68abe673e09ffd0c89))
+* **deps:** update tanstack-router monorepo to v1.163.2 ([#3909](https://github.com/DanSnow/react-reversi/issues/3909)) ([ba1fe6b](https://github.com/DanSnow/react-reversi/commit/ba1fe6be5f3cc91f7fb55d5472abb8df3865b790))
+* **deps:** update tanstack-router monorepo to v1.163.3 ([#3927](https://github.com/DanSnow/react-reversi/issues/3927)) ([2693488](https://github.com/DanSnow/react-reversi/commit/2693488104a43c66079898fdb033b5c13e87a684))
+
 ## [2.7.0](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.6.2...react-reversi-v2.7.0) (2026-02-22)
 
 ### Features
