@@ -94,8 +94,8 @@ importers:
         specifier: 1.2.95
         version: 1.2.95
       '@inlang/paraglide-js':
-        specifier: 2.13.0
-        version: 2.13.0
+        specifier: 2.13.1
+        version: 2.13.1
       '@statelyai/inspect':
         specifier: 0.4.0
         version: 0.4.0(ws@8.18.3)(xstate@5.28.0)
@@ -635,8 +635,8 @@ packages:
   '@iconify/utils@3.1.0':
     resolution: {integrity: sha512-Zlzem1ZXhI1iHeeERabLNzBHdOa4VhQbqAcOQaMKuTuyZCpwKbC2R4Dd0Zo3g9EAc+Y4fiarO8HIHRAth7+skw==}
 
-  '@inlang/paraglide-js@2.13.0':
-    resolution: {integrity: sha512-m7JQiTeLC3tY3DusUCc4iRWlsKoMuDLhw4iGhkY0yI96ki7PK42DLsi1kMk8ubSVenKOwgrs7eqQZN1Htvkhew==}
+  '@inlang/paraglide-js@2.13.1':
+    resolution: {integrity: sha512-IsGm5gHmH6hVA9iwzvoRkt+Q9nrzX+6+G1nAmxODk/l+mpm0siPebfkXiu6DODSluFuHg0Q6fjXcDXAaqOen+Q==}
     hasBin: true
 
   '@inlang/recommend-sherlock@0.2.1':
@@ -2027,11 +2027,6 @@ packages:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
-
-  acorn@8.15.0:
-    resolution: {integrity: sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
 
   acorn@8.16.0:
     resolution: {integrity: sha512-UVJyE9MttOsBQIDKw1skb9nAwQuR5wuGD3+82K6JgJlm/Y+KI92oNsMNGZCYdDsVtRHSak0pcV5Dno5+4jh9sw==}
@@ -4839,7 +4834,7 @@ snapshots:
       '@iconify/types': 2.0.0
       mlly: 1.8.0
 
-  '@inlang/paraglide-js@2.13.0':
+  '@inlang/paraglide-js@2.13.1':
     dependencies:
       '@inlang/recommend-sherlock': 0.2.1
       '@inlang/sdk': 2.7.0
@@ -6209,8 +6204,6 @@ snapshots:
     dependencies:
       acorn: 8.16.0
 
-  acorn@8.15.0: {}
-
   acorn@8.16.0: {}
 
   ajv@6.14.0:
@@ -7455,7 +7448,7 @@ snapshots:
 
   mlly@1.8.0:
     dependencies:
-      acorn: 8.15.0
+      acorn: 8.16.0
       pathe: 2.0.3
       pkg-types: 1.3.1
       ufo: 1.6.1
@@ -8430,7 +8423,7 @@ snapshots:
   unplugin@2.3.11:
     dependencies:
       '@jridgewell/remapping': 2.3.5
-      acorn: 8.15.0
+      acorn: 8.16.0
       picomatch: 4.0.3
       webpack-virtual-modules: 0.6.2
 
