@@ -42,8 +42,8 @@ importers:
         specifier: 1.2.1
         version: 1.2.1(@types/react@19.2.14)(jotai@2.18.1(@babel/core@7.29.0)(@babel/template@7.28.6)(@types/react@19.2.14)(react@19.2.4))(mutative@1.3.0)(react@19.2.4)
       konva:
-        specifier: 10.2.0
-        version: 10.2.0
+        specifier: 10.2.1
+        version: 10.2.1
       mutative:
         specifier: 1.3.0
         version: 1.3.0
@@ -61,7 +61,7 @@ importers:
         version: 2.5.0(react@19.2.4)
       react-konva:
         specifier: 19.2.3
-        version: 19.2.3(@types/react@19.2.14)(konva@10.2.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        version: 19.2.3(@types/react@19.2.14)(konva@10.2.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       react-twc:
         specifier: 1.5.1
         version: 1.5.1(@types/react@19.2.14)(react@19.2.4)
@@ -3192,8 +3192,8 @@ packages:
       '@types/node': '>=18'
       typescript: '>=5.0.4 <7'
 
-  konva@10.2.0:
-    resolution: {integrity: sha512-JBoz0Xjbf49UPxCZegZ4WseqOzJ+C4AUDOtJ9eBve5RS5Fcq/u8TdBD5fDl/uPFInpC3a9uycm0sRyZpF4hheg==}
+  konva@10.2.1:
+    resolution: {integrity: sha512-VV+EHD5mi/TWHEeQYBtGieYPU++IAZ21X7IrZIPoYmbWZV8q5d8OT3RoDuJR6Hg/nt5gjlYoOdNxBGhDNqlSyg==}
 
   kubernetes-types@1.30.0:
     resolution: {integrity: sha512-Dew1okvhM/SQcIa2rcgujNndZwU8VnSapDgdxlYoB84ZlpAD43U6KLAFqYo17ykSFGHNPrg0qry0bP+GJd9v7Q==}
@@ -7556,7 +7556,7 @@ snapshots:
       yaml: 2.8.2
       zod: 4.3.6
 
-  konva@10.2.0: {}
+  konva@10.2.1: {}
 
   kubernetes-types@1.30.0: {}
 
@@ -8208,11 +8208,11 @@ snapshots:
       react: 19.2.4
       react-base16-styling: 0.9.1
 
-  react-konva@19.2.3(@types/react@19.2.14)(konva@10.2.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
+  react-konva@19.2.3(@types/react@19.2.14)(konva@10.2.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
     dependencies:
       '@types/react-reconciler': 0.33.0(@types/react@19.2.14)
       its-fine: 2.0.0(@types/react@19.2.14)(react@19.2.4)
-      konva: 10.2.0
+      konva: 10.2.1
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
       react-reconciler: 0.33.0(react@19.2.4)
