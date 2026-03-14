@@ -13,6 +13,7 @@ import { useGameMachine } from '~/hooks/useGameMachine'
 import { m } from '~/paraglide/messages'
 import { DEFAULT_USER, Player, UserType } from '~/types'
 import { HUMAN_GAME } from '~/types/user'
+import { PlayerLiterals } from '~/types/player'
 
 export const Route = createFileRoute('/')({
   component: XStateGame,
@@ -155,7 +156,7 @@ function getGameResult(score: Score, users: Users): Option.Option<keyof History>
   return pipe(
     winner,
     Option.flatMap((winner): Option.Option<keyof History> => {
-      const isWinnerHuman = users[Player.unbrand(winner)] === UserType.Human
+      const isWinnerHuman = users[winner as PlayerLiterals] === UserType.Human
       if (!humamVsComputer) {
         return Option.none()
       }
@@ -174,7 +175,7 @@ function getOverlay(score: Score, users: Users): string {
     winner,
     // eslint-disable-next-line array-callback-return
     Option.map((winner) => {
-      const isWinnerHuman = users[Player.unbrand(winner)] === UserType.Human
+      const isWinnerHuman = users[(winner as PlayerLiterals)] === UserType.Human
       if (isWinnerHuman && humamVsComputer) {
         return m.user_win()
       } else if (!isWinnerHuman && humamVsComputer) {

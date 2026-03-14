@@ -1,5 +1,4 @@
 {
-  "typescript.enablePromptUseWorkspaceTsdk": true,
   "search.exclude": {
     "**/.yarn": true,
     "**/.pnp.*": true

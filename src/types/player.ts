@@ -16,7 +16,6 @@ export const parse = Schema.decodeUnknownSync(PlayerSchema)
 
 export const refined = Brand.make<Player>(isPlayer)
 
-export const unbrand = Function.coerceUnsafe<Player, PlayerLiterals>
 
 export const BLACK = refined(BLACK_)
 export const WHITE = refined(WHITE_)

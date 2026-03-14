@@ -4,7 +4,6 @@ import Sonda from 'sonda/vite'
 import Icons from 'unplugin-icons/vite'
 import Macros from 'unplugin-macros/vite'
 import { defineConfig } from 'vite'
-import TsConfigPath from 'vite-tsconfig-paths'
 import { env } from './src/env'
 
 const baseUrl = env.DEPLOY ? '/react-reversi/' : '/'
@@ -15,6 +14,9 @@ export default defineConfig({
   build: {
     sourcemap: env.ANALYZE,
   },
+  resolve: {
+    tsconfigPaths: true,
+  },
   base: baseUrl,
   plugins: [
     Macros(),
@@ -24,7 +26,6 @@ export default defineConfig({
       outdir: './src/paraglide',
     }),
     env.ANALYZE && Sonda(),
-    TsConfigPath(),
     Icons({
       compiler: 'jsx',
       jsx: 'react',
