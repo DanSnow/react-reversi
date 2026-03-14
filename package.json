@@ -86,9 +86,9 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.2.0",
-    "@vitest/browser": "4.0.18",
-    "@vitest/browser-playwright": "4.0.18",
-    "@vitest/coverage-v8": "4.0.18",
+    "@vitest/browser": "4.1.0",
+    "@vitest/browser-playwright": "4.1.0",
+    "@vitest/coverage-v8": "4.1.0",
     "babel-plugin-react-compiler": "19.1.0-rc.3",
     "eslint-plugin-storybook": "10.2.19",
     "gh-pages": "6.3.0",
@@ -114,7 +114,7 @@
     "vite": "7.3.1",
     "vite-plugin-inspect": "11.3.3",
     "vite-tsconfig-paths": "6.1.1",
-    "vitest": "4.0.18",
+    "vitest": "4.1.0",
     "zx": "8.8.5"
   },
   "packageManager": "pnpm@10.32.1+sha512.a706938f0e89ac1456b6563eab4edf1d1faf3368d1191fc5c59790e96dc918e4456ab2e67d613de1043d2e8c81f87303e6b40d4ffeca9df15ef1ad567348f2be"
