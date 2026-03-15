@@ -175,7 +175,7 @@ function getOverlay(score: Score, users: Users): string {
     winner,
     // eslint-disable-next-line array-callback-return
     Option.map((winner) => {
-      const isWinnerHuman = users[(winner as PlayerLiterals)] === UserType.Human
+      const isWinnerHuman = users[winner as PlayerLiterals] === UserType.Human
       if (isWinnerHuman && humamVsComputer) {
         return m.user_win()
       } else if (!isWinnerHuman && humamVsComputer) {
