@@ -43,8 +43,8 @@ importers:
         specifier: 2.1.1
         version: 2.1.1
       effect:
-        specifier: 4.0.0-beta.40
-        version: 4.0.0-beta.40
+        specifier: 4.0.0-beta.41
+        version: 4.0.0-beta.41
       jotai:
         specifier: 2.19.0
         version: 2.19.0(@babel/core@7.29.0)(@babel/template@7.28.6)(@types/react@19.2.14)(react@19.2.4)
@@ -2754,8 +2754,8 @@ packages:
   dot-case@3.0.4:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
 
-  effect@4.0.0-beta.40:
-    resolution: {integrity: sha512-GA7Q1TglPIrEjg/Dtj3AvXbyh00A4sAXgu3JGDUHRPZ4hxMRC5CMAsCzCH0140zetRMpe7LOH8uVi5gb4t/8oQ==}
+  effect@4.0.0-beta.41:
+    resolution: {integrity: sha512-kBjbmo2qqXbOgrvZcPgVdgsOOWcGPYwRcvGO3aGPWJhpXxDFNfgtwqtU6asMq2M7LSFRx1SA+3BzJm7FDqtxew==}
 
   electron-to-chromium@1.5.244:
     resolution: {integrity: sha512-OszpBN7xZX4vWMPJwB9illkN/znA8M36GQqQxi6MNy9axWxhOfJyZZJtSLQCpEFLHP2xK33BiWx9aIuIEXVCcw==}
@@ -7059,7 +7059,7 @@ snapshots:
       no-case: 3.0.4
       tslib: 2.8.1
 
-  effect@4.0.0-beta.40:
+  effect@4.0.0-beta.41:
     dependencies:
       '@standard-schema/spec': 1.1.0
       fast-check: 4.5.3
