@@ -21,7 +21,7 @@ jobs:
       prs_created: ${{ steps.release.outputs.prs_created }}
       pr_number: ${{ steps.pr_number.outputs.pr_number }}
     steps:
-      - uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@v4.4.1
         id: release
         with:
           # this assumes that you have created a personal access token
@@ -44,20 +44,20 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     if: ${{ needs.release-please.outputs.release_created }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6.0.3
         with:
           ref: ${{ needs.release-please.outputs.tag_name }}
           fetch-depth: 0
       - name: Setup pnpm
         uses: pnpm/action-setup@v4.4.0
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v6.4.0
         with:
           node-version: 24.14.1
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm run build-pages
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v4.1.0
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
