@@ -1,6 +1,6 @@
 {
   "name": "react-reversi",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "Reversi game implement in React",
   "keywords": [
     "game",
