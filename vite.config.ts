@@ -89,7 +89,6 @@ export default mergeConfig(baseConfig, {
             }),
             instances: [{ browser: 'chromium' }],
           },
-          setupFiles: ['./.storybook/vitest.setup.ts'],
         },
       },
     ],
