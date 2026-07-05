@@ -1,0 +1,1 @@
+import{f as e}from"./index-dbxOiOnE.js";import{o as t}from"./ReactKonva-DfoR5W4K.js";var n=e();function r({children:e}){return(0,n.jsx)(t,{x:120,y:200,align:`center`,verticalAlign:`center`,fontSize:128,fill:`red`,text:e})}export{r as Overlay};

@@ -1,0 +1,1 @@
+import{f as e}from"./index-dbxOiOnE.js";import{a as t,n}from"./ReactKonva-DfoR5W4K.js";var r=e();function i({children:e}){return(0,r.jsx)(t,{width:640,height:640,children:(0,r.jsx)(n,{children:e})})}export{i as Board};
