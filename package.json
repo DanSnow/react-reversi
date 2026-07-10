@@ -111,7 +111,7 @@
     "typescript": "6.0.3",
     "unplugin-icons": "23.0.1",
     "unplugin-macros": "0.20.2",
-    "vite": "8.1.3",
+    "vite": "8.1.4",
     "vite-plugin-inspect": "11.4.1",
     "vitest": "4.1.10",
     "zx": "8.8.5"
