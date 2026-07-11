@@ -102,7 +102,7 @@
     "playwright": "1.61.1",
     "postcss": "8.5.16",
     "react-refresh": "0.18.0",
-    "sonda": "0.13.1",
+    "sonda": "0.14.0",
     "storybook": "10.4.6",
     "tailwindcss": "4.3.2",
     "tsx": "4.23.0",
