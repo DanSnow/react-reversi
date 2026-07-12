@@ -162,7 +162,7 @@ importers:
         specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.17)
       '@typescript/native':
-        specifier: npm:typescript@^7.0.2
+        specifier: npm:typescript@7.0.2
         version: typescript@7.0.2
       '@vitejs/plugin-react':
         specifier: 6.0.3
