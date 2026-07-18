@@ -195,8 +195,8 @@ importers:
         specifier: 0.14.0
         version: 0.14.0(@types/react@19.2.17)(jotai@2.20.2(@babel/core@7.29.7)(@babel/template@7.29.7)(@types/react@19.2.17)(react@19.2.7))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(redux@5.0.1)
       knip:
-        specifier: 6.26.0
-        version: 6.26.0
+        specifier: 6.27.0
+        version: 6.27.0
       madge:
         specifier: 8.0.0
         version: 8.0.0(@typescript/typescript6@6.0.2)
@@ -3740,8 +3740,8 @@ packages:
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
-  knip@6.26.0:
-    resolution: {integrity: sha512-e9eELEEpBpGTd4H4HB7818/DYj9dMzMyUqAddfYwUN/EbSkgIjOuWEF96W/xHsmV0SDrsdXjIM+oZ2xpPzPsBA==}
+  knip@6.27.0:
+    resolution: {integrity: sha512-CngYEYrD0n20N06FXA8n3u/0Wnnugoa+B9k14OP+iKIgkCHuzvIdsP3nfwjhByoc1WfogpxfiriMboAXFETDUw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
 
@@ -8293,7 +8293,7 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-  knip@6.26.0:
+  knip@6.27.0:
     dependencies:
       fdir: 6.5.0(picomatch@4.0.5)
       formatly: 0.3.0
