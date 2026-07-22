@@ -93,7 +93,7 @@
     "babel-plugin-react-compiler": "19.1.0-rc.3",
     "eslint-plugin-storybook": "10.5.2",
     "gh-pages": "6.3.0",
-    "happy-dom": "20.10.6",
+    "happy-dom": "20.11.0",
     "jotai-babel": "0.2.0",
     "jotai-devtools": "0.14.0",
     "knip": "6.27.0",
