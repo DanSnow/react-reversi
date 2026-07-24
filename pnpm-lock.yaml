@@ -189,8 +189,8 @@ importers:
         specifier: 20.11.0
         version: 20.11.0
       jotai-babel:
-        specifier: 0.2.0
-        version: 0.2.0(@babel/core@7.29.7(supports-color@7.2.0))(@babel/template@7.29.7)(jotai@2.20.2(@babel/core@7.29.7(supports-color@7.2.0))(@babel/template@7.29.7)(@types/react@19.2.17)(react@19.2.7))
+        specifier: 0.3.0
+        version: 0.3.0(@babel/core@7.29.7(supports-color@7.2.0))(@babel/template@7.29.7)(jotai@2.20.2(@babel/core@7.29.7(supports-color@7.2.0))(@babel/template@7.29.7)(@types/react@19.2.17)(react@19.2.7))
       jotai-devtools:
         specifier: 0.14.0
         version: 0.14.0(@types/react@19.2.17)(jotai@2.20.2(@babel/core@7.29.7(supports-color@7.2.0))(@babel/template@7.29.7)(@types/react@19.2.17)(react@19.2.7))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(redux@5.0.1)
@@ -3652,8 +3652,8 @@ packages:
     resolution: {integrity: sha512-AC/7JofJvZGrrneWNaEnJeOLUx+JlGt7tNa0wZiRPT4MY1wmfKjt2+6O2p2uz2+skll8OZZmJMNqeke7kKbNgQ==}
     hasBin: true
 
-  jotai-babel@0.2.0:
-    resolution: {integrity: sha512-aAe8nDB6L31+dpavZyW5FIvrbYRKYzoy84t83RkMTXXh+ZaXAZs0mrtAooqt2hdIFFlHLldYtwWsxzbG34o4yA==}
+  jotai-babel@0.3.0:
+    resolution: {integrity: sha512-YL8MJ4ZKsKoXNCgrJvayVyBrwg0tJ56SVJg7i2s9SpTCa/SJ/KNc0gJBEWZDJuXC7xEcAKFbFNOc2cKQM9Ak5w==}
     peerDependencies:
       '@babel/core': '>=7.0.0'
       '@babel/template': '>=7.0.0'
@@ -8228,7 +8228,7 @@ snapshots:
 
   jiti@2.7.0: {}
 
-  jotai-babel@0.2.0(@babel/core@7.29.7(supports-color@7.2.0))(@babel/template@7.29.7)(jotai@2.20.2(@babel/core@7.29.7(supports-color@7.2.0))(@babel/template@7.29.7)(@types/react@19.2.17)(react@19.2.7)):
+  jotai-babel@0.3.0(@babel/core@7.29.7(supports-color@7.2.0))(@babel/template@7.29.7)(jotai@2.20.2(@babel/core@7.29.7(supports-color@7.2.0))(@babel/template@7.29.7)(@types/react@19.2.17)(react@19.2.7)):
     dependencies:
       '@babel/core': 7.29.7(supports-color@7.2.0)
       '@babel/template': 7.29.7
