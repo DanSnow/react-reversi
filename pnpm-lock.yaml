@@ -240,8 +240,8 @@ importers:
         specifier: 23.0.1
         version: 23.0.1(@svgr/core@8.1.0(@typescript/typescript6@6.0.2)(supports-color@7.2.0))(@vue/compiler-sfc@3.5.17)
       unplugin-macros:
-        specifier: 0.22.0
-        version: 0.22.0(esbuild@0.28.1)(rolldown@1.2.1)(vite@8.2.1(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.43.1)(tsx@4.23.11)(yaml@2.9.0))
+        specifier: 0.23.0
+        version: 0.23.0(esbuild@0.28.1)(rolldown@1.2.1)(vite@8.2.1(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.43.1)(tsx@4.23.11)(yaml@2.9.0))
       vite:
         specifier: 8.2.1
         version: 8.2.1(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.43.1)(tsx@4.23.11)(yaml@2.9.0)
@@ -4941,9 +4941,9 @@ packages:
       svelte:
         optional: true
 
-  unplugin-macros@0.22.0:
-    resolution: {integrity: sha512-Wk67hfijb3fQiReueq0k/JJLUpoanXqHI5lb9xtRDNtLsFZZD806t6l6NQAtQFS1QL2tRlsWLpFozsmx6DMsnA==}
-    engines: {node: ^22.18.0 || >=24.11.0}
+  unplugin-macros@0.23.0:
+    resolution: {integrity: sha512-WFWqmzHe2U2SBemtpzM9DKJg0T3z87B7bR5ryMfUNqGEEUGi8+bbzGYlp6V7iycdKCYWqU4PWr0Rt8QZdJaviA==}
+    engines: {node: ^22.18.0 || ^24.11.0 || >=26.0.0}
     peerDependencies:
       unrun: ^0.3.1
     peerDependenciesMeta:
@@ -9705,7 +9705,7 @@ snapshots:
       '@svgr/core': 8.1.0(@typescript/typescript6@6.0.2)(supports-color@7.2.0)
       '@vue/compiler-sfc': 3.5.17
 
-  unplugin-macros@0.22.0(esbuild@0.28.1)(rolldown@1.2.1)(vite@8.2.1(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.43.1)(tsx@4.23.11)(yaml@2.9.0)):
+  unplugin-macros@0.23.0(esbuild@0.28.1)(rolldown@1.2.1)(vite@8.2.1(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.43.1)(tsx@4.23.11)(yaml@2.9.0)):
     dependencies:
       import-without-cache: 0.4.0
       magic-string-ast: 2.1.1
