@@ -98,7 +98,7 @@
     "jotai-devtools": "0.14.0",
     "knip": "6.32.2",
     "madge": "8.0.0",
-    "oxfmt": "0.63.0",
+    "oxfmt": "0.64.0",
     "oxlint": "1.78.0",
     "playwright": "1.62.1",
     "postcss": "8.5.26",
