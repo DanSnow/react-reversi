@@ -112,7 +112,7 @@
     "typescript": "npm:@typescript/typescript6@6.0.2",
     "unplugin-icons": "23.0.1",
     "unplugin-macros": "0.23.2",
-    "vite": "8.2.1",
+    "vite": "8.2.2",
     "vite-plugin-inspect": "12.0.2",
     "vitest": "4.1.11",
     "zx": "8.8.5"
