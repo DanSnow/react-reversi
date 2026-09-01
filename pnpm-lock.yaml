@@ -24,7 +24,7 @@ importers:
         version: 1.7.0(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@t3-oss/env-core':
         specifier: 0.13.11
-        version: 0.13.11(@typescript/typescript6@6.0.2)(valibot@1.4.2(@typescript/typescript6@6.0.2))(zod@4.4.3)
+        version: 0.13.11(@typescript/typescript6@6.0.2)(valibot@1.4.2(@typescript/typescript6@6.0.2))(zod@4.5.2)
       '@tanstack/react-form':
         specifier: 1.33.5
         version: 1.33.5(@tanstack/react-start@1.168.49(crossws@0.4.10(srvx@0.11.20))(esbuild@0.28.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(rolldown@1.2.5)(supports-color@7.2.0)(vite@8.2.2(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.43.1)(tsx@4.23.12)(yaml@2.9.0)))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -92,8 +92,8 @@ importers:
         specifier: 5.32.6
         version: 5.32.6
       zod:
-        specifier: 4.4.3
-        version: 4.4.3
+        specifier: 4.5.2
+        version: 4.5.2
     devDependencies:
       '@iconify-json/fa-regular':
         specifier: 1.2.2
@@ -5414,8 +5414,8 @@ packages:
   zigpty@0.2.1:
     resolution: {integrity: sha512-MR9JqJx2wf5f4wz8zpx050AlqrmWeIW+1h0SO5iEyhG3HFRjY5luC3szS2ux2EGuPjE5OU9ZAuiCBeMWBTrqZw==}
 
-  zod@4.4.3:
-    resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
+  zod@4.5.2:
+    resolution: {integrity: sha512-XkYXCol10+ba/6F/cueWV+TezUeOqXW0hdeJt5CdXjTYeAgAQg5N03RQdJ80mhfFE72+pblvYMW4wy2Qp4Qbrg==}
 
   zx@8.8.5:
     resolution: {integrity: sha512-SNgDF5L0gfN7FwVOdEFguY3orU5AkfFZm9B5YSHog/UDHv+lvmd82ZAsOenOkQixigwH2+yyH198AwNdKhj+RA==}
@@ -6765,11 +6765,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@t3-oss/env-core@0.13.11(@typescript/typescript6@6.0.2)(valibot@1.4.2(@typescript/typescript6@6.0.2))(zod@4.4.3)':
+  '@t3-oss/env-core@0.13.11(@typescript/typescript6@6.0.2)(valibot@1.4.2(@typescript/typescript6@6.0.2))(zod@4.5.2)':
     optionalDependencies:
       typescript: '@typescript/typescript6@6.0.2'
       valibot: 1.4.2(@typescript/typescript6@6.0.2)
-      zod: 4.4.3
+      zod: 4.5.2
 
   '@tailwindcss/node@4.3.3':
     dependencies:
@@ -7054,7 +7054,7 @@ snapshots:
       jiti: 2.7.0
       magic-string: 0.30.21
       prettier: 3.9.4
-      zod: 4.4.3
+      zod: 4.5.2
     transitivePeerDependencies:
       - supports-color
 
@@ -7068,7 +7068,7 @@ snapshots:
       '@tanstack/router-utils': 1.162.2(supports-color@7.2.0)
       chokidar: 5.0.0
       unplugin: 3.3.0(esbuild@0.28.1)(rolldown@1.2.5)(vite@8.2.2(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.43.1)(tsx@4.23.12)(yaml@2.9.0))
-      zod: 4.4.3
+      zod: 4.5.2
     optionalDependencies:
       '@tanstack/react-router': 1.170.32(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       vite: 8.2.2(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.43.1)(tsx@4.23.12)(yaml@2.9.0)
@@ -7125,7 +7125,7 @@ snapshots:
       ufo: 1.6.4
       vitefu: 1.1.3(vite@8.2.2(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.43.1)(tsx@4.23.12)(yaml@2.9.0))
       xmlbuilder2: 4.0.3
-      zod: 4.4.3
+      zod: 4.5.2
     optionalDependencies:
       vite: 8.2.2(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.43.1)(tsx@4.23.12)(yaml@2.9.0)
     transitivePeerDependencies:
@@ -8675,7 +8675,7 @@ snapshots:
       tinyglobby: 0.2.17
       unbash: 4.0.10
       yaml: 2.9.0
-      zod: 4.4.3
+      zod: 4.5.2
 
   konva@10.3.2: {}
 
@@ -10209,6 +10209,6 @@ snapshots:
 
   zigpty@0.2.1: {}
 
-  zod@4.4.3: {}
+  zod@4.5.2: {}
 
   zx@8.8.5: {}
