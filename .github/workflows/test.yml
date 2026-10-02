@@ -6,12 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6.1.0
-      - uses: actions/setup-node@v7.0.0
-        with:
-          node-version: 26.10.0
-          cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm dlx playwright install chromium --with-deps
-      - run: pnpm test
+      - uses: nubjs/setup-nub@v0
+      - run: nub instal
+      - run: nub dlx playwright install chromium --with-deps
+      - run: nub test
