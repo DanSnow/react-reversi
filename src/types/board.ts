@@ -6,8 +6,8 @@ import { BLACK, ChessSchema, WHITE } from './chess'
 export const BoardTypeId = '@app/Board'
 
 const BoardBaseSchema = Schema.Array(
-  pipe(Schema.Array(Schema.NullOr(ChessSchema)).check(Schema.isLengthBetween(8, 8))),
-).check(Schema.isLengthBetween(8, 8))
+  pipe(Schema.Array(Schema.NullOr(ChessSchema)).check(Schema.isBetweenLength(8, 8))),
+).check(Schema.isBetweenLength(8, 8))
 const BoardSchema = pipe(BoardBaseSchema, Schema.brand(BoardTypeId))
 
 export type Board = typeof BoardSchema.Type

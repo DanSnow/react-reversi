@@ -4,7 +4,7 @@ import Sonda from 'sonda/vite'
 import Icons from 'unplugin-icons/vite'
 import Macros from 'unplugin-macros/vite'
 import { defineConfig } from 'vite'
-import { env } from './src/env'
+import { env } from './src/env.ts'
 
 const baseUrl = env.DEPLOY ? '/react-reversi/' : '/'
 

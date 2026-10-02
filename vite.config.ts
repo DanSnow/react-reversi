@@ -1,6 +1,5 @@
 import path from 'node:path'
 import process from 'node:process'
-import { fileURLToPath } from 'node:url'
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 import { devtools } from '@tanstack/devtools-vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
@@ -11,12 +10,12 @@ import { mergeConfig } from 'vite'
 import Tailwindcss from '@tailwindcss/vite'
 import Inspect from 'vite-plugin-inspect'
 import { coverageConfigDefaults } from 'vitest/config'
-import { env } from './src/env'
-import baseConfig from './vite.config.base'
+import { env } from './src/env.ts'
+import baseConfig from './vite.config.base.ts'
 
 const baseUrl = env.DEPLOY ? '/react-reversi/' : '/'
 
-const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url))
+const dirname = import.meta.dirname
 
 process.env.VITE_BASE_URL = baseUrl
 

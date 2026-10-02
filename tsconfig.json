@@ -2,7 +2,6 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "lib": ["dom", "esnext"],
-    "baseUrl": "./",
     "module": "esnext",
     "moduleResolution": "Bundler",
     "paths": {
@@ -14,7 +13,7 @@
     "strict": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
-    "downlevelIteration": true,
+    "allowImportingTsExtensions": true,
     "noEmit": true,
     "esModuleInterop": true,
     "skipLibCheck": true
