@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: nubjs/setup-nub@v0
+      - uses: nubjs/setup-nub@v0.6.0
       - run: nub install
       - run: nub dlx playwright install chromium --with-deps
       - run: nub run test
