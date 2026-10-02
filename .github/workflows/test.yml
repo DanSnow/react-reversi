@@ -9,4 +9,4 @@ jobs:
       - uses: nubjs/setup-nub@v0
       - run: nub install
       - run: nub dlx playwright install chromium --with-deps
-      - run: nub test
+      - run: nub run test
