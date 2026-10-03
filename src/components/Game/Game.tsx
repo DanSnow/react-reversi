@@ -4,7 +4,6 @@ import type { ScoreProps } from '../Score'
 import type { Log as LogData } from '~/types'
 import { ClientOnly } from '@tanstack/react-router'
 import { Suspense, useCallback, useState } from 'react'
-import GithubCorner from 'react-github-corner'
 import { m } from '~/paraglide/messages'
 import { AppInfo } from '../AppInfo'
 import { Confirm } from '../Confirm'
@@ -12,6 +11,7 @@ import { Log } from '../Log'
 import { Score } from '../Score'
 import { SettingModal } from '../SettingModel'
 import { Toolbar } from '../Toolbar'
+import { GithubCorner } from '../GithubCorner'
 
 export interface Props extends ScoreProps {
   message: string
