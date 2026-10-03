@@ -110,6 +110,7 @@ function XStateGame() {
 
   const onRestart = useCallback(() => {
     send({ type: 'restart' })
+    setShowReplay(false)
   }, [send])
 
   const onCancelConfirm = useCallback(() => {
