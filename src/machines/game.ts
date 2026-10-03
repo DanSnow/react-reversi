@@ -42,6 +42,7 @@ export const gameMachine = setup({
     resetGame: assign({
       board: Board.DEFAULT_BOARD,
       users: DEFAULT_USER,
+      switchCount: 0,
       // Reset boardHistory
       boardHistory: [],
     }),
