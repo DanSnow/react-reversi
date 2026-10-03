@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.3](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.7.2...react-reversi-v2.7.3) (2026-10-03)
+
+
+### Bug Fixes
+
+* fix release ([fb83815](https://github.com/DanSnow/react-reversi/commit/fb83815c8b0daf974e6c0c9e0b469db2625d2289))
+
 ## [2.7.2](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.7.1...react-reversi-v2.7.2) (2026-10-02)
 
 
