@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.7.5](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.7.4...react-reversi-v2.7.5) (2026-10-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency effect to v4.0.1 ([#4374](https://github.com/DanSnow/react-reversi/issues/4374)) ([ea54814](https://github.com/DanSnow/react-reversi/commit/ea548143ec959154e733eb5aa05f3c1819bcbf5e))
+* **deps:** update dependency konva to v10.7.1 ([#4398](https://github.com/DanSnow/react-reversi/issues/4398)) ([3d8da20](https://github.com/DanSnow/react-reversi/commit/3d8da20a78cf8a50fe929f4b61a52f1a371d48f7))
+* fix bug ([9d1401f](https://github.com/DanSnow/react-reversi/commit/9d1401f5b05a30497bf47fd7cbe05f4ce0e66204))
+* fix bug ([1f131c1](https://github.com/DanSnow/react-reversi/commit/1f131c17797ffc742b29bd3b4ac4ade5f9740c6e))
+
 ## [2.7.4](https://github.com/DanSnow/react-reversi/compare/react-reversi-v2.7.3...react-reversi-v2.7.4) (2026-10-03)
 
 
