@@ -170,7 +170,7 @@ overrides:
   minimatch@<3.1.4: 10.2.6
   rollup@>=4.0.0 <4.59.0: 4.64.3
   seroval@<1.4.1: 1.6.8
-  seroval@<=1.4.0: 1.6.8
+  seroval@<=1.4.0: 1.6.9
   uuid@>=13.0.0 <13.0.1: 14.0.2
 
 importers:
