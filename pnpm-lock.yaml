@@ -182,7 +182,7 @@ importers:
         version: 1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@t3-oss/env-core':
         specifier: 0.13.11
-        version: 0.13.11(@typescript/typescript6@6.0.2)(valibot@1.5.0(@typescript/typescript6@6.0.2))(zod@4.6.6)
+        version: 0.13.11(@typescript/typescript6@6.0.2)(valibot@1.5.0(@typescript/typescript6@6.0.2))(zod@4.6.7)
       '@tanstack/react-form':
         specifier: 1.33.5
         version: 1.33.5(@tanstack/react-start@1.168.61(crossws@0.4.12(srvx@1.0.5))(esbuild@0.28.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.12)(supports-color@7.2.0)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -244,8 +244,8 @@ importers:
         specifier: 5.33.2
         version: 5.33.2
       zod:
-        specifier: 4.6.6
-        version: 4.6.6
+        specifier: 4.6.7
+        version: 4.6.7
     devDependencies:
       '@iconify-json/fa-regular':
         specifier: 1.2.2
@@ -5544,8 +5544,8 @@ packages:
   zigpty@0.2.1:
     resolution: {integrity: sha512-MR9JqJx2wf5f4wz8zpx050AlqrmWeIW+1h0SO5iEyhG3HFRjY5luC3szS2ux2EGuPjE5OU9ZAuiCBeMWBTrqZw==}
 
-  zod@4.6.6:
-    resolution: {integrity: sha512-4UmzQUF5fxvfcYHlbjBmejU+w+hbDnWFx4aS8kBx7nPBHcO2SqPbpAG8snbdg+Xse4pRefR98hgjFgIMCI/UhA==}
+  zod@4.6.7:
+    resolution: {integrity: sha512-g8W2D2kU6a8untc053fX1uVBKzM7yqAxW/3zwk83+6RyF2+SKOuV+c0wBDhUwzV1PaGapmZH+rmcUzPf+3CGwg==}
 
   zx@8.8.5:
     resolution: {integrity: sha512-SNgDF5L0gfN7FwVOdEFguY3orU5AkfFZm9B5YSHog/UDHv+lvmd82ZAsOenOkQixigwH2+yyH198AwNdKhj+RA==}
@@ -5781,9 +5781,9 @@ snapshots:
 
   '@devframes/json-render@1.2.3(@devframes/hub@1.2.3(crossws@0.4.12(srvx@1.0.5))(devframe@1.2.3(srvx@1.0.5)))(devframe@1.2.3(srvx@1.0.5))':
     dependencies:
-      '@json-render/core': 0.21.0(zod@4.6.6)
+      '@json-render/core': 0.21.0(zod@4.6.7)
       devframe: 1.2.3(srvx@1.0.5)
-      zod: 4.6.6
+      zod: 4.6.7
     optionalDependencies:
       '@devframes/hub': 1.2.3(crossws@0.4.12(srvx@1.0.5))(devframe@1.2.3(srvx@1.0.5))
 
@@ -6067,9 +6067,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.6.0
 
-  '@json-render/core@0.21.0(zod@4.6.6)':
+  '@json-render/core@0.21.0(zod@4.6.7)':
     dependencies:
-      zod: 4.6.6
+      zod: 4.6.7
 
   '@keyv/bigmap@1.3.1(keyv@5.6.0)':
     dependencies:
@@ -6960,11 +6960,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@t3-oss/env-core@0.13.11(@typescript/typescript6@6.0.2)(valibot@1.5.0(@typescript/typescript6@6.0.2))(zod@4.6.6)':
+  '@t3-oss/env-core@0.13.11(@typescript/typescript6@6.0.2)(valibot@1.5.0(@typescript/typescript6@6.0.2))(zod@4.6.7)':
     optionalDependencies:
       typescript: '@typescript/typescript6@6.0.2'
       valibot: 1.5.0(@typescript/typescript6@6.0.2)
-      zod: 4.6.6
+      zod: 4.6.7
 
   '@tailwindcss/node@4.3.3':
     dependencies:
@@ -7242,7 +7242,7 @@ snapshots:
       jiti: 2.7.0
       magic-string: 0.30.21
       prettier: 3.9.9
-      zod: 4.6.6
+      zod: 4.6.7
     transitivePeerDependencies:
       - supports-color
 
@@ -7256,7 +7256,7 @@ snapshots:
       '@tanstack/router-utils': 1.162.3(supports-color@7.2.0)
       chokidar: 5.0.0
       unplugin: 3.4.0(esbuild@0.28.2)(rolldown@1.2.12)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))
-      zod: 4.6.6
+      zod: 4.6.7
     optionalDependencies:
       '@tanstack/react-router': 1.170.42(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)
@@ -7314,7 +7314,7 @@ snapshots:
       ufo: 1.6.4
       vitefu: 1.1.3(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))
       xmlbuilder2: 4.0.3
-      zod: 4.6.6
+      zod: 4.6.7
     optionalDependencies:
       vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)
     transitivePeerDependencies:
@@ -8759,7 +8759,7 @@ snapshots:
       tinyglobby: 0.2.17
       unbash: 5.0.0
       yaml: 2.9.1
-      zod: 4.6.6
+      zod: 4.6.7
 
   konva@10.7.1: {}
 
@@ -10244,6 +10244,6 @@ snapshots:
 
   zigpty@0.2.1: {}
 
-  zod@4.6.6: {}
+  zod@4.6.7: {}
 
   zx@8.8.5: {}
