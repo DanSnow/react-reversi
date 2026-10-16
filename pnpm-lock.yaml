@@ -211,8 +211,8 @@ importers:
         specifier: 1.2.1
         version: 1.2.1(@types/react@19.3.0)(jotai@2.20.3(@babel/core@7.29.7(supports-color@7.2.0))(@babel/template@7.29.7)(@types/react@19.3.0)(react@19.3.0))(mutative@1.3.0)(react@19.3.0)
       konva:
-        specifier: 10.7.1
-        version: 10.7.1
+        specifier: 10.8.0
+        version: 10.8.0
       mutative:
         specifier: 1.3.0
         version: 1.3.0
@@ -227,7 +227,7 @@ importers:
         version: 19.3.0(react@19.3.0)
       react-konva:
         specifier: 19.3.0
-        version: 19.3.0(@types/react@19.3.0)(konva@10.7.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 19.3.0(@types/react@19.3.0)(konva@10.8.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react-twc:
         specifier: 1.5.1
         version: 1.5.1(@types/react@19.3.0)(react@19.3.0)
@@ -4065,8 +4065,8 @@ packages:
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
 
-  konva@10.7.1:
-    resolution: {integrity: sha512-z/JyXPaT6tWBSEcaT70mdfN3oNQ6U6rDxlH9OkRdxlJaf23DOqfMPGptQWVvXlWfKMJQWEa+PNe9ru3zQR7ifw==}
+  konva@10.8.0:
+    resolution: {integrity: sha512-+GKNmVdC9CsAan0BALtBUCgi4l2tQvEwIvO/1kprkzbcI15DZfcGpV0HfXQ17P8iFaW/WZMWeGJWCKLCmvh2Bg==}
     peerDependencies:
       canvas: ^3.0.0
       skia-canvas: ^3.0.0
@@ -8770,7 +8770,7 @@ snapshots:
       yaml: 2.9.1
       zod: 4.6.7
 
-  konva@10.7.1: {}
+  konva@10.8.0: {}
 
   kysely@0.28.17: {}
 
@@ -9491,11 +9491,11 @@ snapshots:
       react: 19.3.0
       react-base16-styling: 0.10.0
 
-  react-konva@19.3.0(@types/react@19.3.0)(konva@10.7.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+  react-konva@19.3.0(@types/react@19.3.0)(konva@10.8.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
     dependencies:
       '@types/react-reconciler': 0.33.1(@types/react@19.3.0)
       its-fine: 2.1.1(@types/react@19.3.0)(react@19.3.0)
-      konva: 10.7.1
+      konva: 10.8.0
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
       react-reconciler: 0.34.0(react@19.3.0)
