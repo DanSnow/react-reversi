@@ -1,6 +1,6 @@
 {
   "name": "react-reversi",
-  "version": "2.7.4",
+  "version": "2.7.5",
   "description": "Reversi game implement in React",
   "keywords": [
     "game",
@@ -115,5 +115,5 @@
     "vitest": "5.0.4",
     "zx": "8.8.5"
   },
-  "packageManager": "pnpm@12.13.0"
+  "packageManager": "pnpm@12.11.2"
 }
