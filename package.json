@@ -109,7 +109,7 @@
     "type-fest": "5.10.0",
     "typescript": "npm:@typescript/typescript6@6.0.2",
     "unplugin-icons": "24.0.0",
-    "unplugin-macros": "0.23.3",
+    "unplugin-macros": "0.23.4",
     "vite": "8.3.5",
     "vite-plugin-inspect": "12.1.0",
     "vitest": "5.0.5",
