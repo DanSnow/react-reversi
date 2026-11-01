@@ -73,7 +73,7 @@
     "@svgr/core": "8.1.0",
     "@svgr/plugin-jsx": "8.1.0",
     "@tailwindcss/vite": "4.3.3",
-    "@tanstack/devtools-vite": "0.8.5",
+    "@tanstack/devtools-vite": "0.8.6",
     "@tanstack/react-devtools": "0.10.13",
     "@testing-library/dom": "10.4.2",
     "@testing-library/react": "16.3.3",
