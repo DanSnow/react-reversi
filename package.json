@@ -43,7 +43,7 @@
     "@tanstack/react-start": "1.169.4",
     "@xstate/react": "6.1.0",
     "class-variance-authority": "0.7.1",
-    "cn": "0.5.1",
+    "cn": "0.5.2",
     "effect": "4.1.1",
     "jotai": "2.20.3",
     "jotai-mutative": "1.2.1",
