@@ -80,7 +80,7 @@
     "@tsconfig/node26": "26.0.2",
     "@types/gh-pages": "6.1.0",
     "@types/madge": "5.0.3",
-    "@types/node": "26.6.7",
+    "@types/node": "26.6.10",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@typescript/native": "npm:typescript@7.0.2",
